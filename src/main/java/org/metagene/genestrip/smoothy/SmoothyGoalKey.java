@@ -34,18 +34,47 @@ public enum SmoothyGoalKey implements GoalKey {
      */
     @MDDescription("Load the counts written by `kmergenomepathcountsser`, or take those of `kmergenomepathcounts` if they have just been counted, after checking that they belong to the project's database.")
     LOAD_KMER_GENOME_PATH_COUNTS("loadkmergenomepathcounts"),
-    /** Same as {@link #KMER_GENOME_PATH_COUNTS} but for an FT database. */
+    /**
+     * Same as {@link #KMER_GENOME_PATH_COUNTS} but for an FT database.
+     */
     @MDDescription("Same as `kmergenomepathcounts` but for a Genestrip-FT database.")
     FT_KMER_GENOME_PATH_COUNTS("ftkmergenomepathcounts"),
-    /** Same as {@link #KMER_GENOME_PATH_COUNTS_CSV} but for an FT database. */
+    /**
+     * Same as {@link #KMER_GENOME_PATH_COUNTS_CSV} but for an FT database.
+     */
     @MDDescription("Same as `kmergenomepathcountscsv` but for a Genestrip-FT database.")
     FT_KMER_GENOME_PATH_COUNTS_CSV("ftkmergenomepathcountscsv", true),
-    /** Same as {@link #KMER_GENOME_PATH_COUNTS_SER} but for an FT database. */
+    /**
+     * Same as {@link #KMER_GENOME_PATH_COUNTS_SER} but for an FT database.
+     */
     @MDDescription("Same as `kmergenomepathcountsser` but for a Genestrip-FT database.")
     FT_KMER_GENOME_PATH_COUNTS_SER("ftkmergenomepathcountsser", true),
-    /** Same as {@link #LOAD_KMER_GENOME_PATH_COUNTS} but for an FT database. */
+    /**
+     * Same as {@link #LOAD_KMER_GENOME_PATH_COUNTS} but for an FT database.
+     */
     @MDDescription("Same as `loadkmergenomepathcounts` but for a Genestrip-FT database.")
-    LOAD_FT_KMER_GENOME_PATH_COUNTS("loadftkmergenomepathcounts");
+    LOAD_FT_KMER_GENOME_PATH_COUNTS("loadftkmergenomepathcounts"),
+    /**
+     * Fits the topic model to each sample given via {@code -f} or {@code -m}, from the counts of
+     * {@link #LOAD_KMER_GENOME_PATH_COUNTS} and the sample's {@code matchres}.
+     */
+    @MDDescription("Fit the topic model to the fastq files given via the `-f` or `-m` option: from the *k*-mer counts `matchres` reports per node and the per-genome counts of `loadkmergenomepathcounts`, estimate each admitted node's share of the sample's *k*-mers and its relative abundance.")
+    TOPIC_MODEL("topicmodel"),
+    /**
+     * Writes the topics of {@link #TOPIC_MODEL} to one CSV file per sample.
+     */
+    @MDDescription("Write the result of `topicmodel` to one CSV file per sample: per topic, its count, the number of genomes it speaks for, its *k*-mer share and its relative abundance.")
+    TOPIC_MODEL_CSV("topicmodelcsv", true),
+    /**
+     * Same as {@link #TOPIC_MODEL} but for an FT database.
+     */
+    @MDDescription("Same as `topicmodel` but for a Genestrip-FT database, using `ftmatchres` and `loadftkmergenomepathcounts`.")
+    FT_TOPIC_MODEL("fttopicmodel"),
+    /**
+     * Same as {@link #TOPIC_MODEL_CSV} but for an FT database.
+     */
+    @MDDescription("Same as `topicmodelcsv` but for a Genestrip-FT database.")
+    FT_TOPIC_MODEL_CSV("fttopicmodelcsv", true);
 
     private final boolean forUser;
     private final String name;

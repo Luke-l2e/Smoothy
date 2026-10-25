@@ -3,15 +3,13 @@ package org.metagene.genestrip.smoothy;
 import org.metagene.genestrip.GSGoalKey;
 import org.metagene.genestrip.finertree.FTGoalKey;
 import org.metagene.genestrip.finertree.FinerTreeMaker;
+import org.metagene.genestrip.goals.MatchResultGoal;
 import org.metagene.genestrip.goals.refseq.RefSeqFnaFilesDownloadGoal;
 import org.metagene.genestrip.make.FileGoal;
 import org.metagene.genestrip.make.ObjectGoal;
 import org.metagene.genestrip.refseq.AccessionMap;
 import org.metagene.genestrip.refseq.RefSeqCategory;
-import org.metagene.genestrip.smoothy.goals.KMerGenomePathCountsCSVGoal;
-import org.metagene.genestrip.smoothy.goals.KMerGenomePathCountsGoal;
-import org.metagene.genestrip.smoothy.goals.KMerGenomePathCountsSERGoal;
-import org.metagene.genestrip.smoothy.goals.LoadKMerGenomePathCountsGoal;
+import org.metagene.genestrip.smoothy.goals.*;
 import org.metagene.genestrip.store.Database;
 import org.metagene.genestrip.tax.TaxNodeSelection;
 import org.metagene.genestrip.tax.TaxTree;
@@ -42,14 +40,21 @@ public class SmoothyMaker<P extends SmoothyProject> extends FinerTreeMaker<P> {
     protected void createGoals() {
         super.createGoals();
 
-        registerPathCountsGoals((ObjectGoal<Database, P>) getGoal(GSGoalKey.LOAD_DB),
+        ObjectGoal<Database, P> dbGoal = (ObjectGoal<Database, P>) getGoal(GSGoalKey.LOAD_DB);
+        LoadKMerGenomePathCountsGoal<P> loadGoal = registerPathCountsGoals(dbGoal,
                 (FileGoal<P>) getGoal(GSGoalKey.DB), SmoothyGoalKey.KMER_GENOME_PATH_COUNTS,
                 SmoothyGoalKey.KMER_GENOME_PATH_COUNTS_CSV, SmoothyGoalKey.KMER_GENOME_PATH_COUNTS_SER,
                 SmoothyGoalKey.LOAD_KMER_GENOME_PATH_COUNTS);
-        registerPathCountsGoals((ObjectGoal<Database, P>) getGoal(FTGoalKey.LOAD_FTDB),
+        registerTopicModelGoals(loadGoal, (MatchResultGoal<P>) getGoal(GSGoalKey.MATCHRES), dbGoal,
+                SmoothyGoalKey.TOPIC_MODEL, SmoothyGoalKey.TOPIC_MODEL_CSV);
+
+        ObjectGoal<Database, P> ftDBGoal = (ObjectGoal<Database, P>) getGoal(FTGoalKey.LOAD_FTDB);
+        LoadKMerGenomePathCountsGoal<P> ftLoadGoal = registerPathCountsGoals(ftDBGoal,
                 (FileGoal<P>) getGoal(FTGoalKey.FTDB), SmoothyGoalKey.FT_KMER_GENOME_PATH_COUNTS,
                 SmoothyGoalKey.FT_KMER_GENOME_PATH_COUNTS_CSV, SmoothyGoalKey.FT_KMER_GENOME_PATH_COUNTS_SER,
                 SmoothyGoalKey.LOAD_FT_KMER_GENOME_PATH_COUNTS);
+        registerTopicModelGoals(ftLoadGoal, (MatchResultGoal<P>) getGoal(FTGoalKey.FTMATCHRES), ftDBGoal,
+                SmoothyGoalKey.FT_TOPIC_MODEL, SmoothyGoalKey.FT_TOPIC_MODEL_CSV);
     }
 
     /**
@@ -61,10 +66,11 @@ public class SmoothyMaker<P extends SmoothyProject> extends FinerTreeMaker<P> {
      * @param csvKey      the key of the CSV goal
      * @param serKey      the key of the SER goal
      * @param loadKey     the key of the load goal
+     * @return the load goal, which the goals using the counts depend on
      */
-    protected void registerPathCountsGoals(ObjectGoal<Database, P> dbGoal, FileGoal<P> storeDBGoal,
-                                           SmoothyGoalKey countsKey, SmoothyGoalKey csvKey,
-                                           SmoothyGoalKey serKey, SmoothyGoalKey loadKey) {
+    protected LoadKMerGenomePathCountsGoal<P> registerPathCountsGoals(ObjectGoal<Database, P> dbGoal, FileGoal<P> storeDBGoal,
+                                                                      SmoothyGoalKey countsKey, SmoothyGoalKey csvKey,
+                                                                      SmoothyGoalKey serKey, SmoothyGoalKey loadKey) {
         P project = getProject();
 
         ObjectGoal<Set<RefSeqCategory>, P> categoriesGoal = (ObjectGoal<Set<RefSeqCategory>, P>) getGoal(GSGoalKey.CATEGORIES);
@@ -90,5 +96,27 @@ public class SmoothyMaker<P extends SmoothyProject> extends FinerTreeMaker<P> {
         LoadKMerGenomePathCountsGoal<P> loadGoal = new LoadKMerGenomePathCountsGoal<>(project, loadKey, countsGoal,
                 serGoal, storeDBGoal);
         registerGoal(loadGoal);
+        return loadGoal;
+    }
+
+    /**
+     * Registers the topic model and its CSV output against one database. The path counts and the match
+     * result passed in must belong to that same database.
+     *
+     * @param loadGoal     the goal supplying the database's path counts
+     * @param matchResGoal the goal matching the samples against the database
+     * @param dbGoal       the goal supplying the database
+     * @param modelKey     the key of the topic model goal
+     * @param csvKey       the key of its CSV goal
+     */
+    protected void registerTopicModelGoals(LoadKMerGenomePathCountsGoal<P> loadGoal, MatchResultGoal<P> matchResGoal,
+                                           ObjectGoal<Database, P> dbGoal, SmoothyGoalKey modelKey,
+                                           SmoothyGoalKey csvKey) {
+        TopicModelGoal<P> modelGoal = new TopicModelGoal<>(getProject(), modelKey, loadGoal, matchResGoal, dbGoal);
+        registerGoal(modelGoal);
+
+        TopicModelCSVGoal<P> csvGoal = new TopicModelCSVGoal<>(getProject(), csvKey, matchResGoal.getFastqMapGoal(),
+                modelGoal, dbGoal, getGoal(GSGoalKey.SETUP));
+        registerGoal(csvGoal);
     }
 }

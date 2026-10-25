@@ -8,10 +8,13 @@ import org.metagene.genestrip.GSConfigKey;
 import org.metagene.genestrip.GSGoalKey;
 import org.metagene.genestrip.GSProject;
 import org.metagene.genestrip.make.FileGoal;
+import org.metagene.genestrip.make.FileListGoal;
 import org.metagene.genestrip.make.ObjectGoal;
 import org.metagene.genestrip.smoothy.SmoothyGoalKey;
 import org.metagene.genestrip.smoothy.SmoothyMaker;
 import org.metagene.genestrip.smoothy.SmoothyProject;
+import org.metagene.genestrip.smoothy.model.Topic;
+import org.metagene.genestrip.smoothy.model.TopicModelResult;
 import org.metagene.genestrip.store.Database;
 import org.metagene.genestrip.tax.Rank;
 import org.metagene.genestrip.tax.SmallTaxTree;
@@ -324,6 +327,61 @@ public class KMerGenomePathCountsGoalTest {
         }
     }
 
+    /**
+     * The whole chain on a sample of reads from genome 1 alone: match, path counts, topic model, CSV.
+     * Genome 1 must come out as the topic carrying the sample, and genome 2, of which the sample holds
+     * nothing of its own, must not be a topic at all.
+     */
+    @Test
+    public void topicModelFindsTheGenomeASampleComesFrom() throws IOException {
+        // Reads of 100 bases every 5 positions of both contigs of genome 1, and nothing else.
+        StringBuilder fastq = new StringBuilder();
+        int read = 0;
+        for (String contig : G1_CONTIGS) {
+            for (int i = 0; i + 100 <= contig.length(); i += 5) {
+                fastq.append("@read").append(read++).append('\n').append(contig, i, i + 100).append("\n+\n");
+                for (int j = 0; j < 100; j++) {
+                    fastq.append('I');
+                }
+                fastq.append('\n');
+            }
+        }
+        File sample = new File(getBaseDir(), "smoothy_g1_sample.fastq");
+        write(sample, fastq.toString());
+
+        SmoothyMaker<SmoothyProject> maker = new SmoothyMaker<>(createProject("smoothytest", DENV1, DENV2, null, 0,
+                "g1sample", new String[]{sample.getAbsolutePath()}));
+        try {
+            SmallTaxTree tree = getDatabase(maker).getTaxTree();
+            String g1 = genomeNode(tree, DENV1, G1_KEY).getTaxId();
+            String g2 = genomeNode(tree, DENV2, G2_KEY).getTaxId();
+
+            Map<String, TopicModelResult> results = ((ObjectGoal<Map<String, TopicModelResult>, SmoothyProject>) maker
+                    .getGoal(SmoothyGoalKey.TOPIC_MODEL)).get();
+            assertEquals(1, results.size());
+            TopicModelResult result = results.values().iterator().next();
+
+            Topic top = result.getTopics().get(0);
+            assertEquals(g1, top.getNode());
+            assertEquals(1, top.getGenomes());
+            assertTrue(top.getKmerShare() > 0.9);
+            for (Topic topic : result.getTopics()) {
+                assertNotEquals(g2, topic.getNode());
+            }
+            assertTrue(result.getUncoveredNodes().isEmpty());
+
+            FileListGoal<SmoothyProject> csvGoal = (FileListGoal<SmoothyProject>) maker.getGoal(SmoothyGoalKey.TOPIC_MODEL_CSV);
+            csvGoal.cleanThis();
+            csvGoal.make();
+            List<String> lines = Files.readAllLines(csvGoal.getFiles().get(0).toPath(), StandardCharsets.UTF_8);
+            assertEquals("taxid;name;rank;kmers;genomes;kmer share;expected hold;abundance;", lines.get(0));
+            assertTrue(lines.get(1), lines.get(1).startsWith(g1 + ";" + G1_KEY + ";GENOME;"));
+            assertEquals(result.getTopics().size() + 1, lines.size());
+        } finally {
+            maker.dumpAll();
+        }
+    }
+
     private static Map<String, long[]> getLoadedCounts(SmoothyMaker<SmoothyProject> maker) {
         return ((ObjectGoal<Map<String, long[]>, SmoothyProject>) maker
                 .getGoal(SmoothyGoalKey.LOAD_KMER_GENOME_PATH_COUNTS)).get();
@@ -442,14 +500,25 @@ public class KMerGenomePathCountsGoalTest {
      */
     private static SmoothyProject createProject(String name, String taxId1, String taxId2, Rank foldTaxaBelow,
                                                 int threads) throws IOException {
+        return createProject(name, taxId1, taxId2, foldTaxaBelow, threads, null, null);
+    }
+
+    /**
+     * Same as {@link #createProject(String, String, String, Rank, int)}, with samples to analyse.
+     *
+     * @param sampleKey  the key the samples are analysed under, as {@code -k} gives it
+     * @param fastqFiles the samples, as {@code -f} gives them
+     */
+    private static SmoothyProject createProject(String name, String taxId1, String taxId2, Rank foldTaxaBelow,
+                                                int threads, String sampleKey, String[] fastqFiles) throws IOException {
         GSCommon common = new GSCommon(getBaseDir()) {
             @Override
             public File getCommonDir() {
                 return KMerGenomePathCountsGoalTest.getCommonDir();
             }
         };
-        SmoothyProject project = new SmoothyProject(common, name, null, null, null, null, null, null, null, null,
-                null, true);
+        SmoothyProject project = new SmoothyProject(common, name, sampleKey, fastqFiles, null, null, null, null, null,
+                null, null, true);
         File fastaDir = project.getFastaDir();
         write(new File(project.getProjectDir(), "taxids.txt"), DENGUE_SPECIES + "\n");
         write(new File(project.getProjectDir(), "categories.txt"), "viral\n");
