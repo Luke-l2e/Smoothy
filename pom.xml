@@ -21,8 +21,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <main.class>org.metagene.genestrip.smoothy.SmoothyMain</main.class>
         <!-- Genestrip's data directory (taxonomy, RefSeq release, projects) which the tests run on.
-             Defaults to a Genestrip checkout next to this one; override with -Dgenestrip.data=... -->
-        <genestrip.data>${project.basedir}/../genestrip/data</genestrip.data>
+             Defaults to this repository's data; override with -Dgenestrip.data=... -->
+        <genestrip.data>${project.basedir}/data</genestrip.data>
     </properties>
 
     <dependencies>

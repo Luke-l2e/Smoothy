@@ -3,3 +3,10 @@
 /.idea/
 *.iml
 .flattened-pom.xml
+# Genestrip data (taxonomy, RefSeq, databases, reads) stays local; only the project definitions are versioned.
+/data/*
+!/data/projects/
+/data/projects/*/*
+!/data/projects/*/categories.txt
+!/data/projects/*/taxids.txt
+!/data/projects/*/config.properties
