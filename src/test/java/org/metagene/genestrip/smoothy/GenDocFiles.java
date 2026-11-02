@@ -204,12 +204,17 @@ public class GenDocFiles {
     }
 
     /**
-     * Returns the base directory holding the release's project data, resolved as the {@code data}
-     * subdirectory of the project directory.
+     * Returns the base directory holding Genestrip's data, taken from the {@code data.directory}
+     * system property if set and otherwise resolved as the {@code data} subdirectory of the project
+     * directory.
      *
      * @return the base data directory
      */
     public static File getBaseDir() {
+        String dataDir = System.getProperty("data.directory");
+        if (dataDir != null) {
+            return new File(dataDir);
+        }
         return new File(getProjectDir(), "data");
     }
 

@@ -3,74 +3,76 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.genestrip</groupId>
-        <artifactId>genestrip</artifactId>
-        <version>3.0</version>
-    </parent>
 
+    <groupId>org.metagene.genestrip</groupId>
     <artifactId>smoothy</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <properties>
-        <licensedir>${maven.multiModuleProjectDirectory}</licensedir>
-        <main.class>org.metagene.genestrip.smoothy.SmoothyMain</main.class>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <name>smoothy</name>
+    <description>Topic models over k-mer genome path counts, built on Genestrip's ft module.</description>
+
+    <properties>
+        <!-- The Genestrip release smoothy builds on, taken from Maven Central. -->
+        <genestrip.version>4.0</genestrip.version>
+        <!-- Java 10 as in Genestrip's core and ft, which smoothy needs at runtime anyway. -->
+        <maven.compiler.source>10</maven.compiler.source>
+        <maven.compiler.target>10</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <main.class>org.metagene.genestrip.smoothy.SmoothyMain</main.class>
+        <!-- Genestrip's data directory (taxonomy, RefSeq release, projects) which the tests run on.
+             Defaults to a Genestrip checkout next to this one; override with -Dgenestrip.data=... -->
+        <genestrip.data>${project.basedir}/../genestrip/data</genestrip.data>
+    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.genestrip</groupId>
             <artifactId>base</artifactId>
-            <version>${project.version}</version>
+            <version>${genestrip.version}</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.genestrip</groupId>
             <artifactId>core</artifactId>
-            <version>${project.version}</version>
+            <version>${genestrip.version}</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.genestrip</groupId>
             <artifactId>ft</artifactId>
-            <version>${project.version}</version>
+            <version>${genestrip.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <!-- Packaged as ft is: an executable jar with all dependencies, copied to lib/smoothy.jar for
-         bin/smoothy.sh. A name of its own, so that building smoothy never replaces ft's lib/genestrip.jar. -->
+         bin/smoothy.sh. -->
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-            <resource>
-                <directory>${licensedir}</directory>
-                <includes>
-                    <include>LICENSE.txt</include>
-                </includes>
-                <targetPath>META-INF</targetPath>
-            </resource>
-        </resources>
         <plugins>
-            <!-- Java 10 as in core and ft, which smoothy builds on and so needs at runtime anyway. -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
                 <configuration>
-                    <source>10</source>
-                    <target>10</target>
+                    <systemPropertyVariables>
+                        <project.directory>${project.basedir}</project.directory>
+                        <data.directory>${genestrip.data}</data.directory>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -112,7 +114,7 @@
                         </goals>
                         <configuration>
                             <sourceFile>${project.build.directory}/${project.build.finalName}-all.jar</sourceFile>
-                            <destinationFile>${maven.multiModuleProjectDirectory}/lib/smoothy.jar</destinationFile>
+                            <destinationFile>${project.basedir}/lib/smoothy.jar</destinationFile>
                         </configuration>
                     </execution>
                 </executions>

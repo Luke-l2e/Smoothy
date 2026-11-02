@@ -561,12 +561,14 @@ public class KMerGenomePathCountsGoalTest {
     }
 
     /**
-     * The repository's shared {@code data/common}, which holds the taxonomy and the RefSeq downloads.
+     * Genestrip's shared {@code data/common}, which holds the taxonomy and the RefSeq downloads: in
+     * the data directory the {@code data.directory} system property names, otherwise in that of a
+     * Genestrip checkout next to this repository.
      */
     private static File getCommonDir() {
-        String projectDir = System.getProperty("maven.multiModuleProjectDirectory");
-        File root = projectDir != null ? new File(projectDir)
-                : getBaseDir().getParentFile().getParentFile().getParentFile();
-        return new File(root, "data/common");
+        String dataDir = System.getProperty("data.directory");
+        File data = dataDir != null ? new File(dataDir)
+                : new File(getBaseDir().getParentFile().getParentFile(), "../genestrip/data");
+        return new File(data, "common");
     }
 }
