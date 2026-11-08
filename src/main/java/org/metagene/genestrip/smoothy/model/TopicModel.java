@@ -35,11 +35,29 @@ import java.util.*;
  * {@link TopicModelResult#getTopicsWithoutRow()} rather than fitted.
  */
 public class TopicModel {
+    /**
+     * path(h) per genome h: the tax ids from h's own node up to the root.
+     */
     private final Map<String, String[]> genomePaths;
+    /**
+     * κ_h(n) per genome h, aligned with path(h): the k-mer occurrences of h the database holds at each node.
+     */
     private final Map<String, long[]> pathCounts;
+    /**
+     * T, Eq. (2): the count c_n a node needs to be admitted as a topic.
+     */
     private final long threshold;
+    /**
+     * ε, Eq. (5): the share of each row spread uniformly over path(m).
+     */
     private final double backgroundShare;
+    /**
+     * Upper bound on the EM steps of Eq. (13); not in the paper.
+     */
     private final int maxIterations;
+    /**
+     * The fit stops once Σ_m |θ_m(new) - θ_m(old)| falls below this; not in the paper.
+     */
     private final double tolerance;
 
     /**
@@ -65,10 +83,10 @@ public class TopicModel {
         if (maxIterations < 1) {
             throw new IllegalArgumentException("At least one iteration is needed: " + maxIterations);
         }
-        for (Map.Entry<String, long[]> e : pathCounts.entrySet()) {
-            String[] path = genomePaths.get(e.getKey());
-            if (path == null || path.length != e.getValue().length) {
-                throw new IllegalArgumentException("Path and counts of genome " + e.getKey() + " do not match.");
+        for (Map.Entry<String, long[]> genomeCounts : pathCounts.entrySet()) { // genome h -> κ_h along path(h)
+            String[] path = genomePaths.get(genomeCounts.getKey());
+            if (path == null || path.length != genomeCounts.getValue().length) {
+                throw new IllegalArgumentException("Path and counts of genome " + genomeCounts.getKey() + " do not match.");
             }
         }
         this.genomePaths = genomePaths;
@@ -87,29 +105,31 @@ public class TopicModel {
      */
     public TopicModelResult fit(Map<String, Long> nodeCounts) {
         // Equation (2): the admitted nodes, in a fixed order so that the fit is reproducible.
-        Map<String, Integer> admitted = new LinkedHashMap<>();
-        List<String> admittedNodes = new ArrayList<>();
-        for (Map.Entry<String, Long> e : nodeCounts.entrySet()) {
-            if (e.getKey() != null && e.getValue() != null && e.getValue() >= threshold) {
-                admittedNodes.add(e.getKey());
+        Map<String, Integer> admittedIndex = new LinkedHashMap<>(); // N_s: admitted node tax id -> its index n in the arrays below
+        List<String> admittedNodes = new ArrayList<>(); // N_s as a sorted list; the position is the index n
+        for (Map.Entry<String, Long> nodeCount : nodeCounts.entrySet()) { // node tax id n -> sample count c_n
+            if (nodeCount.getKey() != null && nodeCount.getValue() != null && nodeCount.getValue() >= threshold) {
+                admittedNodes.add(nodeCount.getKey());
             }
         }
         admittedNodes.sort(null);
         for (String node : admittedNodes) {
-            admitted.put(node, admitted.size());
+            admittedIndex.put(node, admittedIndex.size());
         }
 
         // Equation (3): each genome to the most specific admitted node on its path.
-        Map<String, List<Member>> pools = new HashMap<>();
-        Map<String, String[]> topicPaths = new HashMap<>();
-        List<String> genomes = new ArrayList<>(pathCounts.keySet());
+        Map<String, List<Member>> pools = new HashMap<>(); // G(m): per topic node m, the genomes it speaks for
+        Map<String, String[]> topicPaths = new HashMap<>(); // path(m): per topic node m, the nodes from m up to the root
+        List<String> genomes = new ArrayList<>(pathCounts.keySet()); // all genomes h the database stores
         genomes.sort(null);
         for (String genome : genomes) {
-            String[] path = genomePaths.get(genome);
-            for (int i = 0; i < path.length; i++) {
-                if (admitted.containsKey(path[i])) {
-                    pools.computeIfAbsent(path[i], k -> new ArrayList<>()).add(new Member(pathCounts.get(genome), i));
-                    topicPaths.putIfAbsent(path[i], Arrays.copyOfRange(path, i, path.length));
+            String[] path = genomePaths.get(genome); // path(h)
+            for (int pathPosition = 0; pathPosition < path.length; pathPosition++) { // walks up path(h); the first admitted node is h's topic m
+                String node = path[pathPosition];
+                if (admittedIndex.containsKey(node)) {
+                    pools.computeIfAbsent(node, topic -> new ArrayList<>())
+                            .add(new Member(pathCounts.get(genome), pathPosition));
+                    topicPaths.putIfAbsent(node, Arrays.copyOfRange(path, pathPosition, path.length));
                     break;
                 }
             }
@@ -117,74 +137,76 @@ public class TopicModel {
 
         // Equations (4) and (5): one smoothed row per topic, kept only at the admitted nodes, since the
         // likelihood of Equation (1) runs over those alone. Topics are ordered like the admitted nodes.
-        List<String> topicNodes = new ArrayList<>();
-        List<String> topicsWithoutRow = new ArrayList<>();
-        List<int[]> rowNodes = new ArrayList<>();
-        List<double[]> rowValues = new ArrayList<>();
-        List<double[]> holds = new ArrayList<>();
-        for (String node : admittedNodes) {
-            List<Member> pool = pools.get(node);
-            String[] path = topicPaths.get(node);
+        List<String> topicNodes = new ArrayList<>(); // the topics m that got a row; the position is the index m
+        List<String> topicsWithoutRow = new ArrayList<>(); // admitted nodes with empty G(m) or a row total of 0: not fitted
+        List<int[]> rowNodes = new ArrayList<>(); // per topic m, the indices n of N_s ∩ path(m) where its row is kept
+        List<double[]> rowValues = new ArrayList<>(); // per topic m, p̃(n | m) = φ_nm of Eq. (5), aligned with rowNodes
+        List<double[]> memberHoldsPerTopic = new ArrayList<>(); // per topic m, κ_h(m) of each member h ∈ G(m), Eq. (14)
+        for (String node : admittedNodes) { // node = m
+            List<Member> pool = pools.get(node); // G(m)
+            String[] path = topicPaths.get(node); // path(m)
             if (pool == null) {
                 topicsWithoutRow.add(node);
                 continue;
             }
-            long[] row = new long[path.length];
-            double[] memberHolds = new double[pool.size()];
-            for (int j = 0; j < pool.size(); j++) {
-                Member member = pool.get(j);
-                for (int k = 0; k < row.length; k++) {
-                    row[k] += member.counts[member.offset + k];
-                    memberHolds[j] += member.counts[member.offset + k];
+            long[] rowCounts = new long[path.length]; // Σ_{h ∈ G(m)} κ_h(n) per n ∈ path(m): numerator of Eq. (4)
+            double[] memberHolds = new double[pool.size()]; // κ_h(m) = Σ_{n ∈ path(m)} κ_h(n) per member h, Eq. (14)
+            for (int memberIndex = 0; memberIndex < pool.size(); memberIndex++) {
+                Member member = pool.get(memberIndex);
+                for (int pathPosition = 0; pathPosition < rowCounts.length; pathPosition++) {
+                    long genomeCount = member.counts[member.offset + pathPosition]; // κ_h(n) at that node n
+                    rowCounts[pathPosition] += genomeCount;
+                    memberHolds[memberIndex] += genomeCount;
                 }
             }
-            long total = 0;
-            for (long c : row) {
-                total += c;
+            long rowTotal = 0; // Σ_{n ∈ path(m)} Σ_{h ∈ G(m)} κ_h(n): denominator of Eq. (4)
+            for (long rowCount : rowCounts) {
+                rowTotal += rowCount;
             }
-            if (total == 0) {
+            if (rowTotal == 0) {
                 topicsWithoutRow.add(node);
                 continue;
             }
-            int onAdmitted = 0;
-            for (String n : path) {
-                if (admitted.containsKey(n)) {
-                    onAdmitted++;
+            int admittedOnPath = 0; // |N_s ∩ path(m)|: how many entries of the row the likelihood reads
+            for (String pathNode : path) {
+                if (admittedIndex.containsKey(pathNode)) {
+                    admittedOnPath++;
                 }
             }
-            int[] nodes = new int[onAdmitted];
-            double[] values = new double[onAdmitted];
-            int j = 0;
-            for (int k = 0; k < path.length; k++) {
-                Integer index = admitted.get(path[k]);
-                if (index != null) {
-                    nodes[j] = index;
-                    values[j] = (1 - backgroundShare) * row[k] / total + backgroundShare / path.length;
-                    j++;
+            int[] keptNodes = new int[admittedOnPath]; // indices n of N_s ∩ path(m)
+            double[] keptValues = new double[admittedOnPath];
+            int rowEntry = 0;
+            for (int pathPosition = 0; pathPosition < path.length; pathPosition++) {
+                Integer nodeIndex = admittedIndex.get(path[pathPosition]); // index n of this node of path(m), or null if not in N_s
+                if (nodeIndex != null) {
+                    keptNodes[rowEntry] = nodeIndex;
+                    keptValues[rowEntry] = (1 - backgroundShare) * rowCounts[pathPosition] / rowTotal
+                            + backgroundShare / path.length; // Eq. (5): (1 - ε) p(n | m) + ε / |path(m)|
+                    rowEntry++;
                 }
             }
             topicNodes.add(node);
-            rowNodes.add(nodes);
-            rowValues.add(values);
-            holds.add(memberHolds);
+            rowNodes.add(keptNodes);
+            rowValues.add(keptValues);
+            memberHoldsPerTopic.add(memberHolds);
         }
 
-        // The counts the fit explains: those at admitted nodes some topic's row gives mass. Lying on a
-        // topic's lineage is not enough without smoothing - a row can be zero there, and the node's
-        // mixture with it, which the update below would divide by.
-        boolean[] covered = new boolean[admittedNodes.size()];
+        // The counts the fit explains: those at admitted nodes where some topic's row is positive. Lying on a
+        // topic's path is not enough: without smoothing the row can be zero there, and so can the mixture
+        // (φθ)_n that the EM update divides by.
+        boolean[] covered = new boolean[admittedNodes.size()]; // per n: some φ_nm > 0, so (φθ)_n cannot be 0
         for (int m = 0; m < rowNodes.size(); m++) {
             int[] nodes = rowNodes.get(m);
             double[] values = rowValues.get(m);
-            for (int j = 0; j < nodes.length; j++) {
-                if (values[j] > 0) {
-                    covered[nodes[j]] = true;
+            for (int rowEntry = 0; rowEntry < nodes.length; rowEntry++) {
+                if (values[rowEntry] > 0) {
+                    covered[nodes[rowEntry]] = true;
                 }
             }
         }
-        long[] counts = new long[admittedNodes.size()];
-        long fittedCount = 0;
-        List<String> uncoveredNodes = new ArrayList<>();
+        long[] counts = new long[admittedNodes.size()]; // c_n per index n; 0 where n is not covered
+        long fittedCount = 0; // C = Σ_n c_n over the covered nodes
+        List<String> uncoveredNodes = new ArrayList<>(); // admitted nodes no row reaches; their counts leave the fit
         for (int n = 0; n < counts.length; n++) {
             if (covered[n]) {
                 counts[n] = nodeCounts.get(admittedNodes.get(n));
@@ -196,10 +218,10 @@ public class TopicModel {
 
         // Equation (13), started uniform since the update keeps a zero share at zero.
         int topicCount = topicNodes.size();
-        double[] theta = new double[topicCount];
+        double[] theta = new double[topicCount]; // θ_m = p(m | s): the topic's share of the sample's k-mers
         Arrays.fill(theta, 1.0 / topicCount);
-        double[] mixture = new double[counts.length];
-        double[] next = new double[topicCount];
+        double[] mixture = new double[counts.length]; // (φθ)_n = Σ_m φ_nm θ_m per node n
+        double[] nextTheta = new double[topicCount]; // θ after one EM step
         int iterations = 0;
         // With nothing to fit, the shares stay uniform rather than turning into 0 / 0.
         boolean converged = topicCount <= 1 || fittedCount == 0;
@@ -209,41 +231,42 @@ public class TopicModel {
             for (int m = 0; m < topicCount; m++) {
                 int[] nodes = rowNodes.get(m);
                 double[] values = rowValues.get(m);
-                for (int j = 0; j < nodes.length; j++) {
-                    mixture[nodes[j]] += values[j] * theta[m];
+                for (int rowEntry = 0; rowEntry < nodes.length; rowEntry++) {
+                    mixture[nodes[rowEntry]] += values[rowEntry] * theta[m];
                 }
             }
-            double change = 0;
+            double change = 0; // Σ_m |θ_m(new) - θ_m(old)|
             for (int m = 0; m < topicCount; m++) {
                 int[] nodes = rowNodes.get(m);
                 double[] values = rowValues.get(m);
-                double sum = 0;
-                for (int j = 0; j < nodes.length; j++) {
-                    if (counts[nodes[j]] > 0) {
-                        sum += counts[nodes[j]] * values[j] / mixture[nodes[j]];
+                double weightedSum = 0; // Σ_n c_n φ_nm / (φθ)_n
+                for (int rowEntry = 0; rowEntry < nodes.length; rowEntry++) {
+                    int n = nodes[rowEntry];
+                    if (counts[n] > 0) {
+                        weightedSum += counts[n] * values[rowEntry] / mixture[n];
                     }
                 }
-                next[m] = theta[m] * sum / fittedCount;
-                change += Math.abs(next[m] - theta[m]);
+                nextTheta[m] = theta[m] * weightedSum / fittedCount; // Eq. (13): θ_m <- θ_m / C · Σ_n c_n φ_nm / (φθ)_n
+                change += Math.abs(nextTheta[m] - theta[m]);
             }
             double[] swap = theta;
-            theta = next;
-            next = swap;
+            theta = nextTheta;
+            nextTheta = swap;
             converged = change < tolerance;
         }
 
         // Equations (14) to (18): the share over what one member is expected to contribute.
-        double[] expectedHold = new double[topicCount];
-        double abundanceSum = 0;
-        double[] abundance = new double[topicCount];
+        double[] expectedHold = new double[topicCount]; // E_m of Eq. (16): expected k-mers of one member of G(m)
+        double abundanceSum = 0; // Σ_m ã_m: denominator of Eq. (18)
+        double[] abundance = new double[topicCount]; // ã_m = θ_m / E_m, Eq. (17); a_m once divided by abundanceSum
         for (int m = 0; m < topicCount; m++) {
-            double sum = 0;
-            double squares = 0;
-            for (double h : holds.get(m)) {
-                sum += h;
-                squares += h * h;
+            double holdSum = 0; // Σ_{h ∈ G(m)} κ_h(m): the row's total
+            double holdSquares = 0; // Σ_{h ∈ G(m)} κ_h(m)²
+            for (double memberHold : memberHoldsPerTopic.get(m)) {
+                holdSum += memberHold;
+                holdSquares += memberHold * memberHold;
             }
-            expectedHold[m] = squares / sum;
+            expectedHold[m] = holdSquares / holdSum; // Eq. (16): Σ_h q_m(h) κ_h(m) with q_m(h) = κ_h(m) / holdSum
             abundance[m] = theta[m] / expectedHold[m];
             abundanceSum += abundance[m];
         }
@@ -254,7 +277,7 @@ public class TopicModel {
             topics.add(new Topic(node, nodeCounts.get(node), pools.get(node).size(), theta[m], expectedHold[m],
                     abundanceSum > 0 ? abundance[m] / abundanceSum : 0));
         }
-        topics.sort((a, b) -> Double.compare(b.getKmerShare(), a.getKmerShare()));
+        topics.sort(Comparator.comparingDouble(Topic::getKmerShare).reversed());
         return new TopicModelResult(topics, iterations, converged, fittedCount, topicsWithoutRow, uncoveredNodes);
     }
 
@@ -262,7 +285,13 @@ public class TopicModel {
      * A genome as a member of a topic's pool: its counts and where the topic's node sits on its path.
      */
     private static class Member {
+        /**
+         * κ_h along path(h), index 0 being h's own node.
+         */
         private final long[] counts;
+        /**
+         * The position of the topic m on path(h), so counts[offset + i] = κ_h(i-th node of path(m)).
+         */
         private final int offset;
 
         private Member(long[] counts, int offset) {
