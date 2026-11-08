@@ -25,9 +25,11 @@ import java.util.*;
  * <li>Abundances, Equations (14) to (18): each share divided by what one member of the topic is
  * expected to contribute, E<sub>m</sub>, and normalised.</li>
  * </ol>
- * The correction and consistency weighting of the counts (Section 3.3) are not applied: under maximum
- * likelihood the error correction of Equation (6) does not move the estimate, and the consistency weight
- * is optional (Table 5).
+ * Before the fit, the counts can be attenuated by the k-mer consistency weight of Section 3.3,
+ * Equations (7) to (10), see {@link ConsistencyWeight}: it takes effect for the nodes given a
+ * {@link NodeConsistency} in {@link #fit(Map, Map)}. Admission still reads the raw counts. The error
+ * correction of Equation (6) is not applied, since under maximum likelihood it does not move the
+ * estimate.
  * <p>
  * What the counts do not cover, the model cannot either: the paper also pools genomes the database did
  * not store into the topics at the taxa, while the counts hold only stored genomes. A taxon whose
@@ -59,9 +61,13 @@ public class TopicModel {
      * The fit stops once Σ_m |θ_m(new) - θ_m(old)| falls below this; not in the paper.
      */
     private final double tolerance;
+    /**
+     * β, τ, γ of Eqs. (8) to (10).
+     */
+    private final ConsistencyWeight consistencyWeight;
 
     /**
-     * Creates the model for one database.
+     * Creates the model for one database, without consistency weighting.
      *
      * @param genomePaths     per genome, the tax ids of its path from its own node to the root
      * @param pathCounts      per genome, its counts &kappa;<sub>h</sub> along that path, aligned with it
@@ -74,6 +80,29 @@ public class TopicModel {
      */
     public TopicModel(Map<String, String[]> genomePaths, Map<String, long[]> pathCounts, long threshold,
                       double backgroundShare, int maxIterations, double tolerance) {
+        this(genomePaths, pathCounts, threshold, backgroundShare, maxIterations, tolerance, ConsistencyWeight.NONE);
+    }
+
+    /**
+     * Creates the model for one database.
+     *
+     * @param genomePaths       per genome, the tax ids of its path from its own node to the root
+     * @param pathCounts        per genome, its counts &kappa;<sub>h</sub> along that path, aligned with it
+     * @param threshold         the admission threshold T of Equation (2), at least one
+     * @param backgroundShare   the background share &epsilon; of Equation (5), in [0, 1)
+     * @param maxIterations     the most EM iterations to take
+     * @param tolerance         the total absolute change in the shares below which the fit has converged
+     * @param consistencyWeight the consistency weighting of Section 3.3, {@link ConsistencyWeight#NONE} for
+     *                          none
+     * @throws IllegalArgumentException if a parameter is out of range or a genome's path and counts do
+     *                                  not match
+     */
+    public TopicModel(Map<String, String[]> genomePaths, Map<String, long[]> pathCounts, long threshold,
+                      double backgroundShare, int maxIterations, double tolerance,
+                      ConsistencyWeight consistencyWeight) {
+        if (consistencyWeight == null) {
+            throw new IllegalArgumentException("The consistency weight must not be null.");
+        }
         if (threshold < 1) {
             throw new IllegalArgumentException("The threshold must be at least 1: " + threshold);
         }
@@ -95,15 +124,28 @@ public class TopicModel {
         this.backgroundShare = backgroundShare;
         this.maxIterations = maxIterations;
         this.tolerance = tolerance;
+        this.consistencyWeight = consistencyWeight;
     }
 
     /**
-     * Fits the model to one sample.
+     * Fits the model to one sample, without consistency weighting.
      *
      * @param nodeCounts the sample's count c<sub>n</sub> per node tax id, in k-mers
      * @return the topics and how the fit went
      */
     public TopicModelResult fit(Map<String, Long> nodeCounts) {
+        return fit(nodeCounts, Collections.emptyMap());
+    }
+
+    /**
+     * Fits the model to one sample.
+     *
+     * @param nodeCounts  the sample's count c<sub>n</sub> per node tax id, in k-mers
+     * @param consistency per node tax id, what the consistency weight of Equation (9) needs; a node
+     *                    missing here keeps weight one
+     * @return the topics and how the fit went
+     */
+    public TopicModelResult fit(Map<String, Long> nodeCounts, Map<String, NodeConsistency> consistency) {
         // Equation (2): the admitted nodes, in a fixed order so that the fit is reproducible.
         Map<String, Integer> admittedIndex = new LinkedHashMap<>(); // N_s: admitted node tax id -> its index n in the arrays below
         List<String> admittedNodes = new ArrayList<>(); // N_s as a sorted list; the position is the index n
@@ -204,13 +246,39 @@ public class TopicModel {
                 }
             }
         }
-        long[] counts = new long[admittedNodes.size()]; // c_n per index n; 0 where n is not covered
-        long fittedCount = 0; // C = Σ_n c_n over the covered nodes
+        // Equations (7) to (10): the consistency weight w_n per admitted node, one where it is declined.
+        Map<String, NodeWeight> nodeWeights = new LinkedHashMap<>(); // nodes inside the rank gate, by tax id
+        double[] weights = new double[admittedNodes.size()]; // w_n per index n
+        Arrays.fill(weights, 1);
+        if (consistencyWeight.isActive()) {
+            for (int n = 0; n < weights.length; n++) {
+                String node = admittedNodes.get(n);
+                NodeConsistency nodeConsistency = consistency.get(node);
+                if (nodeConsistency == null || !nodeConsistency.isGated() || nodeConsistency.getDbKMers() < 1) {
+                    continue;
+                }
+                long count = nodeCounts.get(node);
+                double reach = reach(pools.get(node), nodeConsistency.getDbKMers());
+                double ratio = ConsistencyWeight.ratio(nodeConsistency.getUniqueKMers(), nodeConsistency.getDbKMers(),
+                        count);
+                boolean applied = reach >= consistencyWeight.getReachThreshold();
+                if (applied) {
+                    weights[n] = consistencyWeight.weight(ratio);
+                }
+                nodeWeights.put(node, new NodeWeight(node, ratio, reach, applied, weights[n]));
+            }
+        }
+
+        double[] counts = new double[admittedNodes.size()]; // ĉ_n = w_n c_n per index n, Eq. (9); 0 where n is not covered
+        long fittedCount = 0; // Σ_n c_n over the covered nodes, unweighted
+        double weightedCount = 0; // C = Σ_n ĉ_n over the covered nodes
         List<String> uncoveredNodes = new ArrayList<>(); // admitted nodes no row reaches; their counts leave the fit
         for (int n = 0; n < counts.length; n++) {
             if (covered[n]) {
-                counts[n] = nodeCounts.get(admittedNodes.get(n));
-                fittedCount += counts[n];
+                long count = nodeCounts.get(admittedNodes.get(n));
+                fittedCount += count;
+                counts[n] = weights[n] * count;
+                weightedCount += counts[n];
             } else {
                 uncoveredNodes.add(admittedNodes.get(n));
             }
@@ -224,7 +292,7 @@ public class TopicModel {
         double[] nextTheta = new double[topicCount]; // θ after one EM step
         int iterations = 0;
         // With nothing to fit, the shares stay uniform rather than turning into 0 / 0.
-        boolean converged = topicCount <= 1 || fittedCount == 0;
+        boolean converged = topicCount <= 1 || weightedCount == 0;
         while (!converged && iterations < maxIterations) {
             iterations++;
             Arrays.fill(mixture, 0);
@@ -239,14 +307,14 @@ public class TopicModel {
             for (int m = 0; m < topicCount; m++) {
                 int[] nodes = rowNodes.get(m);
                 double[] values = rowValues.get(m);
-                double weightedSum = 0; // Σ_n c_n φ_nm / (φθ)_n
+                double weightedSum = 0; // Σ_n ĉ_n φ_nm / (φθ)_n
                 for (int rowEntry = 0; rowEntry < nodes.length; rowEntry++) {
                     int n = nodes[rowEntry];
                     if (counts[n] > 0) {
                         weightedSum += counts[n] * values[rowEntry] / mixture[n];
                     }
                 }
-                nextTheta[m] = theta[m] * weightedSum / fittedCount; // Eq. (13): θ_m <- θ_m / C · Σ_n c_n φ_nm / (φθ)_n
+                nextTheta[m] = theta[m] * weightedSum / weightedCount; // Eq. (13): θ_m <- θ_m / C · Σ_n ĉ_n φ_nm / (φθ)_n
                 change += Math.abs(nextTheta[m] - theta[m]);
             }
             double[] swap = theta;
@@ -275,10 +343,48 @@ public class TopicModel {
         for (int m = 0; m < topicCount; m++) {
             String node = topicNodes.get(m);
             topics.add(new Topic(node, nodeCounts.get(node), pools.get(node).size(), theta[m], expectedHold[m],
-                    abundanceSum > 0 ? abundance[m] / abundanceSum : 0));
+                    abundanceSum > 0 ? abundance[m] / abundanceSum : 0, weights[admittedIndex.get(node)]));
         }
         topics.sort(Comparator.comparingDouble(Topic::getKmerShare).reversed());
-        return new TopicModelResult(topics, iterations, converged, fittedCount, topicsWithoutRow, uncoveredNodes);
+        return new TopicModelResult(topics, iterations, converged, fittedCount, weightedCount, topicsWithoutRow,
+                uncoveredNodes, new ArrayList<>(nodeWeights.values()));
+    }
+
+    /**
+     * The reach f<sub>n</sub> of Equation (8), read off the occurrence counts as Appendix F describes: the
+     * least share &kappa;<sub>h</sub>(n) / u<sub>n,d</sub> of the node's stored k-mers a member of its pool
+     * holds at the node itself, over the members whose pool weight q<sub>n</sub>(h) of Equation (16) is at
+     * least &gamma;.
+     *
+     * @param pool    G(n), the genomes the node speaks for, or null if none
+     * @param dbKMers u<sub>n,d</sub>, at least one
+     * @return f<sub>n</sub>, or 0 if the pool is empty or holds nothing, which declines the weight
+     */
+    private double reach(List<Member> pool, long dbKMers) {
+        if (pool == null) {
+            return 0;
+        }
+        double[] holds = new double[pool.size()]; // κ_h(n) summed over path(n), Eq. (14)
+        double holdSum = 0;
+        for (int i = 0; i < holds.length; i++) {
+            Member member = pool.get(i);
+            for (int k = member.offset; k < member.counts.length; k++) {
+                holds[i] += member.counts[k];
+            }
+            holdSum += holds[i];
+        }
+        if (holdSum == 0) {
+            return 0;
+        }
+        double reach = Double.POSITIVE_INFINITY;
+        for (int i = 0; i < holds.length; i++) {
+            if (holds[i] / holdSum >= consistencyWeight.getMemberFloor()) { // q_n(h) ≥ γ
+                Member member = pool.get(i);
+                reach = Math.min(reach, ((double) member.counts[member.offset]) / dbKMers); // κ_h(n) / u_n,d
+            }
+        }
+        // With γ above every q_n(h) no member is left; the test is then declined rather than passed.
+        return reach == Double.POSITIVE_INFINITY ? 0 : reach;
     }
 
     /**

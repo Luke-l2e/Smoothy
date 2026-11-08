@@ -374,7 +374,7 @@ public class KMerGenomePathCountsGoalTest {
             csvGoal.cleanThis();
             csvGoal.make();
             List<String> lines = Files.readAllLines(csvGoal.getFiles().get(0).toPath(), StandardCharsets.UTF_8);
-            assertEquals("taxid;name;rank;kmers;genomes;kmer share;expected hold;abundance;", lines.get(0));
+            assertEquals("taxid;name;rank;kmers;genomes;kmer share;expected hold;abundance;consistency weight;", lines.get(0));
             assertTrue(lines.get(1), lines.get(1).startsWith(g1 + ";" + G1_KEY + ";GENOME;"));
             assertEquals(result.getTopics().size() + 1, lines.size());
         } finally {

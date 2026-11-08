@@ -42,7 +42,9 @@ import java.util.Map;
  * <li>{@code expected hold} - E<sub>m</sub>, the k-mers one organism of the topic is expected to
  * contribute;</li>
  * <li>{@code abundance} - the topic's relative abundance, its share of organisms rather than of
- * sequence.</li>
+ * sequence;</li>
+ * <li>{@code consistency weight} - w<sub>m</sub> of Equation (9), the factor the count at the node entered
+ * the fit with; one where the weight was not applied.</li>
  * </ul>
  *
  * @param <P> the project type
@@ -91,7 +93,7 @@ public class TopicModelCSVGoal<P extends SmoothyProject> extends FileListGoal<P>
         SmallTaxTree tree = dbGoal.get().getTaxTree();
         try (PrintStream out = new PrintStream(StreamProvider.getOutputStreamForFile(file), false,
                 StandardCharsets.UTF_8.name())) {
-            out.println("taxid;name;rank;kmers;genomes;kmer share;expected hold;abundance;");
+            out.println("taxid;name;rank;kmers;genomes;kmer share;expected hold;abundance;consistency weight;");
             for (Topic topic : result.getTopics()) {
                 SmallTaxIdNode node = tree.getNodeByTaxId(topic.getNode());
                 Rank rank = node == null ? null : node.getRank();
@@ -110,6 +112,8 @@ public class TopicModelCSVGoal<P extends SmoothyProject> extends FileListGoal<P>
                 out.print(DF.format(topic.getExpectedHold()));
                 out.print(';');
                 out.print(DF.format(topic.getAbundance()));
+                out.print(';');
+                out.print(DF.format(topic.getWeight()));
                 out.println(';');
             }
         }

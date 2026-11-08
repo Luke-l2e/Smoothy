@@ -17,6 +17,7 @@ public class Topic {
     private final double kmerShare;
     private final double expectedHold;
     private final double abundance;
+    private final double weight;
 
     /**
      * Creates the topic.
@@ -27,14 +28,18 @@ public class Topic {
      * @param kmerShare    the estimated share &theta;<sub>m</sub> of the sample's k-mers
      * @param expectedHold the expected hold E<sub>m</sub> of one member, in k-mers
      * @param abundance    the relative abundance a<sub>m</sub> of Equation (18)
+     * @param weight       the consistency weight w<sub>m</sub> of Equation (9) the count at the node entered
+     *                     the fit with, one if none was applied
      */
-    public Topic(String node, long count, int genomes, double kmerShare, double expectedHold, double abundance) {
+    public Topic(String node, long count, int genomes, double kmerShare, double expectedHold, double abundance,
+                 double weight) {
         this.node = node;
         this.count = count;
         this.genomes = genomes;
         this.kmerShare = kmerShare;
         this.expectedHold = expectedHold;
         this.abundance = abundance;
+        this.weight = weight;
     }
 
     /**
@@ -92,9 +97,18 @@ public class Topic {
         return abundance;
     }
 
+    /**
+     * Returns the consistency weight the count at the topic's node entered the fit with.
+     *
+     * @return w<sub>m</sub> of Equation (9), one if none was applied
+     */
+    public double getWeight() {
+        return weight;
+    }
+
     @Override
     public String toString() {
         return "Topic[" + node + ", count=" + count + ", genomes=" + genomes + ", kmerShare=" + kmerShare
-                + ", abundance=" + abundance + "]";
+                + ", abundance=" + abundance + ", weight=" + weight + "]";
     }
 }

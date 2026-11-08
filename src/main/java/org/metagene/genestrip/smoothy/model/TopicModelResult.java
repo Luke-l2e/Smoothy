@@ -12,8 +12,10 @@ public class TopicModelResult {
     private final int iterations;
     private final boolean converged;
     private final long fittedCount;
+    private final double weightedCount;
     private final List<String> topicsWithoutRow;
     private final List<String> uncoveredNodes;
+    private final List<NodeWeight> nodeWeights;
 
     /**
      * Creates the result.
@@ -21,18 +23,23 @@ public class TopicModelResult {
      * @param topics           the topics, by descending k-mer share
      * @param iterations       the number of EM iterations taken
      * @param converged        whether the fit converged within the allowed iterations
-     * @param fittedCount      the total count the fit explains, C of Equation (12)
+     * @param fittedCount      the total raw count at the nodes the fit explains
+     * @param weightedCount    the same total after the consistency weight, C of Equation (12)
      * @param topicsWithoutRow admitted nodes that could not be topics because no genome gives them a row
      * @param uncoveredNodes   admitted nodes no topic's lineage reaches, whose counts were left out
+     * @param nodeWeights      the consistency weight of every admitted node inside the rank gate
      */
     public TopicModelResult(List<Topic> topics, int iterations, boolean converged, long fittedCount,
-                            List<String> topicsWithoutRow, List<String> uncoveredNodes) {
+                            double weightedCount, List<String> topicsWithoutRow, List<String> uncoveredNodes,
+                            List<NodeWeight> nodeWeights) {
         this.topics = Collections.unmodifiableList(topics);
         this.iterations = iterations;
         this.converged = converged;
         this.fittedCount = fittedCount;
+        this.weightedCount = weightedCount;
         this.topicsWithoutRow = Collections.unmodifiableList(topicsWithoutRow);
         this.uncoveredNodes = Collections.unmodifiableList(uncoveredNodes);
+        this.nodeWeights = Collections.unmodifiableList(nodeWeights);
     }
 
     /**
@@ -65,12 +72,33 @@ public class TopicModelResult {
     }
 
     /**
-     * Returns the total count the fit explains, summed over the admitted nodes some topic reaches.
+     * Returns the total count the fit explains, summed over the admitted nodes some topic reaches, before
+     * the consistency weight.
      *
-     * @return C, in k-mers
+     * @return the raw total, in k-mers
      */
     public long getFittedCount() {
         return fittedCount;
+    }
+
+    /**
+     * Returns the total count the fit explains after the consistency weight of Equation (9). Equal to
+     * {@link #getFittedCount()} where no node was attenuated.
+     *
+     * @return C of Equation (12), in k-mers
+     */
+    public double getWeightedCount() {
+        return weightedCount;
+    }
+
+    /**
+     * Returns the consistency weight of every admitted node inside the rank gate, also where it was
+     * declined; empty without consistency weighting.
+     *
+     * @return the node weights, in the order of the nodes' tax ids
+     */
+    public List<NodeWeight> getNodeWeights() {
+        return nodeWeights;
     }
 
     /**

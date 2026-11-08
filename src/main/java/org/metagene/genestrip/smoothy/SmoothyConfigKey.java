@@ -1,9 +1,11 @@
 package org.metagene.genestrip.smoothy;
 
+import org.metagene.genestrip.GSConfigKey;
 import org.metagene.genestrip.make.ConfigKey;
 import org.metagene.genestrip.make.ConfigParamInfo;
 import org.metagene.genestrip.make.GoalKey;
 import org.metagene.genestrip.make.MDDescription;
+import org.metagene.genestrip.tax.Rank;
 
 /**
  * Configuration keys added by the smoothy extension, all named with the prefix {@code smoothy.}.
@@ -38,6 +40,41 @@ public enum SmoothyConfigKey implements ConfigKey {
     @MDDescription("The EM fit of the topic model stops once the topic shares change by less than this in total "
             + "(summed absolute change) from one iteration to the next.")
     CONVERGENCE_TOLERANCE("convergenceTolerance", new ConfigParamInfo.DoubleConfigParamInfo(0, 1, 1e-10, true),
+            SmoothyGoalKey.TOPIC_MODEL, SmoothyGoalKey.FT_TOPIC_MODEL),
+    /**
+     * The severity beta of Equation (10): how hard the consistency weight attenuates an inconsistent node.
+     */
+    @MDDescription("The severity *&beta;* of the *k*-mer consistency weight of the topic model. A node's count enters the "
+            + "fit multiplied by max(0, 1 + *&beta;* ln min(*r*, 1)), where *r* is the node's `unique kmers / exp.` "
+            + "as Genestrip's match result reports it. So a node showing fewer distinct *k*-mers than uniform "
+            + "sampling would give counts less, and one below *r* = e<sup>-1/&beta;</sup> not at all. `0` turns "
+            + "the weight off.")
+    CONSISTENCY_SEVERITY("consistencySeverity", new ConfigParamInfo.DoubleConfigParamInfo(0, 100, 0.5),
+            SmoothyGoalKey.TOPIC_MODEL, SmoothyGoalKey.FT_TOPIC_MODEL),
+    /**
+     * The reach threshold tau of Equation (9): the reach a node needs for the consistency weight to apply.
+     */
+    @MDDescription("The reach *&tau;* a node needs for the *k*-mer consistency weight to be applied to it. The reach is "
+            + "the least share of the node's database *k*-mers that any genome the node speaks for holds there. "
+            + "Below it, the node's *k*-mers are shared by organisms of which a sample may hold only some, so a "
+            + "low consistency ratio would not mean an inconsistent match. Such a node keeps its count as it is.")
+    CONSISTENCY_REACH_THRESHOLD("consistencyReachThreshold", new ConfigParamInfo.DoubleConfigParamInfo(0, 1, 0.9),
+            SmoothyGoalKey.TOPIC_MODEL, SmoothyGoalKey.FT_TOPIC_MODEL),
+    /**
+     * The member floor gamma of Equation (8): the pool weight a genome needs to enter the reach.
+     */
+    @MDDescription("The share of a node's pool *k*-mers a genome needs to count as a member when the reach is taken. "
+            + "Smaller genomes, such as fragments of a draft assembly beside a finished genome, are left out, so "
+            + "that they do not decline the weight for the whole node.")
+    CONSISTENCY_MEMBER_FLOOR("consistencyMemberFloor", new ConfigParamInfo.DoubleConfigParamInfo(0, 1, 0.01),
+            SmoothyGoalKey.TOPIC_MODEL, SmoothyGoalKey.FT_TOPIC_MODEL),
+    /**
+     * The rank gate rho of Equation (9): the consistency weight is considered at this rank and below only.
+     */
+    @MDDescription("The rank *&rho;* at and below which the *k*-mer consistency weight is considered at all; a node "
+            + "without a rank of its own counts as below *&rho;* if one of its ancestors is at or below it. Higher "
+            + "nodes keep their counts as they are.")
+    CONSISTENCY_RANK("consistencyRank", new GSConfigKey.RankConfigParamInfo(Rank.SPECIES),
             SmoothyGoalKey.TOPIC_MODEL, SmoothyGoalKey.FT_TOPIC_MODEL);
 
     /**

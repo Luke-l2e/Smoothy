@@ -7,9 +7,13 @@ import org.metagene.genestrip.match.CountsPerTaxid;
 import org.metagene.genestrip.match.MatchingResult;
 import org.metagene.genestrip.smoothy.SmoothyConfigKey;
 import org.metagene.genestrip.smoothy.SmoothyProject;
+import org.metagene.genestrip.smoothy.model.ConsistencyWeight;
+import org.metagene.genestrip.smoothy.model.NodeConsistency;
+import org.metagene.genestrip.smoothy.model.NodeWeight;
 import org.metagene.genestrip.smoothy.model.TopicModel;
 import org.metagene.genestrip.smoothy.model.TopicModelResult;
 import org.metagene.genestrip.store.Database;
+import org.metagene.genestrip.tax.Rank;
 import org.metagene.genestrip.tax.SmallTaxTree;
 import org.metagene.genestrip.tax.SmallTaxTree.SmallTaxIdNode;
 
@@ -59,13 +63,21 @@ public class TopicModelGoal<P extends SmoothyProject> extends ObjectGoal<Map<Str
     @Override
     protected void doMakeThis() {
         Map<String, long[]> pathCounts = pathCountsGoal.get();
-        TopicModel model = new TopicModel(genomePaths(dbGoal.get().getTaxTree(), pathCounts), pathCounts,
+        SmallTaxTree tree = dbGoal.get().getTaxTree();
+        ConsistencyWeight consistencyWeight = new ConsistencyWeight(
+                doubleConfigValue(SmoothyConfigKey.CONSISTENCY_SEVERITY),
+                doubleConfigValue(SmoothyConfigKey.CONSISTENCY_REACH_THRESHOLD),
+                doubleConfigValue(SmoothyConfigKey.CONSISTENCY_MEMBER_FLOOR));
+        Rank gateRank = (Rank) configValue(SmoothyConfigKey.CONSISTENCY_RANK);
+        TopicModel model = new TopicModel(genomePaths(tree, pathCounts), pathCounts,
                 longConfigValue(SmoothyConfigKey.TOPIC_THRESHOLD), doubleConfigValue(SmoothyConfigKey.BACKGROUND_SHARE),
-                intConfigValue(SmoothyConfigKey.MAX_ITERATIONS), doubleConfigValue(SmoothyConfigKey.CONVERGENCE_TOLERANCE));
+                intConfigValue(SmoothyConfigKey.MAX_ITERATIONS), doubleConfigValue(SmoothyConfigKey.CONVERGENCE_TOLERANCE),
+                consistencyWeight);
 
         Map<String, TopicModelResult> results = new LinkedHashMap<>(); // In the order of the samples.
         for (Map.Entry<String, MatchingResult> e : matchResGoal.get().entrySet()) {
-            TopicModelResult result = model.fit(nodeCounts(e.getValue()));
+            TopicModelResult result = model.fit(nodeCounts(e.getValue()),
+                    consistencyWeight.isActive() ? nodeConsistency(e.getValue(), tree, gateRank) : Collections.emptyMap());
             report(e.getKey(), result);
             results.put(e.getKey(), result);
         }
@@ -119,7 +131,64 @@ public class TopicModelGoal<P extends SmoothyProject> extends ObjectGoal<Map<Str
         return counts;
     }
 
+    /**
+     * Returns per node what the consistency weight of Equation (9) needs: the distinct k-mers the sample
+     * shows there ({@link CountsPerTaxid#getUniqueKMers()}, counted exactly by Genestrip), the distinct
+     * k-mers the database stores there ({@link CountsPerTaxid#getDbKMers()}) and whether the node is inside
+     * the rank gate.
+     *
+     * @param matchingResult the sample's match result
+     * @param tree           the tree of the database the sample was matched against
+     * @param gateRank       the rank &rho; at and below which the weight is considered, or null for every node
+     * @return the consistency data per node tax id
+     */
+    protected static Map<String, NodeConsistency> nodeConsistency(MatchingResult matchingResult, SmallTaxTree tree,
+                                                                  Rank gateRank) {
+        Map<String, NodeConsistency> consistency = new HashMap<>();
+        for (Map.Entry<String, CountsPerTaxid> e : matchingResult.getTaxid2Stats().entrySet()) {
+            if (e.getKey() != null) {
+                CountsPerTaxid stats = e.getValue();
+                consistency.put(e.getKey(), new NodeConsistency(stats.getUniqueKMers(), stats.getDbKMers(),
+                        isGated(tree.getNodeByTaxId(e.getKey()), gateRank)));
+            }
+        }
+        return consistency;
+    }
+
+    /**
+     * Whether a node is at rank &rho; or below. A node without a comparable rank of its own - "no rank",
+     * "clade" - is below &rho; if an ancestor is at or below it, as a strain without rank under a species
+     * is.
+     *
+     * @param node     the node, or null if the tree does not know it
+     * @param gateRank &rho;, or null for every node
+     * @return whether the node is inside the rank gate
+     */
+    protected static boolean isGated(SmallTaxIdNode node, Rank gateRank) {
+        if (gateRank == null) {
+            return true;
+        }
+        for (SmallTaxIdNode n = node; n != null; n = n.getParent()) {
+            Rank rank = n.getRank();
+            if (rank == gateRank || (rank != null && rank.isBelow(gateRank))) {
+                return true;
+            }
+            if (rank != null && rank.isAbove(gateRank)) {
+                return false;
+            }
+        }
+        return false;
+    }
+
     private void report(String sample, TopicModelResult result) {
+        if (getLogger().isInfoEnabled()) {
+            long applied = result.getNodeWeights().stream().filter(NodeWeight::isApplied).count();
+            if (!result.getNodeWeights().isEmpty()) {
+                getLogger().info("Sample " + sample + ": consistency weight applied at " + applied + " of "
+                        + result.getNodeWeights().size() + " gated nodes; " + result.getWeightedCount() + " of "
+                        + result.getFittedCount() + " k-mers remain after weighting.");
+            }
+        }
         if (getLogger().isInfoEnabled()) {
             getLogger().info("Sample " + sample + ": " + result.getTopics().size() + " topics fitted to "
                     + result.getFittedCount() + " k-mers in " + result.getIterations() + " iterations.");
