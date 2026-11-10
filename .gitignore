@@ -7,6 +7,5 @@
 /data/*
 !/data/projects/
 /data/projects/*/*
-!/data/projects/*/categories.txt
-!/data/projects/*/taxids.txt
-!/data/projects/*/config.properties
+/docs/paper-notes.md
+/Notes.md

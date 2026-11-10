@@ -1,0 +1,15 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Skatevirus skate	2956462	S	13600	1945	15545	0.29952
+Skatevirus BS5	2956456	S	82	27	109	0.00210
+Skatevirus KFSSE2	2956457	S	72	1	73	0.00141
+Jiaodavirus pko111	1985327	S	13259	701	13960	0.26898
+Jiaodavirus kp179	2956011	S	18	0	18	0.00035
+Jiaodavirus kpv477	2956013	S	17	0	17	0.00033
+Epseptimavirus PRFSP13	3428542	S	614	284	898	0.01730
+Alphayadokarivirus ichibani	2955320	S	10482	0	10482	0.20197
+Bat coronavirus	1508220	S	963	0	963	0.01856
+Orthoflavivirus kokoberaorum	3048168	S	1807	0	1807	0.03482
+Totivirus nijyushi	3432963	S	39	0	39	0.00075
+Aveparvovirus passeriform1	3059751	S	4458	0	4458	0.08590
+Alphapapillomavirus 14	931244	S	133	0	133	0.00256
+Sulfolobales virus YNP1	1732179	S	3394	0	3394	0.06540

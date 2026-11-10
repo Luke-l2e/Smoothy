@@ -1,0 +1,249 @@
+100.00	500001	0	R	1	root
+100.00	500001	0	R1	10239	  Viruses
+ 32.67	163334	0	R2	2559587	    Riboviria
+ 32.67	163334	0	K	2732396	      Orthornavirae
+ 26.81	134058	0	P	2732408	        Pisuviricota
+ 19.00	94988	0	C	2732506	          Pisoniviricetes
+ 19.00	94988	0	O	76804	            Nidovirales
+ 19.00	94988	0	O1	2499399	              Cornidovirineae
+ 19.00	94988	0	F	11118	                Coronaviridae
+ 19.00	94988	0	F1	2501931	                  Orthocoronavirinae
+ 19.00	94988	0	F2	2730119	                    unclassified Orthocoronavirinae
+ 19.00	94988	94988	S	1508220	                      Bat coronavirus
+  7.81	39070	0	O	2942681	          Yadokarivirales
+  7.81	39070	0	F	2946194	            Yadokariviridae
+  7.81	39070	0	G	2946793	              Alphayadokarivirus
+  7.81	39070	0	S	2955320	                Alphayadokarivirus ichibani
+  7.81	39070	39070	S1	1148496	                  Yado-kari virus 1
+  5.08	25405	0	P	2732406	        Kitrinoviricota
+  5.08	25405	0	C	2732462	          Flasuviricetes
+  5.08	25405	0	O	2732545	            Amarillovirales
+  5.08	25405	0	F	11050	              Flaviviridae
+  5.08	25405	0	G	3044782	                Orthoflavivirus
+  5.08	25405	0	G1	3700964	                  Euflavivirus
+  5.08	25405	0	S	3048168	                    Orthoflavivirus kokoberaorum
+  5.08	25405	25392	S1	44024	                      Kokobera virus
+  0.00	13	13	S2	499854	                        New Mapoon virus
+  0.77	3871	0	P	2732405	        Duplornaviricota
+  0.77	3871	0	C	2732458	          Chrymotiviricetes
+  0.77	3871	0	O	2732540	            Ghabrivirales
+  0.77	3871	0	O1	3415267	              Alphatotivirineae
+  0.77	3871	0	F	3152141	                Orthototiviridae
+  0.77	3871	0	G	11007	                  Totivirus
+  0.77	3871	0	S	3432963	                    Totivirus nijyushi
+  0.77	3871	3871	S1	2584813	                      Trichoderma koningiopsis totivirus 1
+ 29.57	147856	0	R2	2731341	    Duplodnaviria
+ 29.57	147856	0	K	2731360	      Heunggongvirae
+ 29.57	147856	0	P	2731618	        Uroviricota
+ 29.57	147856	40	C	2731619	          Caudoviricetes
+ 24.14	120686	0	O	3420545	            Pantevenvirales
+ 24.14	120686	0	F	2946170	              Straboviridae
+ 24.14	120686	0	F1	1198136	                Tevenvirinae
+ 24.14	120686	6122	G	1985325	                  Jiaodavirus
+ 22.82	114084	0	S	1985327	                    Jiaodavirus pko111
+ 22.82	114084	114084	S1	1654928	                      Klebsiella phage PKO111
+  0.03	165	0	S	2956013	                    Jiaodavirus kpv477
+  0.03	165	165	S1	1852625	                      Klebsiella phage vB_KpnM_KpV477
+  0.02	88	0	S	2956011	                    Jiaodavirus kp179
+  0.02	88	88	S1	2315700	                      Klebsiella phage KP179
+  0.02	82	0	S	2956012	                    Jiaodavirus kppv15
+  0.02	82	82	S1	1913572	                      Klebsiella phage KPV15
+  0.02	78	0	S	1985326	                    Jiaodavirus jd18
+  0.02	78	78	S1	1698360	                      Klebsiella phage JD18
+  0.01	67	0	S	2956014	                    Jiaodavirus mineola
+  0.01	67	67	S1	2234047	                      Klebsiella phage Mineola
+  3.55	17767	0	F	2731690	            Demerecviridae
+  3.55	17767	16	F1	2732013	              Markadamsvirinae
+  3.55	17745	5457	G	2732017	                Epseptimavirus
+  2.26	11321	0	S	3428542	                  Epseptimavirus PRFSP13
+  2.26	11321	11321	S1	3025418	                    Salmonella phage PRF-SP13
+  0.01	65	0	S	2846124	                  Epseptimavirus atrejo
+  0.01	65	65	S1	2713277	                    Salmonella phage atrejo
+  0.01	60	0	S	3428531	                  Epseptimavirus GSW6
+  0.01	60	60	S1	3025422	                    Salmonella phage GSW6
+  0.01	54	0	S	3428554	                  Epseptimavirus trudigerster
+  0.01	54	54	S1	2851991	                    Escherichia phage TrudiGerster
+  0.01	47	0	S	3052187	                  Epseptimavirus R201
+  0.01	47	47	S1	1206557	                    Yersinia phage phiR2-01
+  0.01	45	0	S	2732034	                  Epseptimavirus STG2
+  0.01	45	45	S1	2480623	                    Salmonella phage STG2
+  0.01	40	0	S	3428556	                  Epseptimavirus UTK0009
+  0.01	40	40	S1	3028908	                    Salmonella phage vB_SenS_UTK0009
+  0.01	38	0	S	2732027	                  Epseptimavirus S124
+  0.01	38	38	S1	2231351	                    Salmonella phage S124
+  0.01	32	0	S	3428530	                  Epseptimavirus GSP001
+  0.01	32	32	S1	2962598	                    Salmonella phage GSP001
+  0.01	28	0	S	3428550	                  Epseptimavirus STWB21
+  0.01	28	28	S1	2815768	                    Salmonella phage STWB21
+  0.00	25	0	S	3428548	                  Epseptimavirus smaug
+  0.00	25	25	S1	2713322	                    Salmonella phage smaug
+  0.00	25	0	S	3428525	                  Epseptimavirus EscoHU1
+  0.00	25	25	S1	2881221	                    Escherichia phage EscoHU1
+  0.00	24	0	S	2732021	                  Epseptimavirus ev123
+  0.00	24	24	S1	2508061	                    Salmonella phage 1-23
+  0.00	23	0	S	3059990	                  Epseptimavirus RN29
+  0.00	23	23	S1	2910950	                    Salmonella phage vB_STy-RN29
+  0.00	22	0	S	3428526	                  Epseptimavirus ev26175I
+  0.00	22	22	S1	2576478	                    Escherichia phage vB_EcoS-26175I
+  0.00	21	0	S	3428552	                  Epseptimavirus supergirl
+  0.00	21	21	S1	2851993	                    Escherichia phage SuperGirl
+  0.00	19	0	S	491003	                  Epseptimavirus EPS7
+  0.00	19	19	S1	2886918	                    Escherichia phage Eps7
+  0.00	18	0	S	2846098	                  Epseptimavirus SB13
+  0.00	18	18	S1	2591135	                    Salmonella phage vB_SenS_SB13
+  0.00	17	0	S	3428555	                  Epseptimavirus trudiroth
+  0.00	17	17	S1	2851994	                    Escherichia phage TrudiRoth
+  0.00	16	0	S	3428543	                  Epseptimavirus rutana
+  0.00	16	16	S1	2713318	                    Salmonella phage rutana
+  0.00	16	0	S	3428546	                  Epseptimavirus Sds2
+  0.00	16	16	S1	2797309	                    Phage vB_SabS_Sds2
+  0.00	16	0	S	3428522	                  Epseptimavirus bobsandoy
+  0.00	16	16	S1	2713284	                    Salmonella phage bobsandoy
+  0.00	15	0	S	2732019	                  Epseptimavirus mar003J3
+  0.00	15	15	S1	2419761	                    Escherichia phage vB_Eco_mar003J3
+  0.00	15	0	S	2732023	                  Epseptimavirus LVR16A
+  0.00	15	15	S1	2041204	                    Salmonella phage LVR16A
+  0.00	14	0	S	2732035	                  Epseptimavirus Sw2
+  0.00	14	14	S1	2316014	                    Salmonella phage Sw2
+  0.00	14	0	S	2846117	                  Epseptimavirus sepoy
+  0.00	14	14	S1	2565517	                    Salmonella phage Sepoy
+  0.00	13	0	S	3428534	                  Epseptimavirus JNwz02
+  0.00	13	13	S1	2861003	                    Salmonella phage JNwz02
+  0.00	13	0	S	3428532	                  Epseptimavirus irmatschudi
+  0.00	13	13	S1	2851992	                    Escherichia phage IrmaTschudi
+  0.00	11	0	S	3428521	                  Epseptimavirus beppo
+  0.00	11	11	S1	2713280	                    Salmonella phage beppo
+  0.00	11	0	S	2846126	                  Epseptimavirus bastian
+  0.00	11	11	S1	2713279	                    Salmonella phage bastian
+  0.00	11	0	S	2732024	                  Epseptimavirus S113
+  0.00	11	11	S1	2231342	                    Salmonella phage S113
+  0.00	11	0	S	2846132	                  Epseptimavirus fuchur
+  0.00	11	11	S1	2713299	                    Salmonella phage fuchur
+  0.00	10	0	S	3428544	                  Epseptimavirus SB10
+  0.00	10	10	S1	2591134	                    Salmonella phage vB_SenS_SB10
+  0.00	10	0	S	2732029	                  Epseptimavirus S132
+  0.00	10	10	S1	2231355	                    Salmonella phage S132
+  0.00	9	0	S	3428528	                  Epseptimavirus gretekellenberger
+  0.00	9	9	S1	2851990	                    Escherichia phage GreteKellenberger
+  0.00	9	0	S	2846102	                  Epseptimavirus SE24
+  0.00	9	9	S1	1647454	                    Salmonella phage SE24
+  0.00	8	0	S	3428549	                  Epseptimavirus SP76
+  0.00	8	8	S1	2785525	                    Salmonella phage SP76
+  0.00	8	0	S	1540099	                  Epseptimavirus stitch
+  0.00	8	8	S1	2991861	                    Salmonella phage Stitch
+  0.00	8	0	S	3428524	                  Epseptimavirus ende
+  0.00	8	8	S1	2713296	                    Salmonella phage ende
+  0.00	8	0	S	3428537	                  Epseptimavirus misterkot
+  0.00	8	8	S1	2713305	                    Salmonella phage misterkot
+  0.00	7	0	S	2732033	                  Epseptimavirus SH9
+  0.00	7	7	S1	2025819	                    Salmonella phage SH9
+  0.00	7	0	S	3428557	                  Epseptimavirus UTK0010
+  0.00	7	7	S1	3028909	                    Salmonella phage vB_SenS_UTK0010
+  0.00	7	0	S	2732028	                  Epseptimavirus S126
+  0.00	7	7	S1	2231352	                    Salmonella phage S126
+  0.00	7	0	S	2846095	                  Epseptimavirus OSYSTA
+  0.00	7	7	S1	2596884	                    Salmonella phage OSY-STA
+  0.00	6	0	S	3428545	                  Epseptimavirus SB9
+  0.00	6	6	S1	2588125	                    Salmonella phage vB_SenS_SB9
+  0.00	6	0	S	3428536	                  Epseptimavirus METP1137112
+  0.00	6	6	S1	3032422	                    Salmonella phage MET_P1_137_112
+  0.00	6	0	S	3428553	                  Epseptimavirus thor
+  0.00	6	6	S1	2801536	                    Salmonella phage SP_Thor
+  0.00	5	0	S	3428535	                  Epseptimavirus KKP3831
+  0.00	5	5	S1	3027684	                    Salmonella phage KKP_3831
+  0.00	5	0	S	2732026	                  Epseptimavirus S116
+  0.00	5	5	S1	2231345	                    Salmonella phage S116
+  0.00	4	0	S	3428551	                  Epseptimavirus STyj51
+  0.00	4	4	S1	2801510	                    Salmonella phage vB STyj5-1
+  0.00	4	0	S	3428523	                  Epseptimavirus bux
+  0.00	4	4	S1	2713288	                    Salmonella phage bux
+  0.00	4	0	S	2846082	                  Epseptimavirus ev129
+  0.00	4	4	S1	2601628	                    Salmonella phage 1-29
+  0.00	4	0	S	3428529	                  Epseptimavirus GRNsp8
+  0.00	4	4	S1	2948589	                    Salmonella phage GRNsp8
+  0.00	4	0	S	2732020	                  Epseptimavirus saus132
+  0.00	4	4	S1	2024325	                    Escherichia phage saus132
+  0.00	4	0	S	3428527	                  Epseptimavirus falkor
+  0.00	4	4	S1	2713298	                    Salmonella phage falkor
+  0.00	4	0	S	2846140	                  Epseptimavirus rokbiter
+  0.00	4	4	S1	2713317	                    Salmonella phage rokbiter
+  0.00	4	0	S	3428558	                  Epseptimavirus vaffelhjerte
+  0.00	4	4	S1	2713325	                    Salmonella phage vaffelhjerte
+  0.00	3	0	S	3428541	                  Epseptimavirus polluks
+  0.00	3	3	S1	2713313	                    Salmonella phage polluks
+  0.00	3	0	S	2732022	                  Epseptimavirus ev329
+  0.00	3	3	S1	2508069	                    Salmonella phage 3-29
+  0.00	3	0	S	2732032	                  Epseptimavirus seafire
+  0.00	3	3	S1	2483612	                    Salmonella phage Seafire
+  0.00	3	0	S	3428538	                  Epseptimavirus N3
+  0.00	3	3	S1	2777377	                    Salmonella phage GEC_vB_N3
+  0.00	3	0	S	3428533	                  Epseptimavirus JNS202001
+  0.00	3	3	S1	2959432	                    Salmonella phage JN-S202001
+  0.00	3	0	S	3428520	                  Epseptimavirus BD13
+  0.00	3	3	S1	2912287	                    Salmonella phage BD13
+  0.00	2	0	S	3428539	                  Epseptimavirus N7
+  0.00	2	2	S1	2777380	                    Salmonella phage GEC_vB_N7
+  0.00	2	0	S	3428547	                  Epseptimavirus SE3
+  0.00	2	2	S1	2575327	                    Salmonella phage SE3
+  0.00	2	0	S	2846085	                  Epseptimavirus ev23
+  0.00	2	2	S1	2601697	                    Salmonella phage 2-3
+  0.00	2	0	S	2846131	                  Epseptimavirus faergetype
+  0.00	2	2	S1	2713297	                    Salmonella phage faergetype
+  0.00	2	0	S	2846137	                  Epseptimavirus oselot
+  0.00	2	2	S1	2713309	                    Salmonella phage oselot
+  0.00	1	0	S	3428540	                  Epseptimavirus phagemcphageface
+  0.00	1	1	S1	2713311	                    Salmonella phage phagemcphageface
+  0.00	1	0	S	2732031	                  Epseptimavirus S147
+  0.00	1	1	S1	2231362	                    Salmonella phage S147
+  0.00	6	3	G	187218	                Tequintavirus
+  0.00	1	0	S	3432736	                  Tequintavirus EC100
+  0.00	1	1	S1	2894397	                    Escherichia phage EC100
+  0.00	1	0	S	2733984	                  Tequintavirus mar004NP2
+  0.00	1	1	S1	2419762	                    Escherichia phage vB_Eco_mar004NP2
+  0.00	1	0	S	2733982	                  Tequintavirus DT5712
+  0.00	1	1	S1	1567007	                    Escherichia phage DT571/2
+  1.87	9361	1081	G	2948910	            Skatevirus
+  1.63	8162	0	S	2956462	              Skatevirus skate
+  1.63	8162	8162	S1	2234035	                Salmonella phage Skate
+  0.01	54	0	S	2956457	              Skatevirus KFSSE2
+  0.01	54	54	S1	2583286	                Salmonella virus KFS-SE2
+  0.01	53	0	S	2956456	              Skatevirus BS5
+  0.01	53	53	S1	2686071	                Salmonella phage VB_StyS_BS5
+  0.00	4	0	S	2956459	              Skatevirus SeSz2
+  0.00	4	4	S1	2419753	                Salmonella phage SeSz-2
+  0.00	4	0	S	2956461	              Skatevirus VSt472
+  0.00	4	4	S1	2301723	                Salmonella virus VSt472
+  0.00	3	0	S	2956460	              Skatevirus Seszw1
+  0.00	3	3	S1	2479482	                Salmonella phage Seszw_1
+  0.00	1	0	F	2842329	            Schitoviridae
+  0.00	1	0	F1	2842416	              Humphriesvirinae
+  0.00	1	0	G	2169643	                Ithacavirus
+  0.00	1	0	S	2170217	                  Ithacavirus SP076
+  0.00	1	1	S1	1173762	                    Salmonella phage FSL SP-076
+  0.00	1	0	O	3420540	            Autographivirales
+  0.00	1	0	F	3424636	              Autosignataviridae
+  0.00	1	0	F1	2731650	                Molineuxvirinae
+  0.00	1	0	G	542837	                  Zindervirus
+  0.00	1	0	S	194966	                    Zindervirus SP6
+  0.00	1	1	S1	2907955	                      Salmonella phage SP6
+ 21.78	108890	0	R2	2731342	    Floreoviria
+ 21.78	108890	0	K	2732092	      Shotokuvirae
+ 21.78	108890	0	P	2732415	        Cossaviricota
+ 19.91	99529	0	C	2732421	          Papovaviricetes
+ 19.91	99529	0	O	2732533	            Zurhausenvirales
+ 19.91	99529	0	F	151340	              Papillomaviridae
+ 19.91	99529	0	F1	2169595	                Firstpapillomavirinae
+ 19.91	99529	0	G	333750	                  Alphapapillomavirus
+ 19.91	99529	0	S	931244	                    Alphapapillomavirus 14
+ 19.91	99529	99529	S1	120686	                      human papillomavirus 71
+  1.87	9361	0	C	2732422	          Quintoviricetes
+  1.87	9361	0	O	2732534	            Piccovirales
+  1.87	9361	0	F	10780	              Parvoviridae
+  1.87	9361	0	F1	40119	                Parvovirinae
+  1.87	9361	0	G	1511864	                  Aveparvovirus
+  1.87	9361	0	S	3059751	                    Aveparvovirus passeriform1
+  1.87	9361	9361	S1	2137544	                      Pileated finch aveparvovirus
+ 15.98	79921	0	R2	12429	    unclassified viruses
+ 15.98	79921	0	R3	2204151	      unclassified DNA viruses
+ 15.98	79921	0	R4	2136008	        unclassified archaeal dsDNA viruses
+ 15.98	79921	79921	S	1732179	          Sulfolobales virus YNP1

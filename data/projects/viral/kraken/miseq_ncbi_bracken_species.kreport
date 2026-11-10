@@ -1,0 +1,104 @@
+100.00	499814	0	R	1	root
+100.00	499814	0	R1	10239	  Viruses
+32.68	163334	0	R2	2559587	    Riboviria
+32.68	163334	0	K	2732396	      Orthornavirae
+26.82	134058	0	P	2732408	        Pisuviricota
+19.00	94988	0	C	2732506	          Pisoniviricetes
+19.00	94988	0	O	76804	            Nidovirales
+19.00	94988	0	O1	2499399	              Cornidovirineae
+19.00	94988	0	F	11118	                Coronaviridae
+19.00	94988	0	F1	2501931	                  Orthocoronavirinae
+19.00	94988	0	F2	2730119	                    unclassified Orthocoronavirinae
+19.00	94988	94988	S	1508220	                      Bat coronavirus
+7.82	39070	0	O	2942681	          Yadokarivirales
+7.82	39070	0	F	2946194	            Yadokariviridae
+7.82	39070	0	G	2946793	              Alphayadokarivirus
+7.82	39070	39070	S	2955320	                Alphayadokarivirus ichibani
+5.08	25405	0	P	2732406	        Kitrinoviricota
+5.08	25405	0	C	2732462	          Flasuviricetes
+5.08	25405	0	O	2732545	            Amarillovirales
+5.08	25405	0	F	11050	              Flaviviridae
+5.08	25405	0	G	3044782	                Orthoflavivirus
+5.08	25405	0	G1	3700964	                  Euflavivirus
+5.08	25405	25405	S	3048168	                    Orthoflavivirus kokoberaorum
+0.77	3871	0	P	2732405	        Duplornaviricota
+0.77	3871	0	C	2732458	          Chrymotiviricetes
+0.77	3871	0	O	2732540	            Ghabrivirales
+0.77	3871	0	O1	3415267	              Alphatotivirineae
+0.77	3871	0	F	3152141	                Orthototiviridae
+0.77	3871	0	G	11007	                  Totivirus
+0.77	3871	3871	S	3432963	                    Totivirus nijyushi
+29.54	147668	0	R2	2731341	    Duplodnaviria
+29.54	147668	0	K	2731360	      Heunggongvirae
+29.54	147668	0	P	2731618	        Uroviricota
+29.54	147668	0	C	2731619	          Caudoviricetes
+24.15	120686	0	O	3420545	            Pantevenvirales
+24.15	120686	0	F	2946170	              Straboviridae
+24.15	120686	0	F1	1198136	                Tevenvirinae
+24.15	120686	0	G	1985325	                  Jiaodavirus
+24.04	120175	120175	S	1985327	                    Jiaodavirus pko111
+0.03	173	173	S	2956013	                    Jiaodavirus kpv477
+0.02	92	92	S	2956011	                    Jiaodavirus kp179
+0.02	87	87	S	2956012	                    Jiaodavirus kppv15
+0.02	84	84	S	1985326	                    Jiaodavirus jd18
+0.01	72	72	S	2956014	                    Jiaodavirus mineola
+3.52	17593	0	F	2731690	            Demerecviridae
+3.52	17593	0	F1	2732013	              Markadamsvirinae
+3.52	17593	0	G	2732017	                Epseptimavirus
+3.30	16493	16493	S	3428542	                  Epseptimavirus PRFSP13
+0.02	105	105	S	2846124	                  Epseptimavirus atrejo
+0.01	60	60	S	3428531	                  Epseptimavirus GSW6
+0.01	54	54	S	3428554	                  Epseptimavirus trudigerster
+0.01	47	47	S	3052187	                  Epseptimavirus R201
+0.01	48	48	S	2732034	                  Epseptimavirus STG2
+0.01	44	44	S	3428556	                  Epseptimavirus UTK0009
+0.01	39	39	S	2732027	                  Epseptimavirus S124
+0.01	36	36	S	3428530	                  Epseptimavirus GSP001
+0.01	31	31	S	3428550	                  Epseptimavirus STWB21
+0.01	34	34	S	3428525	                  Epseptimavirus EscoHU1
+0.01	35	35	S	3428548	                  Epseptimavirus smaug
+0.01	38	38	S	2732021	                  Epseptimavirus ev123
+0.01	25	25	S	3059990	                  Epseptimavirus RN29
+0.01	28	28	S	3428526	                  Epseptimavirus ev26175I
+0.01	35	35	S	3428552	                  Epseptimavirus supergirl
+0.01	30	30	S	491003	                  Epseptimavirus EPS7
+0.01	29	29	S	2846098	                  Epseptimavirus SB13
+0.00	24	24	S	3428555	                  Epseptimavirus trudiroth
+0.00	23	23	S	3428522	                  Epseptimavirus bobsandoy
+0.01	29	29	S	3428546	                  Epseptimavirus Sds2
+0.01	28	28	S	3428543	                  Epseptimavirus rutana
+0.00	22	22	S	2732023	                  Epseptimavirus LVR16A
+0.00	21	21	S	2732019	                  Epseptimavirus mar003J3
+0.01	27	27	S	2846117	                  Epseptimavirus sepoy
+0.00	23	23	S	2732035	                  Epseptimavirus Sw2
+0.00	23	23	S	3428532	                  Epseptimavirus irmatschudi
+0.00	22	22	S	3428534	                  Epseptimavirus JNwz02
+0.00	22	22	S	2846132	                  Epseptimavirus fuchur
+0.01	28	28	S	2732024	                  Epseptimavirus S113
+0.00	20	20	S	2846126	                  Epseptimavirus bastian
+0.00	19	19	S	3428521	                  Epseptimavirus beppo
+0.00	15	15	S	2732029	                  Epseptimavirus S132
+0.00	19	19	S	3428544	                  Epseptimavirus SB10
+1.88	9389	0	G	2948910	            Skatevirus
+1.85	9265	9265	S	2956462	              Skatevirus skate
+0.01	54	54	S	2956457	              Skatevirus KFSSE2
+0.01	69	69	S	2956456	              Skatevirus BS5
+21.79	108890	0	R2	2731342	    Floreoviria
+21.79	108890	0	K	2732092	      Shotokuvirae
+21.79	108890	0	P	2732415	        Cossaviricota
+19.91	99529	0	C	2732421	          Papovaviricetes
+19.91	99529	0	O	2732533	            Zurhausenvirales
+19.91	99529	0	F	151340	              Papillomaviridae
+19.91	99529	0	F1	2169595	                Firstpapillomavirinae
+19.91	99529	0	G	333750	                  Alphapapillomavirus
+19.91	99529	99529	S	931244	                    Alphapapillomavirus 14
+1.87	9361	0	C	2732422	          Quintoviricetes
+1.87	9361	0	O	2732534	            Piccovirales
+1.87	9361	0	F	10780	              Parvoviridae
+1.87	9361	0	F1	40119	                Parvovirinae
+1.87	9361	0	G	1511864	                  Aveparvovirus
+1.87	9361	9361	S	3059751	                    Aveparvovirus passeriform1
+15.99	79921	0	R2	12429	    unclassified viruses
+15.99	79921	0	R3	2204151	      unclassified DNA viruses
+15.99	79921	0	R4	2136008	        unclassified archaeal dsDNA viruses
+15.99	79921	79921	S	1732179	          Sulfolobales virus YNP1
