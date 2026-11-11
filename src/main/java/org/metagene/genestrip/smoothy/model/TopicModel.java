@@ -183,7 +183,7 @@ public class TopicModel {
         List<String> topicsWithoutRow = new ArrayList<>(); // admitted nodes with empty G(m) or a row total of 0: not fitted
         List<int[]> rowNodes = new ArrayList<>(); // per topic m, the indices n of N_s ∩ path(m) where its row is kept
         List<double[]> rowValues = new ArrayList<>(); // per topic m, p̃(n | m) = φ_nm of Eq. (5), aligned with rowNodes
-        List<double[]> memberHoldsPerTopic = new ArrayList<>(); // per topic m, κ_h(m) of each member h ∈ G(m), Eq. (14)
+        List<double[]> memberHoldsPerTopic = new ArrayList<>(); // per topic m, ρ_h(m) of each member h ∈ G(m), Eq. (14)
         for (String node : admittedNodes) { // node = m
             List<Member> pool = pools.get(node); // G(m)
             String[] path = topicPaths.get(node); // path(m)
@@ -192,7 +192,7 @@ public class TopicModel {
                 continue;
             }
             long[] rowCounts = new long[path.length]; // Σ_{h ∈ G(m)} κ_h(n) per n ∈ path(m): numerator of Eq. (4)
-            double[] memberHolds = new double[pool.size()]; // κ_h(m) = Σ_{n ∈ path(m)} κ_h(n) per member h, Eq. (14)
+            double[] memberHolds = new double[pool.size()]; // ρ_h(m) = Σ_{n ∈ path(m)} κ_h(n) per member h, Eq. (14)
             for (int memberIndex = 0; memberIndex < pool.size(); memberIndex++) {
                 Member member = pool.get(memberIndex);
                 for (int pathPosition = 0; pathPosition < rowCounts.length; pathPosition++) {
@@ -328,13 +328,13 @@ public class TopicModel {
         double abundanceSum = 0; // Σ_m ã_m: denominator of Eq. (18)
         double[] abundance = new double[topicCount]; // ã_m = θ_m / E_m, Eq. (17); a_m once divided by abundanceSum
         for (int m = 0; m < topicCount; m++) {
-            double holdSum = 0; // Σ_{h ∈ G(m)} κ_h(m): the row's total
-            double holdSquares = 0; // Σ_{h ∈ G(m)} κ_h(m)²
+            double holdSum = 0; // Σ_{h ∈ G(m)} ρ_h(m): the row's total
+            double holdSquares = 0; // Σ_{h ∈ G(m)} ρ_h(m)²
             for (double memberHold : memberHoldsPerTopic.get(m)) {
                 holdSum += memberHold;
                 holdSquares += memberHold * memberHold;
             }
-            expectedHold[m] = holdSquares / holdSum; // Eq. (16): Σ_h q_m(h) κ_h(m) with q_m(h) = κ_h(m) / holdSum
+            expectedHold[m] = holdSquares / holdSum; // Eq. (16): Σ_h q_m(h) ρ_h(m) with q_m(h) = ρ_h(m) / holdSum
             abundance[m] = theta[m] / expectedHold[m];
             abundanceSum += abundance[m];
         }
@@ -364,7 +364,7 @@ public class TopicModel {
         if (pool == null) {
             return 0;
         }
-        double[] holds = new double[pool.size()]; // κ_h(n) summed over path(n), Eq. (14)
+        double[] holds = new double[pool.size()]; // ρ_h(n) = Σ of κ_h over path(n), Eq. (14)
         double holdSum = 0;
         for (int i = 0; i < holds.length; i++) {
             Member member = pool.get(i);
