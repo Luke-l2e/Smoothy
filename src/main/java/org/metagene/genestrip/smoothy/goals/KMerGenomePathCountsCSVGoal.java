@@ -100,13 +100,11 @@ public class KMerGenomePathCountsCSVGoal<P extends SmoothyProject> extends FileG
     /**
      * The file sits in the project's {@code db} folder beside the database it was measured on, since
      * the counts are a property of that database and not of any sample. Its name is derived from the
-     * project and goal names, as for every other output file, and marked when the counts include the
-     * unstored genomes, see {@link KMerGenomePathCountsGoal#outputName(SmoothyProject, String)}.
+     * project and goal names, as for every other output file.
      */
     @Override
     public List<File> getFiles() {
-        return Collections.singletonList(getProject().getOutputFile(getProject().getDBDir(),
-                KMerGenomePathCountsGoal.outputName(getProject(), getKey().getName()),
+        return Collections.singletonList(getProject().getOutputFile(getProject().getDBDir(), getKey().getName(),
                 null, null, GSProject.GSFileType.CSV, false));
     }
 

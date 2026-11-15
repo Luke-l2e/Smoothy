@@ -10,7 +10,6 @@ import org.metagene.genestrip.GSProject;
 import org.metagene.genestrip.make.FileGoal;
 import org.metagene.genestrip.make.FileListGoal;
 import org.metagene.genestrip.make.ObjectGoal;
-import org.metagene.genestrip.smoothy.SmoothyConfigKey;
 import org.metagene.genestrip.smoothy.SmoothyGoalKey;
 import org.metagene.genestrip.smoothy.SmoothyMaker;
 import org.metagene.genestrip.smoothy.SmoothyProject;
@@ -424,14 +423,12 @@ public class KMerGenomePathCountsGoalTest {
      * since DENV4 took part in the update.
      * <p>
      * DENV4 must then get an entry of its own, sitting at the nearest node the tree has above its taxon,
-     * and hold at least what genome 3 holds of the shared stretch at the node it is stored at. Counting
-     * the stored genomes only must leave their counts exactly as they are and write files of another
-     * name.
+     * and hold at least what genome 3 holds of the shared stretch at the node it is stored at.
      */
     @Test
     public void genomeOutsideTheDatabaseIsCountedAtTheNearestAncestor() throws IOException {
         Map<String, long[]> withUnstored;
-        SmoothyMaker<SmoothyProject> maker = new SmoothyMaker<>(createOtherProject(true, null, null));
+        SmoothyMaker<SmoothyProject> maker = new SmoothyMaker<>(createOtherProject(null, null));
         try {
             SmallTaxTree tree = getDatabase(maker).getTaxTree();
             assertNull("DENV4 must not be in the database", tree.getNodeByTaxId(DENV4));
@@ -459,22 +456,7 @@ public class KMerGenomePathCountsGoalTest {
             assertTrue(denv4Index >= 0);
             assertTrue(withUnstored.get(denv4)[denv4Index] >= g3Counts[g3Index]);
 
-            FileGoal<SmoothyProject> csvGoal = (FileGoal<SmoothyProject>) maker.getGoal(SmoothyGoalKey.KMER_GENOME_PATH_COUNTS_CSV);
-            assertTrue(csvGoal.getFiles().get(0).getName().contains("_withunstored"));
             assertCsvMatches(maker, tree, withUnstored);
-        } finally {
-            maker.dumpAll();
-        }
-
-        maker = new SmoothyMaker<>(createOtherProject(false, null, null));
-        try {
-            Map<String, long[]> storedOnly = getCounts(maker);
-            assertEquals(storedKeys(withUnstored), storedOnly.keySet());
-            for (String taxId : storedOnly.keySet()) {
-                assertArrayEquals(taxId, withUnstored.get(taxId), storedOnly.get(taxId));
-            }
-            FileGoal<SmoothyProject> serGoal = (FileGoal<SmoothyProject>) maker.getGoal(SmoothyGoalKey.KMER_GENOME_PATH_COUNTS_SER);
-            assertFalse(serGoal.getFiles().get(0).getName().contains("_withunstored"));
         } finally {
             maker.dumpAll();
         }
@@ -482,9 +464,8 @@ public class KMerGenomePathCountsGoalTest {
 
     /**
      * The mixed case: a sample of DENV4, which the database does not hold, beside genome 1, which it
-     * does. Counting DENV4 puts it into the pool of the topic at Dengue virus, which therefore speaks for
-     * one genome more than with the stored genomes alone, and that topic carries a real share of the
-     * sample.
+     * does. DENV4 is counted at Dengue virus, so the topic there has a pool to speak for and carries a
+     * real share of the sample.
      */
     @Test
     public void genomeOutsideTheDatabaseJoinsThePoolOfItsAncestorsTopic() throws IOException {
@@ -497,23 +478,17 @@ public class KMerGenomePathCountsGoalTest {
         write(sample, fastq.toString());
         String[] fastqFiles = {sample.getAbsolutePath()};
 
-        Topic withUnstored;
-        SmoothyMaker<SmoothyProject> maker = new SmoothyMaker<>(createOtherProject(true, "denv4g1", fastqFiles));
+        SmoothyMaker<SmoothyProject> maker = new SmoothyMaker<>(createOtherProject("denv4g1", fastqFiles));
         try {
-            withUnstored = topic(topicModel(maker), DENGUE_VIRUS);
+            String denv4 = unstoredKey(getCounts(maker), DENV4_KEY);
+            assertEquals(DENGUE_VIRUS, KMerGenomePathCountsGoal.nodeOf(denv4));
+            Topic dengue = topic(topicModel(maker), DENGUE_VIRUS);
+            assertNotNull("Dengue virus must be a topic", dengue);
+            assertTrue(dengue.getGenomes() >= 1);
+            assertTrue(dengue.getKmerShare() > 0.1);
         } finally {
             maker.dumpAll();
         }
-        Topic storedOnly;
-        maker = new SmoothyMaker<>(createOtherProject(false, "denv4g1", fastqFiles));
-        try {
-            storedOnly = topic(topicModel(maker), DENGUE_VIRUS);
-        } finally {
-            maker.dumpAll();
-        }
-        assertNotNull("Dengue virus must be a topic", withUnstored);
-        assertTrue(withUnstored.getGenomes() > (storedOnly == null ? 0 : storedOnly.getGenomes()));
-        assertTrue(withUnstored.getKmerShare() > 0.1);
     }
 
     private static TopicModelResult topicModel(SmoothyMaker<SmoothyProject> maker) {
@@ -599,19 +574,16 @@ public class KMerGenomePathCountsGoalTest {
      * DENV4 of the release are outside its tree. It holds genomes 1 and 2 as the other projects do, and
      * genome 3 at DENV1, which is a stretch of DENV4.
      *
-     * @param unstoredGenomes {@code smoothy.unstoredGenomes}
-     * @param sampleKey       the key the samples are analysed under, or {@code null}
-     * @param fastqFiles      the samples, or {@code null}
+     * @param sampleKey  the key the samples are analysed under, or {@code null}
+     * @param fastqFiles the samples, or {@code null}
      */
-    private static SmoothyProject createOtherProject(boolean unstoredGenomes, String sampleKey, String[] fastqFiles)
-            throws IOException {
+    private static SmoothyProject createOtherProject(String sampleKey, String[] fastqFiles) throws IOException {
         SmoothyProject project = createProject("smoothyother", DENV1, DENV2, null, 0, sampleKey, fastqFiles);
         write(new File(project.getProjectDir(), "taxids.txt"), DENV1 + "\n" + DENV2 + "\n");
         write(new File(project.getProjectDir(), "additional.txt"),
                 DENV1 + " g1.fasta\n" + DENV2 + " g2.fasta\n" + DENV1 + " g3.fasta\n");
         write(new File(project.getFastaDir(), "g3.fasta"), ">" + G3_CONTIG + " synthetic\n"
                 + releaseSequence(DENV4_ACCESSION).substring(DENV4_STRETCH_START, DENV4_STRETCH_END) + "\n");
-        project.initConfigParam(SmoothyConfigKey.UNSTORED_GENOMES, unstoredGenomes);
         return project;
     }
 

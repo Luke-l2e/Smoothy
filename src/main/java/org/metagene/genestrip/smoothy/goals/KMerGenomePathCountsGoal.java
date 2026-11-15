@@ -32,7 +32,6 @@ import org.metagene.genestrip.make.Goal;
 import org.metagene.genestrip.make.GoalKey;
 import org.metagene.genestrip.make.ObjectGoal;
 import org.metagene.genestrip.refseq.*;
-import org.metagene.genestrip.smoothy.SmoothyConfigKey;
 import org.metagene.genestrip.smoothy.SmoothyProject;
 import org.metagene.genestrip.store.Database;
 import org.metagene.genestrip.store.KMerStore;
@@ -63,8 +62,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * filter is involved and nothing is deduplicated: a k-mer occurring twice in a genome is counted twice,
  * which is what distinguishes this walk from the one that fills the database.
  * <p>
- * Section 3.2 of the paper (p. 21) tells three kinds of genome apart, and with
- * {@link SmoothyConfigKey#UNSTORED_GENOMES} set, as it is by default, the goal counts all three:
+ * Section 3.2 of the paper (p. 21) tells three kinds of genome apart, and the goal counts all three:
  * <ol>
  * <li>A genome the database stored sits at its own {@code GENOME} node, which requires the database to
  * have been built with {@code genomeNodes=true}. Its entry is keyed by that node's tax id.</li>
@@ -141,26 +139,10 @@ public class KMerGenomePathCountsGoal<P extends SmoothyProject> extends FastaRea
         // counting them needs the release even where the database was not filled from it - as the
         // update itself does, see DBGoal.
         super(project, key, bundle, categoriesGoal, taxNodesGoal, fnaFilesGoal, additionalGoal,
-                project.booleanConfigValue(SmoothyConfigKey.UNSTORED_GENOMES)
-                        || project.booleanConfigValue(GSConfigKey.REF_SEQ_DB),
-                Goal.append(deps, accessionMapGoal, dbGoal, taxTreeGoal));
+                true, Goal.append(deps, accessionMapGoal, dbGoal, taxTreeGoal));
         this.accessionMapGoal = accessionMapGoal;
         this.dbGoal = dbGoal;
         updateScope = (GSConfigKey.UpdateScope) project.configValue(GSConfigKey.UPDATE_SCOPE);
-    }
-
-    /**
-     * Returns the name the output files of the path counts are derived from: the goal's name, marked
-     * when the counts include the genomes the database did not store. Counts of the two kinds therefore
-     * never stand in for each other, and files written before the unstored genomes were counted keep
-     * meaning what they meant.
-     *
-     * @param project  the project
-     * @param goalName the name of the goal writing the file
-     * @return the name to derive the file name from
-     */
-    public static String outputName(SmoothyProject project, String goalName) {
-        return project.booleanConfigValue(SmoothyConfigKey.UNSTORED_GENOMES) ? goalName + "_withunstored" : goalName;
     }
 
     /**
@@ -226,7 +208,7 @@ public class KMerGenomePathCountsGoal<P extends SmoothyProject> extends FastaRea
                     map.put(node.getTaxId(), new long[pathLength(node)]);
                 }
             }
-            countUnstored = booleanConfigValue(SmoothyConfigKey.UNSTORED_GENOMES);
+            countUnstored = true;
             if (map.isEmpty()) {
                 // Otherwise the goal reads every genome only to hand back an empty map without a word.
                 // Without genome nodes no genome can be told from its taxon, so none counts as unstored

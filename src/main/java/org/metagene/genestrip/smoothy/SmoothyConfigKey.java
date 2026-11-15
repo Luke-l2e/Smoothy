@@ -13,23 +13,6 @@ import org.metagene.genestrip.tax.Rank;
  */
 public enum SmoothyConfigKey implements ConfigKey {
     /**
-     * Whether the path counts also cover the genomes the database did not store, the second and third
-     * case of Section 3.2 (p. 21): a genome of a taxon the database names but whose genome it did not
-     * enter, and a genome of a taxon the database's tree does not have at all.
-     */
-    @MDDescription("Whether `kmergenomepathcounts` also counts the genomes the database did not store, reading every "
-            + "genome of the RefSeq release that took part in the database's LCA update (`refseq.updateScope`). A "
-            + "genome of a taxon the database names but did not enter is filed at that taxon, one of a taxon missing "
-            + "from the database's tree at the nearest ancestor the tree has. Either joins the pool of the most "
-            + "specific topic above it, which gives the topics at inner nodes rows for material the database cannot "
-            + "name. `false` counts the stored genomes only, as before. The setting is part of the output files' "
-            + "names, so counts of both kinds can sit side by side.")
-    UNSTORED_GENOMES("unstoredGenomes", new ConfigParamInfo.BooleanConfigParamInfo(true),
-            SmoothyGoalKey.KMER_GENOME_PATH_COUNTS, SmoothyGoalKey.KMER_GENOME_PATH_COUNTS_CSV,
-            SmoothyGoalKey.KMER_GENOME_PATH_COUNTS_SER, SmoothyGoalKey.LOAD_KMER_GENOME_PATH_COUNTS,
-            SmoothyGoalKey.FT_KMER_GENOME_PATH_COUNTS, SmoothyGoalKey.FT_KMER_GENOME_PATH_COUNTS_CSV,
-            SmoothyGoalKey.FT_KMER_GENOME_PATH_COUNTS_SER, SmoothyGoalKey.LOAD_FT_KMER_GENOME_PATH_COUNTS),
-    /**
      * The admission threshold T of Equation (2): the count a node needs to be a topic at all.
      */
     @MDDescription("The admission threshold *T* of the topic model: a node is a topic for a sample only if the sample "

@@ -37,9 +37,9 @@ import java.util.*;
  * correction of Equation (6) is not applied, since under maximum likelihood it does not move the
  * estimate.
  * <p>
- * What the counts do not cover, the model cannot either. Given only the stored genomes - the counts
- * measured with {@code smoothy.unstoredGenomes=false} - a taxon whose genomes all have topics of their own
- * gets no row and is reported in {@link TopicModelResult#getTopicsWithoutRow()} rather than fitted.
+ * What the counts do not cover, the model cannot either. A taxon for which no genome is counted beyond
+ * those with topics of their own - typically one whose every genome the database stored - gets no row and
+ * is reported in {@link TopicModelResult#getTopicsWithoutRow()} rather than fitted.
  */
 public class TopicModel {
     /**
