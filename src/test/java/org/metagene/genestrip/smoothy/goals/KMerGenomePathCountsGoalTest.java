@@ -10,6 +10,7 @@ import org.metagene.genestrip.GSProject;
 import org.metagene.genestrip.make.FileGoal;
 import org.metagene.genestrip.make.FileListGoal;
 import org.metagene.genestrip.make.ObjectGoal;
+import org.metagene.genestrip.smoothy.SmoothyConfigKey;
 import org.metagene.genestrip.smoothy.SmoothyGoalKey;
 import org.metagene.genestrip.smoothy.SmoothyMaker;
 import org.metagene.genestrip.smoothy.SmoothyProject;
@@ -20,15 +21,19 @@ import org.metagene.genestrip.tax.Rank;
 import org.metagene.genestrip.tax.SmallTaxTree;
 import org.metagene.genestrip.tax.SmallTaxTree.SmallTaxIdNode;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.stream.Stream;
+import java.util.zip.GZIPInputStream;
 
 import static org.junit.Assert.*;
 
@@ -74,6 +79,20 @@ public class KMerGenomePathCountsGoalTest {
     private static final String DENV1_STRAIN = "11054";
     private static final String DENV2_STRAIN = "11061";
     private static final String DENGUE_SPECIES = "3052464";
+    /**
+     * Dengue virus, the parent of the four serotypes, and serotype 4 with its genome in the release.
+     */
+    private static final String DENGUE_VIRUS = "12637";
+    private static final String DENV4 = "11070";
+    private static final String DENV4_ACCESSION = "NC_002640.1";
+    private static final String DENV4_KEY = "NC_002640";
+    /**
+     * Genome 3: a stretch of DENV4, stored at DENV1.
+     */
+    private static final String G3_CONTIG = "NC_999003.1";
+    private static final String G3_KEY = "NC_999003";
+    private static final int DENV4_STRETCH_START = 1000;
+    private static final int DENV4_STRETCH_END = 1400;
 
     private static final String[] G1_CONTIGS;
     private static final String G2_SEQ;
@@ -95,6 +114,7 @@ public class KMerGenomePathCountsGoalTest {
         // fixture would otherwise be loaded instead of built by the code under test.
         deleteRecursively(new File(getBaseDir(), "projects/smoothytest"));
         deleteRecursively(new File(getBaseDir(), "projects/smoothyfold"));
+        deleteRecursively(new File(getBaseDir(), "projects/smoothyother"));
     }
 
     /**
@@ -132,7 +152,8 @@ public class KMerGenomePathCountsGoalTest {
         csvGoal.make();
         List<String> lines = Files.readAllLines(csvGoal.getFiles().get(0).toPath(), StandardCharsets.UTF_8);
 
-        assertEquals("genome taxid;genome name;position;node taxid;node name;node rank;kmers;share;", lines.get(0));
+        assertEquals("genome taxid;genome name;position;node taxid;node name;node rank;kmers;share;stored;",
+                lines.get(0));
         int expectedRows = 0;
         for (long[] c : counts.values()) {
             expectedRows += c.length;
@@ -146,9 +167,12 @@ public class KMerGenomePathCountsGoalTest {
             int position = Integer.parseInt(cols[2]);
             long[] genomeCounts = counts.get(genomeTaxId);
             assertNotNull("Unknown genome " + genomeTaxId, genomeCounts);
-            assertEquals(tree.getNodeByTaxId(genomeTaxId).getName(), cols[1]);
-            assertEquals(pathToRoot(tree.getNodeByTaxId(genomeTaxId)).get(position).getTaxId(), cols[3]);
+            boolean unstored = KMerGenomePathCountsGoal.isUnstored(genomeTaxId);
+            SmallTaxIdNode start = tree.getNodeByTaxId(KMerGenomePathCountsGoal.nodeOf(genomeTaxId));
+            assertEquals(unstored ? KMerGenomePathCountsGoal.genomeKeyOf(genomeTaxId) : start.getName(), cols[1]);
+            assertEquals(pathToRoot(start).get(position).getTaxId(), cols[3]);
             assertEquals(genomeCounts[position], Long.parseLong(cols[6]));
+            assertEquals(String.valueOf(!unstored), cols[8]);
             if (!cols[7].isEmpty()) {
                 shareSums.merge(genomeTaxId, Double.parseDouble(cols[7]), Double::sum);
             }
@@ -211,7 +235,8 @@ public class KMerGenomePathCountsGoalTest {
 
     /**
      * There is one entry per genome node of the database, and each array spans the genome's whole
-     * path to the root - so that every node a k-mer can be stored at has a slot.
+     * path to the root - so that every node a k-mer can be stored at has a slot. Entries of genomes the
+     * database did not store come on top, each spanning the path from the node it sits at.
      */
     @Test
     public void oneEntryPerGenomeSpanningItsPath() throws IOException {
@@ -226,7 +251,17 @@ public class KMerGenomePathCountsGoalTest {
                     assertEquals(pathToRoot(node).size(), result.get(node.getTaxId()).length);
                 }
             }
-            assertEquals(genomes, result.keySet());
+            for (String key : result.keySet()) {
+                if (KMerGenomePathCountsGoal.isUnstored(key)) {
+                    SmallTaxIdNode start = tree.getNodeByTaxId(KMerGenomePathCountsGoal.nodeOf(key));
+                    assertNotNull(key, start);
+                    assertNotSame(key, Rank.GENOME, start.getRank());
+                    assertEquals(key, pathToRoot(start).size(), result.get(key).length);
+                    // Only genomes with something in the database get an entry.
+                    assertTrue(key, Arrays.stream(result.get(key)).sum() > 0);
+                }
+            }
+            assertEquals(genomes, storedKeys(result));
             // Both contigs of the WGS assembly went into one genome, and nothing was filed per contig.
             SmallTaxIdNode denv1 = tree.getNodeByTaxId(DENV1);
             assertTrue(genomes.contains(genomeNode(tree, DENV1, G1_KEY).getTaxId()));
@@ -380,6 +415,204 @@ public class KMerGenomePathCountsGoalTest {
         } finally {
             maker.dumpAll();
         }
+    }
+
+    /**
+     * An organism outside the database, the second case of the paper's p. 21: the database holds Dengue
+     * virus 1 and 2 only, and Dengue virus 4 of the RefSeq release is not in its tree. Genome 3, stored
+     * at DENV1, carries a stretch of DENV4, so the database holds k-mers of DENV4 - at a common ancestor,
+     * since DENV4 took part in the update.
+     * <p>
+     * DENV4 must then get an entry of its own, sitting at the nearest node the tree has above its taxon,
+     * and hold at least what genome 3 holds of the shared stretch at the node it is stored at. Counting
+     * the stored genomes only must leave their counts exactly as they are and write files of another
+     * name.
+     */
+    @Test
+    public void genomeOutsideTheDatabaseIsCountedAtTheNearestAncestor() throws IOException {
+        Map<String, long[]> withUnstored;
+        SmoothyMaker<SmoothyProject> maker = new SmoothyMaker<>(createOtherProject(true, null, null));
+        try {
+            SmallTaxTree tree = getDatabase(maker).getTaxTree();
+            assertNull("DENV4 must not be in the database", tree.getNodeByTaxId(DENV4));
+            SmallTaxIdNode g3 = genomeNode(tree, DENV1, G3_KEY);
+            withUnstored = getCounts(maker);
+
+            String denv4 = unstoredKey(withUnstored, DENV4_KEY);
+            SmallTaxIdNode start = tree.getNodeByTaxId(KMerGenomePathCountsGoal.nodeOf(denv4));
+            // Dengue virus, the parent of all four serotypes and the nearest node the tree has.
+            assertEquals(DENGUE_VIRUS, start.getTaxId());
+            assertEquals(pathToRoot(start).size(), withUnstored.get(denv4).length);
+
+            // Where genome 3 holds the stretch it shares with DENV4: above DENV1, on DENV4's path too.
+            long[] g3Counts = withUnstored.get(g3.getTaxId());
+            int g3Index = 0;
+            for (int i = 1; i < g3Counts.length; i++) {
+                if (g3Counts[i] > g3Counts[g3Index]) {
+                    g3Index = i;
+                }
+            }
+            SmallTaxIdNode shared = pathToRoot(g3).get(g3Index);
+            assertTrue("The stretch of DENV4 must not stay at genome 3", g3Index > 0);
+            assertTrue(g3Counts[g3Index] > (DENV4_STRETCH_END - DENV4_STRETCH_START) / 2);
+            int denv4Index = pathToRoot(start).indexOf(shared);
+            assertTrue(denv4Index >= 0);
+            assertTrue(withUnstored.get(denv4)[denv4Index] >= g3Counts[g3Index]);
+
+            FileGoal<SmoothyProject> csvGoal = (FileGoal<SmoothyProject>) maker.getGoal(SmoothyGoalKey.KMER_GENOME_PATH_COUNTS_CSV);
+            assertTrue(csvGoal.getFiles().get(0).getName().contains("_withunstored"));
+            assertCsvMatches(maker, tree, withUnstored);
+        } finally {
+            maker.dumpAll();
+        }
+
+        maker = new SmoothyMaker<>(createOtherProject(false, null, null));
+        try {
+            Map<String, long[]> storedOnly = getCounts(maker);
+            assertEquals(storedKeys(withUnstored), storedOnly.keySet());
+            for (String taxId : storedOnly.keySet()) {
+                assertArrayEquals(taxId, withUnstored.get(taxId), storedOnly.get(taxId));
+            }
+            FileGoal<SmoothyProject> serGoal = (FileGoal<SmoothyProject>) maker.getGoal(SmoothyGoalKey.KMER_GENOME_PATH_COUNTS_SER);
+            assertFalse(serGoal.getFiles().get(0).getName().contains("_withunstored"));
+        } finally {
+            maker.dumpAll();
+        }
+    }
+
+    /**
+     * The mixed case: a sample of DENV4, which the database does not hold, beside genome 1, which it
+     * does. Counting DENV4 puts it into the pool of the topic at Dengue virus, which therefore speaks for
+     * one genome more than with the stored genomes alone, and that topic carries a real share of the
+     * sample.
+     */
+    @Test
+    public void genomeOutsideTheDatabaseJoinsThePoolOfItsAncestorsTopic() throws IOException {
+        StringBuilder fastq = new StringBuilder();
+        int read = appendReads(fastq, 0, releaseSequence(DENV4_ACCESSION));
+        for (String contig : G1_CONTIGS) {
+            read = appendReads(fastq, read, contig);
+        }
+        File sample = new File(getBaseDir(), "smoothy_denv4_g1_sample.fastq");
+        write(sample, fastq.toString());
+        String[] fastqFiles = {sample.getAbsolutePath()};
+
+        Topic withUnstored;
+        SmoothyMaker<SmoothyProject> maker = new SmoothyMaker<>(createOtherProject(true, "denv4g1", fastqFiles));
+        try {
+            withUnstored = topic(topicModel(maker), DENGUE_VIRUS);
+        } finally {
+            maker.dumpAll();
+        }
+        Topic storedOnly;
+        maker = new SmoothyMaker<>(createOtherProject(false, "denv4g1", fastqFiles));
+        try {
+            storedOnly = topic(topicModel(maker), DENGUE_VIRUS);
+        } finally {
+            maker.dumpAll();
+        }
+        assertNotNull("Dengue virus must be a topic", withUnstored);
+        assertTrue(withUnstored.getGenomes() > (storedOnly == null ? 0 : storedOnly.getGenomes()));
+        assertTrue(withUnstored.getKmerShare() > 0.1);
+    }
+
+    private static TopicModelResult topicModel(SmoothyMaker<SmoothyProject> maker) {
+        Map<String, TopicModelResult> results = ((ObjectGoal<Map<String, TopicModelResult>, SmoothyProject>) maker
+                .getGoal(SmoothyGoalKey.TOPIC_MODEL)).get();
+        assertEquals(1, results.size());
+        return results.values().iterator().next();
+    }
+
+    private static Topic topic(TopicModelResult result, String node) {
+        for (Topic t : result.getTopics()) {
+            if (t.getNode().equals(node)) {
+                return t;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Appends reads of 100 bases every 5 positions of the sequence.
+     *
+     * @return the number of the next read
+     */
+    private static int appendReads(StringBuilder fastq, int read, String seq) {
+        for (int i = 0; i + 100 <= seq.length(); i += 5) {
+            fastq.append("@read").append(read++).append('\n').append(seq, i, i + 100).append("\n+\n");
+            for (int j = 0; j < 100; j++) {
+                fastq.append('I');
+            }
+            fastq.append('\n');
+        }
+        return read;
+    }
+
+    private static Set<String> storedKeys(Map<String, long[]> counts) {
+        Set<String> res = new HashSet<>();
+        for (String key : counts.keySet()) {
+            if (!KMerGenomePathCountsGoal.isUnstored(key)) {
+                res.add(key);
+            }
+        }
+        return res;
+    }
+
+    private static String unstoredKey(Map<String, long[]> counts, String genomeKey) {
+        String res = null;
+        for (String key : counts.keySet()) {
+            if (genomeKey.equals(KMerGenomePathCountsGoal.genomeKeyOf(key))) {
+                assertNull("Two entries for " + genomeKey, res);
+                res = key;
+            }
+        }
+        assertNotNull("No entry for the unstored genome " + genomeKey, res);
+        return res;
+    }
+
+    /**
+     * The sequence of a contig of the viral RefSeq release, upper-cased.
+     */
+    private static String releaseSequence(String accession) throws IOException {
+        StringBuilder seq = new StringBuilder();
+        boolean in = false;
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new GZIPInputStream(
+                new FileInputStream(new File(getCommonDir(), "refseq/viral.1.1.genomic.fna.gz"))),
+                StandardCharsets.US_ASCII))) {
+            for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+                if (line.startsWith(">")) {
+                    if (in) {
+                        break;
+                    }
+                    in = line.startsWith(">" + accession + " ");
+                } else if (in) {
+                    seq.append(line.trim().toUpperCase(Locale.ROOT));
+                }
+            }
+        }
+        assertTrue("No " + accession + " in the viral release", seq.length() > 0);
+        return seq.toString();
+    }
+
+    /**
+     * Sets up a project whose database is selected as Dengue virus 1 and 2 only, so that DENV3 and
+     * DENV4 of the release are outside its tree. It holds genomes 1 and 2 as the other projects do, and
+     * genome 3 at DENV1, which is a stretch of DENV4.
+     *
+     * @param unstoredGenomes {@code smoothy.unstoredGenomes}
+     * @param sampleKey       the key the samples are analysed under, or {@code null}
+     * @param fastqFiles      the samples, or {@code null}
+     */
+    private static SmoothyProject createOtherProject(boolean unstoredGenomes, String sampleKey, String[] fastqFiles)
+            throws IOException {
+        SmoothyProject project = createProject("smoothyother", DENV1, DENV2, null, 0, sampleKey, fastqFiles);
+        write(new File(project.getProjectDir(), "taxids.txt"), DENV1 + "\n" + DENV2 + "\n");
+        write(new File(project.getProjectDir(), "additional.txt"),
+                DENV1 + " g1.fasta\n" + DENV2 + " g2.fasta\n" + DENV1 + " g3.fasta\n");
+        write(new File(project.getFastaDir(), "g3.fasta"), ">" + G3_CONTIG + " synthetic\n"
+                + releaseSequence(DENV4_ACCESSION).substring(DENV4_STRETCH_START, DENV4_STRETCH_END) + "\n");
+        project.initConfigParam(SmoothyConfigKey.UNSTORED_GENOMES, unstoredGenomes);
+        return project;
     }
 
     private static Map<String, long[]> getLoadedCounts(SmoothyMaker<SmoothyProject> maker) {

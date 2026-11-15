@@ -194,6 +194,69 @@ public class TopicModelTest {
         assertEquals(1, abundances, EXACT);
     }
 
+    /**
+     * The mixed case of an organism outside the database beside its stored relatives: a sample of
+     * 0.4 g1 + 0.2 g2 + 0.4 u, where u is a genome the database did not store, filed at n1 with the
+     * counts (80, 20) on (n1, r) - all it shares with what the database holds. g3 is left out, so that
+     * no topic at r takes part.
+     * <p>
+     * With u among the counts, n1 is the topic that speaks for it and the mixture comes back exactly.
+     * Without u - the stored genomes only - g1 and g2 both have topics of their own, n1 gets no row,
+     * and the counts u leaves at n1 are explained by g1 and g2 instead, which come out overestimated.
+     */
+    @Test
+    public void unstoredGenomeGivesTheTaxonTopicARow() {
+        Map<String, Long> c = new HashMap<>();
+        c.put("g1", 240L);
+        c.put("g2", 100L);
+        c.put("n1", 520L);
+        c.put("r", 140L);
+
+        Map<String, String[]> paths = new HashMap<>();
+        paths.put("g1", paths().get("g1"));
+        paths.put("g2", paths().get("g2"));
+        Map<String, long[]> counts = new HashMap<>();
+        counts.put("g1", pathCounts().get("g1"));
+        counts.put("g2", pathCounts().get("g2"));
+
+        TopicModelResult storedOnly = new TopicModel(paths, counts, 1, 0, 100000, 1e-13).fit(c);
+        assertTrue(storedOnly.getTopicsWithoutRow().contains("n1"));
+        assertNull(topic(storedOnly, "n1"));
+        assertTrue(topic(storedOnly, "g1").getKmerShare() + topic(storedOnly, "g2").getKmerShare() > 0.99);
+
+        paths.put("n1:U", new String[]{"n1", "r"});
+        counts.put("n1:U", new long[]{80, 20});
+        TopicModelResult withUnstored = new TopicModel(paths, counts, 1, 0, 100000, 1e-13).fit(c);
+        assertFalse(withUnstored.getTopicsWithoutRow().contains("n1"));
+        assertEquals(0.4, topic(withUnstored, "g1").getKmerShare(), EXACT);
+        assertEquals(0.2, topic(withUnstored, "g2").getKmerShare(), EXACT);
+        assertEquals(0.4, topic(withUnstored, "n1").getKmerShare(), EXACT);
+        // n1 speaks for u alone, and one member of it holds u's 100 k-mers.
+        assertEquals(1, topic(withUnstored, "n1").getGenomes());
+        assertEquals(100, topic(withUnstored, "n1").getExpectedHold(), EXACT);
+    }
+
+    /**
+     * An unstored genome joins the pool of the most specific topic above it like any genome that lost its
+     * own topic: filed at n1 but n1 not admitted, it falls to r with only what it holds there.
+     */
+    @Test
+    public void unstoredGenomeFallsToTheTopicAbove() {
+        Map<String, String[]> paths = paths();
+        Map<String, long[]> counts = pathCounts();
+        paths.put("n1:U", new String[]{"n1", "r"});
+        counts.put("n1:U", new long[]{80, 20});
+        Map<String, Long> c = new HashMap<>();
+        c.put("g3", 90L);
+        c.put("r", 30L);
+        TopicModelResult result = new TopicModel(paths, counts, 1, 0.05, 100000, 1e-13).fit(c);
+
+        // r speaks for g1, g2 and u, none of which has an admitted node of its own.
+        assertEquals(3, topic(result, "r").getGenomes());
+        // ρ(r) is 10, 10 and 20: E = (100 + 100 + 400) / 40.
+        assertEquals(15, topic(result, "r").getExpectedHold(), EXACT);
+    }
+
     /** A sample with a single topic needs no iteration at all. */
     @Test
     public void singleTopicTakesEverything() {

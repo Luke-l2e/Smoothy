@@ -25,8 +25,9 @@ import java.util.Map;
  * <p>
  * The file holds two objects: the MD5 of the database the counts were measured on, as the database
  * records it under {@link GSProject#DB_MD5}, and then the goal's result as a
- * {@code HashMap<String, long[]>} keyed by a genome's tax id, whose array holds the genome's k-mer
- * occurrences per position on its path to the root, {@code 0} being the genome's own node. The nodes
+ * {@code HashMap<String, long[]>} keyed as {@link KMerGenomePathCountsGoal} keys its result, whose array
+ * holds the genome's k-mer occurrences per position on its path to the root, {@code 0} being the node the
+ * genome sits at. The nodes
  * themselves are not stored, since they follow from the tax tree of that database - which is why the
  * MD5 is kept: counts read against a rebuilt database would index the wrong nodes.
  *
@@ -56,11 +57,13 @@ public class KMerGenomePathCountsSERGoal<P extends SmoothyProject> extends FileG
     /**
      * The file sits in the project's {@code db} folder beside the database it was measured on, as the
      * CSV file of {@link KMerGenomePathCountsCSVGoal} does. Its name is derived from the project and
-     * goal names, as for every other output file.
+     * goal names, as for every other output file, and marked when the counts include the unstored
+     * genomes, see {@link KMerGenomePathCountsGoal#outputName(SmoothyProject, String)}.
      */
     @Override
     public List<File> getFiles() {
-        return Collections.singletonList(getProject().getOutputFile(getProject().getDBDir(), getKey().getName(),
+        return Collections.singletonList(getProject().getOutputFile(getProject().getDBDir(),
+                KMerGenomePathCountsGoal.outputName(getProject(), getKey().getName()),
                 null, null, GSProject.GSFileType.SER, false));
     }
 
