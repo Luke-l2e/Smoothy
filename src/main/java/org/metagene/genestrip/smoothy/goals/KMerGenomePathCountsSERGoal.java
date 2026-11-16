@@ -25,8 +25,9 @@ import java.util.Map;
  * <p>
  * The file holds two objects: the MD5 of the database the counts were measured on, as the database
  * records it under {@link GSProject#DB_MD5}, and then the goal's result as a
- * {@code HashMap<String, long[]>} keyed by a genome's tax id, whose array holds the genome's k-mer
- * occurrences per position on its path to the root, {@code 0} being the genome's own node. The nodes
+ * {@code HashMap<String, long[]>} keyed as {@link KMerGenomePathCountsGoal} keys its result, whose array
+ * holds the genome's k-mer occurrences per position on its path to the root, {@code 0} being the node the
+ * genome sits at. The nodes
  * themselves are not stored, since they follow from the tax tree of that database - which is why the
  * MD5 is kept: counts read against a rebuilt database would index the wrong nodes.
  *

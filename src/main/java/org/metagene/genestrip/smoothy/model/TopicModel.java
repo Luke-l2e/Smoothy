@@ -7,9 +7,15 @@ import java.util.*;
  * path counts of one database.
  * <p>
  * It is independent of Genestrip's goals and trees: a genome is given as the tax ids of its path to the
- * root, its own node first, together with its counts &kappa;<sub>h</sub> along that path as
+ * root, the node it sits at first, together with its counts &kappa;<sub>h</sub> along that path as
  * {@code KMerGenomePathCountsGoal} measures them. Everything the model needs of the tree follows from
  * those paths. This keeps the arithmetic testable on hand-built trees of a few nodes.
+ * <p>
+ * A genome the database stored sits at its own genome node. One it did not store, the second and third
+ * case of Section 3.2 (p. 21), sits at the taxon it is filed at, or the nearest ancestor the database's
+ * tree has: it has no topic of its own and is spoken for by the most specific topic above it, where it
+ * adds to the row and to the divisor E<sub>m</sub> like any other member. The model treats both alike;
+ * only where the path starts differs.
  * <p>
  * Fitting a sample takes its count c<sub>n</sub> per node and goes through these steps:
  * <ol>
@@ -31,14 +37,13 @@ import java.util.*;
  * correction of Equation (6) is not applied, since under maximum likelihood it does not move the
  * estimate.
  * <p>
- * What the counts do not cover, the model cannot either: the paper also pools genomes the database did
- * not store into the topics at the taxa, while the counts hold only stored genomes. A taxon whose
- * genomes all have topics of their own therefore gets no row and is reported in
- * {@link TopicModelResult#getTopicsWithoutRow()} rather than fitted.
+ * What the counts do not cover, the model cannot either. A taxon for which no genome is counted beyond
+ * those with topics of their own - typically one whose every genome the database stored - gets no row and
+ * is reported in {@link TopicModelResult#getTopicsWithoutRow()} rather than fitted.
  */
 public class TopicModel {
     /**
-     * path(h) per genome h: the tax ids from h's own node up to the root.
+     * path(h) per genome h: the tax ids from the node h sits at up to the root.
      */
     private final Map<String, String[]> genomePaths;
     /**
@@ -162,7 +167,7 @@ public class TopicModel {
         // Equation (3): each genome to the most specific admitted node on its path.
         Map<String, List<Member>> pools = new HashMap<>(); // G(m): per topic node m, the genomes it speaks for
         Map<String, String[]> topicPaths = new HashMap<>(); // path(m): per topic node m, the nodes from m up to the root
-        List<String> genomes = new ArrayList<>(pathCounts.keySet()); // all genomes h the database stores
+        List<String> genomes = new ArrayList<>(pathCounts.keySet()); // all genomes h counted, stored or not
         genomes.sort(null);
         for (String genome : genomes) {
             String[] path = genomePaths.get(genome); // path(h)

@@ -85,11 +85,11 @@ public class TopicModelGoal<P extends SmoothyProject> extends ObjectGoal<Map<Str
     }
 
     /**
-     * Reads each genome's path to the root off the database's tree, as tax ids from the genome's own
-     * node up.
+     * Reads each genome's path to the root off the database's tree, as tax ids from the node the genome
+     * sits at up: its own node if the database stored it, else the taxon or ancestor it was filed at.
      *
      * @param tree       the tree of the database the counts were measured on
-     * @param pathCounts the per-genome path counts, whose keys are the genomes' tax ids
+     * @param pathCounts the per-genome path counts, keyed as {@link KMerGenomePathCountsGoal} keys them
      * @return per genome, the tax ids along its path
      * @throws IllegalStateException if a genome is not in the tree or its path does not match its counts,
      *                               i.e. counts and tree belong to different databases
@@ -97,7 +97,8 @@ public class TopicModelGoal<P extends SmoothyProject> extends ObjectGoal<Map<Str
     protected static Map<String, String[]> genomePaths(SmallTaxTree tree, Map<String, long[]> pathCounts) {
         Map<String, String[]> paths = new HashMap<>();
         for (Map.Entry<String, long[]> e : pathCounts.entrySet()) {
-            SmallTaxIdNode genome = tree.getNodeByTaxId(e.getKey());
+            // A stored genome's own node, or the node an unstored one sits at.
+            SmallTaxIdNode genome = tree.getNodeByTaxId(KMerGenomePathCountsGoal.nodeOf(e.getKey()));
             if (genome == null) {
                 throw new IllegalStateException("Genome " + e.getKey() + " of the path counts is not in the database's tree.");
             }

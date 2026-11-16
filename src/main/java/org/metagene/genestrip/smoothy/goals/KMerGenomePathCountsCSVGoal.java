@@ -42,7 +42,9 @@ import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -54,17 +56,21 @@ import java.util.Map;
  * The file has one row per genome and node on the genome's path to the root, in long format since the
  * paths differ in length. The columns are:
  * <ul>
- * <li>{@code genome taxid} and {@code genome name} - the genome's {@code GENOME} node, whose name is its
- * genome key (e.g. {@code NZ_ABCD} for a WGS assembly);</li>
- * <li>{@code position} - the index along the path, {@code 0} being the genome's own node;</li>
+ * <li>{@code genome taxid} and {@code genome name} - for a stored genome its {@code GENOME} node, whose
+ * name is its genome key (e.g. {@code NZ_ABCD} for a WGS assembly); for one the database did not store
+ * the key {@link KMerGenomePathCountsGoal#unstoredGenomeKey(String, String)} gave it, and its genome
+ * key;</li>
+ * <li>{@code position} - the index along the path, {@code 0} being the node the genome sits at: its own
+ * node, or for an unstored genome the taxon or ancestor it was filed at;</li>
  * <li>{@code node taxid}, {@code node name} and {@code node rank} - the node at that position;</li>
  * <li>{@code kmers} - the genome's k-mer occurrences the database holds at that node;</li>
  * <li>{@code share} - {@code kmers} divided by the genome's total over its path, i.e. p(n | m). A
  * genome none of whose k-mers is in the database has no distribution, and its shares are left
- * empty.</li>
+ * empty;</li>
+ * <li>{@code stored} - whether the database stored the genome.</li>
  * </ul>
- * Genomes are written in the order of the database's taxonomy tree, so the file is the same from one
- * run to the next.
+ * Genomes are written in the order of the database's taxonomy tree, the unstored ones after any stored
+ * genome of the node they sit at and sorted by key, so the file is the same from one run to the next.
  *
  * @param <P> the project type
  */
@@ -106,41 +112,60 @@ public class KMerGenomePathCountsCSVGoal<P extends SmoothyProject> extends FileG
     protected void makeFile(File file) throws IOException {
         Map<String, long[]> counts = pathCountsGoal.get();
         SmallTaxTree taxTree = dbGoal.get().getTaxTree();
+        // The unstored genomes by the node they sit at, each node's sorted by key.
+        Map<String, List<String>> unstoredAt = new HashMap<>();
+        for (String key : counts.keySet()) {
+            if (KMerGenomePathCountsGoal.isUnstored(key)) {
+                unstoredAt.computeIfAbsent(KMerGenomePathCountsGoal.nodeOf(key), n -> new ArrayList<>()).add(key);
+            }
+        }
+        for (List<String> keys : unstoredAt.values()) {
+            keys.sort(null);
+        }
 
         try (PrintStream ps = new PrintStream(StreamProvider.getOutputStreamForFile(file), false, StandardCharsets.UTF_8)) {
-            ps.println("genome taxid;genome name;position;node taxid;node name;node rank;kmers;share;");
-            for (SmallTaxIdNode genome : taxTree) {
-                long[] genomeCounts = counts.get(genome.getTaxId());
-                if (genomeCounts == null) {
-                    continue;
+            ps.println("genome taxid;genome name;position;node taxid;node name;node rank;kmers;share;stored;");
+            for (SmallTaxIdNode node : taxTree) {
+                long[] genomeCounts = counts.get(node.getTaxId());
+                if (genomeCounts != null) {
+                    writeGenome(ps, node.getTaxId(), node.getName(), true, node, genomeCounts);
                 }
-                long total = 0;
-                for (long c : genomeCounts) {
-                    total += c;
-                }
-                SmallTaxIdNode node = genome;
-                for (int i = 0; i < genomeCounts.length && node != null; i++, node = node.getParent()) {
-                    ps.print(genome.getTaxId());
-                    ps.print(';');
-                    ps.print(genome.getName());
-                    ps.print(';');
-                    ps.print(i);
-                    ps.print(';');
-                    ps.print(node.getTaxId());
-                    ps.print(';');
-                    ps.print(node.getName());
-                    ps.print(';');
-                    Rank rank = node.getRank();
-                    ps.print(rank == null ? "" : rank.getName());
-                    ps.print(';');
-                    ps.print(genomeCounts[i]);
-                    ps.print(';');
-                    if (total > 0) {
-                        ps.print(DF.format((double) genomeCounts[i] / total));
-                    }
-                    ps.println(';');
+                for (String key : unstoredAt.getOrDefault(node.getTaxId(), Collections.emptyList())) {
+                    writeGenome(ps, key, KMerGenomePathCountsGoal.genomeKeyOf(key), false, node, counts.get(key));
                 }
             }
+        }
+    }
+
+    private static void writeGenome(PrintStream ps, String key, String name, boolean stored, SmallTaxIdNode start,
+                                    long[] genomeCounts) {
+        long total = 0;
+        for (long c : genomeCounts) {
+            total += c;
+        }
+        SmallTaxIdNode node = start;
+        for (int i = 0; i < genomeCounts.length && node != null; i++, node = node.getParent()) {
+            ps.print(key);
+            ps.print(';');
+            ps.print(name);
+            ps.print(';');
+            ps.print(i);
+            ps.print(';');
+            ps.print(node.getTaxId());
+            ps.print(';');
+            ps.print(node.getName());
+            ps.print(';');
+            Rank rank = node.getRank();
+            ps.print(rank == null ? "" : rank.getName());
+            ps.print(';');
+            ps.print(genomeCounts[i]);
+            ps.print(';');
+            if (total > 0) {
+                ps.print(DF.format((double) genomeCounts[i] / total));
+            }
+            ps.print(';');
+            ps.print(stored);
+            ps.println(';');
         }
     }
 }
