@@ -1,0 +1,68 @@
+100.00	497493	0	R	1	root
+100.00	497493	0	R1	131567	  cellular organisms
+100.00	497493	0	D	2759	    Eukaryota
+48.18	239694	0	D1	2698737	      Sar
+48.18	239694	0	D2	33630	        Alveolata
+48.18	239694	0	P	5794	          Apicomplexa
+38.16	189820	0	C	422676	            Aconoidasida
+38.16	189820	0	O	5819	              Haemosporida
+38.16	189820	0	F	1639119	                Plasmodiidae
+38.16	189820	0	G	5820	                  Plasmodium
+25.13	125005	0	G1	418107	                    Laverania
+20.10	100003	100003	S	5833	                      Plasmodium falciparum
+5.03	25002	25002	S	5854	                      Plasmodium reichenowi
+13.03	64815	0	G1	418103	                    Plasmodium
+10.04	49931	49931	S	5855	                      Plasmodium vivax
+1.99	9897	9897	S	5827	                      Plasmodium cynomolgi
+1.00	4987	4987	S	5850	                      Plasmodium knowlesi
+10.02	49873	0	C	1280412	            Conoidasida
+10.02	49873	0	C1	5796	              Coccidia
+10.02	49873	0	O	75739	                Eucoccidiorida
+10.02	49873	0	O1	423054	                  Eimeriorina
+6.01	29900	0	F	5809	                    Sarcocystidae
+6.01	29900	0	G	5810	                      Toxoplasma
+6.01	29900	29900	S	5811	                        Toxoplasma gondii
+4.01	19973	0	F	35082	                    Cryptosporidiidae
+4.01	19973	0	G	5806	                      Cryptosporidium
+4.01	19973	19973	S	5807	                        Cryptosporidium parvum
+37.13	184698	0	D1	2611352	      Discoba
+35.62	177193	0	P	33682	        Euglenozoa
+35.62	177193	0	C	5653	          Kinetoplastea
+35.62	177193	0	C1	2704647	            Metakinetoplastina
+35.62	177193	0	O	2704949	              Trypanosomatida
+35.62	177193	0	F	5654	                Trypanosomatidae
+19.04	94725	0	F1	1286322	                  Leishmaniinae
+19.04	94725	0	G	5658	                    Leishmania
+19.04	94725	0	G1	38568	                      Leishmania
+18.04	89725	0	G2	38574	                        Leishmania donovani species complex
+15.08	75017	75017	S	5671	                          Leishmania infantum
+2.96	14707	14707	S	5661	                          Leishmania donovani
+1.01	4999	0	G2	38581	                        Leishmania major species complex
+1.01	4999	4999	S	5664	                          Leishmania major
+16.58	82467	0	G	5690	                  Trypanosoma
+10.55	52479	0	G1	39700	                    Trypanozoon
+10.09	50212	50212	S	5691	                      Trypanosoma brucei
+0.46	2267	2267	S	5694	                      Trypanosoma equiperdum
+6.03	29988	0	G1	47570	                    Schizotrypanum
+6.03	29988	29988	S	5693	                      Trypanosoma cruzi
+1.51	7504	0	P	5752	        Heterolobosea
+1.51	7504	0	P1	2601529	          Tetramitia
+1.51	7504	0	C	2601530	            Eutetramitea
+1.51	7504	0	O	43693	              Acrasida
+1.51	7504	0	F	3691768	                Naegleriidae
+1.51	7504	0	G	5761	                  Naegleria
+1.51	7504	7504	S	5763	                    Naegleria fowleri
+11.67	58036	0	D1	2611341	      Metamonada
+11.67	58036	0	P	207245	        Fornicata
+11.67	58036	0	O	5738	          Diplomonadida
+11.67	58036	0	F	5739	            Hexamitidae
+11.67	58036	0	F1	68459	              Giardiinae
+11.67	58036	0	G	5740	                Giardia
+11.67	58036	58036	S	5741	                  Giardia duodenalis
+3.03	15064	0	D1	554915	      Amoebozoa
+3.03	15064	0	P	2605435	        Evosea
+3.03	15064	0	P1	555406	          Archamoebae
+3.03	15064	0	O	2682482	            Mastigamoebida
+3.03	15064	0	F	33084	              Endamoebidae
+3.03	15064	0	G	5758	                Entamoeba
+3.03	15064	15064	S	5759	                  Entamoeba histolytica

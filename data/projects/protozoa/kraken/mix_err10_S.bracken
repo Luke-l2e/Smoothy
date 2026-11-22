@@ -1,0 +1,46 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Plasmodium falciparum	5833	S	90166	4335	94501	0.19053
+Plasmodium reichenowi	5854	S	23477	2109	25586	0.05158
+Plasmodium adleri (nom. inval.)	880535	S	1879	155	2034	0.00410
+Plasmodium gaboni	647221	S	1602	192	1794	0.00362
+Plasmodium vivax	5855	S	49411	229	49640	0.10008
+Plasmodium cynomolgi	5827	S	9704	6	9710	0.01958
+Plasmodium knowlesi	5850	S	5075	34	5109	0.01030
+Plasmodium gonderi	77519	S	136	0	136	0.00027
+Plasmodium inui	52288	S	88	0	88	0.00018
+Plasmodium fragile	5857	S	67	0	67	0.00014
+Plasmodium malariae	5858	S	27	121	148	0.00030
+Plasmodium brasilianum	5824	S	22	121	143	0.00029
+Plasmodium gallinaceum	5849	S	131	3	134	0.00027
+Plasmodium relictum	85471	S	106	1	107	0.00022
+Plasmodium yoelii	5861	S	48	10	58	0.00012
+Plasmodium vinckei	5860	S	26	5	31	0.00006
+Plasmodium berghei	5821	S	25	3	28	0.00006
+Plasmodium chabaudi	5825	S	23	5	28	0.00006
+Plasmodium coatneyi	208452	S	74	0	74	0.00015
+Toxoplasma gondii	5811	S	29769	31	29800	0.06008
+Cryptosporidium parvum	5807	S	18141	1233	19374	0.03906
+Cryptosporidium hominis	237895	S	293	20	313	0.00063
+Cryptosporidium sp. chipmunk genotype I	1280935	S	120	0	120	0.00024
+Cryptosporidium ubiquitum	857276	S	59	0	59	0.00012
+Leishmania infantum	5671	S	35269	36757	72026	0.14521
+Leishmania donovani	5661	S	7863	8421	16284	0.03283
+Leishmania major	5664	S	5267	312	5579	0.01125
+Leishmania mexicana	5665	S	325	1	326	0.00066
+Leishmania martiniquensis	1580590	S	71	0	71	0.00014
+Leishmania sp. Namibia	2802991	S	12	13	25	0.00005
+Leishmania enriettii	5663	S	11	3	14	0.00003
+Leishmania braziliensis	5660	S	13	20	33	0.00007
+Trypanosoma brucei	5691	S	24093	25022	49115	0.09902
+Trypanosoma equiperdum	5694	S	1025	2092	3117	0.00628
+Trypanosoma cruzi	5693	S	29863	35	29898	0.06028
+Trypanosoma theileri	67003	S	21	0	21	0.00004
+Trypanosoma melophagium	715481	S	18	0	18	0.00004
+Naegleria fowleri	5763	S	7435	34	7469	0.01506
+Naegleria gruberi	5762	S	29	0	29	0.00006
+Giardia duodenalis	5741	S	57793	32	57825	0.11658
+Trichomonas vaginalis	5722	S	20	0	20	0.00004
+Entamoeba histolytica	5759	S	13634	979	14613	0.02946
+Entamoeba dispar	46681	S	200	7	207	0.00042
+Entamoeba nuttalli	412467	S	181	15	196	0.00040
+Entamoeba invadens	33085	S	17	0	17	0.00003
