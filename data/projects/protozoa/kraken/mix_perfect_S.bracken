@@ -1,0 +1,17 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Plasmodium falciparum	5833	S	99977	26	100003	0.20101
+Plasmodium reichenowi	5854	S	24971	31	25002	0.05026
+Plasmodium vivax	5855	S	49908	23	49931	0.10037
+Plasmodium cynomolgi	5827	S	9896	1	9897	0.01989
+Plasmodium knowlesi	5850	S	4984	3	4987	0.01002
+Toxoplasma gondii	5811	S	29900	0	29900	0.06010
+Cryptosporidium parvum	5807	S	19965	8	19973	0.04015
+Leishmania infantum	5671	S	67127	7890	75017	0.15079
+Leishmania donovani	5661	S	13119	1588	14707	0.02956
+Leishmania major	5664	S	4996	3	4999	0.01005
+Trypanosoma brucei	5691	S	36864	13348	50212	0.10093
+Trypanosoma equiperdum	5694	S	1415	852	2267	0.00456
+Trypanosoma cruzi	5693	S	29984	4	29988	0.06028
+Naegleria fowleri	5763	S	7495	9	7504	0.01508
+Giardia duodenalis	5741	S	58027	9	58036	0.11666
+Entamoeba histolytica	5759	S	15012	52	15064	0.03028

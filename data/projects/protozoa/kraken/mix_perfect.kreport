@@ -1,0 +1,83 @@
+  0.50	2503	2503	U	0	unclassified
+ 99.50	497497	0	R	1	root
+ 99.50	497497	0	R1	131567	  cellular organisms
+ 99.50	497497	49	D	2759	    Eukaryota
+ 47.94	239676	0	D1	2698737	      Sar
+ 47.94	239676	0	D2	33630	        Alveolata
+ 47.94	239676	0	P	5794	          Apicomplexa
+ 37.96	189800	0	C	422676	            Aconoidasida
+ 37.96	189800	0	O	5819	              Haemosporida
+ 37.96	189800	0	F	1639119	                Plasmodiidae
+ 37.96	189800	41	G	5820	                  Plasmodium
+ 24.99	124965	17	G1	418107	                    Laverania
+ 20.00	99977	0	S	5833	                      Plasmodium falciparum
+ 20.00	99977	99977	S1	36329	                        Plasmodium falciparum 3D7
+  4.99	24971	24971	S	5854	                      Plasmodium reichenowi
+ 12.96	64794	6	G1	418103	                    Plasmodium
+  9.98	49908	49908	S	5855	                      Plasmodium vivax
+  1.98	9896	0	S	5827	                      Plasmodium cynomolgi
+  1.98	9896	9896	S1	1120755	                        Plasmodium cynomolgi strain B
+  1.00	4984	0	S	5850	                      Plasmodium knowlesi
+  1.00	4984	4984	S1	5851	                        Plasmodium knowlesi strain H
+  9.98	49876	0	C	1280412	            Conoidasida
+  9.98	49876	0	C1	5796	              Coccidia
+  9.98	49876	0	O	75739	                Eucoccidiorida
+  9.98	49876	0	O1	423054	                  Eimeriorina
+  5.98	29900	0	F	5809	                    Sarcocystidae
+  5.98	29900	0	G	5810	                      Toxoplasma
+  5.98	29900	0	S	5811	                        Toxoplasma gondii
+  5.98	29900	29900	S1	508771	                          Toxoplasma gondii ME49
+  4.00	19976	0	F	35082	                    Cryptosporidiidae
+  4.00	19976	8	G	5806	                      Cryptosporidium
+  3.99	19965	0	S	5807	                        Cryptosporidium parvum
+  3.99	19965	19965	S1	353152	                          Cryptosporidium parvum Iowa II
+  0.00	3	0	S	237895	                        Cryptosporidium hominis
+  0.00	3	3	S1	353151	                          Cryptosporidium hominis TU502
+ 36.94	184681	0	D1	2611352	      Discoba
+ 35.44	177184	0	P	33682	        Euglenozoa
+ 35.44	177184	0	C	5653	          Kinetoplastea
+ 35.44	177184	0	C1	2704647	            Metakinetoplastina
+ 35.44	177184	0	O	2704949	              Trypanosomatida
+ 35.44	177184	0	F	5654	                Trypanosomatidae
+ 18.94	94724	0	F1	1286322	                  Leishmaniinae
+ 18.94	94724	4	G	5658	                    Leishmania
+ 18.94	94720	15	G1	38568	                      Leishmania
+ 17.94	89709	9463	G2	38574	                        Leishmania donovani species complex
+ 13.43	67127	0	S	5671	                          Leishmania infantum
+ 13.43	67127	67127	S1	435258	                            Leishmania infantum JPCM5
+  2.62	13119	13119	S	5661	                          Leishmania donovani
+  1.00	4996	0	G2	38581	                        Leishmania major species complex
+  1.00	4996	0	S	5664	                          Leishmania major
+  1.00	4996	4996	S1	347515	                            Leishmania major strain Friedlin
+ 16.49	82460	0	G	5690	                  Trypanosoma
+ 10.50	52476	14197	G1	39700	                    Trypanozoon
+  7.37	36864	3217	S	5691	                      Trypanosoma brucei
+  4.82	24081	0	S1	5702	                        Trypanosoma brucei brucei
+  4.82	24081	24081	S2	185431	                          Trypanosoma brucei brucei TREU927
+  1.91	9566	0	S1	31285	                        Trypanosoma brucei gambiense
+  1.91	9566	9566	S2	679716	                          Trypanosoma brucei gambiense DAL972
+  0.28	1415	1415	S	5694	                      Trypanosoma equiperdum
+  6.00	29984	0	G1	47570	                    Schizotrypanum
+  6.00	29984	29984	S	5693	                      Trypanosoma cruzi
+  1.50	7497	0	P	5752	        Heterolobosea
+  1.50	7497	0	P1	2601529	          Tetramitia
+  1.50	7497	0	C	2601530	            Eutetramitea
+  1.50	7497	0	O	43693	              Acrasida
+  1.50	7497	0	F	3691768	                Naegleriidae
+  1.50	7497	2	G	5761	                  Naegleria
+  1.50	7495	7495	S	5763	                    Naegleria fowleri
+ 11.61	58027	0	D1	2611341	      Metamonada
+ 11.61	58027	0	P	207245	        Fornicata
+ 11.61	58027	0	O	5738	          Diplomonadida
+ 11.61	58027	0	F	5739	            Hexamitidae
+ 11.61	58027	0	F1	68459	              Giardiinae
+ 11.61	58027	0	G	5740	                Giardia
+ 11.61	58027	58027	S	5741	                  Giardia duodenalis
+  3.01	15064	0	D1	554915	      Amoebozoa
+  3.01	15064	0	P	2605435	        Evosea
+  3.01	15064	0	P1	555406	          Archamoebae
+  3.01	15064	0	O	2682482	            Mastigamoebida
+  3.01	15064	0	F	33084	              Endamoebidae
+  3.01	15064	52	G	5758	                Entamoeba
+  3.00	15012	0	S	5759	                  Entamoeba histolytica
+  3.00	15012	15012	S1	294381	                    Entamoeba histolytica HM-1:IMSS
