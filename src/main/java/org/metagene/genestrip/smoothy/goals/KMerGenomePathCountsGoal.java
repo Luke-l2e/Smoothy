@@ -75,7 +75,10 @@ import java.util.concurrent.atomic.AtomicLong;
  * </ol>
  * The latter two are keyed by {@link #unstoredGenomeKey(String, String)}: the tax id of the node they
  * sit at and the genome key of their accession, the same key the build would have named their
- * {@code GENOME} node with. Which genomes those are is decided as the database's LCA update decided
+ * {@code GENOME} node with. In the release files of the eukaryotic categories, whose chromosomes and
+ * scaffolds share no accession prefix, that key is the contig's tax id, as Genestrip takes all sequences
+ * of such a taxon for one genome (see {@code AbstractRefSeqFastaReader#isOneGenomePerTaxon()}).
+ * Which genomes those are is decided as the database's LCA update decided
  * it, by {@code refseq.updateScope}, so the goal reads the RefSeq release whether or not the database
  * was filled from it. A genome none of whose k-mers is in the database gets no entry, since it adds
  * nothing to any row; a stored genome always has one.
@@ -363,11 +366,16 @@ public class KMerGenomePathCountsGoal<P extends SmoothyProject> extends FastaRea
             // foldTaxaBelow set, the latter is typically not even in the database's tree.
             TaxIdNode filedAt = ReworkingStoreFastaReader.foldUp(node, foldTaxaBelow, selected);
             SmallTaxIdNode n = taxTree.getNodeByTaxId(filedAt.getTaxId());
-            int keyEnd = 1 + GenomeKeyTrie.genomeKeyLength(target, 1, accessionEnd());
+            // The genome key, named as the build named the GENOME node: by the taxon the contig resolved
+            // to, before any fold, where the accession cannot tell the genome (one genome per taxon in
+            // the eukaryotic release files), and by the accession otherwise.
+            String genomeKey = isOneGenomePerTaxon() ? node.getTaxId()
+                    : new String(target, 1, GenomeKeyTrie.genomeKeyLength(target, 1, accessionEnd()),
+                    StandardCharsets.US_ASCII);
             if (n != null) {
                 SmallTaxIdNode genome = n;
                 if (Rank.GENOME.ordinal() != genome.getRankOrdinal()) {
-                    genome = n.getDescendantWithName(target, 1, keyEnd);
+                    genome = n.getDescendantWithName(genomeKey);
                 }
                 if (genome != null && Rank.GENOME.ordinal() == genome.getRankOrdinal()) {
                     // Stored: the genome's own node.
@@ -395,8 +403,7 @@ public class KMerGenomePathCountsGoal<P extends SmoothyProject> extends FastaRea
                     return;
                 }
             }
-            unstoredKey = unstoredGenomeKey(pathStart.getTaxId(),
-                    new String(target, 1, keyEnd - 1, StandardCharsets.US_ASCII));
+            unstoredKey = unstoredGenomeKey(pathStart.getTaxId(), genomeKey);
         }
 
         /**
