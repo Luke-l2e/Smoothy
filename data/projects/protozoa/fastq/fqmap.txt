@@ -1,0 +1,4 @@
+mix_perfect X:/Bachelor/smoothy/data/projects/protozoa/fastq/mix_perfect_R1.fastq.gz
+mix_perfect X:/Bachelor/smoothy/data/projects/protozoa/fastq/mix_perfect_R2.fastq.gz
+mix_err10 X:/Bachelor/smoothy/data/projects/protozoa/fastq/mix_err10_R1.fastq.gz
+mix_err10 X:/Bachelor/smoothy/data/projects/protozoa/fastq/mix_err10_R2.fastq.gz

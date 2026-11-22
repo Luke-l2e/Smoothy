@@ -1,0 +1,26 @@
+# Genome mix for the protozoa simulation: tax id, read share (normalised by iss_sample.py).
+# Close relatives test whether the topic model separates what shares many k-mers;
+# the distant genera are easy controls. Shares span about two orders of magnitude.
+#
+# Laverania (P. falciparum and its chimpanzee/gorilla relatives)
+36329	20	# Plasmodium falciparum 3D7
+5854	5	# Plasmodium reichenowi
+# P. vivax group
+5855	10	# Plasmodium vivax
+1120755	2	# Plasmodium cynomolgi strain B
+5851	1	# Plasmodium knowlesi strain H
+# Leishmania donovani complex (nearly identical genomes)
+435258	15	# Leishmania infantum JPCM5
+5661	3	# Leishmania donovani
+347515	1	# Leishmania major strain Friedlin
+# Trypanosoma brucei group
+185431	8	# Trypanosoma brucei brucei TREU927
+679716	2	# Trypanosoma brucei gambiense DAL972
+5694	0.5	# Trypanosoma equiperdum
+5693	6	# Trypanosoma cruzi
+# distant genera
+5741	12	# Giardia duodenalis
+508771	6	# Toxoplasma gondii ME49
+353152	4	# Cryptosporidium parvum Iowa II
+294381	3	# Entamoeba histolytica HM-1:IMSS
+5763	1.5	# Naegleria fowleri
