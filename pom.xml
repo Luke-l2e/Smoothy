@@ -13,7 +13,10 @@
     <description>Topic models over k-mer genome path counts, built on Genestrip's ft module.</description>
 
     <properties>
-        <!-- The Genestrip release smoothy builds on, taken from Maven Central. -->
+        <!-- Genestrip version smoothy builds on. NOT the 4.0 release on Maven Central, which lacks APIs smoothy uses:
+             smoothy needs Genestrip at upstream commit 703448cba454a1d6c028ba88972fb57c71009844 (also versioned 4.0),
+             installed into the local Maven repository with `mvn install` first (see README.md; docker/Dockerfile
+             does it itself). Once a release contains these changes, set it here. -->
         <genestrip.version>4.0</genestrip.version>
         <!-- Java 10 as in Genestrip's core and ft, which smoothy needs at runtime anyway. -->
         <maven.compiler.source>10</maven.compiler.source>
