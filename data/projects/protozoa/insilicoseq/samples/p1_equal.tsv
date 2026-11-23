@@ -1,0 +1,11 @@
+# Probe 1: weit entfernte Gattungen (Kontrolle). Je ein Genom aus Gattungen ohne nahe
+# Verwandte in der DB; fast alle k-mers liegen am Genomknoten. C. bovis statt C. parvum,
+# weil C. parvum durch C. hominis nur 55 % am Genomknoten hat.
+# Gleiche Anteile.
+#
+5741	1	# Giardia duodenalis
+484906	1	# Babesia bovis T2Bo
+5763	1	# Naegleria fowleri
+944170	1	# Blastocystis sp. subtype 4
+508771	1	# Toxoplasma gondii ME49
+310047	1	# Cryptosporidium bovis

@@ -1,0 +1,14 @@
+# Probe 2: eng verwandt, alle Verwandten in der Probe. Jede Gruppe teilt den Großteil ihrer
+# k-mers an einem gemeinsamen Knoten; alle Mitglieder sind in der Probe.
+# Gleiche Anteile.
+#
+# P. malariae / P. brasilianum
+5858	1	# Plasmodium malariae
+5824	1	# Plasmodium brasilianum
+# L. donovani / L. infantum (L. donovani species complex)
+5661	1	# Leishmania donovani
+435258	1	# Leishmania infantum JPCM5
+# T. brucei-Gruppe (Trypanozoon)
+185431	1	# Trypanosoma brucei brucei TREU927
+679716	1	# Trypanosoma brucei gambiense DAL972
+5694	1	# Trypanosoma equiperdum

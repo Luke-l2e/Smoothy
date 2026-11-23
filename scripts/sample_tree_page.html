@@ -1,0 +1,238 @@
+<meta charset="utf-8">
+<meta name="language" content="de">
+<title>Protozoa-Proben im TaxTree</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
+<style>
+/* Layout: control bar, sample sheet, then a tree-by-genome matrix (tree left, one column per genome) */
+:root {
+  --bg: #f6f7f6; --panel: #ffffff; --fg: #1b2420; --muted: #5d6b65; --faint: #8a9690;
+  --line: #d9dfdc; --guide: #e4e9e6; --accent: #1d6b57; --accent-soft: #e2efea; --row-hi: #eef4f1;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-head: "IBM Plex Sans Condensed", "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121715; --panel: #1a211e; --fg: #e3ebe7; --muted: #9eaca6; --faint: #6f7d77;
+  --line: #2c3632; --guide: #242d29; --accent: #5cc3a3; --accent-soft: #1f3530; --row-hi: #1f2925; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #121715; --panel: #1a211e; --fg: #e3ebe7; --muted: #9eaca6; --faint: #6f7d77;
+  --line: #2c3632; --guide: #242d29; --accent: #5cc3a3; --accent-soft: #1f3530; --row-hi: #1f2925; color-scheme: dark }
+*, *::before, *::after { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 14px; line-height: 1.45; }
+.wrap { max-width: 1400px; margin: 0 auto; padding-block: 28px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 18px; }
+h1 { font-family: var(--font-head); font-weight: 600; font-size: 1.75rem; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+h2 { font-family: var(--font-head); font-weight: 600; font-size: 1.2rem; margin: 0; text-wrap: balance; }
+p { margin: 0; max-width: 72ch; }
+.lede { color: var(--muted); }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: end; }
+.group { display: grid; gap: 4px; min-width: 0; }
+.group > span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 500; }
+.seg { display: flex; flex-wrap: wrap; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--panel); }
+.seg button { font: inherit; font-size: 13px; border: 0; background: transparent; color: var(--fg); padding: 6px 11px; cursor: pointer;
+  border-right: 1px solid var(--line); }
+.seg button:last-child { border-right: 0; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--panel); }
+.seg button:hover:not([aria-pressed="true"]) { background: var(--accent-soft); }
+button:focus-visible, select:focus-visible, .row:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+select { font: inherit; font-size: 13px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--fg); max-width: 100%; }
+.sheet { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; display: grid; gap: 12px; min-width: 0; }
+.legend { overflow-x: auto; }
+table { border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 4px 14px 4px 0; vertical-align: baseline; white-space: nowrap; }
+th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 500; border-bottom: 1px solid var(--line); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--font-mono); font-size: 12px; }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 7px; vertical-align: -1px; }
+.low { color: #c0392b; font-weight: 500; }
+.note { font-size: 12.5px; color: var(--muted); }
+.matrix { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: auto; max-height: 82vh; min-width: 0; }
+.grid { display: grid; min-width: max-content; }
+.head .cell { position: sticky; top: 0; z-index: 2; }
+.head .tcell { position: sticky; top: 0; z-index: 3; }
+.row { display: contents; }
+.cell, .tcell { height: 24px; display: flex; align-items: center; border-bottom: 1px solid var(--guide); }
+.head .cell, .head .tcell { height: auto; min-height: 44px; padding-block: 6px; align-items: end; border-bottom: 1px solid var(--line); background: var(--panel); }
+.tcell { background: var(--panel); padding-right: 14px; padding-left: 8px; min-width: 0; border-left: 1px solid var(--line); cursor: default; white-space: nowrap; }
+.row:hover .tcell, .row:hover .cell { background: var(--row-hi); }
+.row.on .tcell { font-weight: 500; }
+.ind { display: inline-flex; flex: none; height: 100%; }
+.ind i { width: 13px; height: 100%; flex: none; background: linear-gradient(var(--guide), var(--guide)) 6px 0 / 1px 100% no-repeat; }
+.tog { width: 16px; flex: none; text-align: center; color: var(--faint); font-size: 10px; cursor: pointer; user-select: none; }
+.dots { display: inline-flex; gap: 2px; margin-right: 6px; flex: none; }
+.dots b { width: 7px; height: 7px; border-radius: 50%; display: block; }
+.nm { overflow: hidden; text-overflow: ellipsis; }
+.meta { color: var(--faint); font-size: 11.5px; margin-left: 6px; font-family: var(--font-mono); }
+.rk { color: var(--muted); font-size: 11px; margin-left: 6px; }
+.chip { font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; padding: 1px 5px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); margin-right: 6px; font-weight: 600; }
+.more { color: var(--faint); font-size: 11.5px; margin-left: 6px; }
+.genome .nm { font-style: italic; }
+.genome.sel .nm { font-weight: 600; }
+.genome { cursor: pointer; }
+.cell { width: 86px; justify-content: flex-end; padding: 0 7px; font-family: var(--font-mono); font-size: 11.5px; font-variant-numeric: tabular-nums; position: relative; }
+.cell .bar { position: absolute; left: 6px; right: 6px; bottom: 4px; height: 3px; border-radius: 2px; background: var(--guide); overflow: hidden; }
+.cell .bar span { display: block; height: 100%; }
+.cell .v { position: relative; margin-bottom: 5px; }
+.cell.max .v { font-weight: 600; }
+.colh { display: grid; gap: 2px; width: 100%; overflow-wrap: break-word; hyphens: auto; padding: 0; font-size: 11.5px; line-height: 1.2; justify-items: end; text-align: right; }
+.colh .sw { margin: 0; width: 18px; height: 4px; }
+.colh em { font-style: italic; white-space: normal; }
+.empty { padding: 24px; color: var(--muted); }
+@media (max-width: 560px) { h1 { font-size: 1.4rem; } .tcell { max-width: 62vw; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header style="display:grid;gap:6px">
+    <h1>Protozoa-Proben im TaxTree</h1>
+    <p class="lede">Welche Genome in welcher Testprobe stecken und wo ihre k-mers im Baum der Protozoa-DB liegen.
+      Jede Spalte ist ein Genom der Probe; die Zahl ist der Anteil seiner k-mers, der an diesem Knoten gespeichert ist.</p>
+  </header>
+
+  <div class="controls">
+    <div class="group"><span>Probe</span><div class="seg" id="samples" role="group" aria-label="Probe"></div></div>
+    <div class="group"><span>Einzelgenom (Probe 4)</span>
+      <select id="single" aria-label="Einzelgenom"><option value="">Genom wählen…</option></select></div>
+    <div class="group"><span>Baum</span><div class="seg" id="treesel" role="group" aria-label="Baum">
+      <button type="button" id="t-std" data-tree="std" aria-pressed="true">Standard</button>
+      <button type="button" id="t-ft" data-tree="ft" aria-pressed="false">Verfeinert (ft)</button></div></div>
+    <div class="group"><span>Ansicht</span><div class="seg" id="viewsel" role="group" aria-label="Ansicht">
+      <button type="button" id="v-path" data-view="path" aria-pressed="true">Nur Pfade</button>
+      <button type="button" id="v-all" data-view="all" aria-pressed="false">Ganzer Baum</button></div></div>
+  </div>
+
+  <section class="sheet" id="sheet" aria-live="polite"></section>
+  <div class="matrix" id="matrix"><div class="empty">Lade Daten…</div></div>
+  <p class="note">Quelle: <code>protozoa_kmergenomepathcountscsv.csv</code> und <code>protozoa_ftkmergenomepathcountscsv.csv</code> (Genestrip),
+    Mix aus <code>insilicoseq/mix.tsv</code>. Klick auf ein Genom im Baum nimmt es in die Auswahl auf oder heraus, Klick auf ▸/▾ klappt einen Knoten auf oder zu.
+    Erzeugt von <code>scripts/sample_tree_page.py</code>.</p>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const PALETTE = ["#2f6fd0", "#d1562b", "#1d9a6c", "#9b4dca", "#c99700", "#d2408c", "#1f9fbf", "#8a6d3b",
+                 "#5a6fe3", "#b23b3b", "#5d9e2f", "#e07b00", "#7a5bb5", "#00897b", "#c2185b", "#6d7f8c", "#a1887f"];
+const RANK_DE = { domain: "Domäne", kingdom: "Reich", phylum: "Stamm", class: "Klasse", order: "Ordnung", family: "Familie",
+  subfamily: "Unterfamilie", genus: "Gattung", subgenus: "Untergattung", species: "Art", "species group": "Artengruppe",
+  subspecies: "Unterart", strain: "Stamm (strain)", isolate: "Isolat", clade: "Klade", "no rank": "ohne Rang",
+  "cellular root": "Wurzel", REFINED: "verfeinert", GENOME: "Genom" };
+let D, state = { sample: "p1", tree: "std", view: "path", custom: null }, expanded = new Set();
+
+const short = n => { const w = n.split(" "); return w.length > 1 && /^[A-Z]/.test(w[0]) ? w[0][0] + ". " + w.slice(1).join(" ") : n; };
+const fmt = s => s <= 0 ? "" : s < 0.001 ? "<0,1" : (s * 100).toFixed(s < 0.1 ? 1 : 0).replace(".", ",");
+
+function current() {
+  if (state.custom) return { id: "custom", title: "Eigene Auswahl", text: "Per Klick im Baum zusammengestellt.", genomes: state.custom, props: null };
+  if (state.sample.startsWith("single-")) {
+    const k = state.sample.slice(7), g = D.trees.std.genomes[k];
+    return { id: state.sample, title: "Probe 4: Einzelgenom " + g.name,
+      text: "Genau ein Genom. Jeder Anteil, den eine Methode einem anderen Genom zuschreibt, ist ein Fehler.", genomes: [k], props: null };
+  }
+  return D.samples.find(s => s.id === state.sample);
+}
+
+function nameOfTaxid(t) {
+  for (const k in D.trees.std.genomes) if (D.trees.std.genomes[k].taxid === t) return short(D.trees.std.genomes[k].name);
+  const n = D.trees.std.nodes[t]; return n ? n.name : t;
+}
+function refinedLabel(name) {
+  return name.split("/").map(p => p === "..." ? "…" : p === "OTHER" ? "Rest" : nameOfTaxid(p)).join(" / ");
+}
+
+function build() {
+  const T = D.trees[state.tree], kids = {}, nGen = {};
+  for (const id in T.nodes) { const p = T.nodes[id].parent; if (p) (kids[p] ||= []).push(id); }
+  const count = id => nGen[id] ??= id.startsWith("g") ? 1 : (kids[id] || []).reduce((a, c) => a + count(c), 0);
+  for (const id in kids) kids[id].sort((a, b) => (a.startsWith("g") - b.startsWith("g")) || T.nodes[a].name.localeCompare(T.nodes[b].name));
+  return { T, kids, count };
+}
+
+function render() {
+  const s = current(), { T, kids, count } = build(), sel = s.genomes;
+  const color = {}; sel.forEach((k, i) => color[k] = PALETTE[i % PALETTE.length]);
+  const share = {}, onPath = {};
+  sel.forEach(k => T.genomes[k].path.forEach(([nid, km, sh]) => { (share[nid] ||= {})[k] = [km, sh]; (onPath[nid] ||= []).push(k); }));
+  const maxOf = {}; sel.forEach(k => maxOf[k] = Math.max(...T.genomes[k].path.map(p => p[2])));
+  if (state.view === "path") { expanded = new Set(Object.keys(onPath).filter(id => !id.startsWith("g"))); for (const id of manual) expanded.add(id); for (const id of closed) expanded.delete(id); }
+
+  // sheet
+  const sh = document.getElementById("sheet");
+  const ft = D.trees.ft.genomes, st = D.trees.std.genomes;
+  sh.innerHTML = `<h2>${s.title}</h2><p>${s.text}</p><div class="legend"><table><thead><tr><th>Genom</th><th class="num">Taxid</th>
+    <th class="num">Genomknoten (Std.)</th><th class="num">Genomknoten (ft)</th><th class="num">k-mers gesamt</th>${s.props ? '<th class="num">Read-Anteil</th>' : ""}
+    <th>Meiste k-mers an</th></tr></thead><tbody>${sel.map((k, i) => {
+      const g = T.genomes[k], top = g.path.reduce((a, b) => b[2] > a[2] ? b : a), gs = st[k].path[0][2], gf = ft[k].path[0][2];
+      const tn = T.nodes[top[0]], tl = tn.rank === "REFINED" ? refinedLabel(tn.name) : top[0].startsWith("g") ? "Genomknoten" : tn.name;
+      return `<tr><td><span class="sw" style="background:${color[k]}"></span><em>${g.name}</em></td><td class="num">${g.taxid}</td>
+        <td class="num ${gs < 0.3 ? "low" : ""}">${fmt(gs)} %</td><td class="num ${gf < 0.3 ? "low" : ""}">${fmt(gf)} %</td>
+        <td class="num">${g.kmers.toLocaleString("de-DE")}</td>${s.props ? `<td class="num">${fmt(s.props[i])} %</td>` : ""}
+        <td>${tl} <span class="rk">${fmt(top[2])} %</span></td></tr>`; }).join("")}</tbody></table></div>`;
+
+  // matrix
+  const cols = `repeat(${sel.length}, 86px) minmax(320px, max-content)`;
+  let h = `<div class="grid" style="grid-template-columns:${cols}"><div class="row head">`;
+  h += sel.map(k => `<div class="cell"><div class="colh"><span class="sw" style="background:${color[k]}"></span><em>${short(T.genomes[k].name)}</em></div></div>`).join("") + `<div class="tcell"><span class="rk" style="margin:0">Taxonomie ${state.tree === "ft" ? "(verfeinert)" : "(Standard)"}</span></div></div>`;
+  const walk = (id, depth) => {
+    const n = T.nodes[id], isG = id.startsWith("g"), ch = kids[id] || [], open = state.view === "all" ? !closed.has(id) : expanded.has(id);
+    const on = onPath[id] || [], key = id.slice(1);
+    let label;
+    if (isG) label = `<span class="nm">${n.name}</span><span class="meta">${T.genomes[key].taxid}</span>`;
+    else if (n.rank === "REFINED") label = `<span class="chip">ft</span><span class="nm">${refinedLabel(n.name)}</span><span class="meta">${n.name}</span>`;
+    else label = `<span class="nm">${n.name}</span><span class="meta">${id}</span><span class="rk">${RANK_DE[n.rank] || n.rank}</span>`;
+    const tog = ch.length ? `<span class="tog" data-tog="${id}" role="button" aria-label="${open ? "Zuklappen" : "Aufklappen"}">${open ? "▾" : "▸"}</span>` : `<span class="tog"></span>`;
+    const more = ch.length && !open ? `<span class="more">${count(id)} Genom${count(id) === 1 ? "" : "e"}</span>` : "";
+    const dots = on.length ? `<span class="dots">${on.map(k => `<b style="background:${color[k]}"></b>`).join("")}</span>` : "";
+    const cls = ["row", on.length ? "on" : "", isG ? "genome" : "", isG && sel.includes(key) ? "sel" : ""].join(" ");
+    const sty = isG && color[key] ? ` style="color:${color[key]}"` : "";
+    h += `<div class="${cls}" ${isG ? `data-g="${key}" tabindex="0" title="In Auswahl aufnehmen oder entfernen"` : ""}>`;
+    h += sel.map(k => { const v = share[id]?.[k]; if (!v || v[0] === 0) return `<div class="cell"></div>`;
+      return `<div class="cell ${v[1] === maxOf[k] ? "max" : ""}" title="${v[0].toLocaleString("de-DE")} k-mers"><span class="v">${fmt(v[1])}</span><span class="bar"><span style="width:${Math.max(2, v[1] * 100)}%;background:${color[k]}"></span></span></div>`; }).join("");
+    h += `<div class="tcell"${sty}><span class="ind">${"<i></i>".repeat(depth)}</span>${tog}${dots}${label}${more}</div>`;
+    h += "</div>";
+    if (open) ch.forEach(c => walk(c, depth + 1));
+  };
+  walk("1", 0);
+  document.getElementById("matrix").innerHTML = h + "</div>";
+
+  document.querySelectorAll("#samples button").forEach(b => b.setAttribute("aria-pressed", String(!state.custom && b.dataset.s === state.sample)));
+  document.getElementById("single").value = !state.custom && state.sample.startsWith("single-") ? state.sample.slice(7) : "";
+  document.querySelectorAll("#treesel button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.tree === state.tree)));
+  document.querySelectorAll("#viewsel button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.view === state.view)));
+}
+const manual = new Set(), closed = new Set();
+
+function setSample(id) { state.sample = id; state.custom = null; manual.clear(); closed.clear(); if (location.hash.slice(1) !== id) history.replaceState(null, "", "#" + id); render(); }
+
+Promise.resolve().then(() => JSON.parse(document.getElementById("data").textContent)).then(d => {
+  D = d;
+  const sb = document.getElementById("samples");
+  sb.innerHTML = D.samples.map(s => `<button type="button" id="s-${s.id}" data-s="${s.id}" aria-pressed="false">${s.label}</button>`).join("");
+  sb.addEventListener("click", e => { const b = e.target.closest("button"); if (b) setSample(b.dataset.s); });
+  const sel = document.getElementById("single"), gs = D.trees.std.genomes;
+  Object.keys(gs).sort((a, b) => gs[a].name.localeCompare(gs[b].name)).forEach(k => sel.add(new Option(`${gs[k].name} (${gs[k].taxid})`, k)));
+  sel.addEventListener("change", () => sel.value && setSample("single-" + sel.value));
+  document.getElementById("treesel").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { state.tree = b.dataset.tree; manual.clear(); closed.clear(); render(); } });
+  document.getElementById("viewsel").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { state.view = b.dataset.view; manual.clear(); closed.clear(); render(); } });
+  const mx = document.getElementById("matrix");
+  const act = e => {
+    const t = e.target.closest("[data-tog]");
+    if (t) { const id = t.dataset.tog;
+      const isOpen = state.view === "all" ? !closed.has(id) : expanded.has(id);
+      if (isOpen){ closed.add(id); manual.delete(id); } else { manual.add(id); closed.delete(id); }
+      render(); return; }
+    const r = e.target.closest("[data-g]"); if (!r) return;
+    const k = r.dataset.g, list = [...current().genomes], i = list.indexOf(k);
+    i >= 0 ? list.splice(i, 1) : list.push(k);
+    if (!list.length) return;
+    state.custom = list; history.replaceState(null, "", "#eigene"); render();
+  };
+  mx.addEventListener("click", act);
+  mx.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); act(e); } });
+  const fromHash = () => { const h = location.hash.slice(1);
+    if (D.samples.some(s => s.id === h) || (h.startsWith("single-") && gs[h.slice(7)])) setSample(h); else render(); };
+  window.addEventListener("hashchange", fromHash);
+  fromHash();
+}).catch(err => { document.getElementById("matrix").innerHTML = `<div class="empty">Die eingebetteten Daten ließen sich nicht lesen: ${err.message}. Seite mit scripts/sample_tree_page.py neu erzeugen.</div>`; });
+</script>

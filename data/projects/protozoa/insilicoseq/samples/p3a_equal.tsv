@@ -1,0 +1,7 @@
+# Probe 3a: k-mers weit oben, nur ein Verwandter in der Probe. Aus jeder Gruppe von Probe 2
+# nur ein Genom; der Partner ist in der DB, aber nicht in der Probe.
+# Gleiche Anteile.
+#
+435258	1	# Leishmania infantum JPCM5
+5824	1	# Plasmodium brasilianum
+185431	1	# Trypanosoma brucei brucei TREU927

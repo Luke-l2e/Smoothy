@@ -1,0 +1,15 @@
+# Probe 2: eng verwandt, alle Verwandten in der Probe. Jede Gruppe teilt den Großteil ihrer
+# k-mers an einem gemeinsamen Knoten; alle Mitglieder sind in der Probe.
+# Schiefe Anteile 20 : 1 innerhalb jeder Gruppe. p2_skew_b ist das Spiegelbild, damit jedes
+# Genom der Paare einmal häufig und einmal selten ist.
+#
+# P. malariae / P. brasilianum
+5858	20	# Plasmodium malariae
+5824	1	# Plasmodium brasilianum
+# L. donovani / L. infantum
+435258	20	# Leishmania infantum JPCM5
+5661	1	# Leishmania donovani
+# T. brucei-Gruppe
+185431	20	# Trypanosoma brucei brucei TREU927
+679716	1	# Trypanosoma brucei gambiense DAL972
+5694	1	# Trypanosoma equiperdum
