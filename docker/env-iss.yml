@@ -1,0 +1,13 @@
+# InSilicoSeq, versions as in the WSL environment the first protozoa mix was simulated with.
+name: iss
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.14.9
+  - insilicoseq=2.0.1
+  - biopython=1.88
+  - numpy=2.5.4
+  - scipy=1.18.1
+  - pysam=0.24.1
+  - joblib=1.6.0

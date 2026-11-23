@@ -1,0 +1,12 @@
+# Kraken2/Bracken (versions as in the WSL environment), Java for smoothy and Python with
+# matplotlib for the evaluation scripts.
+name: tools
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - kraken2=2.17.2
+  - bracken=3.1
+  - openjdk=21
+  - python=3.12
+  - matplotlib=3.9

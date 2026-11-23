@@ -1,0 +1,7 @@
+data
+target
+lib
+docs
+.git
+.idea
+**/__pycache__

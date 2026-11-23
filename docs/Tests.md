@@ -1,4 +1,4 @@
-# Protozoa: Smoothy vs Kraken2/Bracken auf simulierten Reads
+# Tests: Smoothy vs Kraken2/Bracken auf simulierten Reads (Projekt protozoa)
 
 Ablauf, um den Vergleich auf dem Projekt `protozoa` nachzustellen: gleiche Datenbank für
 Genestrip (core und FT) und Kraken2/Bracken, simulierte Reads mit bekannter Wahrheit (einmal
@@ -99,6 +99,20 @@ python $SM/scripts/iss_sample.py --fasta $P/fasta \
 ```
 
 Ergebnis in `insilicoseq/`: `mix_genomes.fna`, `mix_abundance.txt`, `mix_truth.tsv`.
+
+Die geplanten Testproben liegen als gleich aufgebaute Dateien in `insilicoseq/samples/`
+(Übersicht im Browser: Abschnitt 8):
+
+| Datei                        | Probe                                                                   |
+|------------------------------|-------------------------------------------------------------------------|
+| `p1_equal`, `p1_skew`        | 1: weit entfernte Gattungen, Kontrolle (6 Genome)                       |
+| `p2_equal`, `p2_skew_a/b`    | 2: eng verwandt, alle Verwandten in der Probe (7 Genome, 3 Gruppen)     |
+| `p3a_*`, `p3b_*`             | 3: nur ein Verwandter je Gruppe in der Probe, der andere nur in der DB  |
+| `p4_<taxid>`                 | 4: Einzelgenom, je eins der 13 Genome aus Probe 1–3                     |
+
+`equal`: gleiche Read-Anteile. `skew`: Spreizung 20 : 1 (Probe 1 geometrisch von 20 bis 1,
+Probe 2 innerhalb jeder Gruppe, `b` gespiegelt, Probe 3 geometrisch 20 : 4.5 : 1). Die Gewichte
+werden von `iss_sample.py` normiert, nur ihr Verhältnis zählt.
 
 ### 4.3 Reads simulieren
 
@@ -275,3 +289,85 @@ Pro Variante unter `eval/results/<perfect|err10>/<genome|species>/`:
 Organismenanteil (`org`): Read-Anteil geteilt durch Genomlänge, normiert. Bei den nicht
 renormierten Methoden gehen Reads an höheren Knoten mit ihrem Read-Anteil als Fehler ein, da sie
 keine Länge haben.
+
+## 8. Übersicht der Testproben (HTML)
+
+`docs/proben-taxtree/index.html` zeigt, welche Genome in welcher Testprobe stecken und wo ihre
+k-mers im Standard- und im verfeinerten (FT) TaxTree der Protozoa-DB liegen. Die Seite ist eine
+einzelne Datei mit eingebetteten Daten und lässt sich per Doppelklick im Browser öffnen.
+
+Neu erzeugen, wenn sich die Genestrip-DB, `insilicoseq/mix.tsv` oder die geplanten Proben ändern
+(WSL oder jede andere Python-3-Umgebung, im Repository-Ordner):
+
+```bash
+python3 scripts/sample_tree_page.py data docs/proben-taxtree
+```
+
+- Eingaben: `db/protozoa_kmergenomepathcountscsv.csv`, `db/protozoa_ftkmergenomepathcountscsv.csv`,
+  `insilicoseq/mix.tsv`
+- Die geplanten Proben (Taxids je Probe) stehen in `SAMPLES` in `scripts/sample_tree_page.py`.
+- Aussehen und Verhalten der Seite: Vorlage `scripts/sample_tree_page.html`; das Skript setzt die
+  Daten an der Stelle `__DATA__` ein.
+
+## 9. Alle Testproben automatisch rechnen (Docker)
+
+Das Image `smoothy-tests` enthält alle Werkzeuge mit festen Versionen (InSilicoSeq 2.0.1 mit
+`patch_iss.py`, Kraken2 2.17.2, Bracken 3.1, Java 21, Python mit matplotlib) und smoothy, aus dem
+Quellcode dieses Repositorys gebaut. Die Daten bleiben auf der Platte und werden eingebunden.
+
+Image bauen (im Repository-Ordner, nach jeder Änderung an `src/` oder `scripts/` neu):
+
+```powershell
+docker build -f docker/Dockerfile -t smoothy-tests .
+```
+
+Alle Proben rechnen:
+
+```powershell
+docker run --rm -v X:\Bachelor\smoothy\data:/data -v smoothy-cache:/cache smoothy-tests
+```
+
+Nur bestimmte Proben (Dateinamen ohne `.tsv`):
+
+```powershell
+docker run --rm -v X:\Bachelor\smoothy\data:/data -v smoothy-cache:/cache smoothy-tests p1_equal p3a_skew
+```
+
+Für jede Datei `insilicoseq/samples/<name>.tsv`, jede Fehlerstufe und jeden Seed läuft
+`scripts/run_tests.sh` die Schritte 4–7 ab: `iss_sample.py`, ISS, smoothy (Match und Topic-Model,
+core und FT, mit und ohne Konsistenzgewicht), Kraken2/Bracken, `compare_abundances.py` auf Genom-
+und Speziesebene. Fertige Läufe werden übersprungen: Eine neue `.tsv` kostet nur ihre eigenen
+Läufe. Ändert sich eine `.tsv`, werden ihre alten Ergebnisse gelöscht und neu gerechnet. Fehlt die
+Kraken-DB unter `krakendb/`, baut das Skript sie aus `fasta/` (Schritte 2–3).
+
+`-v smoothy-cache:/cache` bindet ein Docker-Volume ein. Beim ersten Lauf kopiert das Skript die
+Genestrip- und Kraken-DBs und die Taxonomie dorthin (einmalig, etwa 25 GB), danach liest es sie von
+dort statt vom Windows-Laufwerk, das in Docker Desktop nur etwa 30 MB/s schafft. Ändert sich eine
+DB-Datei, wird nur sie neu kopiert. Ohne das Volume läuft alles genauso, nur langsamer. Volume
+löschen: `docker volume rm smoothy-cache`.
+
+Einstellungen über `-e NAME=WERT` beim `docker run`:
+
+| Variable      | Default                  | Bedeutung                                                     |
+|---------------|--------------------------|---------------------------------------------------------------|
+| `SEEDS`       | `1 1360937 20270205`     | ISS-Seeds, ein Lauf pro Seed                                  |
+| `SINGLE_SEED` | `p4_*`                   | Proben, die nur mit dem ersten Seed laufen                    |
+| `ERRORS`      | `perfect err10`          | Fehlerstufen; `errQ` = Phred Q, also 10^(−Q/10) Fehler je Base |
+| `N_READS`     | `1M`                     | Reads pro Lauf (beide Mates gezählt)                           |
+| `READ_LENGTH` | `301`                    | Read-Länge; Bracken braucht eine passende Verteilung           |
+| `GS_XMX`      | `24g`                    | Java-Heap für smoothy                                         |
+| `BATCH`       | `24`                     | Läufe pro smoothy-Aufruf (die DB wird einmal je Batch geladen) |
+| `THREADS`     | alle CPUs                | Threads für ISS und Kraken2                                   |
+| `OUT`         | `/data/projects/protozoa/tests` | Ausgabeordner                                          |
+
+Der Heap muss in den Speicher der Docker-VM passen. Docker Desktop nutzt die WSL-2-VM; ihr
+Speicher steht in `%USERPROFILE%\.wslconfig` (`[wsl2]`, `memory=48GB`), danach `wsl --shutdown`.
+
+Ergebnisse unter `data/projects/protozoa/tests/`:
+
+| Pfad                                   | Inhalt                                                                  |
+|----------------------------------------|-------------------------------------------------------------------------|
+| `samples/<name>/`                      | Ausgabe von `iss_sample.py` und eine Kopie der `.tsv`                   |
+| `runs/<name>_<fehler>_s<seed>/`        | Reads, smoothy-CSVs (`weighted/`, `unweighted/`), Kraken/Bracken, `genome_*` und `species_*` von `compare_abundances.py`, `done` mit den Parametern |
+| `summary_genome.csv`, `summary_species.csv` | pro Probe, Fehlerstufe und Methode: Zahl der Seeds, Mittelwert und Standardabweichung jeder Fehlerspalte |
+| `smoothy_*.log`                        | Log des letzten smoothy-Aufrufs                                         |
