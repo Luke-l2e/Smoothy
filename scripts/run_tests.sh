@@ -21,6 +21,8 @@
 #   KRAKEN_DB [$P/krakendb]  built from the project's FASTA files if it does not exist
 #   OUT [$P/tests]       SAMPLES [$P/insilicoseq/samples]
 #   CACHE [/cache]       mount a Docker volume here to read the databases from it (much faster)
+#   FASTA [$P/fasta]   genomes the reads are simulated from; for a leave-one-out project the
+#                        full project, e.g. /data/projects/protozoa/fasta, since its own lacks the genome
 set -euo pipefail
 
 : "${GS_DATA:=/data}" "${PROJECT:=protozoa}"
@@ -28,6 +30,7 @@ P=$GS_DATA/projects/$PROJECT
 : "${SEEDS:=1 1360937 20270205}" "${ERRORS:=perfect err10}" "${N_READS:=1M}" "${READ_LENGTH:=301}"
 : "${THREADS:=$(nproc)}" "${GS_XMX:=24g}" "${BATCH:=24}" "${SINGLE_SEED:=p4_*}"
 : "${KRAKEN_DB:=$P/krakendb}" "${OUT:=$P/tests}" "${SAMPLES:=$P/insilicoseq/samples}"
+: "${FASTA:=$P/fasta}"
 S=/opt/smoothy/scripts
 JAR=/opt/smoothy/lib/smoothy.jar
 TAXONOMY=$GS_DATA/common/nodes.dmp
@@ -36,6 +39,24 @@ log() { echo "[$(date '+%F %T')] $*"; }
 iss_env() { conda run --no-capture-output -n iss "$@"; }
 tools() { conda run --no-capture-output -n tools "$@"; }
 smoothy() { tools java -Xmx"$GS_XMX" -jar "$JAR" -d "$RUN_DATA" "$PROJECT" "$@"; }
+
+# The project needs its Genestrip databases and its FASTA files (goal extractrefseqcsv), which the
+# Kraken2 database is built from. Both come from smoothy outside this pipeline, see docs/Tests.md.
+for f in "$P/db/${PROJECT}_db.zip" "$P/db/${PROJECT}_ftdb.zip" "$P/db/${PROJECT}_kmergenomepathcountsser.ser" \
+         "$P/db/${PROJECT}_ftkmergenomepathcountsser.ser"; do
+  [ -f "$f" ] || { echo "missing $f: build the databases of $PROJECT first (docs/Tests.md)" >&2; exit 1; }
+done
+if [ ! -f "$KRAKEN_DB/hash.k2d" ] && [ -z "$(find "$P/fasta" -maxdepth 1 -name '*.fa' -print -quit 2>/dev/null)" ]; then
+  echo "no FASTA files in $P/fasta to build the Kraken2 database from: run goal extractrefseqcsv" >&2; exit 1
+fi
+# A tax id that taxids.txt excludes ('-' line, leave-one-out) must not be among the exported genomes,
+# or the Kraken2 database would hold the genome that the Genestrip databases leave out.
+refseq_csv=$P/csv/${PROJECT}_extractrefseqcsv.csv
+for t in $(sed -n 's/^[[:space:]]*-\([0-9][0-9]*\).*/\1/p' "$P/taxids.txt"); do
+  if [ -f "$refseq_csv" ] && cut -d';' -f2 "$refseq_csv" | grep -qx "$t"; then
+    echo "$refseq_csv lists the excluded tax id $t" >&2; exit 1
+  fi
+done
 
 # --- Kraken2/Bracken database, the same genomes as the Genestrip DB (docs/Tests.md, steps 2-3) ---
 if [ ! -f "$KRAKEN_DB/hash.k2d" ]; then
@@ -104,7 +125,7 @@ for s in "${names[@]}"; do
   if [ ! -f "$prep/${s}_truth.tsv" ]; then
     log "$s: collecting genomes"
     mkdir -p "$prep"
-    iss_env python "$S/iss_sample.py" --fasta "$P/fasta" --genomes "$tsv" --out "$prep/$s"
+    iss_env python "$S/iss_sample.py" --fasta "$FASTA" --genomes "$tsv" --out "$prep/$s"
     cp "$tsv" "$prep/$s.tsv"
   fi
   seeds=($SEEDS)
