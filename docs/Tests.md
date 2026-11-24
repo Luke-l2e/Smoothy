@@ -340,6 +340,12 @@ und Speziesebene. Fertige Läufe werden übersprungen: Eine neue `.tsv` kostet n
 Läufe. Ändert sich eine `.tsv`, werden ihre alten Ergebnisse gelöscht und neu gerechnet. Fehlt die
 Kraken-DB unter `krakendb/`, baut das Skript sie aus `fasta/` (Schritte 2–3).
 
+Anhalten und Fortsetzen geht jederzeit (`docker stop <name>`, dann `docker start <name>` oder ein neues
+`docker run`): ISS schreibt erst unter einem temporären Namen und benennt nach Erfolg um, und ein
+smoothy-Aufruf läuft nur für Läufe, deren Ergebnisse dieses Aufrufs noch fehlen. Verloren ist nur der
+Schritt, der gerade lief.
+
+
 `-v smoothy-cache:/cache` bindet ein Docker-Volume ein. Beim ersten Lauf kopiert das Skript die
 Genestrip- und Kraken-DBs und die Taxonomie dorthin (einmalig, etwa 25 GB), danach liest es sie von
 dort statt vom Windows-Laufwerk, das in Docker Desktop nur etwa 30 MB/s schafft. Ändert sich eine
@@ -370,4 +376,7 @@ Ergebnisse unter `data/projects/protozoa/tests/`:
 | `samples/<name>/`                      | Ausgabe von `iss_sample.py` und eine Kopie der `.tsv`                   |
 | `runs/<name>_<fehler>_s<seed>/`        | Reads, smoothy-CSVs (`weighted/`, `unweighted/`), Kraken/Bracken, `genome_*` und `species_*` von `compare_abundances.py`, `done` mit den Parametern |
 | `summary_genome.csv`, `summary_species.csv` | pro Probe, Fehlerstufe und Methode: Zahl der Seeds, Mittelwert und Standardabweichung jeder Fehlerspalte |
-| `smoothy_*.log`                        | Log des letzten smoothy-Aufrufs                                         |
+| `logs/<batch>.weighted.log`, `.unweighted.log` | Log jedes smoothy-Aufrufs (und die fqmap, mit der er lief) |
+| `runs/<lauf>/timings.csv`            | Sekunden je Schritt: `iss`, `kraken2`, `bracken`, `compare genome`, `compare species` |
+| `timings_runs.csv`, `timings_summary.csv` | alle Laufzeiten bzw. Mittelwert und Standardabweichung je Fehlerstufe, Read-Zahl und Schritt |
+| `smoothy_timings.csv`                  | pro Batch und Aufruf: Zahl der Läufe, Gesamtdauer und die Zeiten der Genestrip-Goals (`Making … took`) |

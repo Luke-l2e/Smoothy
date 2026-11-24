@@ -118,61 +118,121 @@ done
 log "${#pending[@]} runs to do"
 
 # --- runs, in batches so that smoothy loads its databases once per batch ---
+#
+# Safe to stop at any point and start again: reads are written under a temporary name and renamed
+# only when ISS has finished; a smoothy call is skipped for runs whose results of that call are
+# already in their run directory, and leftovers of an interrupted call are removed from csv/ first.
+#
+# Timings: every run gets timings.csv (seconds per step). smoothy works per batch, so its log of each
+# call is kept under logs/ and its goal times ("Making ... took N s") go to smoothy_timings.csv.
+GOALS=(match ftmatch topicmodelcsv fttopicmodelcsv)
+WFILES=(match ftmatch topicmodelcsv fttopicmodelcsv)   # results of the call with consistency weight
+UFILES=(topicmodelcsv fttopicmodelcsv)                 # results of the call without
+mkdir -p "$OUT/logs"
+[ -f "$OUT/smoothy_timings.csv" ] || echo "batch;call;runs;wall seconds;goal;goal seconds" > "$OUT/smoothy_timings.csv"
+has() { # has DIR RUN FILE...: all of smoothy's FILEs of RUN are in DIR
+  local dir=$1 r=$2; shift 2
+  for g in "$@"; do [ -f "$dir/${PROJECT}_${g}_$r.csv" ] || return 1; done
+}
+clean_csv() { for g in "${GOALS[@]}"; do rm -f "$P/csv/${PROJECT}_${g}_$1.csv"; done; }
 move() { # move smoothy's output of run $1 from csv/ into $2
   mkdir -p "$2"
-  for g in match ftmatch topicmodelcsv fttopicmodelcsv; do
+  for g in "${GOALS[@]}"; do
     f=$P/csv/${PROJECT}_${g}_$1.csv
-    [ -f "$f" ] && mv "$f" "$2/"
+    if [ -f "$f" ]; then mv "$f" "$2/"; fi
   done
 }
+timed() { # timed RUN_DIR STEP COMMAND...: run COMMAND and add its duration to RUN_DIR/timings.csv
+  local d=$1 step=$2 t0; shift 2
+  [ -f "$d/timings.csv" ] || echo "step;seconds" > "$d/timings.csv"
+  t0=$(date +%s)
+  "$@"
+  echo "$step;$(( $(date +%s) - t0 ))" >> "$d/timings.csv"
+}
+run_smoothy() { # run_smoothy CALL RUN... -- ARGS...: one smoothy call over the listed runs
+  local call=$1 runs=() t0 n; shift
+  while [ "$1" != -- ]; do runs+=("$1"); shift; done; shift
+  local fq=$OUT/logs/$batch_id.$call.fqmap log=$OUT/logs/$batch_id.$call.log
+  : > "$fq"
+  for r in "${runs[@]}"; do
+    clean_csv "$r"
+    printf '%s %s\n%s %s\n' "$r" "$OUT/runs/$r/reads_R1.fastq.gz" "$r" "$OUT/runs/$r/reads_R2.fastq.gz" >> "$fq"
+  done
+  n=${#runs[@]}
+  log "smoothy ($call) for $n runs, log in logs/$batch_id.$call.log"
+  t0=$(date +%s)
+  smoothy "$@" -m "$fq" 2>&1 | tee "$log"
+  local wall=$(( $(date +%s) - t0 ))
+  sed -n 's/.*\] \([A-Za-z]*\) - Making [A-Za-z]* took \([0-9]*\) s.*/\1;\2/p' "$log" \
+    | while IFS=';' read -r goal sec; do echo "$batch_id;$call;$n;$wall;$goal;$sec"; done >> "$OUT/smoothy_timings.csv"
+}
+
 for ((i = 0; i < ${#pending[@]}; i += BATCH)); do
   batch=("${pending[@]:i:BATCH}")
-  fqmap=$OUT/fqmap_batch.txt; : > "$fqmap"
+  batch_id=batch_$(date +%Y%m%d-%H%M%S)
   for job in "${batch[@]}"; do
     IFS='|' read -r r s e seed <<< "$job"
     d=$OUT/runs/$r; prep=$OUT/samples/$s
     mkdir -p "$d"
     if [ ! -f "$d/reads_R2.fastq.gz" ]; then
       log "$r: simulating $N_READS reads"
+      rm -f "$d"/reads_tmp* "$d"/reads.iss.tmp.* "$d/timings.csv"
       if [ "$e" = perfect ]; then mode=(--mode perfect); env=(ISS_PERFECT_READ_LENGTH="$READ_LENGTH")
       else mode=(--mode basic); env=(ISS_BASIC_PHRED="${e#err}" ISS_BASIC_READ_LENGTH="$READ_LENGTH"); fi
-      iss_env env "${env[@]}" iss generate --genomes "$prep/${s}_genomes.fna" \
+      timed "$d" iss iss_env env "${env[@]}" iss generate --genomes "$prep/${s}_genomes.fna" \
         --abundance_file "$prep/${s}_abundance.txt" "${mode[@]}" --n_reads "$N_READS" \
-        --seed "$seed" --cpus "$THREADS" --compress --output "$d/reads" > "$d/iss.log" 2>&1
+        --seed "$seed" --cpus "$THREADS" --compress --output "$d/reads_tmp" > "$d/iss.log" 2>&1
+      rm -f "$d"/reads_tmp.iss.tmp.*
+      # InSilicoSeq may fail with exit status 0 and no output (see patch_iss.py), so check the files.
+      for m in R1 R2; do
+        [ -s "$d/reads_tmp_$m.fastq.gz" ] || { echo "ISS wrote no reads for $r, see $d/iss.log" >&2; exit 1; }
+      done
+      mv "$d/reads_tmp_R1.fastq.gz" "$d/reads_R1.fastq.gz"
+      mv "$d/reads_tmp_R2.fastq.gz" "$d/reads_R2.fastq.gz"
     fi
-    echo "$r $d/reads_R1.fastq.gz" >> "$fqmap"
-    echo "$r $d/reads_R2.fastq.gz" >> "$fqmap"
   done
 
-  log "smoothy: match and topic model (with consistency weight) for ${#batch[@]} runs"
-  smoothy match topicmodelcsv ftmatch fttopicmodelcsv -m "$fqmap" 2>&1 | tee "$OUT/smoothy_weighted.log"
-  for job in "${batch[@]}"; do r=${job%%|*}; move "$r" "$OUT/runs/$r/weighted"; done
-  log "smoothy: topic model without consistency weight"
-  smoothy topicmodelcsv fttopicmodelcsv -m "$fqmap" -C smoothy.consistencySeverity=0 2>&1 | tee "$OUT/smoothy_unweighted.log"
-  for job in "${batch[@]}"; do r=${job%%|*}; move "$r" "$OUT/runs/$r/unweighted"; done
+  need_w=(); need_u=()
+  for job in "${batch[@]}"; do
+    r=${job%%|*}
+    has "$OUT/runs/$r/weighted" "$r" "${WFILES[@]}" || need_w+=("$r")
+    has "$OUT/runs/$r/unweighted" "$r" "${UFILES[@]}" || need_u+=("$r")
+  done
+  if [ ${#need_w[@]} -gt 0 ]; then
+    run_smoothy weighted "${need_w[@]}" -- match topicmodelcsv ftmatch fttopicmodelcsv
+    for r in "${need_w[@]}"; do move "$r" "$OUT/runs/$r/weighted"; done
+  fi
+  if [ ${#need_u[@]} -gt 0 ]; then
+    run_smoothy unweighted "${need_u[@]}" -- topicmodelcsv fttopicmodelcsv -C smoothy.consistencySeverity=0
+    for r in "${need_u[@]}"; do move "$r" "$OUT/runs/$r/unweighted"; done
+  fi
 
   for job in "${batch[@]}"; do
     IFS='|' read -r r s e seed <<< "$job"
     d=$OUT/runs/$r; W=$d/weighted; U=$d/unweighted
     rm -f "$U/${PROJECT}_match_$r.csv" "$U/${PROJECT}_ftmatch_$r.csv"   # same as in weighted/
+    has "$W" "$r" "${WFILES[@]}" && has "$U" "$r" "${UFILES[@]}" \
+      || { echo "smoothy left no results for $r, see $OUT/logs/$batch_id.*.log" >&2; exit 1; }
+    sed -i '/^kraken2;\|^bracken;\|^compare /d' "$d/timings.csv" 2>/dev/null || true
     log "$r: Kraken2 and Bracken"
-    tools kraken2 --db "$KRAKEN_DB" --threads "$THREADS" --paired --confidence 0 --minimum-hit-groups 1 \
+    timed "$d" kraken2 tools kraken2 --db "$KRAKEN_DB" --threads "$THREADS" --paired --confidence 0 --minimum-hit-groups 1 \
       --report "$d/kraken.kreport" --output /dev/null "$d/reads_R1.fastq.gz" "$d/reads_R2.fastq.gz" > "$d/kraken.log" 2>&1
-    tools bracken -d "$KRAKEN_DB" -i "$d/kraken.kreport" -o "$d/bracken_S.bracken" \
+    timed "$d" bracken tools bracken -d "$KRAKEN_DB" -i "$d/kraken.kreport" -o "$d/bracken_S.bracken" \
       -w "$d/bracken_species.kreport" -r "$READ_LENGTH" -l S >> "$d/kraken.log" 2>&1
     log "$r: comparing with the truth"
     common=(--fastq "$d/reads_R1.fastq.gz" --sample "$r"
             --match "$W/${PROJECT}_match_$r.csv" --ftmatch "$W/${PROJECT}_ftmatch_$r.csv"
             --topics "weighted=$W/${PROJECT}_topicmodelcsv_$r.csv" "unweighted=$U/${PROJECT}_topicmodelcsv_$r.csv"
                      "FT weighted=$W/${PROJECT}_fttopicmodelcsv_$r.csv" "FT unweighted=$U/${PROJECT}_fttopicmodelcsv_$r.csv")
-    tools python "$S/compare_abundances.py" "${common[@]}" --genomes "$OUT/samples/$s/${s}_genomes.fna" \
+    timed "$d" "compare genome" tools python "$S/compare_abundances.py" "${common[@]}" --genomes "$OUT/samples/$s/${s}_genomes.fna" \
       --out "$d/genome_comparison.csv" --summary-out "$d/genome_summary.csv" --plot "$d/genome_scatter.png"
-    tools python "$S/compare_abundances.py" "${common[@]}" --level species --taxonomy "$TAXONOMY" \
+    timed "$d" "compare species" tools python "$S/compare_abundances.py" "${common[@]}" --level species --taxonomy "$TAXONOMY" \
       --kreport "$d/kraken.kreport" --bracken "$d/bracken_S.bracken" \
       --out "$d/species_comparison.csv" --summary-out "$d/species_summary.csv" --plot "$d/species_scatter.png"
-    printf 'sample=%s\nerror=%s\nseed=%s\nn_reads=%s\nread_length=%s\n' "$s" "$e" "$seed" "$N_READS" "$READ_LENGTH" > "$d/done"
+    printf 'sample=%s\nerror=%s\nseed=%s\nn_reads=%s\nread_length=%s\nbatch=%s\n' \
+      "$s" "$e" "$seed" "$N_READS" "$READ_LENGTH" "$batch_id" > "$d/done"
   done
 done
 
 tools python "$S/summarize_tests.py" "$OUT"
-log "finished; summary in $OUT/summary_genome.csv and $OUT/summary_species.csv"
+log "finished; summary in $OUT/summary_{genome,species}.csv, times in $OUT/timings_summary.csv and smoothy_timings.csv"
