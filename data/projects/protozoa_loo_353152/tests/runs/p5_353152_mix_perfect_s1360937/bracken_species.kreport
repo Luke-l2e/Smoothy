@@ -1,0 +1,68 @@
+100.00	497140	0	R	1	root
+100.00	497140	0	R1	131567	  cellular organisms
+100.00	497140	0	D	2759	    Eukaryota
+71.74	356658	0	D1	2698737	      Sar
+57.37	285211	0	D2	33630	        Alveolata
+57.37	285211	0	P	5794	          Apicomplexa
+42.97	213627	0	C	1280412	            Conoidasida
+42.97	213627	0	C1	5796	              Coccidia
+42.97	213627	0	O	75739	                Eucoccidiorida
+42.97	213627	0	O1	423054	                  Eimeriorina
+28.63	142312	0	F	35082	                    Cryptosporidiidae
+28.63	142312	0	G	5806	                      Cryptosporidium
+14.37	71435	71435	S	310047	                        Cryptosporidium bovis
+14.01	69640	69640	S	237895	                        Cryptosporidium hominis
+0.20	995	0	G1	203864	                        unclassified Cryptosporidium
+0.20	995	0	G2	649395	                          Cryptosporidium genotype names
+0.20	995	995	S	1280935	                            Cryptosporidium sp. chipmunk genotype I
+0.05	242	242	S	857276	                        Cryptosporidium ubiquitum
+14.35	71315	0	F	5809	                    Sarcocystidae
+14.35	71315	0	G	5810	                      Toxoplasma
+14.35	71315	71315	S	5811	                        Toxoplasma gondii
+14.40	71583	0	C	422676	            Aconoidasida
+14.37	71432	0	O	5863	              Piroplasmida
+14.37	71432	0	F	32594	                Babesiidae
+14.37	71432	0	G	5864	                  Babesia
+14.37	71432	71432	S	5865	                    Babesia bovis
+0.03	151	0	O	5819	              Haemosporida
+0.03	151	0	F	1639119	                Plasmodiidae
+0.03	151	0	G	5820	                  Plasmodium
+0.02	116	0	G1	418107	                    Laverania
+0.01	46	46	S	5854	                      Plasmodium reichenowi
+0.01	30	30	S	647221	                      Plasmodium gaboni
+0.00	23	23	S	5833	                      Plasmodium falciparum
+0.00	16	16	S	880535	                      Plasmodium adleri (nom. inval.)
+0.01	34	0	G1	418104	                    Haemamoeba
+0.00	20	20	S	85471	                      Plasmodium relictum
+0.00	14	14	S	5849	                      Plasmodium gallinaceum
+14.37	71447	0	D2	33634	        Stramenopiles
+14.37	71447	0	C	2683628	          Bigyra
+14.37	71447	0	C1	2683629	            Opalozoa
+14.37	71447	0	O	42740	              Opalinata
+14.37	71447	0	F	2547934	                Blastocystidae
+14.37	71447	0	G	12967	                  Blastocystis
+14.37	71447	0	G1	944171	                    Blastocystis sp. subtypes
+14.37	71447	71447	S	944170	                      Blastocystis sp. subtype 4
+14.38	71475	0	D1	2611352	      Discoba
+14.37	71458	0	P	5752	        Heterolobosea
+14.37	71458	0	P1	2601529	          Tetramitia
+14.37	71458	0	C	2601530	            Eutetramitea
+14.37	71458	0	O	43693	              Acrasida
+14.37	71458	0	F	3691768	                Naegleriidae
+14.37	71458	0	G	5761	                  Naegleria
+14.37	71458	71458	S	5763	                    Naegleria fowleri
+0.00	17	0	P	33682	        Euglenozoa
+0.00	17	0	C	5653	          Kinetoplastea
+0.00	17	0	C1	2704647	            Metakinetoplastina
+0.00	17	0	O	2704949	              Trypanosomatida
+0.00	17	0	F	5654	                Trypanosomatidae
+0.00	17	0	G	5690	                  Trypanosoma
+0.00	17	0	G1	2745573	                    Megatrypanum
+0.00	17	17	S	715481	                      Trypanosoma melophagium
+13.88	69007	0	D1	2611341	      Metamonada
+13.88	69007	0	P	207245	        Fornicata
+13.88	69007	0	O	5738	          Diplomonadida
+13.88	69007	0	F	5739	            Hexamitidae
+13.88	69007	0	F1	68459	              Giardiinae
+13.88	69007	0	G	5740	                Giardia
+13.88	69007	69007	S	5741	                  Giardia duodenalis

@@ -1,0 +1,26 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Cryptosporidium hominis	237895	S	487406	490	487896	0.97981
+Cryptosporidium sp. chipmunk genotype I	1280935	S	6958	1	6959	0.01398
+Cryptosporidium ubiquitum	857276	S	1661	0	1661	0.00334
+Cryptosporidium bovis	310047	S	37	0	37	0.00007
+Cryptosporidium andersoni	117008	S	19	0	19	0.00004
+Plasmodium reichenowi	5854	S	140	143	283	0.00057
+Plasmodium falciparum	5833	S	97	45	142	0.00029
+Plasmodium adleri (nom. inval.)	880535	S	95	25	120	0.00024
+Plasmodium gaboni	647221	S	58	44	102	0.00020
+Plasmodium relictum	85471	S	141	4	145	0.00029
+Plasmodium gallinaceum	5849	S	116	58	174	0.00035
+Plasmodium malariae	5858	S	33	37	70	0.00014
+Plasmodium gonderi	77519	S	31	0	31	0.00006
+Plasmodium cynomolgi	5827	S	24	1	25	0.00005
+Plasmodium yoelii	5861	S	34	15	49	0.00010
+Plasmodium berghei	5821	S	22	2	24	0.00005
+Plasmodium vinckei	5860	S	18	4	22	0.00004
+Trypanosoma melophagium	715481	S	56	11	67	0.00013
+Trypanosoma cruzi	5693	S	13	0	13	0.00003
+Leishmania braziliensis	5660	S	21	0	21	0.00004
+Naegleria gruberi	5762	S	29	0	29	0.00006
+Naegleria lovaniensis	51637	S	14	0	14	0.00003
+Entamoeba histolytica	5759	S	12	3	15	0.00003
+Entamoeba invadens	33085	S	12	0	12	0.00002
+Entamoeba nuttalli	412467	S	11	3	14	0.00003

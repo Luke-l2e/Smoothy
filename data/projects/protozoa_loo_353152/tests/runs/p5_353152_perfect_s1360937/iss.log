@@ -1,0 +1,15 @@
+INFO:iss.app:Starting iss generate
+INFO:iss.generator:Using perfect ErrorModel
+INFO:iss.generator:Setting random seed to 1360937
+INFO:iss.util:Stitching input files together
+INFO:iss.generator:Using abundance file:/data/projects/protozoa_loo_353152/tests/samples/p5_353152/p5_353152_abundance.txt
+INFO:iss.app:Using 20 cpus for read generation
+INFO:iss.app:Generating 1000000 reads
+INFO:iss.util:Stitching input files together
+INFO:iss.util:Stitching input files together
+INFO:iss.util:Cleaning up
+INFO:iss.util:Compressing /data/projects/protozoa_loo_353152/tests/runs/p5_353152_perfect_s1360937/reads_tmp_R1.fastq
+INFO:iss.util:Cleaning up
+INFO:iss.util:Compressing /data/projects/protozoa_loo_353152/tests/runs/p5_353152_perfect_s1360937/reads_tmp_R2.fastq
+INFO:iss.util:Cleaning up
+INFO:iss.app:Read generation complete

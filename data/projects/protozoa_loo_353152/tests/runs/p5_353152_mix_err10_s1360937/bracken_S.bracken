@@ -1,0 +1,42 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Cryptosporidium bovis	310047	S	70889	833	71722	0.14588
+Cryptosporidium hominis	237895	S	62776	165	62941	0.12802
+Cryptosporidium sp. chipmunk genotype I	1280935	S	1197	0	1197	0.00243
+Cryptosporidium ubiquitum	857276	S	488	0	488	0.00099
+Cryptosporidium ryanae	515981	S	34	0	34	0.00007
+Toxoplasma gondii	5811	S	70914	110	71024	0.14446
+Cyclospora cayetanensis	88456	S	14	0	14	0.00003
+Babesia bovis	5865	S	71191	102	71293	0.14501
+Plasmodium falciparum	5833	S	101	37	138	0.00028
+Plasmodium adleri (nom. inval.)	880535	S	98	34	132	0.00027
+Plasmodium gaboni	647221	S	78	54	132	0.00027
+Plasmodium reichenowi	5854	S	74	57	131	0.00027
+Plasmodium gonderi	77519	S	43	1	44	0.00009
+Plasmodium knowlesi	5850	S	36	76	112	0.00023
+Plasmodium vivax	5855	S	31	32	63	0.00013
+Plasmodium fragile	5857	S	19	11	30	0.00006
+Plasmodium cynomolgi	5827	S	18	11	29	0.00006
+Plasmodium inui	52288	S	15	3	18	0.00004
+Plasmodium relictum	85471	S	109	3	112	0.00023
+Plasmodium gallinaceum	5849	S	104	31	135	0.00027
+Plasmodium yoelii	5861	S	50	21	71	0.00014
+Plasmodium vinckei	5860	S	35	9	44	0.00009
+Plasmodium berghei	5821	S	30	4	34	0.00007
+Plasmodium chabaudi	5825	S	29	6	35	0.00007
+Plasmodium coatneyi	208452	S	28	1	29	0.00006
+Blastocystis sp. subtype 4	944170	S	71053	135	71188	0.14480
+Blastocystis hominis	12968	S	11	0	11	0.00002
+Naegleria fowleri	5763	S	70831	257	71088	0.14459
+Naegleria gruberi	5762	S	222	0	222	0.00045
+Naegleria lovaniensis	51637	S	74	0	74	0.00015
+Trypanosoma theileri	67003	S	44	4	48	0.00010
+Trypanosoma cruzi	5693	S	31	1	32	0.00007
+Trypanosoma melophagium	715481	S	30	2	32	0.00007
+Trypanosoma brucei	5691	S	11	7	18	0.00004
+Giardia duodenalis	5741	S	68759	22	68781	0.13990
+Trichomonas vaginalis	5722	S	36	0	36	0.00007
+Entamoeba dispar	46681	S	28	0	28	0.00006
+Entamoeba invadens	33085	S	23	0	23	0.00005
+Entamoeba histolytica	5759	S	15	1	16	0.00003
+Entamoeba nuttalli	412467	S	10	0	10	0.00002
+Acanthamoeba castellanii	5755	S	11	0	11	0.00002

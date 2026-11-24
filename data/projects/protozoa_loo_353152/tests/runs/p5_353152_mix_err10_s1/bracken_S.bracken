@@ -1,0 +1,43 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Cryptosporidium bovis	310047	S	70891	733	71624	0.14573
+Cryptosporidium hominis	237895	S	62737	148	62885	0.12794
+Cryptosporidium sp. chipmunk genotype I	1280935	S	1243	0	1243	0.00253
+Cryptosporidium ubiquitum	857276	S	465	0	465	0.00095
+Cryptosporidium ryanae	515981	S	38	0	38	0.00008
+Cryptosporidium andersoni	117008	S	12	0	12	0.00002
+Toxoplasma gondii	5811	S	70883	102	70985	0.14442
+Cyclospora cayetanensis	88456	S	11	0	11	0.00002
+Babesia bovis	5865	S	71181	100	71281	0.14503
+Plasmodium falciparum	5833	S	117	44	161	0.00033
+Plasmodium reichenowi	5854	S	92	72	164	0.00033
+Plasmodium adleri (nom. inval.)	880535	S	82	29	111	0.00023
+Plasmodium gaboni	647221	S	60	43	103	0.00021
+Plasmodium gonderi	77519	S	59	0	59	0.00012
+Plasmodium knowlesi	5850	S	29	18	47	0.00010
+Plasmodium vivax	5855	S	24	11	35	0.00007
+Plasmodium cynomolgi	5827	S	18	0	18	0.00004
+Plasmodium inui	52288	S	17	0	17	0.00003
+Plasmodium malariae	5858	S	16	53	69	0.00014
+Plasmodium brasilianum	5824	S	10	40	50	0.00010
+Plasmodium relictum	85471	S	108	1	109	0.00022
+Plasmodium gallinaceum	5849	S	97	25	122	0.00025
+Plasmodium yoelii	5861	S	46	20	66	0.00013
+Plasmodium vinckei	5860	S	38	9	47	0.00010
+Plasmodium berghei	5821	S	28	4	32	0.00007
+Plasmodium chabaudi	5825	S	25	5	30	0.00006
+Plasmodium coatneyi	208452	S	28	1	29	0.00006
+Blastocystis sp. subtype 4	944170	S	71087	129	71216	0.14489
+Blastocystis hominis	12968	S	16	0	16	0.00003
+Naegleria fowleri	5763	S	70762	278	71040	0.14454
+Naegleria gruberi	5762	S	255	0	255	0.00052
+Naegleria lovaniensis	51637	S	71	0	71	0.00014
+Trypanosoma theileri	67003	S	37	7	44	0.00009
+Trypanosoma melophagium	715481	S	34	6	40	0.00008
+Trypanosoma cruzi	5693	S	25	0	25	0.00005
+Giardia duodenalis	5741	S	68799	23	68822	0.14002
+Trichomonas vaginalis	5722	S	32	0	32	0.00007
+Entamoeba invadens	33085	S	41	0	41	0.00008
+Entamoeba dispar	46681	S	23	0	23	0.00005
+Entamoeba histolytica	5759	S	18	2	20	0.00004
+Entamoeba nuttalli	412467	S	11	1	12	0.00002
+Acanthamoeba castellanii	5755	S	11	0	11	0.00002

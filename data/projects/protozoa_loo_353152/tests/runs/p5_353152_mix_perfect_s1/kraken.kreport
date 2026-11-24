@@ -1,0 +1,117 @@
+  0.54	2688	2688	U	0	unclassified
+ 99.46	497312	0	R	1	root
+ 99.46	497312	0	R1	131567	  cellular organisms
+ 99.46	497312	81	D	2759	    Eukaryota
+ 71.34	356676	0	D1	2698737	      Sar
+ 57.05	285229	0	D2	33630	        Alveolata
+ 57.05	285229	19	P	5794	          Apicomplexa
+ 42.72	213581	0	C	1280412	            Conoidasida
+ 42.72	213581	0	C1	5796	              Coccidia
+ 42.72	213581	0	O	75739	                Eucoccidiorida
+ 42.72	213581	0	O1	423054	                  Eimeriorina
+ 28.46	142293	0	F	35082	                    Cryptosporidiidae
+ 28.46	142293	193	G	5806	                      Cryptosporidium
+ 14.26	71278	71278	S	310047	                        Cryptosporidium bovis
+ 13.92	69605	0	S	237895	                        Cryptosporidium hominis
+ 13.92	69605	69605	S1	353151	                          Cryptosporidium hominis TU502
+  0.19	969	0	G1	203864	                        unclassified Cryptosporidium
+  0.19	969	0	G2	649395	                          Cryptosporidium genotype names
+  0.19	969	969	S	1280935	                            Cryptosporidium sp. chipmunk genotype I
+  0.05	245	245	S	857276	                        Cryptosporidium ubiquitum
+  0.00	2	2	S	117008	                        Cryptosporidium andersoni
+  0.00	1	1	S	515981	                        Cryptosporidium ryanae
+ 14.26	71288	0	F	5809	                    Sarcocystidae
+ 14.26	71288	0	G	5810	                      Toxoplasma
+ 14.26	71288	0	S	5811	                        Toxoplasma gondii
+ 14.26	71288	71288	S1	508771	                          Toxoplasma gondii ME49
+ 14.33	71629	0	C	422676	            Aconoidasida
+ 14.29	71428	0	O	5863	              Piroplasmida
+ 14.29	71428	0	F	32594	                Babesiidae
+ 14.29	71428	0	G	5864	                  Babesia
+ 14.29	71428	0	S	5865	                    Babesia bovis
+ 14.29	71428	71428	S1	484906	                      Babesia bovis T2Bo
+  0.04	201	0	O	5819	              Haemosporida
+  0.04	201	0	F	1639119	                Plasmodiidae
+  0.04	201	37	G	5820	                  Plasmodium
+  0.02	82	15	G1	418107	                    Laverania
+  0.00	19	0	S	5833	                      Plasmodium falciparum
+  0.00	19	19	S1	36329	                        Plasmodium falciparum 3D7
+  0.00	19	19	S	5854	                      Plasmodium reichenowi
+  0.00	16	16	S	647221	                      Plasmodium gaboni
+  0.00	13	13	S	880535	                      Plasmodium adleri (nom. inval.)
+  0.01	41	2	G1	418104	                    Haemamoeba
+  0.00	22	22	S	5849	                      Plasmodium gallinaceum
+  0.00	17	17	S	85471	                      Plasmodium relictum
+  0.01	28	6	G1	418103	                    Plasmodium
+  0.00	9	9	S	5858	                      Plasmodium malariae
+  0.00	5	0	S	5827	                      Plasmodium cynomolgi
+  0.00	5	5	S1	1120755	                        Plasmodium cynomolgi strain B
+  0.00	4	4	S	77519	                      Plasmodium gonderi
+  0.00	2	0	S	5850	                      Plasmodium knowlesi
+  0.00	2	2	S1	5851	                        Plasmodium knowlesi strain H
+  0.00	1	1	S	5824	                      Plasmodium brasilianum
+  0.00	1	1	S	5855	                      Plasmodium vivax
+  0.00	13	1	G1	418101	                    Vinckeia
+  0.00	7	7	S	5861	                      Plasmodium yoelii
+  0.00	4	0	S	5860	                      Plasmodium vinckei
+  0.00	4	4	S1	54757	                        Plasmodium vinckei vinckei
+  0.00	1	0	S	5821	                      Plasmodium berghei
+  0.00	1	1	S1	5823	                        Plasmodium berghei ANKA
+ 14.29	71447	0	D2	33634	        Stramenopiles
+ 14.29	71447	0	C	2683628	          Bigyra
+ 14.29	71447	0	C1	2683629	            Opalozoa
+ 14.29	71447	0	O	42740	              Opalinata
+ 14.29	71447	0	F	2547934	                Blastocystidae
+ 14.29	71447	115	G	12967	                  Blastocystis
+ 14.27	71332	0	G1	944171	                    Blastocystis sp. subtypes
+ 14.27	71332	71332	S	944170	                      Blastocystis sp. subtype 4
+ 14.29	71438	0	D1	2611352	      Discoba
+ 14.28	71409	0	P	5752	        Heterolobosea
+ 14.28	71409	0	P1	2601529	          Tetramitia
+ 14.28	71409	0	C	2601530	            Eutetramitea
+ 14.28	71409	0	O	43693	              Acrasida
+ 14.28	71409	0	F	3691768	                Naegleriidae
+ 14.28	71409	27	G	5761	                  Naegleria
+ 14.27	71372	71372	S	5763	                    Naegleria fowleri
+  0.00	8	8	S	5762	                    Naegleria gruberi
+  0.00	2	2	S	51637	                    Naegleria lovaniensis
+  0.01	29	0	P	33682	        Euglenozoa
+  0.01	29	0	C	5653	          Kinetoplastea
+  0.01	29	0	C1	2704647	            Metakinetoplastina
+  0.01	29	0	O	2704949	              Trypanosomatida
+  0.01	29	0	F	5654	                Trypanosomatidae
+  0.00	23	3	G	5690	                  Trypanosoma
+  0.00	11	0	G1	2745573	                    Megatrypanum
+  0.00	11	11	S	715481	                      Trypanosoma melophagium
+  0.00	4	4	G1	39700	                    Trypanozoon
+  0.00	2	0	G1	47570	                    Schizotrypanum
+  0.00	2	2	S	5693	                      Trypanosoma cruzi
+  0.00	2	0	G1	669453	                    Trypanosoma incertae sedis
+  0.00	2	2	S	67003	                      Trypanosoma theileri
+  0.00	1	0	G1	39701	                    Herpetosoma
+  0.00	1	1	S	5698	                      Trypanosoma rangeli
+  0.00	6	0	F1	1286322	                  Leishmaniinae
+  0.00	6	0	G	5658	                    Leishmania
+  0.00	6	0	G1	37616	                      Viannia
+  0.00	6	0	G2	37617	                        Leishmania braziliensis species complex
+  0.00	6	0	S	5660	                          Leishmania braziliensis
+  0.00	6	6	S1	420245	                            Leishmania braziliensis MHOM/BR/75/M2904
+ 13.82	69112	0	D1	2611341	      Metamonada
+ 13.82	69112	0	P	207245	        Fornicata
+ 13.82	69112	0	O	5738	          Diplomonadida
+ 13.82	69112	0	F	5739	            Hexamitidae
+ 13.82	69112	0	F1	68459	              Giardiinae
+ 13.82	69112	0	G	5740	                Giardia
+ 13.82	69112	69112	S	5741	                  Giardia duodenalis
+  0.00	5	0	D1	554915	      Amoebozoa
+  0.00	5	0	P	2605435	        Evosea
+  0.00	5	0	P1	555406	          Archamoebae
+  0.00	5	0	O	2682482	            Mastigamoebida
+  0.00	5	0	F	33084	              Endamoebidae
+  0.00	5	1	G	5758	                Entamoeba
+  0.00	2	0	S	33085	                  Entamoeba invadens
+  0.00	2	2	S1	370355	                    Entamoeba invadens IP1
+  0.00	1	0	S	5759	                  Entamoeba histolytica
+  0.00	1	1	S1	294381	                    Entamoeba histolytica HM-1:IMSS
+  0.00	1	0	S	46681	                  Entamoeba dispar
+  0.00	1	1	S1	370354	                    Entamoeba dispar SAW760
