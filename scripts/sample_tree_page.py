@@ -32,6 +32,12 @@ SAMPLES = [
     {"id": "p3b", "label": "3b · Gegenstück", "title": "Probe 3b: Gegenstück zu 3a",
      "text": "Jeweils der andere Partner aus Probe 2. Zusammen mit 3a ist jedes Genom einmal allein in der Probe.",
      "taxids": ["5661", "5858", "679716"]},
+    {"id": "p5", "label": "5 · Leave-one-out", "title": "Probe 5: Genom fehlt in der DB (leave-one-out)",
+     "text": "Je ein eigenes Projekt (protozoa_loo_<taxid>), dessen DB genau eines dieser Genome auslässt; die Reads "
+             "stammen trotzdem von ihm. L. infantum (Verwandter L. donovani bleibt in der DB), C. parvum (C. hominis "
+             "bleibt) und Babesia bovis (kein naher Verwandter). Der Baum zeigt die volle protozoa-DB: die markierten "
+             "Pfade sind die, die in der jeweiligen LOO-DB fehlen bzw. anders aussehen.",
+     "taxids": ["435258", "353152", "484906"]},
     {"id": "mix", "label": "Realistische Mischung", "title": "Realistische Mischung (bisheriger ISS-Mix)",
      "text": "Der bisherige Mix aus insilicoseq/mix.tsv, mit Anteilen über etwa zwei Größenordnungen.",
      "taxids": None},

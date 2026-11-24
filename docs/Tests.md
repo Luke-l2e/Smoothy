@@ -309,6 +309,32 @@ python3 scripts/sample_tree_page.py data docs/proben-taxtree
 - Aussehen und Verhalten der Seite: Vorlage `scripts/sample_tree_page.html`; das Skript setzt die
   Daten an der Stelle `__DATA__` ein.
 
+### 8.1 Topic-Model-Ergebnisse der Testläufe (HTML)
+
+`docs/topic-ergebnisse/index.html` zeigt für jeden fertigen Testlauf (Kapitel 9 und 10), welche Topics
+das Topic Model belegt: links alle Topics als Balken (nach Anteil oder Taxonomie sortiert, die Wahrheit
+als Strich), rechts ein Baum nur aus den Topics des Laufs, jedes unter seinem nächsten Vorfahren, der
+ebenfalls ein Topic ist, gefärbt von kalt (blau) bis heiß (rot). Umschaltbar: Projekt, Lauf,
+Standard-/FT-Baum, mit/ohne Konsistenzgewicht, k-mer-Anteil θ oder Organismen-Anteil a, Skala.
+Neu erzeugen, sobald weitere Läufe fertig sind:
+
+```bash
+python3 scripts/topic_result_page.py data docs/topic-ergebnisse protozoa protozoa_loo_435258 protozoa_loo_353152 protozoa_loo_484906
+```
+
+Projekte ohne fertige Läufe werden übersprungen. Vorlage: `scripts/topic_result_page.html`.
+
+### 8.2 L1-Diagramme je Probengruppe
+
+`scripts/plot_tests.py` zeichnet aus `summary_genome.csv` und `summary_species.csv` je Gruppe p1–p4 den
+L1-Abstand zur Wahrheit (Genomebene Read- und Organismen-Anteil: naive, Topic Model core und FT;
+Artebene: core, FT, Bracken) nach `tests/plots/l1_<gruppe>.png/.pdf`. Es braucht matplotlib, z. B. im
+Docker-Image:
+
+```powershell
+docker run --rm -v X:\Bachelor\smoothy\data:/data -v X:\Bachelor\smoothy\scripts:/s --entrypoint conda smoothy-tests run --no-capture-output -n tools python /s/plot_tests.py /data/projects/protozoa/tests /data/projects/protozoa/insilicoseq/samples
+```
+
 ## 9. Alle Testproben automatisch rechnen (Docker)
 
 Das Image `smoothy-tests` enthält alle Werkzeuge mit festen Versionen (InSilicoSeq 2.0.1 mit
@@ -380,3 +406,74 @@ Ergebnisse unter `data/projects/protozoa/tests/`:
 | `runs/<lauf>/timings.csv`            | Sekunden je Schritt: `iss`, `kraken2`, `bracken`, `compare genome`, `compare species` |
 | `timings_runs.csv`, `timings_summary.csv` | alle Laufzeiten bzw. Mittelwert und Standardabweichung je Fehlerstufe, Read-Zahl und Schritt |
 | `smoothy_timings.csv`                  | pro Batch und Aufruf: Zahl der Läufe, Gesamtdauer und die Zeiten der Genestrip-Goals (`Making … took`) |
+
+## 10. Leave-one-out (Probe 5)
+
+Was passiert, wenn ein Genom in der Probe ist, aber nicht in der Datenbank, etwa eine neue Variante
+mit Verwandten in der DB? Dafür gibt es je ein eigenes Projekt, dessen Datenbanken genau ein Genom
+weglassen:
+
+| Projekt                 | weggelassen                          | k-mers am Genomknoten | Verwandter, der in der DB bleibt          |
+|-------------------------|--------------------------------------|-----------------------|-------------------------------------------|
+| `protozoa_loo_435258`   | *Leishmania infantum* JPCM5          | 15 %                  | *L. donovani* (68 % am species complex)   |
+| `protozoa_loo_353152`   | *Cryptosporidium parvum* Iowa II     | 55 %                  | *C. hominis* TU502 (44 % an der Gattung)  |
+| `protozoa_loo_484906`   | *Babesia bovis* T2Bo                 | 99,8 %                | keiner                                    |
+
+*Giardia* wäre der naheliegende Fall ohne Verwandte, hat aber 3,35 % `N` im Genom, was die Reads
+unabhängig vom Weglassen verliert. *B. bovis* hat keine `N`.
+
+Jedes Projekt ist eine Kopie von `protozoa` (`categories.txt`, `taxids.txt`, `config.properties`)
+mit zwei Unterschieden:
+
+- `taxids.txt` endet mit `-<taxid>`: Das Genom samt Teilbaum kommt nicht in die DB. Unter den drei
+  Arten gibt es in der Protozoa-DB keine weiteren Genome, das Weglassen ist also vollständig.
+- `config.properties` setzt `refseq.updateScope=allButExcluded`: Das Genom nimmt auch nicht am
+  LCA-Update teil. Mit dem Default `all` würden seine Contigs aus dem RefSeq-Release die geteilten
+  k-mers trotzdem zum gemeinsamen Vorfahren anheben, und die DB würde das fehlende Genom indirekt
+  kennen. `strictConfigCheck=true` bricht ab, falls die Genestrip-Version den Wert nicht kennt,
+  statt still mit `all` zu bauen.
+
+Proben in `insilicoseq/samples/` jedes Projekts:
+
+- `p5_<taxid>`: nur das weggelassene Genom. Richtig wäre, dass kein Genom der DB Anteil bekommt.
+- `p5_<taxid>_mix`: das weggelassene Genom mit den sechs Kontrollgenomen aus Probe 1, gleiche
+  Anteile (bei `484906` ist das genau `p1_equal`).
+
+### 10.1 Datenbanken bauen (Windows, nativ)
+
+Der Bau braucht mehr Heap, als die Docker-VM hat (beim Protozoa-Bau rund 43 GB belegt), deshalb
+nativ mit `bin\smoothy.cmd` (Default `GS_XMX=56g`). Pro Projekt core- und FT-DB, Pfadzählungen und
+der FASTA-Export für Kraken2:
+
+```bat
+bin\smoothy.cmd protozoa_loo_435258 kmergenomepathcountsser kmergenomepathcountscsv ftkmergenomepathcountsser ftkmergenomepathcountscsv extractrefseqcsv
+bin\smoothy.cmd protozoa_loo_353152 kmergenomepathcountsser kmergenomepathcountscsv ftkmergenomepathcountsser ftkmergenomepathcountscsv extractrefseqcsv
+bin\smoothy.cmd protozoa_loo_484906 kmergenomepathcountsser kmergenomepathcountscsv ftkmergenomepathcountsser ftkmergenomepathcountscsv extractrefseqcsv
+```
+
+Danach prüfen, dass das Genom wirklich fehlt (beide Befehle sollen nichts ausgeben):
+
+```powershell
+Select-String -Path data\projects\protozoa_loo_435258\csv\protozoa_loo_435258_extractrefseqcsv.csv -Pattern ';435258;'
+Select-String -Path data\projects\protozoa_loo_435258\db\protozoa_loo_435258_kmergenomepathcountscsv.csv -Pattern ';435258;0;'
+```
+
+### 10.2 Testen
+
+Dieselbe Pipeline wie in Abschnitt 9, mit dem Projekt und den Reads aus dem vollen Projekt (das
+eigene `fasta/` enthält das weggelassene Genom ja nicht). Die Kraken-DB baut das Skript beim ersten
+Lauf aus dem `fasta/` des Projekts, also ebenfalls ohne das Genom; es bricht ab, falls der Export
+die ausgeschlossene Taxid doch enthält. 2 Proben × 2 Fehlerstufen × 3 Seeds = 12 Läufe pro Projekt:
+
+```powershell
+docker run -d --name smoothy-loo-435258 -v X:\Bachelor\smoothy\data:/data -v smoothy-cache:/cache -e PROJECT=protozoa_loo_435258 -e FASTA=/data/projects/protozoa/fasta -e BATCH=12 smoothy-tests
+```
+
+Für die anderen beiden Projekte die Taxid ersetzen. Die Läufe nacheinander starten, nicht
+gleichzeitig: Jeder smoothy-Aufruf belegt fast den ganzen Heap der VM. Ergebnisse unter
+`data/projects/protozoa_loo_<taxid>/tests/`.
+
+Auswertung: Bei `p5_<taxid>` ist die Wahrheit 100 % für ein Genom, das keine Methode kennen kann.
+Interessant ist daher, wie viel Anteil die Methoden anderen Genomen geben (Spalte `fp read` in
+`summary_*.csv`, bzw. wie viel beim Verwandten landet) und wie viel an inneren Knoten bleibt
+(`not at genome read`).
