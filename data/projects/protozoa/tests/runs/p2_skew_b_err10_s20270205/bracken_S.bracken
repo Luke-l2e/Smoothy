@@ -1,0 +1,41 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Trypanosoma brucei	5691	S	111254	47452	158706	0.32073
+Trypanosoma equiperdum	5694	S	3146	9252	12398	0.02506
+Trypanosoma theileri	67003	S	26	1	27	0.00005
+Trypanosoma conorhini	83891	S	10	0	10	0.00002
+Trypanosoma cruzi	5693	S	21	0	21	0.00004
+Trypanosoma melophagium	715481	S	14	0	14	0.00003
+Leishmania donovani	5661	S	69761	75718	145479	0.29400
+Leishmania infantum	5671	S	6182	6536	12718	0.02570
+Leishmania major	5664	S	674	54	728	0.00147
+Leishmania mexicana	5665	S	562	4	566	0.00114
+Leishmania martiniquensis	1580590	S	138	3	141	0.00028
+Leishmania sp. Namibia	2802991	S	13	3	16	0.00003
+Leishmania sp. Ghana 2012 LV757	2803181	S	12	22	34	0.00007
+Leishmania enriettii	5663	S	21	1	22	0.00004
+Leishmania braziliensis	5660	S	11	18	29	0.00006
+Leishmania panamensis	5679	S	10	18	28	0.00006
+Plasmodium brasilianum	5824	S	33289	102058	135347	0.27353
+Plasmodium malariae	5858	S	4710	11823	16533	0.03341
+Plasmodium gonderi	77519	S	4342	6	4348	0.00879
+Plasmodium knowlesi	5850	S	1954	102	2056	0.00416
+Plasmodium cynomolgi	5827	S	1343	3	1346	0.00272
+Plasmodium vivax	5855	S	1265	55	1320	0.00267
+Plasmodium fragile	5857	S	1160	16	1176	0.00238
+Plasmodium inui	52288	S	987	1	988	0.00200
+Plasmodium adleri (nom. inval.)	880535	S	117	31	148	0.00030
+Plasmodium falciparum	5833	S	91	15	106	0.00021
+Plasmodium reichenowi	5854	S	81	27	108	0.00022
+Plasmodium gaboni	647221	S	56	23	79	0.00016
+Plasmodium gallinaceum	5849	S	68	7	75	0.00015
+Plasmodium relictum	85471	S	51	1	52	0.00011
+Plasmodium yoelii	5861	S	28	6	34	0.00007
+Plasmodium vinckei	5860	S	19	4	23	0.00005
+Plasmodium berghei	5821	S	17	2	19	0.00004
+Plasmodium chabaudi	5825	S	13	3	16	0.00003
+Plasmodium coatneyi	208452	S	13	0	13	0.00003
+Toxoplasma gondii	5811	S	30	0	30	0.00006
+Cyclospora cayetanensis	88456	S	17	0	17	0.00003
+Entamoeba histolytica	5759	S	10	1	11	0.00002
+Entamoeba invadens	33085	S	10	0	10	0.00002
+Entamoeba dispar	46681	S	10	1	11	0.00002

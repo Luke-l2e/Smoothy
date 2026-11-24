@@ -1,0 +1,6 @@
+sample=p3a_skew
+error=err10
+seed=20270205
+n_reads=1M
+read_length=301
+batch=batch_20261124-000906

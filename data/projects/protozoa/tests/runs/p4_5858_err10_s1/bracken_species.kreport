@@ -1,0 +1,75 @@
+100.00	498947	0	R	1	root
+100.00	498947	0	R1	131567	  cellular organisms
+100.00	498947	0	D	2759	    Eukaryota
+99.95	498719	0	D1	2698737	      Sar
+99.95	498719	0	D2	33630	        Alveolata
+99.95	498719	0	P	5794	          Apicomplexa
+99.93	498619	0	C	422676	            Aconoidasida
+99.93	498619	0	O	5819	              Haemosporida
+99.93	498619	0	F	1639119	                Plasmodiidae
+99.93	498619	0	G	5820	                  Plasmodium
+99.60	496946	0	G1	418103	                    Plasmodium
+88.32	440685	440685	S	5858	                      Plasmodium malariae
+2.56	12754	12754	S	77519	                      Plasmodium gonderi
+4.70	23464	23464	S	5824	                      Plasmodium brasilianum
+1.22	6098	6098	S	5850	                      Plasmodium knowlesi
+0.76	3799	3799	S	5855	                      Plasmodium vivax
+0.73	3638	3638	S	5827	                      Plasmodium cynomolgi
+0.71	3530	3530	S	5857	                      Plasmodium fragile
+0.60	2974	2974	S	52288	                      Plasmodium inui
+0.21	1039	0	G1	418107	                    Laverania
+0.05	261	261	S	5833	                      Plasmodium falciparum
+0.05	256	256	S	880535	                      Plasmodium adleri (nom. inval.)
+0.05	254	254	S	5854	                      Plasmodium reichenowi
+0.05	267	267	S	647221	                      Plasmodium gaboni
+0.07	337	0	G1	418104	                    Haemamoeba
+0.04	182	182	S	5849	                      Plasmodium gallinaceum
+0.03	154	154	S	85471	                      Plasmodium relictum
+0.05	253	0	G1	418101	                    Vinckeia
+0.02	91	91	S	5861	                      Plasmodium yoelii
+0.01	61	61	S	5860	                      Plasmodium vinckei
+0.01	53	53	S	5821	                      Plasmodium berghei
+0.01	46	46	S	5825	                      Plasmodium chabaudi
+0.01	43	0	G1	3699347	                    Plasmodium incertae sedis
+0.01	43	43	S	208452	                      Plasmodium coatneyi
+0.02	99	0	C	1280412	            Conoidasida
+0.02	99	0	C1	5796	              Coccidia
+0.02	99	0	O	75739	                Eucoccidiorida
+0.02	99	0	O1	423054	                  Eimeriorina
+0.01	60	0	F	5809	                    Sarcocystidae
+0.01	60	0	G	5810	                      Toxoplasma
+0.01	60	60	S	5811	                        Toxoplasma gondii
+0.01	39	0	F	5799	                    Eimeriidae
+0.01	39	0	G	44417	                      Cyclospora
+0.01	39	39	S	88456	                        Cyclospora cayetanensis
+0.03	157	0	D1	2611352	      Discoba
+0.03	157	0	P	33682	        Euglenozoa
+0.03	157	0	C	5653	          Kinetoplastea
+0.03	157	0	C1	2704647	            Metakinetoplastina
+0.03	157	0	O	2704949	              Trypanosomatida
+0.03	157	0	F	5654	                Trypanosomatidae
+0.03	157	0	G	5690	                  Trypanosoma
+0.01	46	0	G1	47570	                    Schizotrypanum
+0.01	46	46	S	5693	                      Trypanosoma cruzi
+0.01	45	0	G1	669453	                    Trypanosoma incertae sedis
+0.01	45	45	S	67003	                      Trypanosoma theileri
+0.01	35	0	G1	2745573	                    Megatrypanum
+0.01	35	35	S	715481	                      Trypanosoma melophagium
+0.00	19	0	G1	39700	                    Trypanozoon
+0.00	19	19	S	5691	                      Trypanosoma brucei
+0.00	10	0	G1	39701	                    Herpetosoma
+0.00	10	10	S	5698	                      Trypanosoma rangeli
+0.01	48	0	D1	554915	      Amoebozoa
+0.01	48	0	P	2605435	        Evosea
+0.01	48	0	P1	555406	          Archamoebae
+0.01	48	0	O	2682482	            Mastigamoebida
+0.01	48	0	F	33084	              Endamoebidae
+0.01	48	0	G	5758	                Entamoeba
+0.01	25	25	S	33085	                  Entamoeba invadens
+0.00	22	22	S	46681	                  Entamoeba dispar
+0.00	21	0	D1	2611341	      Metamonada
+0.00	21	0	P	5719	        Parabasalia
+0.00	21	0	O	37104	          Trichomonadida
+0.00	21	0	F	181550	            Trichomonadidae
+0.00	21	0	G	5721	              Trichomonas
+0.00	21	21	S	5722	                Trichomonas vaginalis

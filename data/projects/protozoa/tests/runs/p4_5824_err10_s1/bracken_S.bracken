@@ -1,0 +1,31 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Plasmodium brasilianum	5824	S	106002	326944	432946	0.86757
+Plasmodium gonderi	77519	S	13427	19	13446	0.02694
+Plasmodium malariae	5858	S	8392	21191	29583	0.05928
+Plasmodium knowlesi	5850	S	6111	307	6418	0.01286
+Plasmodium vivax	5855	S	3824	153	3977	0.00797
+Plasmodium cynomolgi	5827	S	3723	10	3733	0.00748
+Plasmodium fragile	5857	S	3665	55	3720	0.00745
+Plasmodium inui	52288	S	3160	4	3164	0.00634
+Plasmodium falciparum	5833	S	249	41	290	0.00058
+Plasmodium adleri (nom. inval.)	880535	S	201	55	256	0.00051
+Plasmodium gaboni	647221	S	196	82	278	0.00056
+Plasmodium reichenowi	5854	S	190	66	256	0.00051
+Plasmodium gallinaceum	5849	S	165	13	178	0.00036
+Plasmodium relictum	85471	S	162	3	165	0.00033
+Plasmodium yoelii	5861	S	71	13	84	0.00017
+Plasmodium berghei	5821	S	54	6	60	0.00012
+Plasmodium vinckei	5860	S	47	8	55	0.00011
+Plasmodium chabaudi	5825	S	38	8	46	0.00009
+Plasmodium coatneyi	208452	S	43	0	43	0.00009
+Toxoplasma gondii	5811	S	53	3	56	0.00011
+Cyclospora cayetanensis	88456	S	38	0	38	0.00008
+Trypanosoma theileri	67003	S	59	12	71	0.00014
+Trypanosoma cruzi	5693	S	36	2	38	0.00008
+Trypanosoma brucei	5691	S	12	8	20	0.00004
+Trypanosoma melophagium	715481	S	16	2	18	0.00004
+Entamoeba dispar	46681	S	22	2	24	0.00005
+Entamoeba invadens	33085	S	15	0	15	0.00003
+Entamoeba histolytica	5759	S	12	1	13	0.00003
+Entamoeba nuttalli	412467	S	10	1	11	0.00002
+Trichomonas vaginalis	5722	S	18	1	19	0.00004

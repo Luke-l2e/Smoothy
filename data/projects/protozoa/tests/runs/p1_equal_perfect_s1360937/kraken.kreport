@@ -1,0 +1,47 @@
+  0.57	2873	2873	U	0	unclassified
+ 99.43	497127	0	R	1	root
+ 99.43	497127	0	R1	131567	  cellular organisms
+ 99.43	497127	69	D	2759	    Eukaryota
+ 66.64	333193	0	D1	2698737	      Sar
+ 49.97	249857	0	D2	33630	        Alveolata
+ 49.97	249857	1	P	5794	          Apicomplexa
+ 33.30	166523	0	C	1280412	            Conoidasida
+ 33.30	166523	0	C1	5796	              Coccidia
+ 33.30	166523	0	O	75739	                Eucoccidiorida
+ 33.30	166523	0	O1	423054	                  Eimeriorina
+ 16.67	83327	0	F	35082	                    Cryptosporidiidae
+ 16.67	83327	183	G	5806	                      Cryptosporidium
+ 16.63	83144	83144	S	310047	                        Cryptosporidium bovis
+ 16.64	83196	0	F	5809	                    Sarcocystidae
+ 16.64	83196	0	G	5810	                      Toxoplasma
+ 16.64	83196	0	S	5811	                        Toxoplasma gondii
+ 16.64	83196	83196	S1	508771	                          Toxoplasma gondii ME49
+ 16.67	83333	0	C	422676	            Aconoidasida
+ 16.67	83333	0	O	5863	              Piroplasmida
+ 16.67	83333	0	F	32594	                Babesiidae
+ 16.67	83333	0	G	5864	                  Babesia
+ 16.67	83333	0	S	5865	                    Babesia bovis
+ 16.67	83333	83333	S1	484906	                      Babesia bovis T2Bo
+ 16.67	83336	0	D2	33634	        Stramenopiles
+ 16.67	83336	0	C	2683628	          Bigyra
+ 16.67	83336	0	C1	2683629	            Opalozoa
+ 16.67	83336	0	O	42740	              Opalinata
+ 16.67	83336	0	F	2547934	                Blastocystidae
+ 16.67	83336	139	G	12967	                  Blastocystis
+ 16.64	83197	0	G1	944171	                    Blastocystis sp. subtypes
+ 16.64	83197	83197	S	944170	                      Blastocystis sp. subtype 4
+ 16.66	83299	0	D1	2611352	      Discoba
+ 16.66	83299	0	P	5752	        Heterolobosea
+ 16.66	83299	0	P1	2601529	          Tetramitia
+ 16.66	83299	0	C	2601530	            Eutetramitea
+ 16.66	83299	0	O	43693	              Acrasida
+ 16.66	83299	0	F	3691768	                Naegleriidae
+ 16.66	83299	19	G	5761	                  Naegleria
+ 16.66	83280	83280	S	5763	                    Naegleria fowleri
+ 16.11	80566	0	D1	2611341	      Metamonada
+ 16.11	80566	0	P	207245	        Fornicata
+ 16.11	80566	0	O	5738	          Diplomonadida
+ 16.11	80566	0	F	5739	            Hexamitidae
+ 16.11	80566	0	F1	68459	              Giardiinae
+ 16.11	80566	0	G	5740	                Giardia
+ 16.11	80566	80566	S	5741	                  Giardia duodenalis

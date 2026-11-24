@@ -1,0 +1,22 @@
+100.00	499406	0	R	1	root
+100.00	499406	0	R1	131567	  cellular organisms
+100.00	499406	0	D	2759	    Eukaryota
+100.00	499406	0	D1	2611352	      Discoba
+100.00	499406	0	P	33682	        Euglenozoa
+100.00	499406	0	C	5653	          Kinetoplastea
+100.00	499406	0	C1	2704647	            Metakinetoplastina
+100.00	499406	0	O	2704949	              Trypanosomatida
+100.00	499406	0	F	5654	                Trypanosomatidae
+100.00	499389	0	F1	1286322	                  Leishmaniinae
+100.00	499389	0	G	5658	                    Leishmania
+100.00	499389	0	G1	38568	                      Leishmania
+99.42	496488	0	G2	38574	                        Leishmania donovani species complex
+99.42	496488	496488	S	5661	                          Leishmania donovani
+0.50	2501	0	G2	38581	                        Leishmania major species complex
+0.50	2501	2501	S	5664	                          Leishmania major
+0.07	357	0	G2	38582	                        Leishmania mexicana species complex
+0.07	357	357	S	5665	                          Leishmania mexicana
+0.01	43	43	S	1580590	                        Leishmania martiniquensis
+0.00	16	0	G	5690	                  Trypanosoma
+0.00	16	0	G1	47570	                    Schizotrypanum
+0.00	16	16	S	5693	                      Trypanosoma cruzi

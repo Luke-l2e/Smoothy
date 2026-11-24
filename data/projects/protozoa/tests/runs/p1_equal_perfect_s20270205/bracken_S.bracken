@@ -1,0 +1,7 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Cryptosporidium bovis	310047	S	83133	194	83327	0.16767
+Toxoplasma gondii	5811	S	83198	0	83198	0.16741
+Babesia bovis	5865	S	83333	0	83333	0.16768
+Blastocystis sp. subtype 4	944170	S	83197	139	83336	0.16768
+Naegleria fowleri	5763	S	83286	73	83359	0.16773
+Giardia duodenalis	5741	S	80421	8	80429	0.16183

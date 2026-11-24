@@ -1,0 +1,2 @@
+species;name;truth read;naive renorm. read;naive read;FT naive renorm. read;FT naive read;weighted read;unweighted read;FT weighted read;FT unweighted read;Kraken2 renorm. read;Kraken2 read;Bracken renorm. read;Bracken read
+5811;Toxoplasma gondii;1.0;0.9965865343485328;0.9880212603545278;0.9967008421196768;0.9877795369087671;0.99214194;0.9921896;0.99660072;0.9965753700000001;0.9988631218874189;0.9979093376218715;0.99865;0.998417931450397

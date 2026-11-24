@@ -1,0 +1,35 @@
+  0.60	2990	2990	U	0	unclassified
+ 99.40	497010	0	R	1	root
+ 99.40	497010	0	R1	131567	  cellular organisms
+ 99.40	497010	0	D	2759	    Eukaryota
+ 66.59	332947	0	D1	2611352	      Discoba
+ 66.59	332947	0	P	33682	        Euglenozoa
+ 66.59	332947	0	C	5653	          Kinetoplastea
+ 66.59	332947	0	C1	2704647	            Metakinetoplastina
+ 66.59	332947	0	O	2704949	              Trypanosomatida
+ 66.59	332947	0	F	5654	                Trypanosomatidae
+ 34.37	171864	0	G	5690	                  Trypanosoma
+ 34.37	171864	10252	G1	39700	                    Trypanozoon
+ 31.40	157001	3295	S	5691	                      Trypanosoma brucei
+ 29.80	149023	0	S1	31285	                        Trypanosoma brucei gambiense
+ 29.80	149023	149023	S2	679716	                          Trypanosoma brucei gambiense DAL972
+  0.94	4683	0	S1	5702	                        Trypanosoma brucei brucei
+  0.94	4683	4683	S2	185431	                          Trypanosoma brucei brucei TREU927
+  0.92	4611	4611	S	5694	                      Trypanosoma equiperdum
+ 32.22	161083	0	F1	1286322	                  Leishmaniinae
+ 32.22	161083	2	G	5658	                    Leishmania
+ 32.22	161081	25	G1	38568	                      Leishmania
+ 32.21	161056	17279	G2	38574	                        Leishmania donovani species complex
+ 27.36	136806	136806	S	5661	                          Leishmania donovani
+  1.39	6971	0	S	5671	                          Leishmania infantum
+  1.39	6971	6971	S1	435258	                            Leishmania infantum JPCM5
+ 32.81	164063	0	D1	2698737	      Sar
+ 32.81	164063	0	D2	33630	        Alveolata
+ 32.81	164063	0	P	5794	          Apicomplexa
+ 32.81	164063	0	C	422676	            Aconoidasida
+ 32.81	164063	0	O	5819	              Haemosporida
+ 32.81	164063	0	F	1639119	                Plasmodiidae
+ 32.81	164063	0	G	5820	                  Plasmodium
+ 32.81	164063	88396	G1	418103	                    Plasmodium
+ 14.36	71801	71801	S	5824	                      Plasmodium brasilianum
+  0.77	3866	3866	S	5858	                      Plasmodium malariae

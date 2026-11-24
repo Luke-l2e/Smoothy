@@ -1,0 +1,264 @@
+run;sample;error;seed;n_reads;step;seconds
+p2_skew_b_err10_s1;p2_skew_b;err10;1;1M;kraken2;8
+p2_skew_b_err10_s1;p2_skew_b;err10;1;1M;bracken;1
+p2_skew_b_err10_s1;p2_skew_b;err10;1;1M;compare genome;13
+p2_skew_b_err10_s1;p2_skew_b;err10;1;1M;compare species;17
+p2_skew_b_err10_s1360937;p2_skew_b;err10;1360937;1M;kraken2;8
+p2_skew_b_err10_s1360937;p2_skew_b;err10;1360937;1M;bracken;1
+p2_skew_b_err10_s1360937;p2_skew_b;err10;1360937;1M;compare genome;14
+p2_skew_b_err10_s1360937;p2_skew_b;err10;1360937;1M;compare species;25
+p2_skew_b_err10_s20270205;p2_skew_b;err10;20270205;1M;iss;794
+p2_skew_b_err10_s20270205;p2_skew_b;err10;20270205;1M;kraken2;9
+p2_skew_b_err10_s20270205;p2_skew_b;err10;20270205;1M;bracken;1
+p2_skew_b_err10_s20270205;p2_skew_b;err10;20270205;1M;compare genome;12
+p2_skew_b_err10_s20270205;p2_skew_b;err10;20270205;1M;compare species;24
+p3a_equal_err10_s1;p3a_equal;err10;1;1M;iss;772
+p3a_equal_err10_s1;p3a_equal;err10;1;1M;kraken2;8
+p3a_equal_err10_s1;p3a_equal;err10;1;1M;bracken;1
+p3a_equal_err10_s1;p3a_equal;err10;1;1M;compare genome;9
+p3a_equal_err10_s1;p3a_equal;err10;1;1M;compare species;23
+p3a_equal_err10_s1360937;p3a_equal;err10;1360937;1M;iss;770
+p3a_equal_err10_s1360937;p3a_equal;err10;1360937;1M;kraken2;9
+p3a_equal_err10_s1360937;p3a_equal;err10;1360937;1M;bracken;1
+p3a_equal_err10_s1360937;p3a_equal;err10;1360937;1M;compare genome;10
+p3a_equal_err10_s1360937;p3a_equal;err10;1360937;1M;compare species;25
+p3a_equal_err10_s20270205;p3a_equal;err10;20270205;1M;iss;760
+p3a_equal_err10_s20270205;p3a_equal;err10;20270205;1M;kraken2;9
+p3a_equal_err10_s20270205;p3a_equal;err10;20270205;1M;bracken;1
+p3a_equal_err10_s20270205;p3a_equal;err10;20270205;1M;compare genome;9
+p3a_equal_err10_s20270205;p3a_equal;err10;20270205;1M;compare species;23
+p3a_equal_perfect_s1;p3a_equal;perfect;1;1M;iss;245
+p3a_equal_perfect_s1;p3a_equal;perfect;1;1M;kraken2;6
+p3a_equal_perfect_s1;p3a_equal;perfect;1;1M;bracken;1
+p3a_equal_perfect_s1;p3a_equal;perfect;1;1M;compare genome;8
+p3a_equal_perfect_s1;p3a_equal;perfect;1;1M;compare species;22
+p3a_equal_perfect_s1360937;p3a_equal;perfect;1360937;1M;iss;246
+p3a_equal_perfect_s1360937;p3a_equal;perfect;1360937;1M;kraken2;6
+p3a_equal_perfect_s1360937;p3a_equal;perfect;1360937;1M;bracken;2
+p3a_equal_perfect_s1360937;p3a_equal;perfect;1360937;1M;compare genome;10
+p3a_equal_perfect_s1360937;p3a_equal;perfect;1360937;1M;compare species;25
+p3a_equal_perfect_s20270205;p3a_equal;perfect;20270205;1M;iss;244
+p3a_equal_perfect_s20270205;p3a_equal;perfect;20270205;1M;kraken2;6
+p3a_equal_perfect_s20270205;p3a_equal;perfect;20270205;1M;bracken;1
+p3a_equal_perfect_s20270205;p3a_equal;perfect;20270205;1M;compare genome;8
+p3a_equal_perfect_s20270205;p3a_equal;perfect;20270205;1M;compare species;22
+p3a_skew_err10_s1;p3a_skew;err10;1;1M;iss;767
+p3a_skew_err10_s1;p3a_skew;err10;1;1M;kraken2;8
+p3a_skew_err10_s1;p3a_skew;err10;1;1M;bracken;1
+p3a_skew_err10_s1;p3a_skew;err10;1;1M;compare genome;11
+p3a_skew_err10_s1;p3a_skew;err10;1;1M;compare species;27
+p3a_skew_err10_s1360937;p3a_skew;err10;1360937;1M;iss;752
+p3a_skew_err10_s1360937;p3a_skew;err10;1360937;1M;kraken2;8
+p3a_skew_err10_s1360937;p3a_skew;err10;1360937;1M;bracken;1
+p3a_skew_err10_s1360937;p3a_skew;err10;1360937;1M;compare genome;10
+p3a_skew_err10_s1360937;p3a_skew;err10;1360937;1M;compare species;23
+p3a_skew_err10_s20270205;p3a_skew;err10;20270205;1M;iss;758
+p3a_skew_err10_s20270205;p3a_skew;err10;20270205;1M;kraken2;9
+p3a_skew_err10_s20270205;p3a_skew;err10;20270205;1M;bracken;1
+p3a_skew_err10_s20270205;p3a_skew;err10;20270205;1M;compare genome;10
+p3a_skew_err10_s20270205;p3a_skew;err10;20270205;1M;compare species;27
+p3a_skew_perfect_s1;p3a_skew;perfect;1;1M;iss;226
+p3a_skew_perfect_s1;p3a_skew;perfect;1;1M;kraken2;6
+p3a_skew_perfect_s1;p3a_skew;perfect;1;1M;bracken;1
+p3a_skew_perfect_s1;p3a_skew;perfect;1;1M;compare genome;8
+p3a_skew_perfect_s1;p3a_skew;perfect;1;1M;compare species;24
+p3a_skew_perfect_s1360937;p3a_skew;perfect;1360937;1M;iss;238
+p3a_skew_perfect_s1360937;p3a_skew;perfect;1360937;1M;kraken2;7
+p3a_skew_perfect_s1360937;p3a_skew;perfect;1360937;1M;bracken;1
+p3a_skew_perfect_s1360937;p3a_skew;perfect;1360937;1M;compare genome;9
+p3a_skew_perfect_s1360937;p3a_skew;perfect;1360937;1M;compare species;24
+p3a_skew_perfect_s20270205;p3a_skew;perfect;20270205;1M;iss;222
+p3a_skew_perfect_s20270205;p3a_skew;perfect;20270205;1M;kraken2;6
+p3a_skew_perfect_s20270205;p3a_skew;perfect;20270205;1M;bracken;2
+p3a_skew_perfect_s20270205;p3a_skew;perfect;20270205;1M;compare genome;8
+p3a_skew_perfect_s20270205;p3a_skew;perfect;20270205;1M;compare species;23
+p3b_equal_err10_s1;p3b_equal;err10;1;1M;iss;765
+p3b_equal_err10_s1;p3b_equal;err10;1;1M;kraken2;9
+p3b_equal_err10_s1;p3b_equal;err10;1;1M;bracken;1
+p3b_equal_err10_s1;p3b_equal;err10;1;1M;compare genome;9
+p3b_equal_err10_s1;p3b_equal;err10;1;1M;compare species;27
+p3b_equal_err10_s1360937;p3b_equal;err10;1360937;1M;iss;768
+p3b_equal_err10_s1360937;p3b_equal;err10;1360937;1M;kraken2;8
+p3b_equal_err10_s1360937;p3b_equal;err10;1360937;1M;bracken;1
+p3b_equal_err10_s1360937;p3b_equal;err10;1360937;1M;compare genome;9
+p3b_equal_err10_s1360937;p3b_equal;err10;1360937;1M;compare species;22
+p3b_equal_err10_s20270205;p3b_equal;err10;20270205;1M;iss;768
+p3b_equal_err10_s20270205;p3b_equal;err10;20270205;1M;kraken2;8
+p3b_equal_err10_s20270205;p3b_equal;err10;20270205;1M;bracken;2
+p3b_equal_err10_s20270205;p3b_equal;err10;20270205;1M;compare genome;8
+p3b_equal_err10_s20270205;p3b_equal;err10;20270205;1M;compare species;23
+p3b_equal_perfect_s1;p3b_equal;perfect;1;1M;iss;247
+p3b_equal_perfect_s1;p3b_equal;perfect;1;1M;kraken2;6
+p3b_equal_perfect_s1;p3b_equal;perfect;1;1M;bracken;1
+p3b_equal_perfect_s1;p3b_equal;perfect;1;1M;compare genome;9
+p3b_equal_perfect_s1;p3b_equal;perfect;1;1M;compare species;15
+p3b_equal_perfect_s1360937;p3b_equal;perfect;1360937;1M;iss;244
+p3b_equal_perfect_s1360937;p3b_equal;perfect;1360937;1M;kraken2;6
+p3b_equal_perfect_s1360937;p3b_equal;perfect;1360937;1M;bracken;1
+p3b_equal_perfect_s1360937;p3b_equal;perfect;1360937;1M;compare genome;10
+p3b_equal_perfect_s1360937;p3b_equal;perfect;1360937;1M;compare species;23
+p3b_equal_perfect_s20270205;p3b_equal;perfect;20270205;1M;iss;232
+p3b_equal_perfect_s20270205;p3b_equal;perfect;20270205;1M;kraken2;6
+p3b_equal_perfect_s20270205;p3b_equal;perfect;20270205;1M;bracken;2
+p3b_equal_perfect_s20270205;p3b_equal;perfect;20270205;1M;compare genome;8
+p3b_equal_perfect_s20270205;p3b_equal;perfect;20270205;1M;compare species;20
+p3b_skew_err10_s1;p3b_skew;err10;1;1M;iss;758
+p3b_skew_err10_s1;p3b_skew;err10;1;1M;kraken2;8
+p3b_skew_err10_s1;p3b_skew;err10;1;1M;bracken;2
+p3b_skew_err10_s1;p3b_skew;err10;1;1M;compare genome;9
+p3b_skew_err10_s1;p3b_skew;err10;1;1M;compare species;27
+p3b_skew_err10_s1360937;p3b_skew;err10;1360937;1M;iss;757
+p3b_skew_err10_s1360937;p3b_skew;err10;1360937;1M;kraken2;8
+p3b_skew_err10_s1360937;p3b_skew;err10;1360937;1M;bracken;1
+p3b_skew_err10_s1360937;p3b_skew;err10;1360937;1M;compare genome;9
+p3b_skew_err10_s1360937;p3b_skew;err10;1360937;1M;compare species;23
+p3b_skew_err10_s20270205;p3b_skew;err10;20270205;1M;iss;754
+p3b_skew_err10_s20270205;p3b_skew;err10;20270205;1M;kraken2;8
+p3b_skew_err10_s20270205;p3b_skew;err10;20270205;1M;bracken;1
+p3b_skew_err10_s20270205;p3b_skew;err10;20270205;1M;compare genome;10
+p3b_skew_err10_s20270205;p3b_skew;err10;20270205;1M;compare species;23
+p3b_skew_perfect_s1;p3b_skew;perfect;1;1M;iss;231
+p3b_skew_perfect_s1;p3b_skew;perfect;1;1M;kraken2;6
+p3b_skew_perfect_s1;p3b_skew;perfect;1;1M;bracken;1
+p3b_skew_perfect_s1;p3b_skew;perfect;1;1M;compare genome;8
+p3b_skew_perfect_s1;p3b_skew;perfect;1;1M;compare species;24
+p3b_skew_perfect_s1360937;p3b_skew;perfect;1360937;1M;iss;220
+p3b_skew_perfect_s1360937;p3b_skew;perfect;1360937;1M;kraken2;6
+p3b_skew_perfect_s1360937;p3b_skew;perfect;1360937;1M;bracken;1
+p3b_skew_perfect_s1360937;p3b_skew;perfect;1360937;1M;compare genome;9
+p3b_skew_perfect_s1360937;p3b_skew;perfect;1360937;1M;compare species;22
+p3b_skew_perfect_s20270205;p3b_skew;perfect;20270205;1M;iss;228
+p3b_skew_perfect_s20270205;p3b_skew;perfect;20270205;1M;kraken2;6
+p3b_skew_perfect_s20270205;p3b_skew;perfect;20270205;1M;bracken;1
+p3b_skew_perfect_s20270205;p3b_skew;perfect;20270205;1M;compare genome;9
+p3b_skew_perfect_s20270205;p3b_skew;perfect;20270205;1M;compare species;22
+p4_185431_err10_s1;p4_185431;err10;1;1M;iss;736
+p4_185431_err10_s1;p4_185431;err10;1;1M;kraken2;8
+p4_185431_err10_s1;p4_185431;err10;1;1M;bracken;1
+p4_185431_err10_s1;p4_185431;err10;1;1M;compare genome;8
+p4_185431_err10_s1;p4_185431;err10;1;1M;compare species;23
+p4_185431_perfect_s1;p4_185431;perfect;1;1M;iss;201
+p4_185431_perfect_s1;p4_185431;perfect;1;1M;kraken2;6
+p4_185431_perfect_s1;p4_185431;perfect;1;1M;bracken;1
+p4_185431_perfect_s1;p4_185431;perfect;1;1M;compare genome;7
+p4_185431_perfect_s1;p4_185431;perfect;1;1M;compare species;15
+p4_310047_err10_s1;p4_310047;err10;1;1M;iss;764
+p4_310047_err10_s1;p4_310047;err10;1;1M;kraken2;8
+p4_310047_err10_s1;p4_310047;err10;1;1M;bracken;1
+p4_310047_err10_s1;p4_310047;err10;1;1M;compare genome;8
+p4_310047_err10_s1;p4_310047;err10;1;1M;compare species;21
+p4_310047_perfect_s1;p4_310047;perfect;1;1M;iss;244
+p4_310047_perfect_s1;p4_310047;perfect;1;1M;kraken2;6
+p4_310047_perfect_s1;p4_310047;perfect;1;1M;bracken;2
+p4_310047_perfect_s1;p4_310047;perfect;1;1M;compare genome;7
+p4_310047_perfect_s1;p4_310047;perfect;1;1M;compare species;21
+p4_435258_err10_s1;p4_435258;err10;1;1M;iss;743
+p4_435258_err10_s1;p4_435258;err10;1;1M;kraken2;9
+p4_435258_err10_s1;p4_435258;err10;1;1M;bracken;1
+p4_435258_err10_s1;p4_435258;err10;1;1M;compare genome;8
+p4_435258_err10_s1;p4_435258;err10;1;1M;compare species;23
+p4_435258_perfect_s1;p4_435258;perfect;1;1M;iss;203
+p4_435258_perfect_s1;p4_435258;perfect;1;1M;kraken2;6
+p4_435258_perfect_s1;p4_435258;perfect;1;1M;bracken;1
+p4_435258_perfect_s1;p4_435258;perfect;1;1M;compare genome;8
+p4_435258_perfect_s1;p4_435258;perfect;1;1M;compare species;21
+p4_484906_err10_s1;p4_484906;err10;1;1M;iss;735
+p4_484906_err10_s1;p4_484906;err10;1;1M;kraken2;7
+p4_484906_err10_s1;p4_484906;err10;1;1M;bracken;2
+p4_484906_err10_s1;p4_484906;err10;1;1M;compare genome;7
+p4_484906_err10_s1;p4_484906;err10;1;1M;compare species;20
+p4_484906_perfect_s1;p4_484906;perfect;1;1M;iss;204
+p4_484906_perfect_s1;p4_484906;perfect;1;1M;kraken2;6
+p4_484906_perfect_s1;p4_484906;perfect;1;1M;bracken;1
+p4_484906_perfect_s1;p4_484906;perfect;1;1M;compare genome;8
+p4_484906_perfect_s1;p4_484906;perfect;1;1M;compare species;21
+p4_508771_err10_s1;p4_508771;err10;1;1M;iss;740
+p4_508771_err10_s1;p4_508771;err10;1;1M;kraken2;8
+p4_508771_err10_s1;p4_508771;err10;1;1M;bracken;1
+p4_508771_err10_s1;p4_508771;err10;1;1M;compare genome;10
+p4_508771_err10_s1;p4_508771;err10;1;1M;compare species;25
+p4_508771_perfect_s1;p4_508771;perfect;1;1M;iss;209
+p4_508771_perfect_s1;p4_508771;perfect;1;1M;kraken2;6
+p4_508771_perfect_s1;p4_508771;perfect;1;1M;bracken;1
+p4_508771_perfect_s1;p4_508771;perfect;1;1M;compare genome;10
+p4_508771_perfect_s1;p4_508771;perfect;1;1M;compare species;23
+p4_5661_err10_s1;p4_5661;err10;1;1M;iss;738
+p4_5661_err10_s1;p4_5661;err10;1;1M;kraken2;8
+p4_5661_err10_s1;p4_5661;err10;1;1M;bracken;1
+p4_5661_err10_s1;p4_5661;err10;1;1M;compare genome;9
+p4_5661_err10_s1;p4_5661;err10;1;1M;compare species;20
+p4_5661_perfect_s1;p4_5661;perfect;1;1M;iss;208
+p4_5661_perfect_s1;p4_5661;perfect;1;1M;kraken2;6
+p4_5661_perfect_s1;p4_5661;perfect;1;1M;bracken;1
+p4_5661_perfect_s1;p4_5661;perfect;1;1M;compare genome;7
+p4_5661_perfect_s1;p4_5661;perfect;1;1M;compare species;19
+p4_5694_err10_s1;p4_5694;err10;1;1M;iss;729
+p4_5694_err10_s1;p4_5694;err10;1;1M;kraken2;8
+p4_5694_err10_s1;p4_5694;err10;1;1M;bracken;1
+p4_5694_err10_s1;p4_5694;err10;1;1M;compare genome;8
+p4_5694_err10_s1;p4_5694;err10;1;1M;compare species;22
+p4_5694_perfect_s1;p4_5694;perfect;1;1M;iss;151
+p4_5694_perfect_s1;p4_5694;perfect;1;1M;kraken2;5
+p4_5694_perfect_s1;p4_5694;perfect;1;1M;bracken;1
+p4_5694_perfect_s1;p4_5694;perfect;1;1M;compare genome;7
+p4_5694_perfect_s1;p4_5694;perfect;1;1M;compare species;18
+p4_5741_err10_s1;p4_5741;err10;1;1M;iss;737
+p4_5741_err10_s1;p4_5741;err10;1;1M;kraken2;8
+p4_5741_err10_s1;p4_5741;err10;1;1M;bracken;1
+p4_5741_err10_s1;p4_5741;err10;1;1M;compare genome;8
+p4_5741_err10_s1;p4_5741;err10;1;1M;compare species;19
+p4_5741_perfect_s1;p4_5741;perfect;1;1M;iss;190
+p4_5741_perfect_s1;p4_5741;perfect;1;1M;kraken2;6
+p4_5741_perfect_s1;p4_5741;perfect;1;1M;bracken;2
+p4_5741_perfect_s1;p4_5741;perfect;1;1M;compare genome;7
+p4_5741_perfect_s1;p4_5741;perfect;1;1M;compare species;21
+p4_5763_err10_s1;p4_5763;err10;1;1M;iss;755
+p4_5763_err10_s1;p4_5763;err10;1;1M;kraken2;8
+p4_5763_err10_s1;p4_5763;err10;1;1M;bracken;1
+p4_5763_err10_s1;p4_5763;err10;1;1M;compare genome;9
+p4_5763_err10_s1;p4_5763;err10;1;1M;compare species;20
+p4_5763_perfect_s1;p4_5763;perfect;1;1M;iss;229
+p4_5763_perfect_s1;p4_5763;perfect;1;1M;kraken2;6
+p4_5763_perfect_s1;p4_5763;perfect;1;1M;bracken;1
+p4_5763_perfect_s1;p4_5763;perfect;1;1M;compare genome;8
+p4_5763_perfect_s1;p4_5763;perfect;1;1M;compare species;20
+p4_5824_err10_s1;p4_5824;err10;1;1M;iss;808
+p4_5824_err10_s1;p4_5824;err10;1;1M;kraken2;8
+p4_5824_err10_s1;p4_5824;err10;1;1M;bracken;1
+p4_5824_err10_s1;p4_5824;err10;1;1M;compare genome;9
+p4_5824_err10_s1;p4_5824;err10;1;1M;compare species;21
+p4_5824_perfect_s1;p4_5824;perfect;1;1M;iss;300
+p4_5824_perfect_s1;p4_5824;perfect;1;1M;kraken2;6
+p4_5824_perfect_s1;p4_5824;perfect;1;1M;bracken;1
+p4_5824_perfect_s1;p4_5824;perfect;1;1M;compare genome;8
+p4_5824_perfect_s1;p4_5824;perfect;1;1M;compare species;20
+p4_5858_err10_s1;p4_5858;err10;1;1M;iss;800
+p4_5858_err10_s1;p4_5858;err10;1;1M;kraken2;8
+p4_5858_err10_s1;p4_5858;err10;1;1M;bracken;2
+p4_5858_err10_s1;p4_5858;err10;1;1M;compare genome;8
+p4_5858_err10_s1;p4_5858;err10;1;1M;compare species;21
+p4_5858_perfect_s1;p4_5858;perfect;1;1M;iss;293
+p4_5858_perfect_s1;p4_5858;perfect;1;1M;kraken2;7
+p4_5858_perfect_s1;p4_5858;perfect;1;1M;bracken;1
+p4_5858_perfect_s1;p4_5858;perfect;1;1M;compare genome;7
+p4_5858_perfect_s1;p4_5858;perfect;1;1M;compare species;18
+p4_679716_err10_s1;p4_679716;err10;1;1M;iss;720
+p4_679716_err10_s1;p4_679716;err10;1;1M;kraken2;9
+p4_679716_err10_s1;p4_679716;err10;1;1M;bracken;1
+p4_679716_err10_s1;p4_679716;err10;1;1M;compare genome;9
+p4_679716_err10_s1;p4_679716;err10;1;1M;compare species;22
+p4_679716_perfect_s1;p4_679716;perfect;1;1M;iss;200
+p4_679716_perfect_s1;p4_679716;perfect;1;1M;kraken2;6
+p4_679716_perfect_s1;p4_679716;perfect;1;1M;bracken;1
+p4_679716_perfect_s1;p4_679716;perfect;1;1M;compare genome;7
+p4_679716_perfect_s1;p4_679716;perfect;1;1M;compare species;18
+p4_944170_err10_s1;p4_944170;err10;1;1M;iss;735
+p4_944170_err10_s1;p4_944170;err10;1;1M;kraken2;9
+p4_944170_err10_s1;p4_944170;err10;1;1M;bracken;1
+p4_944170_err10_s1;p4_944170;err10;1;1M;compare genome;7
+p4_944170_err10_s1;p4_944170;err10;1;1M;compare species;20
+p4_944170_perfect_s1;p4_944170;perfect;1;1M;iss;154
+p4_944170_perfect_s1;p4_944170;perfect;1;1M;kraken2;6
+p4_944170_perfect_s1;p4_944170;perfect;1;1M;bracken;1
+p4_944170_perfect_s1;p4_944170;perfect;1;1M;compare genome;7
+p4_944170_perfect_s1;p4_944170;perfect;1;1M;compare species;24

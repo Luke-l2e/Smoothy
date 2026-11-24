@@ -1,0 +1,4 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Blastocystis sp. subtype 4	944170	S	497452	938	498390	0.99984
+Blastocystis sp. subtype 3	944168	S	28	0	28	0.00006
+Blastocystis hominis	12968	S	36	16	52	0.00010

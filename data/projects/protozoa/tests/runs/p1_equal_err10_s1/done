@@ -1,0 +1,5 @@
+sample=p1_equal
+error=err10
+seed=1
+n_reads=1M
+read_length=301

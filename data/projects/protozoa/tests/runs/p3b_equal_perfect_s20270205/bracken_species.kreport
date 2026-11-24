@@ -1,0 +1,26 @@
+100.00	496920	0	R	1	root
+100.00	496920	0	R1	131567	  cellular organisms
+100.00	496920	0	D	2759	    Eukaryota
+66.46	330253	0	D1	2611352	      Discoba
+66.46	330253	0	P	33682	        Euglenozoa
+66.46	330253	0	C	5653	          Kinetoplastea
+66.46	330253	0	C1	2704647	            Metakinetoplastina
+66.46	330253	0	O	2704949	              Trypanosomatida
+66.46	330253	0	F	5654	                Trypanosomatidae
+33.54	166664	0	G	5690	                  Trypanosoma
+33.54	166664	0	G1	39700	                    Trypanozoon
+33.54	166664	166664	S	5691	                      Trypanosoma brucei
+32.92	163589	0	F1	1286322	                  Leishmaniinae
+32.92	163589	0	G	5658	                    Leishmania
+32.92	163589	0	G1	38568	                      Leishmania
+32.92	163589	0	G2	38574	                        Leishmania donovani species complex
+32.92	163589	163589	S	5661	                          Leishmania donovani
+33.54	166666	0	D1	2698737	      Sar
+33.54	166666	0	D2	33630	        Alveolata
+33.54	166666	0	P	5794	          Apicomplexa
+33.54	166666	0	C	422676	            Aconoidasida
+33.54	166666	0	O	5819	              Haemosporida
+33.54	166666	0	F	1639119	                Plasmodiidae
+33.54	166666	0	G	5820	                  Plasmodium
+33.54	166666	0	G1	418103	                    Plasmodium
+33.54	166666	166666	S	5858	                      Plasmodium malariae

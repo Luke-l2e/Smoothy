@@ -1,0 +1,13 @@
+100.00	500000	0	R	1	root
+100.00	500000	0	R1	131567	  cellular organisms
+100.00	500000	0	D	2759	    Eukaryota
+100.00	500000	0	D1	2698737	      Sar
+100.00	500000	0	D2	33630	        Alveolata
+100.00	500000	0	P	5794	          Apicomplexa
+100.00	500000	0	C	1280412	            Conoidasida
+100.00	500000	0	C1	5796	              Coccidia
+100.00	500000	0	O	75739	                Eucoccidiorida
+100.00	500000	0	O1	423054	                  Eimeriorina
+100.00	500000	0	F	35082	                    Cryptosporidiidae
+100.00	500000	0	G	5806	                      Cryptosporidium
+100.00	500000	500000	S	310047	                        Cryptosporidium bovis

@@ -1,0 +1,8 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Giardia duodenalis	5741	S	481708	3	481711	0.99967
+Plasmodium falciparum	5833	S	23	7	30	0.00006
+Plasmodium adleri (nom. inval.)	880535	S	22	1	23	0.00005
+Plasmodium gaboni	647221	S	20	8	28	0.00006
+Plasmodium reichenowi	5854	S	17	12	29	0.00006
+Plasmodium gonderi	77519	S	23	10	33	0.00007
+Plasmodium relictum	85471	S	14	0	14	0.00003

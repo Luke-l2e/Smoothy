@@ -1,0 +1,4 @@
+p2_skew_b_err10_s1 /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1/reads_R1.fastq.gz
+p2_skew_b_err10_s1 /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1/reads_R2.fastq.gz
+p2_skew_b_err10_s1360937 /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1360937/reads_R1.fastq.gz
+p2_skew_b_err10_s1360937 /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1360937/reads_R2.fastq.gz

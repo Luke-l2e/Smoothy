@@ -1,0 +1,16 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Giardia duodenalis	5741	S	223545	6	223551	0.45559
+Babesia bovis	5865	S	127169	17	127186	0.25920
+Plasmodium knowlesi	5850	S	19	19	38	0.00008
+Plasmodium gonderi	77519	S	18	0	18	0.00004
+Plasmodium reichenowi	5854	S	14	6	20	0.00004
+Plasmodium adleri (nom. inval.)	880535	S	14	2	16	0.00003
+Plasmodium falciparum	5833	S	10	1	11	0.00002
+Plasmodium relictum	85471	S	11	0	11	0.00002
+Plasmodium coatneyi	208452	S	12	1	13	0.00003
+Toxoplasma gondii	5811	S	20717	1	20718	0.04222
+Cryptosporidium bovis	310047	S	11492	40	11532	0.02350
+Blastocystis sp. subtype 4	944170	S	38101	70	38171	0.07779
+Naegleria fowleri	5763	S	68990	138	69128	0.14088
+Naegleria gruberi	5762	S	211	0	211	0.00043
+Naegleria lovaniensis	51637	S	60	0	60	0.00012

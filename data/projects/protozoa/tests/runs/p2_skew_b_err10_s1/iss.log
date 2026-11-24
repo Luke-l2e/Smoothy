@@ -1,0 +1,15 @@
+INFO:iss.app:Starting iss generate
+INFO:iss.generator:Using basic ErrorModel
+INFO:iss.generator:Setting random seed to 1
+INFO:iss.util:Stitching input files together
+INFO:iss.generator:Using abundance file:/data/projects/protozoa/tests/samples/p2_skew_b/p2_skew_b_abundance.txt
+INFO:iss.app:Using 20 cpus for read generation
+INFO:iss.app:Generating 1000000 reads
+INFO:iss.util:Stitching input files together
+INFO:iss.util:Stitching input files together
+INFO:iss.util:Cleaning up
+INFO:iss.util:Compressing /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1/reads_R1.fastq
+INFO:iss.util:Cleaning up
+INFO:iss.util:Compressing /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1/reads_R2.fastq
+INFO:iss.util:Cleaning up
+INFO:iss.app:Read generation complete

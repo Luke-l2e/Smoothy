@@ -1,0 +1,43 @@
+100.00	498323	0	R	1	root
+100.00	498323	0	R1	131567	  cellular organisms
+100.00	498323	0	D	2759	    Eukaryota
+99.95	498063	0	D1	2611352	      Discoba
+99.95	498063	0	P	33682	        Euglenozoa
+99.95	498063	0	C	5653	          Kinetoplastea
+99.95	498063	0	C1	2704647	            Metakinetoplastina
+99.95	498063	0	O	2704949	              Trypanosomatida
+99.95	498063	0	F	5654	                Trypanosomatidae
+99.95	498063	0	G	5690	                  Trypanosoma
+99.94	498009	0	G1	39700	                    Trypanozoon
+94.71	471962	471962	S	5694	                      Trypanosoma equiperdum
+5.23	26046	26046	S	5691	                      Trypanosoma brucei
+0.00	23	0	G1	669453	                    Trypanosoma incertae sedis
+0.00	23	23	S	67003	                      Trypanosoma theileri
+0.00	19	0	G1	47570	                    Schizotrypanum
+0.00	19	19	S	5693	                      Trypanosoma cruzi
+0.00	10	0	G1	2745573	                    Megatrypanum
+0.00	10	10	S	715481	                      Trypanosoma melophagium
+0.05	260	0	D1	2698737	      Sar
+0.05	260	0	D2	33630	        Alveolata
+0.05	260	0	P	5794	          Apicomplexa
+0.05	242	0	C	422676	            Aconoidasida
+0.05	242	0	O	5819	              Haemosporida
+0.05	242	0	F	1639119	                Plasmodiidae
+0.05	242	0	G	5820	                  Plasmodium
+0.03	166	0	G1	418107	                    Laverania
+0.01	44	44	S	5833	                      Plasmodium falciparum
+0.01	53	53	S	5854	                      Plasmodium reichenowi
+0.01	28	28	S	880535	                      Plasmodium adleri (nom. inval.)
+0.01	39	39	S	647221	                      Plasmodium gaboni
+0.01	42	0	G1	418104	                    Haemamoeba
+0.00	19	19	S	85471	                      Plasmodium relictum
+0.00	23	23	S	5849	                      Plasmodium gallinaceum
+0.01	34	0	G1	418103	                    Plasmodium
+0.01	34	34	S	77519	                      Plasmodium gonderi
+0.00	18	0	C	1280412	            Conoidasida
+0.00	18	0	C1	5796	              Coccidia
+0.00	18	0	O	75739	                Eucoccidiorida
+0.00	18	0	O1	423054	                  Eimeriorina
+0.00	18	0	F	5809	                    Sarcocystidae
+0.00	18	0	G	5810	                      Toxoplasma
+0.00	18	18	S	5811	                        Toxoplasma gondii

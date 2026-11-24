@@ -1,0 +1,2 @@
+species;name;truth read;naive renorm. read;naive read;FT naive renorm. read;FT naive read;weighted read;unweighted read;FT weighted read;FT unweighted read;Kraken2 renorm. read;Kraken2 read;Bracken renorm. read;Bracken read
+5865;Babesia bovis;1.0;0.999647775803618;0.9985033422990932;0.9996591340015254;0.9985033422990932;0.99977664;0.9997744;0.99977035;0.99976809;0.9997191146493748;0.99953261373233;0.9998;0.9996549766607759

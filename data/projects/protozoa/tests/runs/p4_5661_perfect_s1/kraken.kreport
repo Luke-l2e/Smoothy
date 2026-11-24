@@ -1,0 +1,17 @@
+  1.92	9587	9587	U	0	unclassified
+ 98.08	490413	0	R	1	root
+ 98.08	490413	0	R1	131567	  cellular organisms
+ 98.08	490413	3	D	2759	    Eukaryota
+ 98.08	490410	0	D1	2611352	      Discoba
+ 98.08	490410	0	P	33682	        Euglenozoa
+ 98.08	490410	0	C	5653	          Kinetoplastea
+ 98.08	490410	0	C1	2704647	            Metakinetoplastina
+ 98.08	490410	0	O	2704949	              Trypanosomatida
+ 98.08	490410	1	F	5654	                Trypanosomatidae
+ 98.08	490409	0	F1	1286322	                  Leishmaniinae
+ 98.08	490409	13	G	5658	                    Leishmania
+ 98.08	490396	75	G1	38568	                      Leishmania
+ 98.06	490321	52933	G2	38574	                        Leishmania donovani species complex
+ 87.48	437385	437385	S	5661	                          Leishmania donovani
+  0.00	3	0	S	5671	                          Leishmania infantum
+  0.00	3	3	S1	435258	                            Leishmania infantum JPCM5

@@ -1,0 +1,10 @@
+# Probe 5 (leave-one-out) in einer Mischung: Leishmania infantum JPCM5 (435258), das in der Datenbank dieses
+# Projekts fehlt, zusammen mit den Kontrollgenomen aus Probe 1, gleiche Anteile.
+#
+435258	1	# Leishmania infantum JPCM5 (nicht in der DB)
+5741	1	# Giardia duodenalis
+484906	1	# Babesia bovis T2Bo
+5763	1	# Naegleria fowleri
+944170	1	# Blastocystis sp. subtype 4
+508771	1	# Toxoplasma gondii ME49
+310047	1	# Cryptosporidium bovis

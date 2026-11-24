@@ -1,0 +1,19 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Trypanosoma brucei	5691	S	344895	147338	492233	0.98763
+Trypanosoma equiperdum	5694	S	1310	4320	5630	0.01130
+Trypanosoma theileri	67003	S	21	3	24	0.00005
+Trypanosoma cruzi	5693	S	23	0	23	0.00005
+Trypanosoma melophagium	715481	S	19	0	19	0.00004
+Leishmania mexicana	5665	S	14	10	24	0.00005
+Leishmania sp. Namibia	2802991	S	11	8	19	0.00004
+Plasmodium gaboni	647221	S	41	32	73	0.00015
+Plasmodium adleri (nom. inval.)	880535	S	36	10	46	0.00009
+Plasmodium falciparum	5833	S	32	13	45	0.00009
+Plasmodium reichenowi	5854	S	31	34	65	0.00013
+Plasmodium gonderi	77519	S	18	1	19	0.00004
+Plasmodium knowlesi	5850	S	10	50	60	0.00012
+Plasmodium relictum	85471	S	30	0	30	0.00006
+Plasmodium gallinaceum	5849	S	19	9	28	0.00006
+Plasmodium yoelii	5861	S	11	3	14	0.00003
+Plasmodium coatneyi	208452	S	16	1	17	0.00003
+Toxoplasma gondii	5811	S	14	4	18	0.00004

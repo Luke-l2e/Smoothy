@@ -1,0 +1,11 @@
+  3.32	16584	16584	U	0	unclassified
+ 96.68	483416	0	R	1	root
+ 96.68	483416	0	R1	131567	  cellular organisms
+ 96.68	483416	204	D	2759	    Eukaryota
+ 96.64	483212	0	D1	2611341	      Metamonada
+ 96.64	483212	0	P	207245	        Fornicata
+ 96.64	483212	0	O	5738	          Diplomonadida
+ 96.64	483212	0	F	5739	            Hexamitidae
+ 96.64	483212	0	F1	68459	              Giardiinae
+ 96.64	483212	0	G	5740	                Giardia
+ 96.64	483212	483212	S	5741	                  Giardia duodenalis

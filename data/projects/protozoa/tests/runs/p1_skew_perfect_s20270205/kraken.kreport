@@ -1,0 +1,47 @@
+  1.58	7887	7887	U	0	unclassified
+ 98.42	492113	0	R	1	root
+ 98.42	492113	0	R1	131567	  cellular organisms
+ 98.42	492113	124	D	2759	    Eukaryota
+ 44.81	224075	0	D1	2611341	      Metamonada
+ 44.81	224075	0	P	207245	        Fornicata
+ 44.81	224075	0	O	5738	          Diplomonadida
+ 44.81	224075	0	F	5739	            Hexamitidae
+ 44.81	224075	0	F1	68459	              Giardiinae
+ 44.81	224075	0	G	5740	                Giardia
+ 44.81	224075	224075	S	5741	                  Giardia duodenalis
+ 39.67	198334	0	D1	2698737	      Sar
+ 32.01	160031	0	D2	33630	        Alveolata
+ 32.01	160031	0	P	5794	          Apicomplexa
+ 25.52	127611	0	C	422676	            Aconoidasida
+ 25.52	127611	0	O	5863	              Piroplasmida
+ 25.52	127611	0	F	32594	                Babesiidae
+ 25.52	127611	0	G	5864	                  Babesia
+ 25.52	127611	0	S	5865	                    Babesia bovis
+ 25.52	127611	127611	S1	484906	                      Babesia bovis T2Bo
+  6.48	32420	0	C	1280412	            Conoidasida
+  6.48	32420	0	C1	5796	              Coccidia
+  6.48	32420	0	O	75739	                Eucoccidiorida
+  6.48	32420	0	O1	423054	                  Eimeriorina
+  4.16	20823	0	F	5809	                    Sarcocystidae
+  4.16	20823	0	G	5810	                      Toxoplasma
+  4.16	20823	0	S	5811	                        Toxoplasma gondii
+  4.16	20823	20823	S1	508771	                          Toxoplasma gondii ME49
+  2.32	11597	0	F	35082	                    Cryptosporidiidae
+  2.32	11597	24	G	5806	                      Cryptosporidium
+  2.31	11573	11573	S	310047	                        Cryptosporidium bovis
+  7.66	38303	0	D2	33634	        Stramenopiles
+  7.66	38303	0	C	2683628	          Bigyra
+  7.66	38303	0	C1	2683629	            Opalozoa
+  7.66	38303	0	O	42740	              Opalinata
+  7.66	38303	0	F	2547934	                Blastocystidae
+  7.66	38303	64	G	12967	                  Blastocystis
+  7.65	38239	0	G1	944171	                    Blastocystis sp. subtypes
+  7.65	38239	38239	S	944170	                      Blastocystis sp. subtype 4
+ 13.92	69580	0	D1	2611352	      Discoba
+ 13.92	69580	0	P	5752	        Heterolobosea
+ 13.92	69580	0	P1	2601529	          Tetramitia
+ 13.92	69580	0	C	2601530	            Eutetramitea
+ 13.92	69580	0	O	43693	              Acrasida
+ 13.92	69580	0	F	3691768	                Naegleriidae
+ 13.92	69580	15	G	5761	                  Naegleria
+ 13.91	69565	69565	S	5763	                    Naegleria fowleri

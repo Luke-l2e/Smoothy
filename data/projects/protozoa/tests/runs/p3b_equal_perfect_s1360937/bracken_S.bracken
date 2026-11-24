@@ -1,0 +1,4 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Trypanosoma brucei	5691	S	161941	4722	166663	0.33543
+Leishmania donovani	5661	S	145955	17584	163539	0.32914
+Plasmodium malariae	5858	S	82392	84273	166665	0.33543

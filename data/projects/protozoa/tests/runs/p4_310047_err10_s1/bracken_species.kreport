@@ -1,0 +1,44 @@
+100.00	498387	0	R	1	root
+100.00	498387	0	R1	131567	  cellular organisms
+100.00	498387	0	D	2759	    Eukaryota
+99.99	498335	0	D1	2698737	      Sar
+99.99	498335	0	D2	33630	        Alveolata
+99.99	498335	0	P	5794	          Apicomplexa
+99.94	498078	0	C	1280412	            Conoidasida
+99.94	498078	0	C1	5796	              Coccidia
+99.94	498078	0	O	75739	                Eucoccidiorida
+99.94	498078	0	O1	423054	                  Eimeriorina
+99.94	498078	0	F	35082	                    Cryptosporidiidae
+99.94	498078	0	G	5806	                      Cryptosporidium
+99.91	497940	497940	S	310047	                        Cryptosporidium bovis
+0.02	116	116	S	515981	                        Cryptosporidium ryanae
+0.00	21	21	S	857276	                        Cryptosporidium ubiquitum
+0.05	257	0	C	422676	            Aconoidasida
+0.05	257	0	O	5819	              Haemosporida
+0.05	257	0	F	1639119	                Plasmodiidae
+0.05	257	0	G	5820	                  Plasmodium
+0.03	169	0	G1	418107	                    Laverania
+0.01	25	25	S	880535	                      Plasmodium adleri (nom. inval.)
+0.01	47	47	S	647221	                      Plasmodium gaboni
+0.00	18	18	S	5833	                      Plasmodium falciparum
+0.02	79	79	S	5854	                      Plasmodium reichenowi
+0.01	64	0	G1	418104	                    Haemamoeba
+0.00	22	22	S	85471	                      Plasmodium relictum
+0.01	42	42	S	5849	                      Plasmodium gallinaceum
+0.00	22	0	G1	418101	                    Vinckeia
+0.00	22	22	S	5861	                      Plasmodium yoelii
+0.01	35	0	D1	2611341	      Metamonada
+0.01	35	0	P	5719	        Parabasalia
+0.01	35	0	O	37104	          Trichomonadida
+0.01	35	0	F	181550	            Trichomonadidae
+0.01	35	0	G	5721	              Trichomonas
+0.01	35	35	S	5722	                Trichomonas vaginalis
+0.00	16	0	D1	2611352	      Discoba
+0.00	16	0	P	33682	        Euglenozoa
+0.00	16	0	C	5653	          Kinetoplastea
+0.00	16	0	C1	2704647	            Metakinetoplastina
+0.00	16	0	O	2704949	              Trypanosomatida
+0.00	16	0	F	5654	                Trypanosomatidae
+0.00	16	0	G	5690	                  Trypanosoma
+0.00	16	0	G1	669453	                    Trypanosoma incertae sedis
+0.00	16	16	S	67003	                      Trypanosoma theileri

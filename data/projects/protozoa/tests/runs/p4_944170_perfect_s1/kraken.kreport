@@ -1,0 +1,12 @@
+100.00	500000	0	R	1	root
+100.00	500000	0	R1	131567	  cellular organisms
+100.00	500000	0	D	2759	    Eukaryota
+100.00	500000	0	D1	2698737	      Sar
+100.00	500000	0	D2	33634	        Stramenopiles
+100.00	500000	0	C	2683628	          Bigyra
+100.00	500000	0	C1	2683629	            Opalozoa
+100.00	500000	0	O	42740	              Opalinata
+100.00	500000	0	F	2547934	                Blastocystidae
+100.00	500000	825	G	12967	                  Blastocystis
+ 99.83	499175	0	G1	944171	                    Blastocystis sp. subtypes
+ 99.83	499175	499175	S	944170	                      Blastocystis sp. subtype 4

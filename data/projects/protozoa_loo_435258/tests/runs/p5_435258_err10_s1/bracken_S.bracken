@@ -1,0 +1,25 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Leishmania donovani	5661	S	473568	9723	483291	0.97486
+Leishmania major	5664	S	7026	261	7287	0.01470
+Leishmania mexicana	5665	S	3203	26	3229	0.00651
+Leishmania martiniquensis	1580590	S	689	12	701	0.00141
+Leishmania sp. Ghana 2012 LV757	2803181	S	78	89	167	0.00034
+Leishmania sp. Namibia	2802991	S	72	13	85	0.00017
+Leishmania enriettii	5663	S	89	4	93	0.00019
+Leishmania orientalis	2249476	S	47	75	122	0.00025
+Leishmania braziliensis	5660	S	136	112	248	0.00050
+Leishmania panamensis	5679	S	54	47	101	0.00020
+Trypanosoma grayi	71804	S	32	2	34	0.00007
+Trypanosoma theileri	67003	S	22	4	26	0.00005
+Trypanosoma conorhini	83891	S	18	0	18	0.00004
+Trypanosoma cruzi	5693	S	58	1	59	0.00012
+Trypanosoma brucei	5691	S	13	3	16	0.00003
+Trypanosoma equiperdum	5694	S	11	4	15	0.00003
+Trypanosoma rangeli	5698	S	19	0	19	0.00004
+Trypanosoma melophagium	715481	S	17	5	22	0.00004
+Plasmodium knowlesi	5850	S	23	37	60	0.00012
+Plasmodium gonderi	77519	S	16	0	16	0.00003
+Cyclospora cayetanensis	88456	S	37	0	37	0.00007
+Toxoplasma gondii	5811	S	20	9	29	0.00006
+Blastocystis hominis	12968	S	15	0	15	0.00003
+Acanthamoeba castellanii	5755	S	54	0	54	0.00011

@@ -1,0 +1,26 @@
+100.00	481872	0	R	1	root
+100.00	481872	0	R1	131567	  cellular organisms
+100.00	481872	0	D	2759	    Eukaryota
+99.97	481711	0	D1	2611341	      Metamonada
+99.97	481711	0	P	207245	        Fornicata
+99.97	481711	0	O	5738	          Diplomonadida
+99.97	481711	0	F	5739	            Hexamitidae
+99.97	481711	0	F1	68459	              Giardiinae
+99.97	481711	0	G	5740	                Giardia
+99.97	481711	481711	S	5741	                  Giardia duodenalis
+0.03	160	0	D1	2698737	      Sar
+0.03	160	0	D2	33630	        Alveolata
+0.03	160	0	P	5794	          Apicomplexa
+0.03	160	0	C	422676	            Aconoidasida
+0.03	160	0	O	5819	              Haemosporida
+0.03	160	0	F	1639119	                Plasmodiidae
+0.03	160	0	G	5820	                  Plasmodium
+0.02	112	0	G1	418107	                    Laverania
+0.01	30	30	S	5833	                      Plasmodium falciparum
+0.00	23	23	S	880535	                      Plasmodium adleri (nom. inval.)
+0.01	28	28	S	647221	                      Plasmodium gaboni
+0.01	29	29	S	5854	                      Plasmodium reichenowi
+0.01	33	0	G1	418103	                    Plasmodium
+0.01	33	33	S	77519	                      Plasmodium gonderi
+0.00	14	0	G1	418104	                    Haemamoeba
+0.00	14	14	S	85471	                      Plasmodium relictum

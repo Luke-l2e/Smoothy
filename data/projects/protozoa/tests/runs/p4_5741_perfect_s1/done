@@ -1,0 +1,6 @@
+sample=p4_5741
+error=perfect
+seed=1
+n_reads=1M
+read_length=301
+batch=batch_20261124-043613

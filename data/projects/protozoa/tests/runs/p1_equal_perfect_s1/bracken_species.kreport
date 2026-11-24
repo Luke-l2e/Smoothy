@@ -1,0 +1,44 @@
+100.00	497162	0	R	1	root
+100.00	497162	0	R1	131567	  cellular organisms
+100.00	497162	0	D	2759	    Eukaryota
+67.03	333227	0	D1	2698737	      Sar
+50.26	249891	0	D2	33630	        Alveolata
+50.26	249891	0	P	5794	          Apicomplexa
+33.50	166557	0	C	1280412	            Conoidasida
+33.50	166557	0	C1	5796	              Coccidia
+33.50	166557	0	O	75739	                Eucoccidiorida
+33.50	166557	0	O1	423054	                  Eimeriorina
+16.76	83327	0	F	35082	                    Cryptosporidiidae
+16.76	83327	0	G	5806	                      Cryptosporidium
+16.76	83327	83327	S	310047	                        Cryptosporidium bovis
+16.74	83230	0	F	5809	                    Sarcocystidae
+16.74	83230	0	G	5810	                      Toxoplasma
+16.74	83230	83230	S	5811	                        Toxoplasma gondii
+16.76	83333	0	C	422676	            Aconoidasida
+16.76	83333	0	O	5863	              Piroplasmida
+16.76	83333	0	F	32594	                Babesiidae
+16.76	83333	0	G	5864	                  Babesia
+16.76	83333	83333	S	5865	                    Babesia bovis
+16.76	83336	0	D2	33634	        Stramenopiles
+16.76	83336	0	C	2683628	          Bigyra
+16.76	83336	0	C1	2683629	            Opalozoa
+16.76	83336	0	O	42740	              Opalinata
+16.76	83336	0	F	2547934	                Blastocystidae
+16.76	83336	0	G	12967	                  Blastocystis
+16.76	83336	0	G1	944171	                    Blastocystis sp. subtypes
+16.76	83336	83336	S	944170	                      Blastocystis sp. subtype 4
+16.77	83358	0	D1	2611352	      Discoba
+16.77	83358	0	P	5752	        Heterolobosea
+16.77	83358	0	P1	2601529	          Tetramitia
+16.77	83358	0	C	2601530	            Eutetramitea
+16.77	83358	0	O	43693	              Acrasida
+16.77	83358	0	F	3691768	                Naegleriidae
+16.77	83358	0	G	5761	                  Naegleria
+16.77	83358	83358	S	5763	                    Naegleria fowleri
+16.21	80576	0	D1	2611341	      Metamonada
+16.21	80576	0	P	207245	        Fornicata
+16.21	80576	0	O	5738	          Diplomonadida
+16.21	80576	0	F	5739	            Hexamitidae
+16.21	80576	0	F1	68459	              Giardiinae
+16.21	80576	0	G	5740	                Giardia
+16.21	80576	80576	S	5741	                  Giardia duodenalis

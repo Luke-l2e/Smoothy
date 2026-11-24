@@ -1,0 +1,23 @@
+Loading database information... done.
+500000 sequences (301.00 Mbp) processed in 6.027s (4977.3 Kseq/m, 2996.33 Mbp/m).
+  495561 sequences classified (99.11%)
+  4439 sequences unclassified (0.89%)
+ >> Checking for Valid Options...
+ >> Running Bracken 
+      >> python src/est_abundance.py -i /data/projects/protozoa_loo_435258/tests/runs/p5_435258_mix_err10_s1/kraken.kreport -o /data/projects/protozoa_loo_435258/tests/runs/p5_435258_mix_err10_s1/bracken_S.bracken -k /cache/krakendb/protozoa_loo_435258/database301mers.kmer_distrib -l S -t 10
+>> Checking report file: /data/projects/protozoa_loo_435258/tests/runs/p5_435258_mix_err10_s1/kraken.kreport
+PROGRAM START TIME: 11-24-2026 16:42:12
+BRACKEN SUMMARY (Kraken report: /data/projects/protozoa_loo_435258/tests/runs/p5_435258_mix_err10_s1/kraken.kreport)
+    >>> Threshold: 10 
+    >>> Number of species in sample: 58 
+	  >> Number of species with reads > threshold: 20 
+	  >> Number of species with reads < threshold: 38 
+    >>> Total reads in sample: 500000
+	  >> Total reads kept at species level (reads > threshold): 493256
+	  >> Total reads discarded (species reads < threshold): 176
+	  >> Reads distributed: 2120
+	  >> Reads not distributed (eg. no species above threshold): 9
+	  >> Unclassified reads: 4439
+BRACKEN OUTPUT PRODUCED: /data/projects/protozoa_loo_435258/tests/runs/p5_435258_mix_err10_s1/bracken_S.bracken
+PROGRAM END TIME: 11-24-2026 16:42:12
+  Bracken complete.

@@ -1,0 +1,5 @@
+sample=p2_equal
+error=perfect
+seed=20270205
+n_reads=1M
+read_length=301

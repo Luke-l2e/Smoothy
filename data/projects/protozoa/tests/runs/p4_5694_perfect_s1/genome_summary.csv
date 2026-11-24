@@ -1,0 +1,9 @@
+sample;method;l1 read;l1 org;not at genome read;not at genome org;fp read;fp org
+p4_5694_perfect_s1;naive renorm.;0.0;0.0;0.0;0.0;0;0
+p4_5694_perfect_s1;naive;1.100268;1.100268;0.550134;0.550134;0;0
+p4_5694_perfect_s1;FT naive renorm.;0.0;0.0;0.0;0.0;0;0
+p4_5694_perfect_s1;FT naive;1.100268;1.100268;0.550134;0.550134;0;0
+p4_5694_perfect_s1;weighted;1.1600000000277805e-06;1.6199999999622297e-06;5.8e-07;8.1e-07;0;0
+p4_5694_perfect_s1;unweighted;3.9999999989472883e-08;3.9999999989472883e-08;2e-08;2e-08;0;0
+p4_5694_perfect_s1;FT weighted;6.000000003972048e-08;1.0000000002919336e-07;3e-08;5e-08;0;0
+p4_5694_perfect_s1;FT unweighted;2.0000000050247593e-08;3.9999999989472883e-08;1e-08;2e-08;0;0

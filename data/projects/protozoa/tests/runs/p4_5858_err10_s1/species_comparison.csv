@@ -1,0 +1,2 @@
+species;name;truth read;naive renorm. read;naive read;FT naive renorm. read;FT naive read;weighted read;unweighted read;FT weighted read;FT unweighted read;Kraken2 renorm. read;Kraken2 read;Bracken renorm. read;Bracken read
+5858;Plasmodium malariae;1.0;0.8686558609050091;0.18891722197828986;0.9003378934680516;0.18933275343609887;0.94141604;0.94141027;0.94735946;0.94735512;0.7687629928650815;0.26750372206447837;0.88323;0.8830460213485195

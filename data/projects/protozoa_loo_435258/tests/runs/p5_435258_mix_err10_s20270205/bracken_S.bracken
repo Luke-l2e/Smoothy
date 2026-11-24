@@ -1,0 +1,29 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Cryptosporidium bovis	310047	S	70937	222	71159	0.14362
+Cryptosporidium ryanae	515981	S	13	0	13	0.00003
+Toxoplasma gondii	5811	S	70867	25	70892	0.14308
+Babesia bovis	5865	S	71172	28	71200	0.14370
+Plasmodium knowlesi	5850	S	23	24	47	0.00009
+Plasmodium gonderi	77519	S	10	0	10	0.00002
+Plasmodium reichenowi	5854	S	15	7	22	0.00004
+Plasmodium adleri (nom. inval.)	880535	S	15	3	18	0.00004
+Plasmodium falciparum	5833	S	13	3	16	0.00003
+Plasmodium gaboni	647221	S	10	4	14	0.00003
+Plasmodium coatneyi	208452	S	20	1	21	0.00004
+Blastocystis sp. subtype 4	944170	S	71053	137	71190	0.14368
+Naegleria fowleri	5763	S	70821	153	70974	0.14324
+Naegleria gruberi	5762	S	193	0	193	0.00039
+Naegleria lovaniensis	51637	S	58	0	58	0.00012
+Leishmania donovani	5661	S	67607	1351	68958	0.13917
+Leishmania major	5664	S	1077	34	1111	0.00224
+Leishmania mexicana	5665	S	478	3	481	0.00097
+Leishmania martiniquensis	1580590	S	96	0	96	0.00019
+Leishmania sp. Ghana 2012 LV757	2803181	S	14	10	24	0.00005
+Leishmania sp. Namibia	2802991	S	12	1	13	0.00003
+Leishmania enriettii	5663	S	12	0	12	0.00002
+Leishmania orientalis	2249476	S	10	11	21	0.00004
+Leishmania braziliensis	5660	S	20	12	32	0.00006
+Leishmania panamensis	5679	S	13	8	21	0.00004
+Trypanosoma cruzi	5693	S	15	3	18	0.00004
+Giardia duodenalis	5741	S	68834	4	68838	0.13893
+Acanthamoeba castellanii	5755	S	15	0	15	0.00003

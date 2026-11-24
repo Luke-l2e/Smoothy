@@ -1,0 +1,2 @@
+species;name;truth read;naive renorm. read;naive read;FT naive renorm. read;FT naive read;weighted read;unweighted read;FT weighted read;FT unweighted read;Kraken2 renorm. read;Kraken2 read;Bracken renorm. read;Bracken read
+5741;Giardia duodenalis;1.0;0.99952918951662;0.9992727038115599;0.9995453125389601;0.999265372196757;0.99912442;0.99916141;0.99621041;0.99629104;0.9996409902029755;0.9995435002738998;0.99967;0.9995497252701648

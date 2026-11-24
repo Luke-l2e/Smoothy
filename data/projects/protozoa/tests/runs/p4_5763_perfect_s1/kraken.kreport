@@ -1,0 +1,11 @@
+100.00	500000	0	R	1	root
+100.00	500000	0	R1	131567	  cellular organisms
+100.00	500000	220	D	2759	    Eukaryota
+ 99.96	499780	0	D1	2611352	      Discoba
+ 99.96	499780	0	P	5752	        Heterolobosea
+ 99.96	499780	0	P1	2601529	          Tetramitia
+ 99.96	499780	0	C	2601530	            Eutetramitea
+ 99.96	499780	0	O	43693	              Acrasida
+ 99.96	499780	0	F	3691768	                Naegleriidae
+ 99.96	499780	131	G	5761	                  Naegleria
+ 99.93	499649	499649	S	5763	                    Naegleria fowleri

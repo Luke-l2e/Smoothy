@@ -1,0 +1,6 @@
+sample=p5_435258_mix
+error=err10
+seed=1360937
+n_reads=1M
+read_length=301
+batch=batch_20261124-143546

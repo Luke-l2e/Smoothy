@@ -1,0 +1,2 @@
+species;name;truth read;naive renorm. read;naive read;FT naive renorm. read;FT naive read;weighted read;unweighted read;FT weighted read;FT unweighted read;Kraken2 renorm. read;Kraken2 read;Bracken renorm. read;Bracken read
+5661;Leishmania donovani;1.0;1.0;0.7060518227904627;1.0;0.7060518227904627;0.99999997;0.99999997;0.99999999;0.99999998;0.9999931411012648;0.8918707293648415;1.0;0.9999938827070245

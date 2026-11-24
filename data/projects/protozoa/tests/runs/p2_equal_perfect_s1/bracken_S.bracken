@@ -1,0 +1,7 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Trypanosoma brucei	5691	S	117922	28795	146717	0.29417
+Trypanosoma equiperdum	5694	S	41627	25935	67562	0.13546
+Leishmania infantum	5671	S	64092	7424	71516	0.14339
+Leishmania donovani	5661	S	62615	7474	70089	0.14053
+Plasmodium malariae	5858	S	35361	35106	70467	0.14129
+Plasmodium brasilianum	5824	S	32692	39698	72390	0.14514

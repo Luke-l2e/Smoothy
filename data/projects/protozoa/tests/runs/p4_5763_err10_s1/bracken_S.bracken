@@ -1,0 +1,4 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Naegleria fowleri	5763	S	495631	904	496535	0.99629
+Naegleria gruberi	5762	S	1428	1	1429	0.00287
+Naegleria lovaniensis	51637	S	420	0	420	0.00084

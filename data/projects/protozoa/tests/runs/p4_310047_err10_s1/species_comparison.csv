@@ -1,0 +1,2 @@
+species;name;truth read;naive renorm. read;naive read;FT naive renorm. read;FT naive read;weighted read;unweighted read;FT weighted read;FT unweighted read;Kraken2 renorm. read;Kraken2 read;Bracken renorm. read;Bracken read
+310047;Cryptosporidium bovis;1.0;0.9982706836649521;0.9925731828770369;0.9983019648692227;0.9925405531169933;0.99877864;0.99876445;0.99871009;0.99869628;0.9992349060041757;0.9954908241882782;0.9991;0.9987984891853997

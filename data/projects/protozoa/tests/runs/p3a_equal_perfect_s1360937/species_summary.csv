@@ -1,0 +1,13 @@
+sample;method;l1 read;l1 org;not at genome read;not at genome org;fp read;fp org
+p3a_equal_perfect_s1360937;naive renorm.;0.24060856541793144;;0.0;;0;
+p3a_equal_perfect_s1360937;naive;0.9549960000000001;;0.477498;;0;
+p3a_equal_perfect_s1360937;FT naive renorm.;0.28130159527109044;;0.0;;0;
+p3a_equal_perfect_s1360937;FT naive;0.999854;;0.499927;;0;
+p3a_equal_perfect_s1360937;weighted;0.024013030000000074;;0.01200651;;0;
+p3a_equal_perfect_s1360937;unweighted;0.016991230000000093;;0.00849561;;0;
+p3a_equal_perfect_s1360937;FT weighted;0.007703700000000033;;0.00223033;;0;
+p3a_equal_perfect_s1360937;FT unweighted;0.012131200000000064;;0.00606561;;0;
+p3a_equal_perfect_s1360937;Kraken2 renorm.;0.21440654772990647;;0.0;;0;
+p3a_equal_perfect_s1360937;Kraken2;0.643492;;0.321746;;0;
+p3a_equal_perfect_s1360937;Bracken renorm.;8.000000000008e-06;;0.0;;0;
+p3a_equal_perfect_s1360937;Bracken;0.0;;0.0;;0;

@@ -1,0 +1,2 @@
+species;name;truth read;naive renorm. read;naive read;FT naive renorm. read;FT naive read;weighted read;unweighted read;FT weighted read;FT unweighted read;Kraken2 renorm. read;Kraken2 read;Bracken renorm. read;Bracken read
+5763;Naegleria fowleri;1.0;0.9931968985312756;0.9819773334561872;0.9932539096497052;0.9819844211809567;0.99756155;0.99463132;0.99761644;0.99463989;0.9961330908140809;0.9942846252607929;0.99629;0.9960981383405553

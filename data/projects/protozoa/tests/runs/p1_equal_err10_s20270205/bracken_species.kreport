@@ -1,0 +1,60 @@
+100.00	495416	0	R	1	root
+100.00	495416	0	R1	131567	  cellular organisms
+100.00	495416	0	D	2759	    Eukaryota
+67.03	332080	0	D1	2698737	      Sar
+50.26	249020	0	D2	33630	        Alveolata
+50.26	249020	0	P	5794	          Apicomplexa
+33.46	165778	0	C	1280412	            Conoidasida
+33.46	165778	0	C1	5796	              Coccidia
+33.46	165778	0	O	75739	                Eucoccidiorida
+33.46	165778	0	O1	423054	                  Eimeriorina
+16.75	82972	0	F	35082	                    Cryptosporidiidae
+16.75	82972	0	G	5806	                      Cryptosporidium
+16.74	82954	82954	S	310047	                        Cryptosporidium bovis
+0.00	17	17	S	515981	                        Cryptosporidium ryanae
+16.71	82806	0	F	5809	                    Sarcocystidae
+16.71	82806	0	G	5810	                      Toxoplasma
+16.71	82806	82806	S	5811	                        Toxoplasma gondii
+16.80	83241	0	C	422676	            Aconoidasida
+16.77	83098	0	O	5863	              Piroplasmida
+16.77	83098	0	F	32594	                Babesiidae
+16.77	83098	0	G	5864	                  Babesia
+16.77	83098	83098	S	5865	                    Babesia bovis
+0.03	143	0	O	5819	              Haemosporida
+0.03	143	0	F	1639119	                Plasmodiidae
+0.03	143	0	G	5820	                  Plasmodium
+0.02	81	0	G1	418107	                    Laverania
+0.00	22	22	S	880535	                      Plasmodium adleri (nom. inval.)
+0.00	22	22	S	5854	                      Plasmodium reichenowi
+0.00	20	20	S	647221	                      Plasmodium gaboni
+0.00	15	15	S	5833	                      Plasmodium falciparum
+0.01	50	0	G1	418103	                    Plasmodium
+0.01	39	39	S	5850	                      Plasmodium knowlesi
+0.00	10	10	S	77519	                      Plasmodium gonderi
+0.00	11	0	G1	3699347	                    Plasmodium incertae sedis
+0.00	11	11	S	208452	                      Plasmodium coatneyi
+16.77	83060	0	D2	33634	        Stramenopiles
+16.77	83060	0	C	2683628	          Bigyra
+16.77	83060	0	C1	2683629	            Opalozoa
+16.77	83060	0	O	42740	              Opalinata
+16.77	83060	0	F	2547934	                Blastocystidae
+16.77	83060	0	G	12967	                  Blastocystis
+16.77	83060	0	G1	944171	                    Blastocystis sp. subtypes
+16.77	83060	83060	S	944170	                      Blastocystis sp. subtype 4
+16.77	83073	0	D1	2611352	      Discoba
+16.77	83073	0	P	5752	        Heterolobosea
+16.77	83073	0	P1	2601529	          Tetramitia
+16.77	83073	0	C	2601530	            Eutetramitea
+16.77	83073	0	O	43693	              Acrasida
+16.77	83073	0	F	3691768	                Naegleriidae
+16.77	83073	0	G	5761	                  Naegleria
+16.71	82770	82770	S	5763	                    Naegleria fowleri
+0.05	232	232	S	5762	                    Naegleria gruberi
+0.01	71	71	S	51637	                    Naegleria lovaniensis
+16.20	80262	0	D1	2611341	      Metamonada
+16.20	80262	0	P	207245	        Fornicata
+16.20	80262	0	O	5738	          Diplomonadida
+16.20	80262	0	F	5739	            Hexamitidae
+16.20	80262	0	F1	68459	              Giardiinae
+16.20	80262	0	G	5740	                Giardia
+16.20	80262	80262	S	5741	                  Giardia duodenalis

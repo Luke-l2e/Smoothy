@@ -1,0 +1,1083 @@
+[INFO] project protozoa - Loading config file '/cache/data/projects/protozoa/config.properties'.
+[INFO] project protozoa - Loading config file '/cache/data/projects/config.properties'.
+[WARN] project protozoa - Could not read config file '/cache/data/projects/config.properties'.
+[INFO] project protozoa - Loading config file '/cache/data/config.properties'.
+[WARN] project protozoa - Could not read config file '/cache/data/config.properties'.
+[INFO] project protozoa - Effective param map: {alwaysAssumeGzip=true, bloomFilterSizing=AUTO, checkSumCacheFile=true, dataNodes=false, dbInfoWithDistance=false, dbResizingFactor=1.001, extractKey=, fastaLineSizeBytes=4096, fileNodes=false, fillBloomFilterFpp=1.0E-11, foldTaxaBelow=null, ft.allInOneChunkSize=50, ft.clusterMethod=SINGLE_LINKAGE, ft.dbQualityFilterSizing=AUTO, ft.ftBloomFilterSizing=AUTO, ft.ftIndexBloomFilterFpp=0.01, ft.ftKMerIndexSizeSampling=16, ft.jaccardSim=true, ft.refinementPositions=[*], ft.simLogScaling=false, ft.tikzScaleFactor=1.0, ft.turnLatex=true, ft.withDescendantCounts=false, ft.xFactorLatex=1.0, ft.yFactorLatex=8.0, ftpBaseURL=ftp.ncbi.nih.gov, genbank.fastaQualities=[COMPLETE_LATEST, CHROMOSOME_LATEST], genbank.maxPerTaxid=1, genbank.referenceOnly=false, genomeNodes=true, gzipFastqOutput=true, httpBaseURL=https://ftp.ncbi.nlm.nih.gov, idNodes=false, ignoreMissingFastas=false, indexBloomFilterFpp=1.0E-8, initialReadSizeBytes=4096, kMerSampling=1, kMerSize=31, kmerRankStatsTaxid=, logLevel=info, logProgressUpdateCycle=1000000, lowerCaseBases=true, maxClassificationPaths=10, maxDownloadTries=5, maxDust=-1, maxGenomesPerTaxid=2147483647, maxPerTaxidRank=null, maxReadClassErrorCount=-1.0, maxReadTaxErrorCount=-1.0, minKMersForClass=1, minPosCountFilter=1, optBloomFilterFpp=0.01, parallelDbMatching=false, posRatioFilter=0.2, progressBar=true, progressBarUpdateMs=1000, radixStoreBits=17, rankCompletionDepth=null, refSeq.limitForGenbankAccess=0, refSeq.limitForGenbankRank=species, refseq.assemblyAccessionsOnly=false, refseq.assemblyMetadataGap=100, refseq.filldb=true, refseq.ftpBaseURL=ftp.ncbi.nih.gov, refseq.genomesOnly=OFF, refseq.httpBaseURL=https://ftp.ncbi.nlm.nih.gov/refseq, refseq.status=[NA, UNKNOWN, REVIEWED, VALIDATED, PROVISIONAL, PREDICTED, INFERRED, MODEL], refseq.updateScope=ALL, refseq.updateWithAssemblyAccessionsOnly=false, removeTempDB=true, reqseq.extract.gzip=false, seqType=GENOMIC, smoothy.backgroundShare=0.05, smoothy.consistencyMemberFloor=0.01, smoothy.consistencyRank=species, smoothy.consistencyReachThreshold=0.9, smoothy.consistencySeverity=0.0, smoothy.convergenceTolerance=1.0E-10, smoothy.maxIterations=10000, smoothy.topicThreshold=1, sortedArrayStore=false, strictConfigCheck=false, svgDistanceIndent=false, svgDistanceIndentBelowRank=null, svgFont=SansSerif, svgFontSize=18, svgIndentFactor=0.75, svgKmerNodeIndentFactor=500.0, svgLineHeightFactor=1.0, svgMarkLongestPath=false, svgReqNodesBold=true, svgShowDistance=false, svgShowDistancePortion=false, svgShowRank=true, svgTextGapFactor=0.25, svgTooLargeDistance=1.0, taxids=[], tempBloomFilterFpp=0.001, threadQueueSize=1000, threads=-1, useBloomFilterForMatch=true, useHttp=true, withProbs=false, writeAll=true, writeDumpedFastq=false, writeFilteredFastq=false, writeKrakenStyleOut=false, xorBloomHash=true}
+Executing target make for goals [topicmodelcsv, fttopicmodelcsv]...
+>[INFO] fastqmap - Derived fastq / fasta map: {p2_skew_b_err10_s1=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1/reads_R2.fastq.gz], p2_skew_b_err10_s1360937=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1360937/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1360937/reads_R2.fastq.gz], p2_skew_b_err10_s20270205=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s20270205/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s20270205/reads_R2.fastq.gz], p3a_equal_perfect_s1=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1/reads_R2.fastq.gz], p3a_equal_perfect_s1360937=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1360937/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1360937/reads_R2.fastq.gz], p3a_equal_perfect_s20270205=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s20270205/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s20270205/reads_R2.fastq.gz], p3a_equal_err10_s1=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1/reads_R2.fastq.gz], p3a_equal_err10_s1360937=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1360937/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1360937/reads_R2.fastq.gz], p3a_equal_err10_s20270205=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s20270205/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s20270205/reads_R2.fastq.gz], p3a_skew_perfect_s1=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1/reads_R2.fastq.gz], p3a_skew_perfect_s1360937=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1360937/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1360937/reads_R2.fastq.gz], p3a_skew_perfect_s20270205=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s20270205/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s20270205/reads_R2.fastq.gz], p3a_skew_err10_s1=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1/reads_R2.fastq.gz], p3a_skew_err10_s1360937=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1360937/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1360937/reads_R2.fastq.gz], p3a_skew_err10_s20270205=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s20270205/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s20270205/reads_R2.fastq.gz], p3b_equal_perfect_s1=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1/reads_R2.fastq.gz], p3b_equal_perfect_s1360937=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1360937/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1360937/reads_R2.fastq.gz], p3b_equal_perfect_s20270205=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s20270205/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s20270205/reads_R2.fastq.gz], p3b_equal_err10_s1=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1/reads_R2.fastq.gz], p3b_equal_err10_s1360937=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1360937/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1360937/reads_R2.fastq.gz], p3b_equal_err10_s20270205=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s20270205/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s20270205/reads_R2.fastq.gz], p3b_skew_perfect_s1=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1/reads_R2.fastq.gz], p3b_skew_perfect_s1360937=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1360937/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1360937/reads_R2.fastq.gz], p3b_skew_perfect_s20270205=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s20270205/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s20270205/reads_R2.fastq.gz], p3b_skew_err10_s1=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1/reads_R2.fastq.gz], p3b_skew_err10_s1360937=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1360937/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1360937/reads_R2.fastq.gz], p3b_skew_err10_s20270205=StreamingResourceListStream:[Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s20270205/reads_R1.fastq.gz, Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s20270205/reads_R2.fastq.gz]}
+>[INFO] fastqmap - Making fastqmap took 0 s
+>[INFO] fastqmaptransform - Making fastqmaptransform took 0 s
+>[INFO] loadkmergenomepathcounts - Making loadkmergenomepathcounts took 121 s
+>[INFO] loaddb - Total heap size before making: 112 MB
+>[INFO] loaddb - Used heap size before making: 2 MB
+>[INFO] loaddb - Max heap size before making: 24576 MB
+loaddb   0% [                                   ]       32768/10270473541 bytes (0:00:00 / 0:51:51) loaddb   0% [                                   ]    73170944/10270473541 bytes (0:00:01 / 0:02:12) loaddb   1% [                                   ]   159121408/10270473541 bytes (0:00:02 / 0:02:01) loaddb   2% [                                   ]   244350976/10270473541 bytes (0:00:03 / 0:02:00) loaddb   3% [=                                  ]   332431360/10270473541 bytes (0:00:04 / 0:01:59) loaddb   4% [=                                  ]   419856384/10270473541 bytes (0:00:05 / 0:01:48) loaddb   4% [=                                  ]   509149184/10270473541 bytes (0:00:06 / 0:01:47) loaddb   5% [==                                 ]   596344832/10270473541 bytes (0:00:07 / 0:01:46) loaddb   6% [==                                 ]   679968768/10270473541 bytes (0:00:08 / 0:01:45) loaddb   7% [==                                 ]   765034496/10270473541 bytes (0:00:09 / 0:01:44) loaddb   8% [==                                 ]   849051648/10270473541 bytes (0:00:10 / 0:01:43) loaddb   9% [===                                ]   934903808/10270473541 bytes (0:00:11 / 0:01:42) loaddb  10% [===                                ]  1028325376/10270473541 bytes (0:00:12 / 0:01:41) loaddb  10% [===                                ]  1119027200/10270473541 bytes (0:00:13 / 0:01:40) loaddb  11% [====                               ]  1212022784/10270473541 bytes (0:00:14 / 0:01:39) loaddb  12% [====                               ]  1303969792/10270473541 bytes (0:00:15 / 0:01:38) loaddb  13% [====                               ]  1395818496/10270473541 bytes (0:00:16 / 0:01:37) loaddb  14% [=====                              ]  1482227712/10270473541 bytes (0:00:17 / 0:01:36) loaddb  15% [=====                              ]  1570766848/10270473541 bytes (0:00:18 / 0:01:35) loaddb  16% [=====                              ]  1658159104/10270473541 bytes (0:00:19 / 0:01:34) loaddb  17% [=====                              ]  1747746816/10270473541 bytes (0:00:20 / 0:01:33) loaddb  17% [======                             ]  1836056576/10270473541 bytes (0:00:21 / 0:01:32) loaddb  18% [======                             ]  1923088384/10270473541 bytes (0:00:22 / 0:01:31) loaddb  19% [======                             ]  2011398144/10270473541 bytes (0:00:23 / 0:01:30) loaddb  20% [=======                            ]  2093842432/10270473541 bytes (0:00:24 / 0:01:29) loaddb  21% [=======                            ]  2182905856/10270473541 bytes (0:00:25 / 0:01:28) loaddb  22% [=======                            ]  2275147776/10270473541 bytes (0:00:26 / 0:01:27) loaddb  23% [========                           ]  2365620224/10270473541 bytes (0:00:27 / 0:01:26) loaddb  23% [========                           ]  2452979712/10270473541 bytes (0:00:28 / 0:01:25) loaddb  24% [========                           ]  2528280576/10270473541 bytes (0:00:29 / 0:01:25) loaddb  25% [========                           ]  2610135040/10270473541 bytes (0:00:30 / 0:01:24) loaddb  26% [=========                          ]  2692677632/10270473541 bytes (0:00:31 / 0:01:23) loaddb  27% [=========                          ]  2776301568/10270473541 bytes (0:00:32 / 0:01:22) loaddb  27% [=========                          ]  2864644096/10270473541 bytes (0:00:33 / 0:01:21) loaddb  28% [==========                         ]  2943188992/10270473541 bytes (0:00:34 / 0:01:20) loaddb  29% [==========                         ]  3023372288/10270473541 bytes (0:00:35 / 0:01:19) loaddb  30% [==========                         ]  3102375936/10270473541 bytes (0:00:36 / 0:01:18) loaddb  31% [==========                         ]  3195863040/10270473541 bytes (0:00:37 / 0:01:17) loaddb  31% [===========                        ]  3283714048/10270473541 bytes (0:00:38 / 0:01:16) loaddb  32% [===========                        ]  3370778624/10270473541 bytes (0:00:39 / 0:01:15) loaddb  33% [===========                        ]  3460268032/10270473541 bytes (0:00:40 / 0:01:14) loaddb  34% [============                       ]  3547529216/10270473541 bytes (0:00:41 / 0:01:13) loaddb  35% [============                       ]  3634298880/10270473541 bytes (0:00:42 / 0:01:12) loaddb  36% [============                       ]  3715497984/10270473541 bytes (0:00:43 / 0:01:12) loaddb  36% [============                       ]  3795255296/10270473541 bytes (0:00:44 / 0:01:11) loaddb  37% [=============                      ]  3875176448/10270473541 bytes (0:00:45 / 0:01:10) loaddb  38% [=============                      ]  3961290752/10270473541 bytes (0:00:46 / 0:01:09) loaddb  39% [=============                      ]  4052353024/10270473541 bytes (0:00:47 / 0:01:08) loaddb  40% [==============                     ]  4129521664/10270473541 bytes (0:00:48 / 0:01:07) loaddb  41% [==============                     ]  4212424704/10270473541 bytes (0:00:49 / 0:01:06) loaddb  41% [==============                     ]  4291428352/10270473541 bytes (0:00:50 / 0:01:05) loaddb  42% [==============                     ]  4375969792/10270473541 bytes (0:00:51 / 0:01:04) loaddb  43% [===============                    ]  4465819648/10270473541 bytes (0:00:52 / 0:01:03) loaddb  44% [===============                    ]  4553146368/10270473541 bytes (0:00:53 / 0:01:02) loaddb  45% [===============                    ]  4645388288/10270473541 bytes (0:00:54 / 0:01:01) loaddb  46% [================                   ]  4739137536/10270473541 bytes (0:00:55 / 0:01:00) loaddb  47% [================                   ]  4829184000/10270473541 bytes (0:00:56 / 0:00:59) loaddb  47% [================                   ]  4919066624/10270473541 bytes (0:00:57 / 0:00:58) loaddb  48% [=================                  ]  5004558336/10270473541 bytes (0:00:58 / 0:00:57) loaddb  49% [=================                  ]  5090607104/10270473541 bytes (0:00:59 / 0:00:56) loaddb  50% [=================                  ]  5179834368/10270473541 bytes (0:01:00 / 0:00:55) loaddb  51% [=================                  ]  5265063936/10270473541 bytes (0:01:01 / 0:00:55) loaddb  52% [==================                 ]  5352030208/10270473541 bytes (0:01:02 / 0:00:54) loaddb  52% [==================                 ]  5441224704/10270473541 bytes (0:01:03 / 0:00:53) loaddb  53% [==================                 ]  5526323200/10270473541 bytes (0:01:04 / 0:00:52) loaddb  54% [===================                ]  5619187712/10270473541 bytes (0:01:05 / 0:00:51) loaddb  55% [===================                ]  5712281600/10270473541 bytes (0:01:06 / 0:00:50) loaddb  56% [===================                ]  5805867008/10270473541 bytes (0:01:07 / 0:00:49) loaddb  57% [====================               ]  5898371072/10270473541 bytes (0:01:08 / 0:00:48) loaddb  58% [====================               ]  5986680832/10270473541 bytes (0:01:09 / 0:00:47) loaddb  59% [====================               ]  6077710336/10270473541 bytes (0:01:10 / 0:00:46) loaddb  60% [=====================              ]  6162644992/10270473541 bytes (0:01:11 / 0:00:45) loaddb  60% [=====================              ]  6250528768/10270473541 bytes (0:01:12 / 0:00:44) loaddb  61% [=====================              ]  6340935680/10270473541 bytes (0:01:13 / 0:00:43) loaddb  62% [=====================              ]  6431375360/10270473541 bytes (0:01:14 / 0:00:42) loaddb  63% [======================             ]  6523584512/10270473541 bytes (0:01:15 / 0:00:41) loaddb  64% [======================             ]  6605897728/10270473541 bytes (0:01:16 / 0:00:40) loaddb  65% [======================             ]  6693683200/10270473541 bytes (0:01:17 / 0:00:39) loaddb  66% [=======================            ]  6780846080/10270473541 bytes (0:01:18 / 0:00:38) loaddb  66% [=======================            ]  6863290368/10270473541 bytes (0:01:19 / 0:00:37) loaddb  67% [=======================            ]  6945996800/10270473541 bytes (0:01:20 / 0:00:36) loaddb  68% [=======================            ]  7026933760/10270473541 bytes (0:01:21 / 0:00:35) loaddb  69% [========================           ]  7097516032/10270473541 bytes (0:01:22 / 0:00:34) loaddb  69% [========================           ]  7158792192/10270473541 bytes (0:01:23 / 0:00:34) loaddb  70% [========================           ]  7216365568/10270473541 bytes (0:01:24 / 0:00:33) loaddb  70% [========================           ]  7274135552/10270473541 bytes (0:01:25 / 0:00:32) loaddb  71% [========================           ]  7329775616/10270473541 bytes (0:01:26 / 0:00:32) loaddb  71% [=========================          ]  7383089152/10270473541 bytes (0:01:27 / 0:00:31) loaddb  72% [=========================          ]  7449313280/10270473541 bytes (0:01:28 / 0:00:31) loaddb  73% [=========================          ]  7525826560/10270473541 bytes (0:01:29 / 0:00:30) loaddb  74% [=========================          ]  7601422336/10270473541 bytes (0:01:30 / 0:00:29) loaddb  74% [==========================         ]  7679606784/10270473541 bytes (0:01:31 / 0:00:28) loaddb  75% [==========================         ]  7756644352/10270473541 bytes (0:01:32 / 0:00:27) loaddb  76% [==========================         ]  7832797184/10270473541 bytes (0:01:33 / 0:00:26) loaddb  76% [==========================         ]  7907180544/10270473541 bytes (0:01:34 / 0:00:25) loaddb  77% [===========================        ]  7983726592/10270473541 bytes (0:01:35 / 0:00:25) loaddb  78% [===========================        ]  8060796928/10270473541 bytes (0:01:36 / 0:00:24) loaddb  79% [===========================        ]  8129445888/10270473541 bytes (0:01:37 / 0:00:23) loaddb  79% [===========================        ]  8191148032/10270473541 bytes (0:01:38 / 0:00:22) loaddb  80% [============================       ]  8265826304/10270473541 bytes (0:01:39 / 0:00:22) loaddb  81% [============================       ]  8342241280/10270473541 bytes (0:01:40 / 0:00:21) loaddb  81% [============================       ]  8418590720/10270473541 bytes (0:01:41 / 0:00:20) loaddb  82% [============================       ]  8490352640/10270473541 bytes (0:01:42 / 0:00:21) loaddb  83% [=============================      ]  8561491968/10270473541 bytes (0:01:43 / 0:00:20) loaddb  84% [=============================      ]  8632598528/10270473541 bytes (0:01:44 / 0:00:19) loaddb  84% [=============================      ]  8699183104/10270473541 bytes (0:01:45 / 0:00:18) loaddb  84% [=============================      ]  8715108352/10270473541 bytes (0:01:46 / 0:00:18) loaddb  85% [=============================      ]  8800075776/10270473541 bytes (0:01:47 / 0:00:17) loaddb  86% [==============================     ]  8894414848/10270473541 bytes (0:01:48 / 0:00:16) loaddb  87% [==============================     ]  8990097408/10270473541 bytes (0:01:49 / 0:00:15) loaddb  88% [==============================     ]  9084076032/10270473541 bytes (0:01:50 / 0:00:14) loaddb  89% [===============================    ]  9183854592/10270473541 bytes (0:01:51 / 0:00:13) loaddb  90% [===============================    ]  9280487424/10270473541 bytes (0:01:52 / 0:00:11) loaddb  91% [===============================    ]  9379282944/10270473541 bytes (0:01:53 / 0:00:10) loaddb  92% [================================   ]  9477423104/10270473541 bytes (0:01:54 / 0:00:09) loaddb  93% [================================   ]  9576611840/10270473541 bytes (0:01:55 / 0:00:08) loaddb  94% [================================   ]  9675145216/10270473541 bytes (0:01:56 / 0:00:06) loaddb  95% [=================================  ]  9774104576/10270473541 bytes (0:01:57 / 0:00:05) loaddb  96% [=================================  ]  9871228928/10270473541 bytes (0:01:58 / 0:00:04) loaddb  97% [=================================  ]  9967894528/10270473541 bytes (0:01:59 / 0:00:03) loaddb  98% [================================== ] 10065248256/10270473541 bytes (0:02:00 / 0:00:02) loaddb  98% [================================== ] 10161520640/10270473541 bytes (0:02:01 / 0:00:01) loaddb  99% [================================== ] 10253631488/10270473541 bytes (0:02:02 / 0:00:00) loaddb 100% [===================================] 10270473541/10270473541 bytes (0:02:02 / 0:00:00) loaddb 100% [===================================] 10270473541/10270473541 bytes (0:02:02 / 0:00:00) 
+>[INFO] loaddb - Total heap size after making: 21472 MB
+>[INFO] loaddb - Used heap size after making: 12031 MB
+>[INFO] loaddb - Max heap size after making: 24576 MB
+>[INFO] loaddb - Making loaddb took 122 s
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1/reads_R1.fastq.gz
+matchres   0% [                                       ]    32793/79174381 bytes (0:00:00 / 0:00:13) matchres   3% [=                                      ]  2719769/79174381 bytes (0:00:01 / 0:00:28) matchres  24% [=========                              ] 19529753/79174381 bytes (0:00:02 / 0:00:06) matchres  53% [====================                   ] 42467353/79174381 bytes (0:00:03 / 0:00:02) matchres  82% [================================       ] 65306649/79174381 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 79174381/79174381 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 79174381/79174381 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79174381
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1/reads_R2.fastq.gz
+matchres   0% [                                       ]    32793/79165470 bytes (0:00:00 / 0:00:03) matchres  30% [===========                            ] 23986201/79165470 bytes (0:00:01 / 0:00:02) matchres  61% [=======================                ] 48300057/79165470 bytes (0:00:02 / 0:00:01) matchres  91% [===================================    ] 72220697/79165470 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79165470/79165470 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79165470/79165470 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79165470
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 158339851
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1360937/reads_R1.fastq.gz
+matchres   0% [                                       ]    32793/79180584 bytes (0:00:00 / 0:00:05) matchres  26% [==========                             ] 20938777/79180584 bytes (0:00:01 / 0:00:02) matchres  53% [====================                   ] 42565657/79180584 bytes (0:00:02 / 0:00:01) matchres  80% [===============================        ] 63864857/79180584 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79180584/79180584 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79180584/79180584 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79180584
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1360937/reads_R2.fastq.gz
+matchres   0% [                                       ]    32793/79179312 bytes (0:00:00 / 0:00:03) matchres  26% [==========                             ] 21200921/79179312 bytes (0:00:01 / 0:00:02) matchres  54% [=====================                  ] 42926105/79179312 bytes (0:00:02 / 0:00:01) matchres  82% [================================       ] 65634329/79179312 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79179312/79179312 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79179312/79179312 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79179312
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 158359896
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s20270205/reads_R1.fastq.gz
+matchres   0% [                                       ]    65565/79178407 bytes (0:00:00 / 0:00:03) matchres  25% [==========                             ] 20480029/79178407 bytes (0:00:01 / 0:00:02) matchres  52% [====================                   ] 41222173/79178407 bytes (0:00:02 / 0:00:01) matchres  78% [==============================         ] 62357533/79178407 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79178407/79178407 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79178407/79178407 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79178407
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s20270205/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/79180424 bytes (0:00:00 / 0:00:04) matchres  27% [==========                             ] 21626909/79180424 bytes (0:00:01 / 0:00:02) matchres  54% [=====================                  ] 43253789/79180424 bytes (0:00:02 / 0:00:01) matchres  81% [===============================        ] 64159773/79180424 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79180424/79180424 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79180424/79180424 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79180424
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 158358831
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/47203973 bytes (0:00:00 / 0:00:03) matchres  23% [=========                              ] 11075613/47203973 bytes (0:00:01 / 0:00:03) matchres  46% [==================                     ] 22118429/47203973 bytes (0:00:02 / 0:00:02) matchres  69% [===========================            ] 32833565/47203973 bytes (0:00:03 / 0:00:01) matchres  90% [===================================    ] 42926109/47203973 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47203973/47203973 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47203973/47203973 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47203973
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/47213052 bytes (0:00:00 / 0:00:02) matchres  23% [=========                              ] 10977309/47213052 bytes (0:00:01 / 0:00:03) matchres  46% [==================                     ] 21987357/47213052 bytes (0:00:02 / 0:00:02) matchres  69% [===========================            ] 32702493/47213052 bytes (0:00:03 / 0:00:01) matchres  90% [===================================    ] 42631197/47213052 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47213052/47213052 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47213052/47213052 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47213052
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 94417025
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1360937/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/47214912 bytes (0:00:00 / 0:00:02) matchres  23% [=========                              ] 11042845/47214912 bytes (0:00:01 / 0:00:03) matchres  46% [==================                     ] 22085661/47214912 bytes (0:00:02 / 0:00:02) matchres  69% [===========================            ] 32768029/47214912 bytes (0:00:03 / 0:00:01) matchres  90% [===================================    ] 42827805/47214912 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47214912/47214912 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47214912/47214912 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47214912
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1360937/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/47226277 bytes (0:00:00 / 0:00:01) matchres  22% [========                               ] 10649629/47226277 bytes (0:00:01 / 0:00:03) matchres  45% [=================                      ] 21659677/47226277 bytes (0:00:02 / 0:00:02) matchres  68% [==========================             ] 32276509/47226277 bytes (0:00:03 / 0:00:01) matchres  89% [==================================     ] 42336285/47226277 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47226277/47226277 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47226277/47226277 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47226277
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 94441189
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s20270205/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/47205431 bytes (0:00:00 / 0:00:03) matchres  23% [=========                              ] 10944541/47205431 bytes (0:00:01 / 0:00:03) matchres  46% [==================                     ] 21954589/47205431 bytes (0:00:02 / 0:00:02) matchres  69% [==========================             ] 32636957/47205431 bytes (0:00:03 / 0:00:01) matchres  89% [==================================     ] 42336285/47205431 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47205431/47205431 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47205431/47205431 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47205431
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s20270205/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/47201464 bytes (0:00:00 / 0:00:03) matchres  22% [========                               ] 10682397/47201464 bytes (0:00:01 / 0:00:03) matchres  45% [=================                      ] 21561373/47201464 bytes (0:00:02 / 0:00:02) matchres  68% [==========================             ] 32276509/47201464 bytes (0:00:03 / 0:00:01) matchres  89% [==================================     ] 42336285/47201464 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47201464/47201464 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47201464/47201464 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47201464
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 94406895
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/79604562 bytes (0:00:00 / 0:00:04) matchres  26% [==========                             ] 21299229/79604562 bytes (0:00:01 / 0:00:02) matchres  53% [====================                   ] 42369053/79604562 bytes (0:00:02 / 0:00:01) matchres  79% [==============================         ] 62947357/79604562 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79604562/79604562 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79604562/79604562 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79604562
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/79605711 bytes (0:00:00 / 0:00:06) matchres  27% [==========                             ] 21659677/79605711 bytes (0:00:01 / 0:00:02) matchres  53% [====================                   ] 42860573/79605711 bytes (0:00:02 / 0:00:01) matchres  80% [===============================        ] 63701021/79605711 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79605711/79605711 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79605711/79605711 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79605711
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 159210273
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1360937/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/79609352 bytes (0:00:00 / 0:00:05) matchres  26% [==========                             ] 21397533/79609352 bytes (0:00:01 / 0:00:02) matchres  53% [====================                   ] 42729501/79609352 bytes (0:00:02 / 0:00:01) matchres  79% [==============================         ] 62980125/79609352 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79609352/79609352 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79609352/79609352 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79609352
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1360937/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/79613142 bytes (0:00:00 / 0:00:03) matchres  27% [==========                             ] 21626909/79613142 bytes (0:00:01 / 0:00:02) matchres  54% [=====================                  ] 43515933/79613142 bytes (0:00:02 / 0:00:01) matchres  80% [===============================        ] 64389149/79613142 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79613142/79613142 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79613142/79613142 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79613142
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 159222494
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s20270205/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/79606694 bytes (0:00:00 / 0:00:06) matchres  25% [==========                             ] 20611101/79606694 bytes (0:00:01 / 0:00:02) matchres  52% [====================                   ] 41484317/79606694 bytes (0:00:02 / 0:00:01) matchres  78% [==============================         ] 62160925/79606694 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79606694/79606694 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79606694/79606694 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79606694
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s20270205/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/79606198 bytes (0:00:00 / 0:00:05) matchres  27% [==========                             ] 21528605/79606198 bytes (0:00:01 / 0:00:02) matchres  53% [====================                   ] 42663965/79606198 bytes (0:00:02 / 0:00:01) matchres  80% [===============================        ] 63963165/79606198 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79606198/79606198 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79606198/79606198 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79606198
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 159212892
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/47261594 bytes (0:00:00 / 0:00:02) matchres  22% [========                               ] 10780701/47261594 bytes (0:00:01 / 0:00:03) matchres  46% [==================                     ] 21856285/47261594 bytes (0:00:02 / 0:00:02) matchres  69% [===========================            ] 33030173/47261594 bytes (0:00:03 / 0:00:01) matchres  92% [====================================   ] 43679773/47261594 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47261594/47261594 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47261594/47261594 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47261594
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/47267042 bytes (0:00:00 / 0:00:02) matchres  23% [=========                              ] 10944541/47267042 bytes (0:00:01 / 0:00:03) matchres  46% [==================                     ] 22052893/47267042 bytes (0:00:02 / 0:00:02) matchres  70% [===========================            ] 33128477/47267042 bytes (0:00:03 / 0:00:01) matchres  92% [====================================   ] 43745309/47267042 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47267042/47267042 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47267042/47267042 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47267042
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 94528636
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1360937/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/47255989 bytes (0:00:00 / 0:00:02) matchres  23% [=========                              ] 10911773/47255989 bytes (0:00:01 / 0:00:03) matchres  46% [==================                     ] 21987357/47255989 bytes (0:00:02 / 0:00:02) matchres  70% [===========================            ] 33128477/47255989 bytes (0:00:03 / 0:00:01) matchres  92% [====================================   ] 43712541/47255989 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47255989/47255989 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47255989/47255989 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47255989
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1360937/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/47262451 bytes (0:00:00 / 0:00:02) matchres  22% [========                               ] 10747933/47262451 bytes (0:00:01 / 0:00:03) matchres  45% [=================                      ] 21692445/47262451 bytes (0:00:02 / 0:00:02) matchres  69% [===========================            ] 32899101/47262451 bytes (0:00:03 / 0:00:01) matchres  92% [===================================    ] 43515933/47262451 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47262451/47262451 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47262451/47262451 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47262451
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 94518440
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s20270205/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/47255625 bytes (0:00:00 / 0:00:03) matchres  23% [=========                              ] 10944541/47255625 bytes (0:00:01 / 0:00:03) matchres  46% [==================                     ] 22020125/47255625 bytes (0:00:02 / 0:00:02) matchres  70% [===========================            ] 33161245/47255625 bytes (0:00:03 / 0:00:01) matchres  92% [====================================   ] 43778077/47255625 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47255625/47255625 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47255625/47255625 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47255625
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s20270205/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/47252913 bytes (0:00:00 / 0:00:02) matchres  22% [========                               ] 10616861/47252913 bytes (0:00:01 / 0:00:03) matchres  45% [=================                      ] 21692445/47252913 bytes (0:00:02 / 0:00:02) matchres  69% [===========================            ] 32866333/47252913 bytes (0:00:03 / 0:00:01) matchres  92% [===================================    ] 43483165/47252913 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47252913/47252913 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 47252913/47252913 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47252913
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 94508538
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/79809312 bytes (0:00:00 / 0:00:05) matchres  26% [==========                             ] 21168157/79809312 bytes (0:00:01 / 0:00:02) matchres  53% [====================                   ] 42696733/79809312 bytes (0:00:02 / 0:00:01) matchres  80% [===============================        ] 63963165/79809312 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79809312/79809312 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79809312/79809312 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79809312
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/79804506 bytes (0:00:00 / 0:00:02) matchres  26% [==========                             ] 21495837/79804506 bytes (0:00:01 / 0:00:02) matchres  54% [=====================                  ] 43319325/79804506 bytes (0:00:02 / 0:00:01) matchres  82% [===============================        ] 65470493/79804506 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79804506/79804506 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79804506/79804506 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79804506
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 159613818
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1360937/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/79805847 bytes (0:00:00 / 0:00:01) matchres  26% [==========                             ] 20971549/79805847 bytes (0:00:01 / 0:00:02) matchres  53% [====================                   ] 42860573/79805847 bytes (0:00:02 / 0:00:01) matchres  80% [===============================        ] 64454685/79805847 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79805847/79805847 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79805847/79805847 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79805847
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1360937/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/79799109 bytes (0:00:00 / 0:00:04) matchres  26% [==========                             ] 20873245/79799109 bytes (0:00:01 / 0:00:02) matchres  54% [=====================                  ] 43450397/79799109 bytes (0:00:02 / 0:00:01) matchres  81% [===============================        ] 64716829/79799109 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79799109/79799109 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79799109/79799109 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79799109
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 159604956
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s20270205/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/79805937 bytes (0:00:00 / 0:00:05) matchres  26% [==========                             ] 20873245/79805937 bytes (0:00:01 / 0:00:02) matchres  53% [====================                   ] 42598429/79805937 bytes (0:00:02 / 0:00:01) matchres  80% [===============================        ] 64421917/79805937 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79805937/79805937 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79805937/79805937 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79805937
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s20270205/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/79804735 bytes (0:00:00 / 0:00:03) matchres  26% [==========                             ] 21528605/79804735 bytes (0:00:01 / 0:00:02) matchres  53% [====================                   ] 42303517/79804735 bytes (0:00:02 / 0:00:01) matchres  81% [===============================        ] 65044509/79804735 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79804735/79804735 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79804735/79804735 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79804735
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 159610672
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/46752610 bytes (0:00:00 / 0:00:03) matchres  23% [=========                              ] 11075613/46752610 bytes (0:00:01 / 0:00:03) matchres  47% [==================                     ] 22249501/46752610 bytes (0:00:02 / 0:00:02) matchres  71% [===========================            ] 33325085/46752610 bytes (0:00:03 / 0:00:01) matchres  92% [====================================   ] 43286557/46752610 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46752610/46752610 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46752610/46752610 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46752610
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/46757645 bytes (0:00:00 / 0:00:03) matchres  23% [=========                              ] 11108381/46757645 bytes (0:00:01 / 0:00:03) matchres  47% [==================                     ] 22282269/46757645 bytes (0:00:02 / 0:00:02) matchres  71% [===========================            ] 33292317/46757645 bytes (0:00:03 / 0:00:01) matchres  92% [===================================    ] 43155485/46757645 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46757645/46757645 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46757645/46757645 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46757645
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 93510255
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1360937/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/46757503 bytes (0:00:00 / 0:00:04) matchres  23% [=========                              ] 11010077/46757503 bytes (0:00:01 / 0:00:03) matchres  47% [==================                     ] 22151197/46757503 bytes (0:00:02 / 0:00:02) matchres  70% [===========================            ] 33161245/46757503 bytes (0:00:03 / 0:00:01) matchres  92% [====================================   ] 43221021/46757503 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46757503/46757503 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46757503/46757503 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46757503
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1360937/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/46758499 bytes (0:00:00 / 0:00:02) matchres  23% [=========                              ] 11108381/46758499 bytes (0:00:01 / 0:00:03) matchres  47% [==================                     ] 22151197/46758499 bytes (0:00:02 / 0:00:02) matchres  70% [===========================            ] 33128477/46758499 bytes (0:00:03 / 0:00:01) matchres  92% [====================================   ] 43188253/46758499 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46758499/46758499 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46758499/46758499 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46758499
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 93516002
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s20270205/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/46762921 bytes (0:00:00 / 0:00:03) matchres  23% [=========                              ] 11042845/46762921 bytes (0:00:01 / 0:00:03) matchres  47% [==================                     ] 22216733/46762921 bytes (0:00:02 / 0:00:02) matchres  71% [===========================            ] 33292317/46762921 bytes (0:00:03 / 0:00:01) matchres  92% [====================================   ] 43319325/46762921 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46762921/46762921 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46762921/46762921 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46762921
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s20270205/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/46762619 bytes (0:00:00 / 0:00:03) matchres  22% [========                               ] 10747933/46762619 bytes (0:00:01 / 0:00:03) matchres  46% [==================                     ] 21954589/46762619 bytes (0:00:02 / 0:00:02) matchres  70% [===========================            ] 33062941/46762619 bytes (0:00:03 / 0:00:01) matchres  92% [===================================    ] 43024413/46762619 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46762619/46762619 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46762619/46762619 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46762619
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 93525540
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/79096613 bytes (0:00:00 / 0:00:07) matchres  26% [==========                             ] 20873245/79096613 bytes (0:00:01 / 0:00:02) matchres  53% [====================                   ] 42008605/79096613 bytes (0:00:02 / 0:00:01) matchres  79% [===============================        ] 62980125/79096613 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79096613/79096613 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79096613/79096613 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79096613
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/79105059 bytes (0:00:00 / 0:00:01) matchres  28% [==========                             ] 22282269/79105059 bytes (0:00:01 / 0:00:02) matchres  54% [=====================                  ] 43188253/79105059 bytes (0:00:02 / 0:00:01) matchres  80% [===============================        ] 63766557/79105059 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79105059/79105059 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79105059/79105059 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79105059
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 158201672
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1360937/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/79116206 bytes (0:00:00 / 0:00:04) matchres  26% [==========                             ] 21168157/79116206 bytes (0:00:01 / 0:00:02) matchres  53% [====================                   ] 42303517/79116206 bytes (0:00:02 / 0:00:01) matchres  80% [===============================        ] 63635485/79116206 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79116206/79116206 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79116206/79116206 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79116206
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1360937/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/79117609 bytes (0:00:00 / 0:00:03) matchres  26% [==========                             ] 20742173/79117609 bytes (0:00:01 / 0:00:02) matchres  53% [====================                   ] 42598429/79117609 bytes (0:00:02 / 0:00:01) matchres  80% [===============================        ] 63602717/79117609 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79117609/79117609 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79117609/79117609 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79117609
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 158233815
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s20270205/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/79114351 bytes (0:00:00 / 0:00:05) matchres  26% [==========                             ] 20611101/79114351 bytes (0:00:01 / 0:00:02) matchres  53% [====================                   ] 42041373/79114351 bytes (0:00:02 / 0:00:01) matchres  79% [===============================        ] 62947357/79114351 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79114351/79114351 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79114351/79114351 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79114351
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s20270205/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/79111109 bytes (0:00:00 / 0:00:05) matchres  27% [==========                             ] 21725213/79111109 bytes (0:00:01 / 0:00:02) matchres  54% [=====================                  ] 43352093/79111109 bytes (0:00:02 / 0:00:01) matchres  82% [===============================        ] 64880669/79111109 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79111109/79111109 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 79111109/79111109 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79111109
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 158225460
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/46507483 bytes (0:00:00 / 0:00:03) matchres  23% [=========                              ] 11075613/46507483 bytes (0:00:01 / 0:00:03) matchres  47% [==================                     ] 22282269/46507483 bytes (0:00:02 / 0:00:02) matchres  72% [============================           ] 33587229/46507483 bytes (0:00:03 / 0:00:01) matchres  94% [=====================================  ] 44171293/46507483 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46507483/46507483 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46507483/46507483 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46507483
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/46510876 bytes (0:00:00 / 0:00:01) matchres  23% [=========                              ] 11010077/46510876 bytes (0:00:01 / 0:00:03) matchres  47% [==================                     ] 22183965/46510876 bytes (0:00:02 / 0:00:02) matchres  71% [===========================            ] 33357853/46510876 bytes (0:00:03 / 0:00:01) matchres  94% [====================================   ] 43974685/46510876 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46510876/46510876 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46510876/46510876 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46510876
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 93018359
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1360937/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/46539151 bytes (0:00:00 / 0:00:03) matchres  24% [=========                              ] 11173917/46539151 bytes (0:00:01 / 0:00:03) matchres  48% [==================                     ] 22347805/46539151 bytes (0:00:02 / 0:00:02) matchres  72% [============================           ] 33685533/46539151 bytes (0:00:03 / 0:00:01) matchres  95% [=====================================  ] 44269597/46539151 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46539151/46539151 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46539151/46539151 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46539151
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1360937/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/46534917 bytes (0:00:00 / 0:00:03) matchres  23% [=========                              ] 10879005/46534917 bytes (0:00:01 / 0:00:03) matchres  47% [==================                     ] 21987357/46534917 bytes (0:00:02 / 0:00:02) matchres  71% [===========================            ] 33325085/46534917 bytes (0:00:03 / 0:00:01) matchres  94% [====================================   ] 43974685/46534917 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46534917/46534917 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46534917/46534917 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46534917
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 93074068
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s20270205/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/46541432 bytes (0:00:00 / 0:00:03) matchres  23% [=========                              ] 11010077/46541432 bytes (0:00:01 / 0:00:03) matchres  47% [==================                     ] 22249501/46541432 bytes (0:00:02 / 0:00:02) matchres  72% [============================           ] 33587229/46541432 bytes (0:00:03 / 0:00:01) matchres  94% [====================================   ] 43941917/46541432 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46541432/46541432 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46541432/46541432 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46541432
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s20270205/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/46544064 bytes (0:00:00 / 0:00:01) matchres  23% [=========                              ] 11108381/46544064 bytes (0:00:01 / 0:00:03) matchres  47% [==================                     ] 22183965/46544064 bytes (0:00:02 / 0:00:02) matchres  71% [============================           ] 33488925/46544064 bytes (0:00:03 / 0:00:01) matchres  94% [====================================   ] 44105757/46544064 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46544064/46544064 bytes (0:00:04 / 0:00:00) matchres 100% [=======================================] 46544064/46544064 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46544064
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 93085496
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/78741602 bytes (0:00:00 / 0:00:06) matchres  25% [==========                             ] 20217885/78741602 bytes (0:00:01 / 0:00:02) matchres  51% [====================                   ] 40927261/78741602 bytes (0:00:02 / 0:00:01) matchres  79% [==============================         ] 62488605/78741602 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 78741602/78741602 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 78741602/78741602 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 78741602
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/78737456 bytes (0:00:00 / 0:00:05) matchres  28% [===========                            ] 22380573/78737456 bytes (0:00:01 / 0:00:02) matchres  54% [=====================                  ] 42795037/78737456 bytes (0:00:02 / 0:00:01) matchres  80% [===============================        ] 63373341/78737456 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 78737456/78737456 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 78737456/78737456 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 78737456
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 157479058
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1360937/reads_R1.fastq.gz
+matchres   0% [                                       ]    65565/78754984 bytes (0:00:00 / 0:00:03) matchres  25% [=========                              ] 20185117/78754984 bytes (0:00:01 / 0:00:02) matchres  51% [===================                    ] 40271901/78754984 bytes (0:00:02 / 0:00:01) matchres  77% [==============================         ] 61341725/78754984 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 78754984/78754984 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 78754984/78754984 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 78754984
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1360937/reads_R2.fastq.gz
+matchres   0% [                                       ]    65565/78740607 bytes (0:00:00 / 0:00:04) matchres  26% [==========                             ] 20611101/78740607 bytes (0:00:01 / 0:00:02) matchres  53% [=====================                  ] 42401821/78740607 bytes (0:00:02 / 0:00:01) matchres  80% [===============================        ] 63668253/78740607 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 78740607/78740607 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 78740607/78740607 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 78740607
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 157495591
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s20270205/reads_R1.fastq.gz
+matchres   0% [                                       ]    32797/78741222 bytes (0:00:00 / 0:00:08) matchres  24% [=========                              ] 19562525/78741222 bytes (0:00:01 / 0:00:03) matchres  52% [====================                   ] 41418781/78741222 bytes (0:00:02 / 0:00:01) matchres  78% [==============================         ] 61767709/78741222 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 78741222/78741222 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 78741222/78741222 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 78741222
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s20270205/reads_R2.fastq.gz
+matchres   0% [                                       ]    32797/78749641 bytes (0:00:00 / 0:00:05) matchres  26% [==========                             ] 20840477/78749641 bytes (0:00:01 / 0:00:02) matchres  54% [=====================                  ] 42565661/78749641 bytes (0:00:02 / 0:00:01) matchres  81% [===============================        ] 64356381/78749641 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 78749641/78749641 bytes (0:00:03 / 0:00:00) matchres 100% [=======================================] 78749641/78749641 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 78749641
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 157490863
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] matchres - Making matchres took 273 s
+>[INFO] topicmodel - Sample p2_skew_b_err10_s1: 87 topics fitted to 10514642 k-mers in 2262 iterations.
+>[INFO] topicmodel - Sample p2_skew_b_err10_s1: 16 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p2_skew_b_err10_s1360937: 86 topics fitted to 10541394 k-mers in 3111 iterations.
+>[INFO] topicmodel - Sample p2_skew_b_err10_s1360937: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p2_skew_b_err10_s20270205: 92 topics fitted to 10526493 k-mers in 2849 iterations.
+>[INFO] topicmodel - Sample p2_skew_b_err10_s20270205: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3a_equal_perfect_s1: 20 topics fitted to 270890604 k-mers in 10000 iterations.
+>[WARN] topicmodel - Sample p3a_equal_perfect_s1: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] topicmodel - Sample p3a_equal_perfect_s1: 1 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3a_equal_perfect_s1360937: 20 topics fitted to 270896855 k-mers in 10000 iterations.
+>[WARN] topicmodel - Sample p3a_equal_perfect_s1360937: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] topicmodel - Sample p3a_equal_perfect_s1360937: 1 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3a_equal_perfect_s20270205: 20 topics fitted to 270887012 k-mers in 10000 iterations.
+>[WARN] topicmodel - Sample p3a_equal_perfect_s20270205: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] topicmodel - Sample p3a_equal_perfect_s20270205: 1 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3a_equal_err10_s1: 85 topics fitted to 10734174 k-mers in 1811 iterations.
+>[INFO] topicmodel - Sample p3a_equal_err10_s1: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3a_equal_err10_s1360937: 88 topics fitted to 10720817 k-mers in 2275 iterations.
+>[INFO] topicmodel - Sample p3a_equal_err10_s1360937: 14 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3a_equal_err10_s20270205: 89 topics fitted to 10730427 k-mers in 2281 iterations.
+>[INFO] topicmodel - Sample p3a_equal_err10_s20270205: 14 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3a_skew_perfect_s1: 20 topics fitted to 270793768 k-mers in 10000 iterations.
+>[WARN] topicmodel - Sample p3a_skew_perfect_s1: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] topicmodel - Sample p3a_skew_perfect_s1: 1 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3a_skew_perfect_s1360937: 20 topics fitted to 270798148 k-mers in 10000 iterations.
+>[WARN] topicmodel - Sample p3a_skew_perfect_s1360937: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] topicmodel - Sample p3a_skew_perfect_s1360937: 1 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3a_skew_perfect_s20270205: 20 topics fitted to 270795391 k-mers in 5131 iterations.
+>[INFO] topicmodel - Sample p3a_skew_perfect_s20270205: 1 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3a_skew_err10_s1: 84 topics fitted to 10720759 k-mers in 1734 iterations.
+>[INFO] topicmodel - Sample p3a_skew_err10_s1: 17 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3a_skew_err10_s1360937: 85 topics fitted to 10715677 k-mers in 2190 iterations.
+>[INFO] topicmodel - Sample p3a_skew_err10_s1360937: 17 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3a_skew_err10_s20270205: 85 topics fitted to 10721537 k-mers in 2178 iterations.
+>[INFO] topicmodel - Sample p3a_skew_err10_s20270205: 17 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3b_equal_perfect_s1: 19 topics fitted to 267344498 k-mers in 10000 iterations.
+>[WARN] topicmodel - Sample p3b_equal_perfect_s1: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] topicmodel - Sample p3b_equal_perfect_s1: 1 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3b_equal_perfect_s1360937: 19 topics fitted to 267330474 k-mers in 10000 iterations.
+>[WARN] topicmodel - Sample p3b_equal_perfect_s1360937: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] topicmodel - Sample p3b_equal_perfect_s1360937: 1 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3b_equal_perfect_s20270205: 19 topics fitted to 267375806 k-mers in 10000 iterations.
+>[WARN] topicmodel - Sample p3b_equal_perfect_s20270205: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] topicmodel - Sample p3b_equal_perfect_s20270205: 1 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3b_equal_err10_s1: 86 topics fitted to 10529851 k-mers in 2927 iterations.
+>[INFO] topicmodel - Sample p3b_equal_err10_s1: 14 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3b_equal_err10_s1360937: 84 topics fitted to 10568110 k-mers in 2275 iterations.
+>[INFO] topicmodel - Sample p3b_equal_err10_s1360937: 16 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3b_equal_err10_s20270205: 85 topics fitted to 10543398 k-mers in 2874 iterations.
+>[INFO] topicmodel - Sample p3b_equal_err10_s20270205: 17 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3b_skew_perfect_s1: 19 topics fitted to 262636744 k-mers in 10000 iterations.
+>[WARN] topicmodel - Sample p3b_skew_perfect_s1: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] topicmodel - Sample p3b_skew_perfect_s1: 1 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3b_skew_perfect_s1360937: 19 topics fitted to 262834046 k-mers in 10000 iterations.
+>[WARN] topicmodel - Sample p3b_skew_perfect_s1360937: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] topicmodel - Sample p3b_skew_perfect_s1360937: 1 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3b_skew_perfect_s20270205: 19 topics fitted to 262857819 k-mers in 8918 iterations.
+>[INFO] topicmodel - Sample p3b_skew_perfect_s20270205: 1 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3b_skew_err10_s1: 84 topics fitted to 10311814 k-mers in 2451 iterations.
+>[INFO] topicmodel - Sample p3b_skew_err10_s1: 16 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3b_skew_err10_s1360937: 82 topics fitted to 10307372 k-mers in 2131 iterations.
+>[INFO] topicmodel - Sample p3b_skew_err10_s1360937: 16 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Sample p3b_skew_err10_s20270205: 81 topics fitted to 10321857 k-mers in 2881 iterations.
+>[INFO] topicmodel - Sample p3b_skew_err10_s20270205: 16 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] topicmodel - Making topicmodel took 519 s
+>[INFO] topicmodelcsv - Making topicmodelcsv took 519 s
+>[INFO] loadftkmergenomepathcounts - Making loadftkmergenomepathcounts took 119 s
+>[INFO] loadftdb - Total heap size before making: 21472 MB
+>[INFO] loadftdb - Used heap size before making: 12031 MB
+>[INFO] loadftdb - Max heap size before making: 24576 MB
+loadftdb   0% [                                       ]           0/10292240991 bytes (0:00:00 / ?) loadftdb   0% [                                 ]    78249984/10292240991 bytes (0:00:01 / 0:02:02) loadftdb   1% [                                 ]   166952960/10292240991 bytes (0:00:02 / 0:01:51) loadftdb   2% [                                 ]   256802816/10292240991 bytes (0:00:03 / 0:01:50) loadftdb   3% [=                                ]   346521600/10292240991 bytes (0:00:04 / 0:01:49) loadftdb   4% [=                                ]   434372608/10292240991 bytes (0:00:05 / 0:01:48) loadftdb   5% [=                                ]   523796480/10292240991 bytes (0:00:06 / 0:01:47) loadftdb   5% [=                                ]   608305152/10292240991 bytes (0:00:07 / 0:01:46) loadftdb   6% [==                               ]   695042048/10292240991 bytes (0:00:08 / 0:01:45) loadftdb   7% [==                               ]   783384576/10292240991 bytes (0:00:09 / 0:01:44) loadftdb   8% [==                               ]   869662720/10292240991 bytes (0:00:10 / 0:01:43) loadftdb   9% [===                              ]   958431232/10292240991 bytes (0:00:11 / 0:01:42) loadftdb  10% [===                              ]  1046937600/10292240991 bytes (0:00:12 / 0:01:41) loadftdb  11% [===                              ]  1135509504/10292240991 bytes (0:00:13 / 0:01:40) loadftdb  11% [===                              ]  1223327744/10292240991 bytes (0:00:14 / 0:01:39) loadftdb  12% [====                             ]  1313046528/10292240991 bytes (0:00:15 / 0:01:38) loadftdb  13% [====                             ]  1401061376/10292240991 bytes (0:00:16 / 0:01:37) loadftdb  14% [====                             ]  1485897728/10292240991 bytes (0:00:17 / 0:01:36) loadftdb  15% [=====                            ]  1573912576/10292240991 bytes (0:00:18 / 0:01:35) loadftdb  16% [=====                            ]  1651638272/10292240991 bytes (0:00:19 / 0:01:35) loadftdb  16% [=====                            ]  1738506240/10292240991 bytes (0:00:20 / 0:01:34) loadftdb  17% [=====                            ]  1832419328/10292240991 bytes (0:00:21 / 0:01:33) loadftdb  18% [======                           ]  1922170880/10292240991 bytes (0:00:22 / 0:01:32) loadftdb  19% [======                           ]  2014609408/10292240991 bytes (0:00:23 / 0:01:31) loadftdb  20% [======                           ]  2108096512/10292240991 bytes (0:00:24 / 0:01:30) loadftdb  21% [=======                          ]  2197454848/10292240991 bytes (0:00:25 / 0:01:29) loadftdb  22% [=======                          ]  2289991680/10292240991 bytes (0:00:26 / 0:01:28) loadftdb  23% [=======                          ]  2380431360/10292240991 bytes (0:00:27 / 0:01:27) loadftdb  23% [=======                          ]  2467987456/10292240991 bytes (0:00:28 / 0:01:26) loadftdb  24% [========                         ]  2547253248/10292240991 bytes (0:00:29 / 0:01:25) loadftdb  25% [========                         ]  2630057984/10292240991 bytes (0:00:30 / 0:01:24) loadftdb  26% [========                         ]  2710831104/10292240991 bytes (0:00:31 / 0:01:23) loadftdb  27% [========                         ]  2800910336/10292240991 bytes (0:00:32 / 0:01:22) loadftdb  28% [=========                        ]  2889383936/10292240991 bytes (0:00:33 / 0:01:21) loadftdb  28% [=========                        ]  2967830528/10292240991 bytes (0:00:34 / 0:01:20) loadftdb  29% [=========                        ]  3051323392/10292240991 bytes (0:00:35 / 0:01:19) loadftdb  30% [==========                       ]  3136225280/10292240991 bytes (0:00:36 / 0:01:18) loadftdb  31% [==========                       ]  3230203904/10292240991 bytes (0:00:37 / 0:01:17) loadftdb  32% [==========                       ]  3309043712/10292240991 bytes (0:00:38 / 0:01:16) loadftdb  32% [==========                       ]  3388964864/10292240991 bytes (0:00:39 / 0:01:15) loadftdb  33% [===========                      ]  3451486208/10292240991 bytes (0:00:40 / 0:01:15) loadftdb  33% [===========                      ]  3498901504/10292240991 bytes (0:00:41 / 0:01:14) loadftdb  34% [===========                      ]  3589210112/10292240991 bytes (0:00:42 / 0:01:13) loadftdb  35% [===========                      ]  3678306304/10292240991 bytes (0:00:43 / 0:01:12) loadftdb  36% [============                     ]  3764256768/10292240991 bytes (0:00:44 / 0:01:11) loadftdb  37% [============                     ]  3845423104/10292240991 bytes (0:00:45 / 0:01:10) loadftdb  38% [============                     ]  3922493440/10292240991 bytes (0:00:46 / 0:01:10) loadftdb  38% [============                     ]  4012605440/10292240991 bytes (0:00:47 / 0:01:09) loadftdb  39% [=============                    ]  4101603328/10292240991 bytes (0:00:48 / 0:01:08) loadftdb  40% [=============                    ]  4154753024/10292240991 bytes (0:00:49 / 0:01:07) loadftdb  41% [=============                    ]  4239753216/10292240991 bytes (0:00:50 / 0:01:06) loadftdb  41% [=============                    ]  4319641600/10292240991 bytes (0:00:51 / 0:01:05) loadftdb  42% [==============                   ]  4413784064/10292240991 bytes (0:00:52 / 0:01:04) loadftdb  43% [==============                   ]  4506124288/10292240991 bytes (0:00:53 / 0:01:03) loadftdb  44% [==============                   ]  4597481472/10292240991 bytes (0:00:54 / 0:01:02) loadftdb  45% [===============                  ]  4692180992/10292240991 bytes (0:00:55 / 0:01:01) loadftdb  46% [===============                  ]  4786257920/10292240991 bytes (0:00:56 / 0:01:00) loadftdb  47% [===============                  ]  4880891904/10292240991 bytes (0:00:57 / 0:00:59) loadftdb  48% [===============                  ]  4942856192/10292240991 bytes (0:00:58 / 0:00:58) loadftdb  48% [================                 ]  5031788544/10292240991 bytes (0:00:59 / 0:00:57) loadftdb  49% [================                 ]  5124096000/10292240991 bytes (0:01:00 / 0:00:56) loadftdb  50% [================                 ]  5216468992/10292240991 bytes (0:01:01 / 0:00:55) loadftdb  51% [=================                ]  5305335808/10292240991 bytes (0:01:02 / 0:00:54) loadftdb  52% [=================                ]  5398495232/10292240991 bytes (0:01:03 / 0:00:53) loadftdb  53% [=================                ]  5492080640/10292240991 bytes (0:01:04 / 0:00:52) loadftdb  54% [=================                ]  5586288640/10292240991 bytes (0:01:05 / 0:00:51) loadftdb  55% [==================               ]  5680398336/10292240991 bytes (0:01:06 / 0:00:50) loadftdb  55% [==================               ]  5759434752/10292240991 bytes (0:01:07 / 0:00:49) loadftdb  56% [==================               ]  5853642752/10292240991 bytes (0:01:08 / 0:00:48) loadftdb  57% [===================              ]  5945425920/10292240991 bytes (0:01:09 / 0:00:47) loadftdb  58% [===================              ]  6035472384/10292240991 bytes (0:01:10 / 0:00:46) loadftdb  59% [===================              ]  6129614848/10292240991 bytes (0:01:11 / 0:00:45) loadftdb  60% [===================              ]  6218645504/10292240991 bytes (0:01:12 / 0:00:44) loadftdb  61% [====================             ]  6307479552/10292240991 bytes (0:01:13 / 0:00:43) loadftdb  62% [====================             ]  6401622016/10292240991 bytes (0:01:14 / 0:00:42) loadftdb  63% [====================             ]  6490652672/10292240991 bytes (0:01:15 / 0:00:41) loadftdb  63% [=====================            ]  6576373760/10292240991 bytes (0:01:16 / 0:00:40) loadftdb  64% [=====================            ]  6663471104/10292240991 bytes (0:01:17 / 0:00:39) loadftdb  65% [=====================            ]  6749519872/10292240991 bytes (0:01:18 / 0:00:38) loadftdb  66% [=====================            ]  6835372032/10292240991 bytes (0:01:19 / 0:00:38) loadftdb  67% [======================           ]  6913753088/10292240991 bytes (0:01:20 / 0:00:37) loadftdb  67% [======================           ]  6992461824/10292240991 bytes (0:01:21 / 0:00:36) loadftdb  68% [======================           ]  7071268864/10292240991 bytes (0:01:22 / 0:00:35) loadftdb  69% [======================           ]  7154892800/10292240991 bytes (0:01:23 / 0:00:34) loadftdb  70% [=======================          ]  7231995904/10292240991 bytes (0:01:24 / 0:00:33) loadftdb  70% [=======================          ]  7301332992/10292240991 bytes (0:01:25 / 0:00:32) loadftdb  71% [=======================          ]  7377551360/10292240991 bytes (0:01:26 / 0:00:32) loadftdb  72% [=======================          ]  7470546944/10292240991 bytes (0:01:27 / 0:00:31) loadftdb  73% [========================         ]  7560822784/10292240991 bytes (0:01:28 / 0:00:30) loadftdb  74% [========================         ]  7649001472/10292240991 bytes (0:01:29 / 0:00:29) loadftdb  75% [========================         ]  7742488576/10292240991 bytes (0:01:30 / 0:00:28) loadftdb  76% [=========================        ]  7836303360/10292240991 bytes (0:01:31 / 0:00:27) loadftdb  77% [=========================        ]  7925432320/10292240991 bytes (0:01:32 / 0:00:26) loadftdb  77% [=========================        ]  8014135296/10292240991 bytes (0:01:33 / 0:00:25) loadftdb  78% [=========================        ]  8101691392/10292240991 bytes (0:01:34 / 0:00:24) loadftdb  79% [==========================       ]  8179613696/10292240991 bytes (0:01:35 / 0:00:23) loadftdb  80% [==========================       ]  8240070656/10292240991 bytes (0:01:36 / 0:00:22) loadftdb  80% [==========================       ]  8327331840/10292240991 bytes (0:01:37 / 0:00:21) loadftdb  81% [==========================       ]  8416755712/10292240991 bytes (0:01:38 / 0:00:20) loadftdb  82% [===========================      ]  8499757056/10292240991 bytes (0:01:39 / 0:00:19) loadftdb  83% [===========================      ]  8581054464/10292240991 bytes (0:01:40 / 0:00:18) loadftdb  84% [===========================      ]  8661303296/10292240991 bytes (0:01:41 / 0:00:17) loadftdb  84% [===========================      ]  8723234816/10292240991 bytes (0:01:42 / 0:00:17) loadftdb  85% [============================     ]  8763703296/10292240991 bytes (0:01:43 / 0:00:16) loadftdb  86% [============================     ]  8874786816/10292240991 bytes (0:01:44 / 0:00:15) loadftdb  87% [============================     ]  8986820608/10292240991 bytes (0:01:45 / 0:00:14) loadftdb  88% [=============================    ]  9098985472/10292240991 bytes (0:01:46 / 0:00:13) loadftdb  89% [=============================    ]  9211215872/10292240991 bytes (0:01:47 / 0:00:11) loadftdb  90% [=============================    ]  9321644032/10292240991 bytes (0:01:48 / 0:00:10) loadftdb  91% [==============================   ]  9433186304/10292240991 bytes (0:01:49 / 0:00:09) loadftdb  92% [==============================   ]  9545449472/10292240991 bytes (0:01:50 / 0:00:08) loadftdb  93% [==============================   ]  9657679872/10292240991 bytes (0:01:51 / 0:00:06) loadftdb  94% [===============================  ]  9768828928/10292240991 bytes (0:01:52 / 0:00:05) loadftdb  96% [===============================  ]  9881124864/10292240991 bytes (0:01:53 / 0:00:04) loadftdb  97% [================================ ]  9993486336/10292240991 bytes (0:01:54 / 0:00:03) loadftdb  98% [================================ ] 10105421824/10292240991 bytes (0:01:55 / 0:00:02) loadftdb  99% [================================ ] 10217750528/10292240991 bytes (0:01:56 / 0:00:00) loadftdb 100% [=================================] 10292240991/10292240991 bytes (0:01:56 / 0:00:00) loadftdb 100% [=================================] 10292240991/10292240991 bytes (0:01:56 / 0:00:00) 
+>[INFO] loadftdb - Total heap size after making: 24576 MB
+>[INFO] loadftdb - Used heap size after making: 24028 MB
+>[INFO] loadftdb - Max heap size after making: 24576 MB
+>[INFO] loadftdb - Making loadftdb took 116 s
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32793/79174381 bytes (0:00:00 / 0:00:05) ftmatchres  25% [=========                            ] 20152345/79174381 bytes (0:00:01 / 0:00:02) ftmatchres  52% [===================                  ] 41451545/79174381 bytes (0:00:02 / 0:00:01) ftmatchres  77% [============================         ] 61374489/79174381 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79174381/79174381 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79174381/79174381 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79174381
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32793/79165470 bytes (0:00:00 / 0:00:05) ftmatchres  24% [========                             ] 19038233/79165470 bytes (0:00:01 / 0:00:03) ftmatchres  49% [==================                   ] 39354393/79165470 bytes (0:00:02 / 0:00:01) ftmatchres  74% [===========================          ] 59342873/79165470 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79165470/79165470 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79165470/79165470 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79165470
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 158339851
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1360937/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32793/79180584 bytes (0:00:00 / 0:00:06) ftmatchres  24% [=========                            ] 19628057/79180584 bytes (0:00:01 / 0:00:03) ftmatchres  51% [===================                  ] 40992793/79180584 bytes (0:00:02 / 0:00:01) ftmatchres  77% [============================         ] 61177881/79180584 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79180584/79180584 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79180584/79180584 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79180584
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1360937/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32793/79179312 bytes (0:00:00 / 0:00:05) ftmatchres  26% [=========                            ] 20643865/79179312 bytes (0:00:01 / 0:00:02) ftmatchres  51% [===================                  ] 41123865/79179312 bytes (0:00:02 / 0:00:01) ftmatchres  76% [============================         ] 60882969/79179312 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79179312/79179312 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79179312/79179312 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79179312
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 158359896
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s20270205/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/79178407 bytes (0:00:00 / 0:00:07) ftmatchres  26% [=========                            ] 21037085/79178407 bytes (0:00:01 / 0:00:02) ftmatchres  52% [===================                  ] 41844765/79178407 bytes (0:00:02 / 0:00:01) ftmatchres  79% [=============================        ] 62685213/79178407 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79178407/79178407 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79178407/79178407 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79178407
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s20270205/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/79180424 bytes (0:00:00 / 0:00:05) ftmatchres  24% [=========                            ] 19759133/79180424 bytes (0:00:01 / 0:00:02) ftmatchres  49% [==================                   ] 39551005/79180424 bytes (0:00:02 / 0:00:01) ftmatchres  75% [============================         ] 60162077/79180424 bytes (0:00:03 / 0:00:00) ftmatchres  99% [==================================== ] 78938141/79180424 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79180424/79180424 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79180424/79180424 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p2_skew_b_err10_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79180424
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 158358831
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/47203973 bytes (0:00:00 / 0:00:03) ftmatchres  20% [=======                              ]  9502749/47203973 bytes (0:00:01 / 0:00:03) ftmatchres  40% [==============                       ] 19071005/47203973 bytes (0:00:02 / 0:00:02) ftmatchres  60% [======================               ] 28606493/47203973 bytes (0:00:03 / 0:00:01) ftmatchres  77% [============================         ] 36700189/47203973 bytes (0:00:04 / 0:00:01) ftmatchres  95% [===================================  ] 45187101/47203973 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47203973/47203973 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47203973/47203973 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47203973
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/47213052 bytes (0:00:00 / 0:00:04) ftmatchres  19% [=======                              ]  9338909/47213052 bytes (0:00:01 / 0:00:04) ftmatchres  39% [==============                       ] 18874397/47213052 bytes (0:00:02 / 0:00:03) ftmatchres  60% [======================               ] 28573725/47213052 bytes (0:00:03 / 0:00:01) ftmatchres  77% [============================         ] 36732957/47213052 bytes (0:00:04 / 0:00:01) ftmatchres  95% [===================================  ] 45252637/47213052 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47213052/47213052 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47213052/47213052 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47213052
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 94417025
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1360937/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/47214912 bytes (0:00:00 / 0:00:03) ftmatchres  19% [=======                              ]  9371677/47214912 bytes (0:00:01 / 0:00:04) ftmatchres  40% [==============                       ] 18939933/47214912 bytes (0:00:02 / 0:00:02) ftmatchres  60% [======================               ] 28606493/47214912 bytes (0:00:03 / 0:00:01) ftmatchres  77% [============================         ] 36798493/47214912 bytes (0:00:04 / 0:00:01) ftmatchres  95% [===================================  ] 45318173/47214912 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47214912/47214912 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47214912/47214912 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47214912
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1360937/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/47226277 bytes (0:00:00 / 0:00:03) ftmatchres  20% [=======                              ]  9469981/47226277 bytes (0:00:01 / 0:00:03) ftmatchres  40% [==============                       ] 19038237/47226277 bytes (0:00:02 / 0:00:02) ftmatchres  60% [======================               ] 28704797/47226277 bytes (0:00:03 / 0:00:01) ftmatchres  77% [============================         ] 36831261/47226277 bytes (0:00:04 / 0:00:01) ftmatchres  95% [===================================  ] 45285405/47226277 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47226277/47226277 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47226277/47226277 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47226277
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 94441189
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s20270205/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/47205431 bytes (0:00:00 / 0:00:02) ftmatchres  20% [=======                              ]  9469981/47205431 bytes (0:00:01 / 0:00:03) ftmatchres  40% [==============                       ] 19005469/47205431 bytes (0:00:02 / 0:00:02) ftmatchres  60% [======================               ] 28704797/47205431 bytes (0:00:03 / 0:00:01) ftmatchres  78% [============================         ] 36864029/47205431 bytes (0:00:04 / 0:00:01) ftmatchres  96% [===================================  ] 45416477/47205431 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47205431/47205431 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47205431/47205431 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47205431
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s20270205/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/47201464 bytes (0:00:00 / 0:00:03) ftmatchres  20% [=======                              ]  9469981/47201464 bytes (0:00:01 / 0:00:03) ftmatchres  40% [==============                       ] 18907165/47201464 bytes (0:00:02 / 0:00:02) ftmatchres  60% [======================               ] 28540957/47201464 bytes (0:00:03 / 0:00:01) ftmatchres  77% [============================         ] 36732957/47201464 bytes (0:00:04 / 0:00:01) ftmatchres  95% [===================================  ] 45219869/47201464 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47201464/47201464 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47201464/47201464 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_perfect_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47201464
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 94406895
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/79604562 bytes (0:00:00 / 0:00:04) ftmatchres  25% [=========                            ] 20250653/79604562 bytes (0:00:01 / 0:00:02) ftmatchres  50% [==================                   ] 40304669/79604562 bytes (0:00:02 / 0:00:01) ftmatchres  75% [===========================          ] 59998237/79604562 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79604562/79604562 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79604562/79604562 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79604562
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/79605711 bytes (0:00:00 / 0:00:02) ftmatchres  26% [=========                            ] 21331997/79605711 bytes (0:00:01 / 0:00:02) ftmatchres  52% [===================                  ] 41713693/79605711 bytes (0:00:02 / 0:00:01) ftmatchres  77% [============================         ] 61767709/79605711 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79605711/79605711 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79605711/79605711 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79605711
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 159210273
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1360937/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/79609352 bytes (0:00:00 / 0:00:05) ftmatchres  25% [=========                            ] 20283421/79609352 bytes (0:00:01 / 0:00:02) ftmatchres  50% [==================                   ] 40468509/79609352 bytes (0:00:02 / 0:00:01) ftmatchres  75% [===========================          ] 59834397/79609352 bytes (0:00:03 / 0:00:00) ftmatchres  99% [==================================== ] 79101981/79609352 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79609352/79609352 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79609352/79609352 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79609352
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1360937/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/79613142 bytes (0:00:00 / 0:00:01) ftmatchres  26% [=========                            ] 21135389/79613142 bytes (0:00:01 / 0:00:02) ftmatchres  52% [===================                  ] 41418781/79613142 bytes (0:00:02 / 0:00:01) ftmatchres  76% [============================         ] 60981277/79613142 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79613142/79613142 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79613142/79613142 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79613142
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 159222494
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s20270205/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/79606694 bytes (0:00:00 / 0:00:04) ftmatchres  24% [=========                            ] 19726365/79606694 bytes (0:00:01 / 0:00:02) ftmatchres  50% [==================                   ] 40304669/79606694 bytes (0:00:02 / 0:00:01) ftmatchres  75% [============================         ] 60325917/79606694 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79606694/79606694 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79606694/79606694 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79606694/79606694 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79606694
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s20270205/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/79606198 bytes (0:00:00 / 0:00:03) ftmatchres  26% [=========                            ] 20906013/79606198 bytes (0:00:01 / 0:00:02) ftmatchres  52% [===================                  ] 41680925/79606198 bytes (0:00:02 / 0:00:01) ftmatchres  76% [============================         ] 61112349/79606198 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79606198/79606198 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79606198/79606198 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_equal_err10_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79606198
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 159212892
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/47261594 bytes (0:00:00 / 0:00:04) ftmatchres  20% [=======                              ]  9502749/47261594 bytes (0:00:01 / 0:00:03) ftmatchres  40% [==============                       ] 19103773/47261594 bytes (0:00:02 / 0:00:02) ftmatchres  60% [======================               ] 28770333/47261594 bytes (0:00:03 / 0:00:01) ftmatchres  81% [==============================       ] 38436893/47261594 bytes (0:00:04 / 0:00:00) ftmatchres  98% [==================================== ] 46661661/47261594 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47261594/47261594 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47261594/47261594 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47261594
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/47267042 bytes (0:00:00 / 0:00:02) ftmatchres  19% [=======                              ]  9404445/47267042 bytes (0:00:01 / 0:00:04) ftmatchres  40% [==============                       ] 18972701/47267042 bytes (0:00:02 / 0:00:02) ftmatchres  60% [======================               ] 28672029/47267042 bytes (0:00:03 / 0:00:01) ftmatchres  80% [=============================        ] 38141981/47267042 bytes (0:00:04 / 0:00:00) ftmatchres  98% [==================================== ] 46399517/47267042 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47267042/47267042 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47267042/47267042 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47267042
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 94528636
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1360937/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/47255989 bytes (0:00:00 / 0:00:02) ftmatchres  19% [=======                              ]  9338909/47255989 bytes (0:00:01 / 0:00:04) ftmatchres  40% [==============                       ] 18907165/47255989 bytes (0:00:02 / 0:00:02) ftmatchres  60% [======================               ] 28409885/47255989 bytes (0:00:03 / 0:00:01) ftmatchres  80% [=============================        ] 38141981/47255989 bytes (0:00:04 / 0:00:00) ftmatchres  98% [==================================== ] 46399517/47255989 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47255989/47255989 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47255989/47255989 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47255989
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1360937/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/47262451 bytes (0:00:00 / 0:00:03) ftmatchres  19% [=======                              ]  9338909/47262451 bytes (0:00:01 / 0:00:04) ftmatchres  40% [==============                       ] 18907165/47262451 bytes (0:00:02 / 0:00:02) ftmatchres  60% [======================               ] 28540957/47262451 bytes (0:00:03 / 0:00:01) ftmatchres  80% [=============================        ] 38207517/47262451 bytes (0:00:04 / 0:00:00) ftmatchres  98% [==================================== ] 46465053/47262451 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47262451/47262451 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47262451/47262451 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47262451
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 94518440
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s20270205/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/47255625 bytes (0:00:00 / 0:00:03) ftmatchres  19% [=======                              ]  9306141/47255625 bytes (0:00:01 / 0:00:04) ftmatchres  39% [==============                       ] 18841629/47255625 bytes (0:00:02 / 0:00:03) ftmatchres  60% [======================               ] 28508189/47255625 bytes (0:00:03 / 0:00:01) ftmatchres  80% [=============================        ] 38174749/47255625 bytes (0:00:04 / 0:00:00) ftmatchres  97% [==================================== ] 46235677/47255625 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47255625/47255625 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47255625/47255625 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47255625
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s20270205/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/47252913 bytes (0:00:00 / 0:00:03) ftmatchres  19% [=======                              ]  9371677/47252913 bytes (0:00:01 / 0:00:04) ftmatchres  40% [==============                       ] 18939933/47252913 bytes (0:00:02 / 0:00:02) ftmatchres  60% [======================               ] 28639261/47252913 bytes (0:00:03 / 0:00:01) ftmatchres  81% [=============================        ] 38305821/47252913 bytes (0:00:04 / 0:00:00) ftmatchres  97% [==================================== ] 46268445/47252913 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47252913/47252913 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 47252913/47252913 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_perfect_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 47252913
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 94508538
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/79809312 bytes (0:00:00 / 0:00:05) ftmatchres  25% [=========                            ] 20054045/79809312 bytes (0:00:01 / 0:00:02) ftmatchres  50% [==================                   ] 40632349/79809312 bytes (0:00:02 / 0:00:01) ftmatchres  75% [============================         ] 60588061/79809312 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79809312/79809312 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79809312/79809312 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79809312
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/79804506 bytes (0:00:00 / 0:00:05) ftmatchres  25% [=========                            ] 20217885/79804506 bytes (0:00:01 / 0:00:02) ftmatchres  50% [==================                   ] 40697885/79804506 bytes (0:00:02 / 0:00:01) ftmatchres  79% [=============================        ] 63275037/79804506 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79804506/79804506 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79804506/79804506 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79804506
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 159613818
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1360937/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/79805847 bytes (0:00:00 / 0:01:16) ftmatchres  24% [========                             ] 19234845/79805847 bytes (0:00:01 / 0:00:03) ftmatchres  49% [==================                   ] 39813149/79805847 bytes (0:00:02 / 0:00:01) ftmatchres  74% [===========================          ] 59539485/79805847 bytes (0:00:03 / 0:00:01) ftmatchres  99% [==================================== ] 79233053/79805847 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79805847/79805847 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79805847/79805847 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79805847
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1360937/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/79799109 bytes (0:00:00 / 0:00:05) ftmatchres  25% [=========                            ] 20480029/79799109 bytes (0:00:01 / 0:00:02) ftmatchres  51% [===================                  ] 40992797/79799109 bytes (0:00:02 / 0:00:01) ftmatchres  75% [============================         ] 60522525/79799109 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79799109/79799109 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79799109/79799109 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79799109
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 159604956
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s20270205/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/79805937 bytes (0:00:00 / 0:00:07) ftmatchres  24% [=========                            ] 19824669/79805937 bytes (0:00:01 / 0:00:02) ftmatchres  50% [==================                   ] 40468509/79805937 bytes (0:00:02 / 0:00:01) ftmatchres  76% [============================         ] 61112349/79805937 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79805937/79805937 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79805937/79805937 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79805937
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s20270205/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/79804735 bytes (0:00:00 / 0:00:04) ftmatchres  25% [=========                            ] 20381725/79804735 bytes (0:00:01 / 0:00:02) ftmatchres  50% [==================                   ] 40042525/79804735 bytes (0:00:02 / 0:00:01) ftmatchres  75% [===========================          ] 60194845/79804735 bytes (0:00:03 / 0:00:00) ftmatchres  99% [==================================== ] 79527965/79804735 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79804735/79804735 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79804735/79804735 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3a_skew_err10_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79804735
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 159610672
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/46752610 bytes (0:00:00 / 0:00:04) ftmatchres  20% [=======                              ]  9601053/46752610 bytes (0:00:01 / 0:00:03) ftmatchres  40% [==============                       ] 18939933/46752610 bytes (0:00:02 / 0:00:02) ftmatchres  61% [======================               ] 28573725/46752610 bytes (0:00:03 / 0:00:01) ftmatchres  79% [=============================        ] 37257245/46752610 bytes (0:00:04 / 0:00:01) ftmatchres  97% [===================================  ] 45416477/46752610 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46752610/46752610 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46752610/46752610 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46752610
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/46757645 bytes (0:00:00 / 0:00:03) ftmatchres  20% [=======                              ]  9666589/46757645 bytes (0:00:01 / 0:00:03) ftmatchres  41% [===============                      ] 19300381/46757645 bytes (0:00:02 / 0:00:02) ftmatchres  61% [======================               ] 28803101/46757645 bytes (0:00:03 / 0:00:01) ftmatchres  79% [=============================        ] 37388317/46757645 bytes (0:00:04 / 0:00:01) ftmatchres  97% [==================================== ] 45514781/46757645 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46757645/46757645 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46757645/46757645 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46757645
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 93510255
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1360937/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/46757503 bytes (0:00:00 / 0:00:02) ftmatchres  20% [=======                              ]  9601053/46757503 bytes (0:00:01 / 0:00:03) ftmatchres  41% [===============                      ] 19300381/46757503 bytes (0:00:02 / 0:00:02) ftmatchres  61% [======================               ] 28934173/46757503 bytes (0:00:03 / 0:00:01) ftmatchres  80% [=============================        ] 37584925/46757503 bytes (0:00:04 / 0:00:00) ftmatchres  97% [==================================== ] 45645853/46757503 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46757503/46757503 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46757503/46757503 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46757503
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1360937/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/46758499 bytes (0:00:00 / 0:00:03) ftmatchres  20% [=======                              ]  9437213/46758499 bytes (0:00:01 / 0:00:03) ftmatchres  40% [===============                      ] 19103773/46758499 bytes (0:00:02 / 0:00:02) ftmatchres  61% [======================               ] 28737565/46758499 bytes (0:00:03 / 0:00:01) ftmatchres  79% [=============================        ] 37388317/46758499 bytes (0:00:04 / 0:00:01) ftmatchres  97% [===================================  ] 45482013/46758499 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46758499/46758499 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46758499/46758499 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46758499
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 93516002
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s20270205/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/46762921 bytes (0:00:00 / 0:00:03) ftmatchres  20% [=======                              ]  9502749/46762921 bytes (0:00:01 / 0:00:03) ftmatchres  40% [===============                      ] 19136541/46762921 bytes (0:00:02 / 0:00:02) ftmatchres  61% [======================               ] 28639261/46762921 bytes (0:00:03 / 0:00:01) ftmatchres  79% [=============================        ] 37224477/46762921 bytes (0:00:04 / 0:00:01) ftmatchres  96% [===================================  ] 45154333/46762921 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46762921/46762921 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46762921/46762921 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46762921
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s20270205/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/46762619 bytes (0:00:00 / 0:00:03) ftmatchres  20% [=======                              ]  9666589/46762619 bytes (0:00:01 / 0:00:03) ftmatchres  41% [===============                      ] 19333149/46762619 bytes (0:00:02 / 0:00:02) ftmatchres  62% [======================               ] 28999709/46762619 bytes (0:00:03 / 0:00:01) ftmatchres  80% [=============================        ] 37519389/46762619 bytes (0:00:04 / 0:00:00) ftmatchres  97% [==================================== ] 45514781/46762619 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46762619/46762619 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46762619/46762619 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_perfect_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46762619
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 93525540
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/79096613 bytes (0:00:00 / 0:00:05) ftmatchres  24% [=========                            ] 19496989/79096613 bytes (0:00:01 / 0:00:03) ftmatchres  50% [==================                   ] 39551005/79096613 bytes (0:00:02 / 0:00:01) ftmatchres  74% [===========================          ] 58916893/79096613 bytes (0:00:03 / 0:00:01) ftmatchres  98% [==================================== ] 77824029/79096613 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79096613/79096613 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79096613/79096613 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79096613
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/79105059 bytes (0:00:00 / 0:00:05) ftmatchres  25% [=========                            ] 20316189/79105059 bytes (0:00:01 / 0:00:02) ftmatchres  51% [===================                  ] 40796189/79105059 bytes (0:00:02 / 0:00:01) ftmatchres  76% [============================         ] 60489757/79105059 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79105059/79105059 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79105059/79105059 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79105059
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 158201672
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1360937/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/79116206 bytes (0:00:00 / 0:00:01) ftmatchres  25% [=========                            ] 20316189/79116206 bytes (0:00:01 / 0:00:02) ftmatchres  50% [==================                   ] 40271901/79116206 bytes (0:00:02 / 0:00:01) ftmatchres  76% [============================         ] 60653597/79116206 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79116206/79116206 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79116206/79116206 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79116206
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1360937/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/79117609 bytes (0:00:00 / 0:00:05) ftmatchres  25% [=========                            ] 20283421/79117609 bytes (0:00:01 / 0:00:02) ftmatchres  51% [==================                   ] 40402973/79117609 bytes (0:00:02 / 0:00:01) ftmatchres  76% [============================         ] 60424221/79117609 bytes (0:00:03 / 0:00:00) ftmatchres  99% [==================================== ] 78872605/79117609 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79117609/79117609 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79117609/79117609 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79117609
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 158233815
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s20270205/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/79114351 bytes (0:00:00 / 0:00:04) ftmatchres  26% [=========                            ] 20643869/79114351 bytes (0:00:01 / 0:00:02) ftmatchres  51% [===================                  ] 40927261/79114351 bytes (0:00:02 / 0:00:01) ftmatchres  77% [============================         ] 60981277/79114351 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79114351/79114351 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 79114351/79114351 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79114351
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s20270205/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/79111109 bytes (0:00:00 / 0:00:03) ftmatchres  25% [=========                            ] 19890205/79111109 bytes (0:00:01 / 0:00:02) ftmatchres  50% [==================                   ] 39911453/79111109 bytes (0:00:02 / 0:00:01) ftmatchres  76% [============================         ] 60129309/79111109 bytes (0:00:03 / 0:00:00) ftmatchres  99% [==================================== ] 78577693/79111109 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79111109/79111109 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 79111109/79111109 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_equal_err10_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 79111109
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 158225460
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/46507483 bytes (0:00:00 / 0:00:03) ftmatchres  20% [=======                              ]  9404445/46507483 bytes (0:00:01 / 0:00:03) ftmatchres  41% [===============                      ] 19103773/46507483 bytes (0:00:02 / 0:00:02) ftmatchres  62% [======================               ] 28868637/46507483 bytes (0:00:03 / 0:00:01) ftmatchres  82% [==============================       ] 38600733/46507483 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 46507483/46507483 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46507483/46507483 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46507483/46507483 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46507483
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/46510876 bytes (0:00:00 / 0:00:04) ftmatchres  20% [=======                              ]  9502749/46510876 bytes (0:00:01 / 0:00:03) ftmatchres  41% [===============                      ] 19202077/46510876 bytes (0:00:02 / 0:00:02) ftmatchres  62% [=======================              ] 28934173/46510876 bytes (0:00:03 / 0:00:01) ftmatchres  83% [==============================       ] 38699037/46510876 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 46510876/46510876 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46510876/46510876 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46510876/46510876 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46510876
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 93018359
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1360937/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/46539151 bytes (0:00:00 / 0:00:02) ftmatchres  20% [=======                              ]  9404445/46539151 bytes (0:00:01 / 0:00:03) ftmatchres  41% [===============                      ] 19136541/46539151 bytes (0:00:02 / 0:00:02) ftmatchres  62% [======================               ] 28901405/46539151 bytes (0:00:03 / 0:00:01) ftmatchres  83% [==============================       ] 38699037/46539151 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 46539151/46539151 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46539151/46539151 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46539151/46539151 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46539151
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1360937/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/46534917 bytes (0:00:00 / 0:00:04) ftmatchres  20% [=======                              ]  9437213/46534917 bytes (0:00:01 / 0:00:03) ftmatchres  41% [===============                      ] 19103773/46534917 bytes (0:00:02 / 0:00:02) ftmatchres  62% [======================               ] 28868637/46534917 bytes (0:00:03 / 0:00:01) ftmatchres  82% [==============================       ] 38502429/46534917 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 46534917/46534917 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46534917/46534917 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46534917/46534917 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46534917
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 93074068
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s20270205/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/46541432 bytes (0:00:00 / 0:00:04) ftmatchres  20% [=======                              ]  9535517/46541432 bytes (0:00:01 / 0:00:03) ftmatchres  41% [===============                      ] 19234845/46541432 bytes (0:00:02 / 0:00:02) ftmatchres  62% [=======================              ] 28999709/46541432 bytes (0:00:03 / 0:00:01) ftmatchres  83% [==============================       ] 38764573/46541432 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 46541432/46541432 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46541432/46541432 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46541432/46541432 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46541432
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s20270205/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/46544064 bytes (0:00:00 / 0:00:02) ftmatchres  20% [=======                              ]  9502749/46544064 bytes (0:00:01 / 0:00:03) ftmatchres  41% [===============                      ] 19103773/46544064 bytes (0:00:02 / 0:00:02) ftmatchres  62% [======================               ] 28901405/46544064 bytes (0:00:03 / 0:00:01) ftmatchres  83% [==============================       ] 38666269/46544064 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 46544064/46544064 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46544064/46544064 bytes (0:00:05 / 0:00:00) ftmatchres 100% [=====================================] 46544064/46544064 bytes (0:00:05 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_perfect_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 46544064
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 93085496
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/78741602 bytes (0:00:00 / 0:00:06) ftmatchres  25% [=========                            ] 19988509/78741602 bytes (0:00:01 / 0:00:02) ftmatchres  51% [==================                   ] 40239133/78741602 bytes (0:00:02 / 0:00:01) ftmatchres  76% [============================         ] 60194845/78741602 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 78741602/78741602 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 78741602/78741602 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 78741602
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/78737456 bytes (0:00:00 / 0:00:02) ftmatchres  25% [=========                            ] 19988509/78737456 bytes (0:00:01 / 0:00:02) ftmatchres  51% [==================                   ] 40337437/78737456 bytes (0:00:02 / 0:00:01) ftmatchres  77% [============================         ] 61276189/78737456 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 78737456/78737456 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 78737456/78737456 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 78737456
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 157479058
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1360937/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/78754984 bytes (0:00:00 / 0:00:07) ftmatchres  25% [=========                            ] 20119581/78754984 bytes (0:00:01 / 0:00:02) ftmatchres  51% [===================                  ] 40599581/78754984 bytes (0:00:02 / 0:00:01) ftmatchres  76% [============================         ] 59867165/78754984 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 78754984/78754984 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 78754984/78754984 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1360937/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 78754984
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1360937/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/78740607 bytes (0:00:00 / 0:00:03) ftmatchres  26% [=========                            ] 20709405/78740607 bytes (0:00:01 / 0:00:02) ftmatchres  51% [===================                  ] 40828957/78740607 bytes (0:00:02 / 0:00:01) ftmatchres  77% [============================         ] 61341725/78740607 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 78740607/78740607 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 78740607/78740607 bytes (0:00:04 / 0:00:00) ftmatchres 100% [=====================================] 78740607/78740607 bytes (0:00:04 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s1360937/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 78740607
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 157495591
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] fastqreader - Number of consumer threads: 19
+>[INFO] fastqreader - Processing fastq file (1/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s20270205/reads_R1.fastq.gz
+ftmatchres   0% [                                     ]    32797/78741222 bytes (0:00:00 / 0:00:08) ftmatchres  25% [=========                            ] 19922973/78741222 bytes (0:00:01 / 0:00:02) ftmatchres  50% [==================                   ] 40009757/78741222 bytes (0:00:02 / 0:00:01) ftmatchres  76% [============================         ] 60227613/78741222 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 78741222/78741222 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 78741222/78741222 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s20270205/reads_R1.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 78741222
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - Processing fastq file (2/2): Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s20270205/reads_R2.fastq.gz
+ftmatchres   0% [                                     ]    32797/78749641 bytes (0:00:00 / 0:00:03) ftmatchres  26% [=========                            ] 20938781/78749641 bytes (0:00:01 / 0:00:02) ftmatchres  52% [===================                  ] 41517085/78749641 bytes (0:00:02 / 0:00:01) ftmatchres  78% [=============================        ] 61997085/78749641 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 78749641/78749641 bytes (0:00:03 / 0:00:00) ftmatchres 100% [=====================================] 78749641/78749641 bytes (0:00:03 / 0:00:00) 
+>[INFO] fastqreader - Done with fastq: Streaming File: /data/projects/protozoa/tests/runs/p3b_skew_err10_s20270205/reads_R2.fastq.gz
+>[INFO] fastqreader - Hours: 0.0
+>[INFO] fastqreader - Bytes: 78749641
+>[INFO] fastqreader - Reads: 500000
+>[INFO] fastqreader - All done with fastqs.
+>[INFO] fastqreader - Total hours: 0.0
+>[INFO] fastqreader - Total bytes: 157490863
+>[INFO] fastqreader - Total reads: 1000000
+>[INFO] ftmatchres - Making ftmatchres took 300 s
+>[INFO] fttopicmodel - Sample p2_skew_b_err10_s1: 91 topics fitted to 10514642 k-mers in 1287 iterations.
+>[INFO] fttopicmodel - Sample p2_skew_b_err10_s1: 64 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p2_skew_b_err10_s1360937: 89 topics fitted to 10541394 k-mers in 1268 iterations.
+>[INFO] fttopicmodel - Sample p2_skew_b_err10_s1360937: 66 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p2_skew_b_err10_s20270205: 96 topics fitted to 10526493 k-mers in 1433 iterations.
+>[INFO] fttopicmodel - Sample p2_skew_b_err10_s20270205: 62 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3a_equal_perfect_s1: 32 topics fitted to 270890604 k-mers in 10000 iterations.
+>[WARN] fttopicmodel - Sample p3a_equal_perfect_s1: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] fttopicmodel - Sample p3a_equal_perfect_s1: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3a_equal_perfect_s1360937: 32 topics fitted to 270896855 k-mers in 10000 iterations.
+>[WARN] fttopicmodel - Sample p3a_equal_perfect_s1360937: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] fttopicmodel - Sample p3a_equal_perfect_s1360937: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3a_equal_perfect_s20270205: 32 topics fitted to 270887012 k-mers in 10000 iterations.
+>[WARN] fttopicmodel - Sample p3a_equal_perfect_s20270205: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] fttopicmodel - Sample p3a_equal_perfect_s20270205: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3a_equal_err10_s1: 90 topics fitted to 10734174 k-mers in 1517 iterations.
+>[INFO] fttopicmodel - Sample p3a_equal_err10_s1: 62 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3a_equal_err10_s1360937: 91 topics fitted to 10720817 k-mers in 455 iterations.
+>[INFO] fttopicmodel - Sample p3a_equal_err10_s1360937: 64 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3a_equal_err10_s20270205: 93 topics fitted to 10730427 k-mers in 1455 iterations.
+>[INFO] fttopicmodel - Sample p3a_equal_err10_s20270205: 67 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3a_skew_perfect_s1: 32 topics fitted to 270793768 k-mers in 10000 iterations.
+>[WARN] fttopicmodel - Sample p3a_skew_perfect_s1: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] fttopicmodel - Sample p3a_skew_perfect_s1: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3a_skew_perfect_s1360937: 32 topics fitted to 270798148 k-mers in 10000 iterations.
+>[WARN] fttopicmodel - Sample p3a_skew_perfect_s1360937: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] fttopicmodel - Sample p3a_skew_perfect_s1360937: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3a_skew_perfect_s20270205: 32 topics fitted to 270795391 k-mers in 10000 iterations.
+>[WARN] fttopicmodel - Sample p3a_skew_perfect_s20270205: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] fttopicmodel - Sample p3a_skew_perfect_s20270205: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3a_skew_err10_s1: 90 topics fitted to 10720759 k-mers in 756 iterations.
+>[INFO] fttopicmodel - Sample p3a_skew_err10_s1: 58 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3a_skew_err10_s1360937: 88 topics fitted to 10715677 k-mers in 773 iterations.
+>[INFO] fttopicmodel - Sample p3a_skew_err10_s1360937: 66 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3a_skew_err10_s20270205: 88 topics fitted to 10721537 k-mers in 699 iterations.
+>[INFO] fttopicmodel - Sample p3a_skew_err10_s20270205: 67 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3b_equal_perfect_s1: 31 topics fitted to 267344498 k-mers in 10000 iterations.
+>[WARN] fttopicmodel - Sample p3b_equal_perfect_s1: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] fttopicmodel - Sample p3b_equal_perfect_s1: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3b_equal_perfect_s1360937: 31 topics fitted to 267330474 k-mers in 10000 iterations.
+>[WARN] fttopicmodel - Sample p3b_equal_perfect_s1360937: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] fttopicmodel - Sample p3b_equal_perfect_s1360937: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3b_equal_perfect_s20270205: 31 topics fitted to 267375806 k-mers in 10000 iterations.
+>[WARN] fttopicmodel - Sample p3b_equal_perfect_s20270205: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] fttopicmodel - Sample p3b_equal_perfect_s20270205: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3b_equal_err10_s1: 92 topics fitted to 10529851 k-mers in 1457 iterations.
+>[INFO] fttopicmodel - Sample p3b_equal_err10_s1: 61 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3b_equal_err10_s1360937: 92 topics fitted to 10568110 k-mers in 1434 iterations.
+>[INFO] fttopicmodel - Sample p3b_equal_err10_s1360937: 60 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3b_equal_err10_s20270205: 91 topics fitted to 10543398 k-mers in 1479 iterations.
+>[INFO] fttopicmodel - Sample p3b_equal_err10_s20270205: 62 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3b_skew_perfect_s1: 31 topics fitted to 262636744 k-mers in 10000 iterations.
+>[WARN] fttopicmodel - Sample p3b_skew_perfect_s1: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] fttopicmodel - Sample p3b_skew_perfect_s1: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3b_skew_perfect_s1360937: 31 topics fitted to 262834046 k-mers in 10000 iterations.
+>[WARN] fttopicmodel - Sample p3b_skew_perfect_s1360937: the fit did not converge within 10000 iterations, which near-identical topics cause. Its last estimate is used.
+>[INFO] fttopicmodel - Sample p3b_skew_perfect_s1360937: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3b_skew_perfect_s20270205: 31 topics fitted to 262857819 k-mers in 7939 iterations.
+>[INFO] fttopicmodel - Sample p3b_skew_perfect_s20270205: 15 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3b_skew_err10_s1: 91 topics fitted to 10311814 k-mers in 533 iterations.
+>[INFO] fttopicmodel - Sample p3b_skew_err10_s1: 60 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3b_skew_err10_s1360937: 89 topics fitted to 10307372 k-mers in 681 iterations.
+>[INFO] fttopicmodel - Sample p3b_skew_err10_s1360937: 62 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Sample p3b_skew_err10_s20270205: 87 topics fitted to 10321857 k-mers in 675 iterations.
+>[INFO] fttopicmodel - Sample p3b_skew_err10_s20270205: 62 admitted nodes are no topics, every genome beneath them having a topic of its own.
+>[INFO] fttopicmodel - Making fttopicmodel took 538 s
+>[INFO] fttopicmodelcsv - Making fttopicmodelcsv took 538 s
+[INFO] internalgoal - Making internalgoal took 0 s
+Done with target make for goals [topicmodelcsv, fttopicmodelcsv]

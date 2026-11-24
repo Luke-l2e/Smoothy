@@ -1,0 +1,11 @@
+error;n_reads;step;runs;seconds mean;seconds sd
+err10;1M;bracken;6;1.2;0.4
+err10;1M;compare genome;6;10.3;1.9
+err10;1M;compare species;6;20.0;2.0
+err10;1M;iss;6;746.5;13.4
+err10;1M;kraken2;6;7.3;0.5
+perfect;1M;bracken;6;1.2;0.4
+perfect;1M;compare genome;6;9.2;2.0
+perfect;1M;compare species;6;17.8;1.5
+perfect;1M;iss;6;211.0;4.3
+perfect;1M;kraken2;6;6.0;0.0

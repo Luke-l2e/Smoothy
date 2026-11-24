@@ -1,0 +1,11 @@
+100.00	500000	0	R	1	root
+100.00	500000	0	R1	131567	  cellular organisms
+100.00	500000	0	D	2759	    Eukaryota
+100.00	500000	0	D1	2698737	      Sar
+100.00	500000	0	D2	33630	        Alveolata
+100.00	500000	0	P	5794	          Apicomplexa
+100.00	500000	0	C	422676	            Aconoidasida
+100.00	500000	0	O	5863	              Piroplasmida
+100.00	500000	0	F	32594	                Babesiidae
+100.00	500000	0	G	5864	                  Babesia
+100.00	500000	500000	S	5865	                    Babesia bovis

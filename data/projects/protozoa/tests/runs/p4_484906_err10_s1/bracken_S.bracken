@@ -1,0 +1,4 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Babesia bovis	5865	S	498284	61	498345	0.99980
+Plasmodium knowlesi	5850	S	40	20	60	0.00012
+Plasmodium coatneyi	208452	S	30	7	37	0.00007

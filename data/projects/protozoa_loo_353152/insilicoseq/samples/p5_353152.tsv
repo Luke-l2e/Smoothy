@@ -1,0 +1,5 @@
+# Probe 5 (leave-one-out): nur Cryptosporidium parvum Iowa II (353152), das in der Datenbank dieses Projekts fehlt.
+# Richtig waere: kein Genom der Datenbank bekommt Anteil; die Reads bleiben unklassifiziert
+# oder landen an inneren Knoten. Was ein Verwandter bekommt, ist Fehlzuordnung.
+#
+353152	1	# Cryptosporidium parvum Iowa II (nicht in der DB)

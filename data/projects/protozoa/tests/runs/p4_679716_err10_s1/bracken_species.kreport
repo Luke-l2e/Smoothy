@@ -1,0 +1,56 @@
+100.00	498396	0	R	1	root
+100.00	498396	0	R1	131567	  cellular organisms
+100.00	498396	0	D	2759	    Eukaryota
+99.92	497975	0	D1	2611352	      Discoba
+99.92	497975	0	P	33682	        Euglenozoa
+99.92	497975	0	C	5653	          Kinetoplastea
+99.92	497975	0	C1	2704647	            Metakinetoplastina
+99.92	497975	0	O	2704949	              Trypanosomatida
+99.92	497975	0	F	5654	                Trypanosomatidae
+99.91	497931	0	G	5690	                  Trypanosoma
+99.89	497863	0	G1	39700	                    Trypanozoon
+98.76	492233	492233	S	5691	                      Trypanosoma brucei
+1.13	5630	5630	S	5694	                      Trypanosoma equiperdum
+0.00	24	0	G1	669453	                    Trypanosoma incertae sedis
+0.00	24	24	S	67003	                      Trypanosoma theileri
+0.00	23	0	G1	47570	                    Schizotrypanum
+0.00	23	23	S	5693	                      Trypanosoma cruzi
+0.00	19	0	G1	2745573	                    Megatrypanum
+0.00	19	19	S	715481	                      Trypanosoma melophagium
+0.01	44	0	F1	1286322	                  Leishmaniinae
+0.01	44	0	G	5658	                    Leishmania
+0.01	24	0	G1	38568	                      Leishmania
+0.01	24	0	G2	38582	                        Leishmania mexicana species complex
+0.01	24	24	S	5665	                          Leishmania mexicana
+0.00	19	0	G1	2249475	                      Mundinia
+0.00	19	0	G2	2802990	                        unclassified Mundinia
+0.00	19	19	S	2802991	                          Leishmania sp. Namibia
+0.08	420	0	D1	2698737	      Sar
+0.08	420	0	D2	33630	        Alveolata
+0.08	420	0	P	5794	          Apicomplexa
+0.08	402	0	C	422676	            Aconoidasida
+0.08	402	0	O	5819	              Haemosporida
+0.08	402	0	F	1639119	                Plasmodiidae
+0.08	402	0	G	5820	                  Plasmodium
+0.05	231	0	G1	418107	                    Laverania
+0.01	73	73	S	647221	                      Plasmodium gaboni
+0.01	46	46	S	880535	                      Plasmodium adleri (nom. inval.)
+0.01	45	45	S	5833	                      Plasmodium falciparum
+0.01	65	65	S	5854	                      Plasmodium reichenowi
+0.02	80	0	G1	418103	                    Plasmodium
+0.00	19	19	S	77519	                      Plasmodium gonderi
+0.01	60	60	S	5850	                      Plasmodium knowlesi
+0.01	58	0	G1	418104	                    Haemamoeba
+0.01	30	30	S	85471	                      Plasmodium relictum
+0.01	28	28	S	5849	                      Plasmodium gallinaceum
+0.00	17	0	G1	3699347	                    Plasmodium incertae sedis
+0.00	17	17	S	208452	                      Plasmodium coatneyi
+0.00	14	0	G1	418101	                    Vinckeia
+0.00	14	14	S	5861	                      Plasmodium yoelii
+0.00	18	0	C	1280412	            Conoidasida
+0.00	18	0	C1	5796	              Coccidia
+0.00	18	0	O	75739	                Eucoccidiorida
+0.00	18	0	O1	423054	                  Eimeriorina
+0.00	18	0	F	5809	                    Sarcocystidae
+0.00	18	0	G	5810	                      Toxoplasma
+0.00	18	18	S	5811	                        Toxoplasma gondii

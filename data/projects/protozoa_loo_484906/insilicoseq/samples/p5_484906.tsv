@@ -1,0 +1,5 @@
+# Probe 5 (leave-one-out): nur Babesia bovis T2Bo (484906), das in der Datenbank dieses Projekts fehlt.
+# Richtig waere: kein Genom der Datenbank bekommt Anteil; die Reads bleiben unklassifiziert
+# oder landen an inneren Knoten. Was ein Verwandter bekommt, ist Fehlzuordnung.
+#
+484906	1	# Babesia bovis T2Bo (nicht in der DB)

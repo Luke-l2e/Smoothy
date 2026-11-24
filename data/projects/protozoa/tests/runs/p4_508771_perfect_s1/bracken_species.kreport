@@ -1,0 +1,13 @@
+100.00	499231	0	R	1	root
+100.00	499231	0	R1	131567	  cellular organisms
+100.00	499231	0	D	2759	    Eukaryota
+100.00	499231	0	D1	2698737	      Sar
+100.00	499231	0	D2	33630	        Alveolata
+100.00	499231	0	P	5794	          Apicomplexa
+100.00	499231	0	C	1280412	            Conoidasida
+100.00	499231	0	C1	5796	              Coccidia
+100.00	499231	0	O	75739	                Eucoccidiorida
+100.00	499231	0	O1	423054	                  Eimeriorina
+100.00	499231	0	F	5809	                    Sarcocystidae
+100.00	499231	0	G	5810	                      Toxoplasma
+100.00	499231	499231	S	5811	                        Toxoplasma gondii

@@ -1,0 +1,2 @@
+genome;truth read;truth org;naive renorm. read;naive renorm. org;naive read;naive org;FT naive renorm. read;FT naive renorm. org;FT naive read;FT naive org;weighted read;weighted org;unweighted read;unweighted org;FT weighted read;FT weighted org;FT unweighted read;FT unweighted org
+185431;1.0;1.0;1.0;1.0;0.449019;0.44901899999999995;1.0;1.0;0.449019;0.44901899999999995;0.99064666;0.98786046;0.99068761;0.98791352;0.99988643;0.99985223;0.99118856;0.98856525

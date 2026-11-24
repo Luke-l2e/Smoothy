@@ -1,0 +1,6 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Leishmania donovani	5661	S	496410	78	496488	0.99416
+Leishmania major	5664	S	2500	1	2501	0.00501
+Leishmania mexicana	5665	S	357	0	357	0.00071
+Leishmania martiniquensis	1580590	S	43	0	43	0.00009
+Trypanosoma cruzi	5693	S	13	3	16	0.00003

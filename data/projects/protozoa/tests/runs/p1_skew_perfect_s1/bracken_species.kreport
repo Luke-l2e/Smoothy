@@ -1,0 +1,44 @@
+100.00	492265	0	R	1	root
+100.00	492265	0	R1	131567	  cellular organisms
+100.00	492265	0	D	2759	    Eukaryota
+45.56	224258	0	D1	2611341	      Metamonada
+45.56	224258	0	P	207245	        Fornicata
+45.56	224258	0	O	5738	          Diplomonadida
+45.56	224258	0	F	5739	            Hexamitidae
+45.56	224258	0	F1	68459	              Giardiinae
+45.56	224258	0	G	5740	                Giardia
+45.56	224258	224258	S	5741	                  Giardia duodenalis
+40.29	198344	0	D1	2698737	      Sar
+32.51	160041	0	D2	33630	        Alveolata
+32.51	160041	0	P	5794	          Apicomplexa
+25.92	127611	0	C	422676	            Aconoidasida
+25.92	127611	0	O	5863	              Piroplasmida
+25.92	127611	0	F	32594	                Babesiidae
+25.92	127611	0	G	5864	                  Babesia
+25.92	127611	127611	S	5865	                    Babesia bovis
+6.59	32430	0	C	1280412	            Conoidasida
+6.59	32430	0	C1	5796	              Coccidia
+6.59	32430	0	O	75739	                Eucoccidiorida
+6.59	32430	0	O1	423054	                  Eimeriorina
+4.23	20833	0	F	5809	                    Sarcocystidae
+4.23	20833	0	G	5810	                      Toxoplasma
+4.23	20833	20833	S	5811	                        Toxoplasma gondii
+2.36	11597	0	F	35082	                    Cryptosporidiidae
+2.36	11597	0	G	5806	                      Cryptosporidium
+2.36	11597	11597	S	310047	                        Cryptosporidium bovis
+7.78	38303	0	D2	33634	        Stramenopiles
+7.78	38303	0	C	2683628	          Bigyra
+7.78	38303	0	C1	2683629	            Opalozoa
+7.78	38303	0	O	42740	              Opalinata
+7.78	38303	0	F	2547934	                Blastocystidae
+7.78	38303	0	G	12967	                  Blastocystis
+7.78	38303	0	G1	944171	                    Blastocystis sp. subtypes
+7.78	38303	38303	S	944170	                      Blastocystis sp. subtype 4
+14.15	69662	0	D1	2611352	      Discoba
+14.15	69662	0	P	5752	        Heterolobosea
+14.15	69662	0	P1	2601529	          Tetramitia
+14.15	69662	0	C	2601530	            Eutetramitea
+14.15	69662	0	O	43693	              Acrasida
+14.15	69662	0	F	3691768	                Naegleriidae
+14.15	69662	0	G	5761	                  Naegleria
+14.15	69662	69662	S	5763	                    Naegleria fowleri

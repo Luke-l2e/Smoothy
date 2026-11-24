@@ -1,0 +1,47 @@
+# From the book "Die Parasiten des Menschen" by Heinz Mehlhorn
+# Trichomonas vaginalis
+5722
+1385435
+# Trichomonas tenax
+43075
+# Entamoeba gingivalis
+38877
+# Giardia intestinalis
+5741
+# Trypanosoma
+5690
+# Leishmania
+5658
+# Entamoeba
+5758
+# Acanthamoeba
+5754
+# Naegleria
+5761
+# Balamuthia
+66526
+# Dientamoeba fragilis
+43352
+# Isospora belli
+482538
+# Cyclospora cayetanensis
+88456
+# Cryptosporidium
+5806
+# Sarcocystis
+5812
+# Toxoplasma
+5810
+# Plasmodium
+5820
+# Babesia
+5864
+# Balantioides coli
+71585
+# Blastocystis
+12967
+
+
+# Leave-one-out: Babesia bovis T2Bo (484906) left out of the database.
+# Almost all own k-mers: 99.8 % at the genome node, no close relative in the database (no N in its genome, unlike Giardia).
+-484906

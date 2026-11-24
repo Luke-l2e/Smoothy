@@ -1,0 +1,14 @@
+100.00	500000	0	R	1	root
+100.00	500000	0	R1	131567	  cellular organisms
+100.00	500000	0	D	2759	    Eukaryota
+100.00	500000	0	D1	2611352	      Discoba
+100.00	500000	0	P	33682	        Euglenozoa
+100.00	500000	0	C	5653	          Kinetoplastea
+100.00	500000	0	C1	2704647	            Metakinetoplastina
+100.00	500000	0	O	2704949	              Trypanosomatida
+100.00	500000	0	F	5654	                Trypanosomatidae
+100.00	500000	0	G	5690	                  Trypanosoma
+100.00	500000	160128	G1	39700	                    Trypanozoon
+ 67.97	339872	38655	S	5691	                      Trypanosoma brucei
+ 60.24	301217	0	S1	5702	                        Trypanosoma brucei brucei
+ 60.24	301217	301217	S2	185431	                          Trypanosoma brucei brucei TREU927

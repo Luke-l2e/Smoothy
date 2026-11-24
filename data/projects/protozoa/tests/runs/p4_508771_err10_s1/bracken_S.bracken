@@ -1,0 +1,17 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Toxoplasma gondii	5811	S	496410	253	496663	0.99865
+Cyclospora cayetanensis	88456	S	40	0	40	0.00008
+Plasmodium knowlesi	5850	S	76	37	113	0.00023
+Plasmodium gonderi	77519	S	48	0	48	0.00010
+Plasmodium vivax	5855	S	11	4	15	0.00003
+Plasmodium brasilianum	5824	S	10	66	76	0.00015
+Plasmodium inui	52288	S	10	0	10	0.00002
+Plasmodium reichenowi	5854	S	50	30	80	0.00016
+Plasmodium adleri (nom. inval.)	880535	S	48	12	60	0.00012
+Plasmodium gaboni	647221	S	39	20	59	0.00012
+Plasmodium falciparum	5833	S	31	8	39	0.00008
+Plasmodium coatneyi	208452	S	46	3	49	0.00010
+Plasmodium gallinaceum	5849	S	22	5	27	0.00005
+Plasmodium relictum	85471	S	13	0	13	0.00003
+Plasmodium yoelii	5861	S	13	4	17	0.00003
+Trypanosoma theileri	67003	S	10	8	18	0.00004

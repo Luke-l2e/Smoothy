@@ -1,0 +1,47 @@
+  0.11	549	549	U	0	unclassified
+ 99.89	499451	0	R	1	root
+ 99.89	499451	0	R1	131567	  cellular organisms
+ 99.89	499451	2	D	2759	    Eukaryota
+ 99.89	499442	0	D1	2611352	      Discoba
+ 99.89	499442	0	P	33682	        Euglenozoa
+ 99.89	499442	0	C	5653	          Kinetoplastea
+ 99.89	499442	0	C1	2704647	            Metakinetoplastina
+ 99.89	499442	0	O	2704949	              Trypanosomatida
+ 99.89	499442	9	F	5654	                Trypanosomatidae
+ 99.88	499421	0	F1	1286322	                  Leishmaniinae
+ 99.88	499421	21	G	5658	                    Leishmania
+ 99.88	499387	57	G1	38568	                      Leishmania
+ 99.28	496400	0	G2	38574	                        Leishmania donovani species complex
+ 99.28	496400	496400	S	5661	                          Leishmania donovani
+  0.52	2583	0	G2	38581	                        Leishmania major species complex
+  0.52	2583	0	S	5664	                          Leishmania major
+  0.52	2583	2583	S1	347515	                            Leishmania major strain Friedlin
+  0.06	317	0	G2	38582	                        Leishmania mexicana species complex
+  0.06	317	0	S	5665	                          Leishmania mexicana
+  0.06	317	317	S1	929439	                            Leishmania mexicana MHOM/GT/2001/U1103
+  0.01	30	30	S	1580590	                        Leishmania martiniquensis
+  0.00	7	1	G1	2249475	                      Mundinia
+  0.00	6	1	G2	2802990	                        unclassified Mundinia
+  0.00	5	5	S	2802991	                          Leishmania sp. Namibia
+  0.00	6	0	G1	37616	                      Viannia
+  0.00	5	0	G2	37617	                        Leishmania braziliensis species complex
+  0.00	5	0	S	5660	                          Leishmania braziliensis
+  0.00	5	5	S1	420245	                            Leishmania braziliensis MHOM/BR/75/M2904
+  0.00	1	0	G2	38579	                        Leishmania guyanensis species complex
+  0.00	1	1	S	5679	                          Leishmania panamensis
+  0.00	12	3	G	5690	                  Trypanosoma
+  0.00	4	0	G1	47570	                    Schizotrypanum
+  0.00	4	4	S	5693	                      Trypanosoma cruzi
+  0.00	3	0	G1	669453	                    Trypanosoma incertae sedis
+  0.00	3	3	S	71804	                      Trypanosoma grayi
+  0.00	2	0	G1	2745573	                    Megatrypanum
+  0.00	2	2	S	715481	                      Trypanosoma melophagium
+  0.00	7	0	D1	2698737	      Sar
+  0.00	7	0	D2	33630	        Alveolata
+  0.00	7	0	P	5794	          Apicomplexa
+  0.00	7	0	C	422676	            Aconoidasida
+  0.00	7	0	O	5819	              Haemosporida
+  0.00	7	0	F	1639119	                Plasmodiidae
+  0.00	7	0	G	5820	                  Plasmodium
+  0.00	7	4	G1	418103	                    Plasmodium
+  0.00	3	3	S	5857	                      Plasmodium fragile

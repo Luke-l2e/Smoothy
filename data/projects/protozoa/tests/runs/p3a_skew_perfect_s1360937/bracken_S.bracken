@@ -1,0 +1,4 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Leishmania infantum	5671	S	351594	40562	392156	0.78431
+Trypanosoma brucei	5691	S	13279	6329	19608	0.03922
+Plasmodium brasilianum	5824	S	40808	47428	88236	0.17647

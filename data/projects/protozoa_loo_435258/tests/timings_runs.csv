@@ -1,0 +1,61 @@
+run;sample;error;seed;n_reads;step;seconds
+p5_435258_err10_s1;p5_435258;err10;1;1M;iss;732
+p5_435258_err10_s1;p5_435258;err10;1;1M;kraken2;7
+p5_435258_err10_s1;p5_435258;err10;1;1M;bracken;1
+p5_435258_err10_s1;p5_435258;err10;1;1M;compare genome;9
+p5_435258_err10_s1;p5_435258;err10;1;1M;compare species;19
+p5_435258_err10_s1360937;p5_435258;err10;1360937;1M;iss;738
+p5_435258_err10_s1360937;p5_435258;err10;1360937;1M;kraken2;7
+p5_435258_err10_s1360937;p5_435258;err10;1360937;1M;bracken;1
+p5_435258_err10_s1360937;p5_435258;err10;1360937;1M;compare genome;9
+p5_435258_err10_s1360937;p5_435258;err10;1360937;1M;compare species;19
+p5_435258_err10_s20270205;p5_435258;err10;20270205;1M;iss;737
+p5_435258_err10_s20270205;p5_435258;err10;20270205;1M;kraken2;7
+p5_435258_err10_s20270205;p5_435258;err10;20270205;1M;bracken;1
+p5_435258_err10_s20270205;p5_435258;err10;20270205;1M;compare genome;8
+p5_435258_err10_s20270205;p5_435258;err10;20270205;1M;compare species;19
+p5_435258_mix_err10_s1;p5_435258_mix;err10;1;1M;iss;753
+p5_435258_mix_err10_s1;p5_435258_mix;err10;1;1M;kraken2;7
+p5_435258_mix_err10_s1;p5_435258_mix;err10;1;1M;bracken;2
+p5_435258_mix_err10_s1;p5_435258_mix;err10;1;1M;compare genome;12
+p5_435258_mix_err10_s1;p5_435258_mix;err10;1;1M;compare species;22
+p5_435258_mix_err10_s1360937;p5_435258_mix;err10;1360937;1M;iss;751
+p5_435258_mix_err10_s1360937;p5_435258_mix;err10;1360937;1M;kraken2;8
+p5_435258_mix_err10_s1360937;p5_435258_mix;err10;1360937;1M;bracken;1
+p5_435258_mix_err10_s1360937;p5_435258_mix;err10;1360937;1M;compare genome;12
+p5_435258_mix_err10_s1360937;p5_435258_mix;err10;1360937;1M;compare species;23
+p5_435258_mix_err10_s20270205;p5_435258_mix;err10;20270205;1M;iss;768
+p5_435258_mix_err10_s20270205;p5_435258_mix;err10;20270205;1M;kraken2;8
+p5_435258_mix_err10_s20270205;p5_435258_mix;err10;20270205;1M;bracken;1
+p5_435258_mix_err10_s20270205;p5_435258_mix;err10;20270205;1M;compare genome;12
+p5_435258_mix_err10_s20270205;p5_435258_mix;err10;20270205;1M;compare species;18
+p5_435258_mix_perfect_s1;p5_435258_mix;perfect;1;1M;iss;214
+p5_435258_mix_perfect_s1;p5_435258_mix;perfect;1;1M;kraken2;6
+p5_435258_mix_perfect_s1;p5_435258_mix;perfect;1;1M;bracken;1
+p5_435258_mix_perfect_s1;p5_435258_mix;perfect;1;1M;compare genome;11
+p5_435258_mix_perfect_s1;p5_435258_mix;perfect;1;1M;compare species;19
+p5_435258_mix_perfect_s1360937;p5_435258_mix;perfect;1360937;1M;iss;215
+p5_435258_mix_perfect_s1360937;p5_435258_mix;perfect;1360937;1M;kraken2;6
+p5_435258_mix_perfect_s1360937;p5_435258_mix;perfect;1360937;1M;bracken;1
+p5_435258_mix_perfect_s1360937;p5_435258_mix;perfect;1360937;1M;compare genome;11
+p5_435258_mix_perfect_s1360937;p5_435258_mix;perfect;1360937;1M;compare species;19
+p5_435258_mix_perfect_s20270205;p5_435258_mix;perfect;20270205;1M;iss;215
+p5_435258_mix_perfect_s20270205;p5_435258_mix;perfect;20270205;1M;kraken2;6
+p5_435258_mix_perfect_s20270205;p5_435258_mix;perfect;20270205;1M;bracken;1
+p5_435258_mix_perfect_s20270205;p5_435258_mix;perfect;20270205;1M;compare genome;11
+p5_435258_mix_perfect_s20270205;p5_435258_mix;perfect;20270205;1M;compare species;19
+p5_435258_perfect_s1;p5_435258;perfect;1;1M;iss;206
+p5_435258_perfect_s1;p5_435258;perfect;1;1M;kraken2;6
+p5_435258_perfect_s1;p5_435258;perfect;1;1M;bracken;1
+p5_435258_perfect_s1;p5_435258;perfect;1;1M;compare genome;8
+p5_435258_perfect_s1;p5_435258;perfect;1;1M;compare species;16
+p5_435258_perfect_s1360937;p5_435258;perfect;1360937;1M;iss;210
+p5_435258_perfect_s1360937;p5_435258;perfect;1360937;1M;kraken2;6
+p5_435258_perfect_s1360937;p5_435258;perfect;1360937;1M;bracken;1
+p5_435258_perfect_s1360937;p5_435258;perfect;1360937;1M;compare genome;7
+p5_435258_perfect_s1360937;p5_435258;perfect;1360937;1M;compare species;16
+p5_435258_perfect_s20270205;p5_435258;perfect;20270205;1M;iss;206
+p5_435258_perfect_s20270205;p5_435258;perfect;20270205;1M;kraken2;6
+p5_435258_perfect_s20270205;p5_435258;perfect;20270205;1M;bracken;2
+p5_435258_perfect_s20270205;p5_435258;perfect;20270205;1M;compare genome;7
+p5_435258_perfect_s20270205;p5_435258;perfect;20270205;1M;compare species;18

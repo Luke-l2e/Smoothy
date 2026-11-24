@@ -1,0 +1,14 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Trypanosoma equiperdum	5694	S	169223	302739	471962	0.94710
+Trypanosoma brucei	5691	S	17885	8161	26046	0.05227
+Trypanosoma theileri	67003	S	17	6	23	0.00005
+Trypanosoma cruzi	5693	S	18	1	19	0.00004
+Trypanosoma melophagium	715481	S	10	0	10	0.00002
+Plasmodium falciparum	5833	S	27	17	44	0.00009
+Plasmodium reichenowi	5854	S	20	33	53	0.00011
+Plasmodium adleri (nom. inval.)	880535	S	19	9	28	0.00006
+Plasmodium gaboni	647221	S	17	22	39	0.00008
+Plasmodium gonderi	77519	S	12	22	34	0.00007
+Plasmodium relictum	85471	S	18	1	19	0.00004
+Plasmodium gallinaceum	5849	S	13	10	23	0.00005
+Toxoplasma gondii	5811	S	12	6	18	0.00004

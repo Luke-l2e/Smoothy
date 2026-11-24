@@ -1,0 +1,59 @@
+100.00	497529	0	R	1	root
+100.00	497529	0	R1	131567	  cellular organisms
+100.00	497529	0	D	2759	    Eukaryota
+57.40	285596	0	D1	2698737	      Sar
+43.04	214149	0	D2	33630	        Alveolata
+43.04	214149	0	P	5794	          Apicomplexa
+28.69	142720	0	C	1280412	            Conoidasida
+28.69	142720	0	C1	5796	              Coccidia
+28.69	142720	0	O	75739	                Eucoccidiorida
+28.69	142720	0	O1	423054	                  Eimeriorina
+14.36	71428	0	F	35082	                    Cryptosporidiidae
+14.36	71428	0	G	5806	                      Cryptosporidium
+14.36	71428	71428	S	310047	                        Cryptosporidium bovis
+14.33	71292	0	F	5809	                    Sarcocystidae
+14.33	71292	0	G	5810	                      Toxoplasma
+14.33	71292	71292	S	5811	                        Toxoplasma gondii
+14.36	71428	0	C	422676	            Aconoidasida
+14.36	71428	0	O	5863	              Piroplasmida
+14.36	71428	0	F	32594	                Babesiidae
+14.36	71428	0	G	5864	                  Babesia
+14.36	71428	71428	S	5865	                    Babesia bovis
+14.36	71447	0	D2	33634	        Stramenopiles
+14.36	71447	0	C	2683628	          Bigyra
+14.36	71447	0	C1	2683629	            Opalozoa
+14.36	71447	0	O	42740	              Opalinata
+14.36	71447	0	F	2547934	                Blastocystidae
+14.36	71447	0	G	12967	                  Blastocystis
+14.36	71447	0	G1	944171	                    Blastocystis sp. subtypes
+14.36	71447	71447	S	944170	                      Blastocystis sp. subtype 4
+28.70	142802	0	D1	2611352	      Discoba
+14.36	71449	0	P	5752	        Heterolobosea
+14.36	71449	0	P1	2601529	          Tetramitia
+14.36	71449	0	C	2601530	            Eutetramitea
+14.36	71449	0	O	43693	              Acrasida
+14.36	71449	0	F	3691768	                Naegleriidae
+14.36	71449	0	G	5761	                  Naegleria
+14.36	71449	71449	S	5763	                    Naegleria fowleri
+14.34	71353	0	P	33682	        Euglenozoa
+14.34	71353	0	C	5653	          Kinetoplastea
+14.34	71353	0	C1	2704647	            Metakinetoplastina
+14.34	71353	0	O	2704949	              Trypanosomatida
+14.34	71353	0	F	5654	                Trypanosomatidae
+14.34	71353	0	F1	1286322	                  Leishmaniinae
+14.34	71353	0	G	5658	                    Leishmania
+14.34	71353	0	G1	38568	                      Leishmania
+14.26	70938	0	G2	38574	                        Leishmania donovani species complex
+14.26	70938	70938	S	5661	                          Leishmania donovani
+0.07	352	0	G2	38581	                        Leishmania major species complex
+0.07	352	352	S	5664	                          Leishmania major
+0.01	53	0	G2	38582	                        Leishmania mexicana species complex
+0.01	53	53	S	5665	                          Leishmania mexicana
+0.00	10	10	S	1580590	                        Leishmania martiniquensis
+13.89	69129	0	D1	2611341	      Metamonada
+13.89	69129	0	P	207245	        Fornicata
+13.89	69129	0	O	5738	          Diplomonadida
+13.89	69129	0	F	5739	            Hexamitidae
+13.89	69129	0	F1	68459	              Giardiinae
+13.89	69129	0	G	5740	                Giardia
+13.89	69129	69129	S	5741	                  Giardia duodenalis

@@ -1,0 +1,2 @@
+species;name;truth read;naive renorm. read;naive read;FT naive renorm. read;FT naive read;weighted read;unweighted read;FT weighted read;FT unweighted read;Kraken2 renorm. read;Kraken2 read;Bracken renorm. read;Bracken read
+5691;Trypanosoma brucei;1.0;1.0;0.516371;1.0;0.449021;0.99066261;0.99070327;0.99988643;0.99118856;1.0;0.679744;1.0;1.0

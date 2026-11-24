@@ -1,0 +1,2 @@
+species;name;truth read;naive renorm. read;naive read;FT naive renorm. read;FT naive read;weighted read;unweighted read;FT weighted read;FT unweighted read;Kraken2 renorm. read;Kraken2 read;Bracken renorm. read;Bracken read
+5671;Leishmania infantum;1.0;1.0;0.7118144236288473;1.0;0.7118144236288473;0.98157956;0.98192854;0.99986356;0.98992318;0.9999977700174385;0.896866;1.0;0.999998

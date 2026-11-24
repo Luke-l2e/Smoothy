@@ -1,0 +1,15 @@
+  0.00	21	21	U	0	unclassified
+100.00	499979	0	R	1	root
+100.00	499979	0	R1	131567	  cellular organisms
+100.00	499979	0	D	2759	    Eukaryota
+100.00	499979	0	D1	2611352	      Discoba
+100.00	499979	0	P	33682	        Euglenozoa
+100.00	499979	0	C	5653	          Kinetoplastea
+100.00	499979	0	C1	2704647	            Metakinetoplastina
+100.00	499979	0	O	2704949	              Trypanosomatida
+100.00	499979	0	F	5654	                Trypanosomatidae
+100.00	499979	0	G	5690	                  Trypanosoma
+100.00	499979	14237	G1	39700	                    Trypanozoon
+ 97.15	485742	8543	S	5691	                      Trypanosoma brucei
+ 95.44	477199	0	S1	31285	                        Trypanosoma brucei gambiense
+ 95.44	477199	477199	S2	679716	                          Trypanosoma brucei gambiense DAL972

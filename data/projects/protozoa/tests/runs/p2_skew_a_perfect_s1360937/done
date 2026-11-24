@@ -1,0 +1,5 @@
+sample=p2_skew_a
+error=perfect
+seed=1360937
+n_reads=1M
+read_length=301
