@@ -324,9 +324,26 @@ def species_level(args, reads, match, topic_sets):
         return [(label + " renorm.", normalise(at_species), {}, 0.0, None),
                 (label, strict, {}, off, None)], off
 
+    # REFINED nodes of Genestrip-FT carry an internal id, not a tax id. A refined node groups children of its
+    # parent, so it lies below a species exactly when its first real ancestor (following `parent taxid` through
+    # further refined nodes) is a species or lies below one. The parents come from the ftmatch CSV, which lists
+    # the refined nodes of the FT tree; the FT topic CSV has no parent column and uses the same ids.
+    refined_parent = {}
+    if args.ftmatch:
+        refined_parent = {r["taxid"]: r["parent taxid"] for r in read_rows(args.ftmatch) if r["rank"] == "REFINED"}
+
+    def of_taxon(taxid):
+        """Species of a taxid of a match or topic CSV, resolving refined ids to their first real ancestor.
+        Internal ids start with 0, tax ids never do; an internal id left unresolved counts as above species."""
+        seen = set()
+        while taxid in refined_parent and taxid not in seen:
+            seen.add(taxid)
+            taxid = refined_parent[taxid]
+        return None if taxid.startswith("0") else species.of(taxid)
+
     def naive(label, db, rows):
-        """Genestrip's reads at or below a species; a genome node's taxon is its parent taxid. REFINED nodes
-        of Genestrip-FT carry an internal id, not a tax id, and count as above species."""
+        """Genestrip's reads at or below a species; a genome node's taxon is its parent taxid, which may be a
+        refined node."""
         at_species = Counter()
         classified = 0
         for row in rows:
@@ -334,9 +351,7 @@ def species_level(args, reads, match, topic_sets):
                 continue
             n = int(row["reads"])
             classified += n
-            if row["rank"] == "REFINED":
-                continue
-            s = species.of(row["parent taxid"] if row["rank"] == "GENOME" else row["taxid"])
+            s = of_taxon(row["parent taxid"] if row["rank"] == "GENOME" else row["taxid"])
             if s is not None:
                 at_species[s] += n
             if row["rank"] == "species":
@@ -354,14 +369,16 @@ def species_level(args, reads, match, topic_sets):
 
     for label, rows in topic_sets:
         tm_read, off_read = Counter(), 0.0
+        unresolved = [r["name"] for r in rows if r["rank"] == "REFINED" and r["taxid"] not in refined_parent]
+        if unresolved:
+            info.append(f"{label}: {len(unresolved)} refined topics without parent (pass --ftmatch of the same "
+                        f"FT database), counted as above species: " + ", ".join(unresolved))
         for row in rows:
             share = float(row["kmer share"])
-            if row["rank"] == "REFINED":  # internal id, not a tax id: above species
-                s = None
-            elif row["rank"] == "GENOME":
+            if row["rank"] == "GENOME":
                 s = of_genome(row["name"])
             else:
-                s = species.of(row["taxid"].lstrip("0"))
+                s = of_taxon(row["taxid"])
             if s is None:
                 off_read += share
             else:
@@ -416,7 +433,8 @@ def main():
     ap.add_argument("--genomes", nargs="+", help="fasta file(s) of the simulated genomes, for lengths "
                                                  "(genome level)")
     ap.add_argument("--match", required=True, help="Genestrip match CSV of the sample")
-    ap.add_argument("--ftmatch", help="Genestrip-FT ftmatch CSV of the sample; adds the naive FT variants")
+    ap.add_argument("--ftmatch", help="Genestrip-FT ftmatch CSV of the sample; adds the naive FT variants and, on species "
+                    "level, places the refined nodes of the FT topic models")
     ap.add_argument("--topics", nargs="*", default=[], metavar="LABEL=CSV", help="topicmodelcsv file(s) of the sample")
     ap.add_argument("--taxonomy", help="nodes.dmp of the database taxonomy (species level)")
     ap.add_argument("--library", help="Kraken2 library fasta with kraken:taxid headers, maps the genomes to "
