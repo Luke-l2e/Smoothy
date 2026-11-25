@@ -63,8 +63,8 @@ species;name;length;truth org;smoothy weighted org;smoothy unweighted org;Bracke
 3432748;Tequintavirus JLBYU43;111814;0;5.7e-07;5.7e-07;0;0
 3428550;Epseptimavirus STWB21;112834;0;5.6e-07;5.6e-07;0;0
 2732026;Epseptimavirus S116;110664;0;5.5e-07;5.5e-07;0;0
-2732023;Epseptimavirus LVR16A;111601;0;5.1e-07;5.1e-07;0;0
 2874890;Klebsiella phage VLCpiS13f;48050;0;5.1e-07;5.1e-07;0;0
+2732023;Epseptimavirus LVR16A;111601;0;5.1e-07;5.1e-07;0;0
 3059990;Epseptimavirus RN29;110591;0;4.5e-07;4.5e-07;0;0
 3432744;Tequintavirus hildybeyeler;111607;0;4.3e-07;4.3e-07;0;0
 2844125;Marienburgvirus BP4795;57930;0;3.2e-07;4.2e-07;0;0
@@ -81,72 +81,72 @@ species;name;length;truth org;smoothy weighted org;smoothy unweighted org;Bracke
 2846095;Epseptimavirus OSYSTA;111039;0;1.7e-07;1.7e-07;0;0
 2844119;Kanagawavirus cipnine;174924;0;1.5e-07;1.6e-07;0;0
 3430031;Jerseyvirus BPS11Q3;43788;0;1.6e-07;1.6e-07;0;0
-1351702;Sulfolobus monocaudavirus SMV1;48744;0;1.5e-07;1.5e-07;0;0
-1985341;Moonvirus merlin;172733;0;1.4e-07;1.5e-07;0;0
 2733986;Tequintavirus APCEc03;103737;0;1.5e-07;1.5e-07;0;0
 2955945;Gelderlandvirus cgg41;159878;0;1.4e-07;1.5e-07;0;0
+1351702;Sulfolobus monocaudavirus SMV1;48744;0;1.5e-07;1.5e-07;0;0
+1985341;Moonvirus merlin;172733;0;1.4e-07;1.5e-07;0;0
 3060391;Moonvirus kayemsixteen;170126;0;1.3e-07;1.3e-07;0;0
 3418615;Betacoronavirus rousetti;29083;0;1.2e-07;1.2e-07;0;0
-3428555;Epseptimavirus trudiroth;114488;0;1.2e-07;1.2e-07;0;0
 3428524;Epseptimavirus ende;111297;0;1.2e-07;1.2e-07;0;0
-3432731;Tequintavirus ABTNLsp4;106178;0;1.1e-07;1.1e-07;0;0
-2874885;Klebsiella phage VLCpiS13a;47956;0;1.1e-07;1.1e-07;0;0
-1985342;Moonvirus moon;170341;0;1.1e-07;1.1e-07;0;0
-3432165;Ringroadvirus BUCT47333;47333;0;1.1e-07;1.1e-07;0;0
+3428555;Epseptimavirus trudiroth;114488;0;1.2e-07;1.2e-07;0;0
 2846136;Tequintavirus oldekolle;109372;0;1.1e-07;1.1e-07;0;0
+2874885;Klebsiella phage VLCpiS13a;47956;0;1.1e-07;1.1e-07;0;0
+3432165;Ringroadvirus BUCT47333;47333;0;1.1e-07;1.1e-07;0;0
+1985342;Moonvirus moon;170341;0;1.1e-07;1.1e-07;0;0
+3432731;Tequintavirus ABTNLsp4;106178;0;1.1e-07;1.1e-07;0;0
+2844132;Tequatrovirus RB27;165148;0;1e-07;1e-07;0;0
 2956680;Winklervirus xtwenty;172450;0;1e-07;1e-07;0;0
 3052187;Epseptimavirus R201;122696;0;1e-07;1e-07;0;0
 1945575;Tequintavirus shivani;120098;0;1e-07;1e-07;0;0
 2712979;Tequintavirus NBSal005;121040;0;1e-07;1e-07;0;0
-2844132;Tequatrovirus RB27;165148;0;1e-07;1e-07;0;0
+2956467;Slopekvirus pht4A;170428;0;9e-08;9e-08;0;0
+3428545;Epseptimavirus SB9;113979;0;9e-08;9e-08;0;0
 3428554;Epseptimavirus trudigerster;114179;0;9e-08;9e-08;0;0
 2844190;Kuttervirus EP75;158143;0;9e-08;9e-08;0;0
-3428545;Epseptimavirus SB9;113979;0;9e-08;9e-08;0;0
-2956467;Slopekvirus pht4A;170428;0;9e-08;9e-08;0;0
 2956045;Kagamiyamavirus ecs1;175437;0;7e-08;9e-08;0;0
-3350239;Tequatrovirus vipecoom;168519;0;8e-08;8e-08;0;0
-2845092;Marfavirus marfa;168532;0;8e-08;8e-08;0;0
 2844216;Tequatrovirus ozark;167569;0;8e-08;8e-08;0;0
 10665;Tequatrovirus T4;168810;0;8e-08;8e-08;0;0
-2733989;Tequintavirus S131;110091;0;7e-08;7e-08;0;0
+3350239;Tequatrovirus vipecoom;168519;0;8e-08;8e-08;0;0
+2845092;Marfavirus marfa;168532;0;8e-08;8e-08;0;0
 3047375;Orthoflavivirus aroaense;10815;0;7e-08;7e-08;0;0
-2874888;Klebsiella phage VLCpiS13d;46281;0;7e-08;7e-08;0;0
-1732178;Sulfolobus monocaudavirus SMV4;49642;0;7e-08;7e-08;0;0
 2956205;Mosigvirus sf;168695;0;7e-08;7e-08;0;0
+1732178;Sulfolobus monocaudavirus SMV4;49642;0;7e-08;7e-08;0;0
 1914207;Tequatrovirus pst;167785;0;7e-08;7e-08;0;0
-3428531;Epseptimavirus GSW6;112942;0;6e-08;6e-08;0;0
+2874888;Klebsiella phage VLCpiS13d;46281;0;7e-08;7e-08;0;0
+2733989;Tequintavirus S131;110091;0;7e-08;7e-08;0;0
 3703107;Limmatquaivirus mEp460;44448;0;6e-08;6e-08;0;0
+3428531;Epseptimavirus GSW6;112942;0;6e-08;6e-08;0;0
 2169926;Wanchaivirus mEp234;39578;0;5e-08;5e-08;0;0
 1160968;Rabbit coronavirus HKU14;31100;0;5e-08;5e-08;0;0
 1985339;Slopekvirus matisse;176081;0;5e-08;5e-08;0;0
+1985340;Klebsiella virus Miro;176055;0;5e-08;5e-08;0;0
 2956051;Karamvirus petcm34;171702;0;5e-08;5e-08;0;0
 1914200;Tequatrovirus ime09;166499;0;5e-08;5e-08;0;0
-1985340;Klebsiella virus Miro;176055;0;5e-08;5e-08;0;0
 1913655;Karamvirus pg7;173276;0;4e-08;4e-08;0;0
-2845079;Marfavirus F48;170764;0;4e-08;4e-08;0;0
-1732180;Sulfolobales Virus YNP2;34208;0;4e-08;4e-08;0;0
-2874886;Klebsiella phage VLCpiS13b;48190;0;3e-08;4e-08;0;0
-1982564;Tequintavirus slur09;111751;0;4e-08;4e-08;0;0
 1985338;Slopekvirus kp27;174413;0;4e-08;4e-08;0;0
+2874886;Klebsiella phage VLCpiS13b;48190;0;3e-08;4e-08;0;0
+1732180;Sulfolobales Virus YNP2;34208;0;4e-08;4e-08;0;0
+2845079;Marfavirus F48;170764;0;4e-08;4e-08;0;0
+1982564;Tequintavirus slur09;111751;0;4e-08;4e-08;0;0
 1732177;Sulfolobus monocaudavirus SMV3;59959;0;4e-08;4e-08;0;0
-2956499;Tequatrovirus fps90;167132;0;3e-08;3e-08;0;0
-2843636;Lazarusvirus kronadin;166210;0;3e-08;3e-08;0;0
 3060723;Suseptimavirus SU7;76626;0;3e-08;3e-08;0;0
+2956499;Tequatrovirus fps90;167132;0;3e-08;3e-08;0;0
 2734275;Sashavirus sasha;53263;0;3e-08;3e-08;0;0
-2956491;Tegunavirus fheyen901;167773;0;2e-08;3e-08;0;0
-3428556;Epseptimavirus UTK0009;113742;0;3e-08;3e-08;0;0
+2843636;Lazarusvirus kronadin;166210;0;3e-08;3e-08;0;0
 2560383;Moonvirus cf1;171911;0;3e-08;3e-08;0;0
+3428556;Epseptimavirus UTK0009;113742;0;3e-08;3e-08;0;0
+2956491;Tegunavirus fheyen901;167773;0;2e-08;3e-08;0;0
 1921705;Tegunavirus r1rt;168809;0;2e-08;2e-08;0;0
-2712971;Tequintavirus NBEco002;118118;0;2e-08;2e-08;0;0
-1913656;Karamvirus cc31;165540;0;2e-08;2e-08;0;0
-2863832;Escherichia phage vB_EcoS-phiEc3;45288;0;2e-08;2e-08;0;0
-1914202;Tequatrovirus ecml134;166752;0;2e-08;2e-08;0;0
 3060061;Kanagawavirus mime;173871;0;2e-08;2e-08;0;0
-3060016;Gaprivervirus arezed;170318;0;1e-08;1e-08;0;0
+2712971;Tequintavirus NBEco002;118118;0;2e-08;2e-08;0;0
+1914202;Tequatrovirus ecml134;166752;0;2e-08;2e-08;0;0
+2863832;Escherichia phage vB_EcoS-phiEc3;45288;0;2e-08;2e-08;0;0
+1913656;Karamvirus cc31;165540;0;2e-08;2e-08;0;0
+3060062;Kanagawavirus threeohfive;174783;0;1e-08;1e-08;0;0
 3430339;Lasallevirus Acj61;164093;0;1e-08;1e-08;0;0
 115987;Biquartavirus 44RR2;173278;0;1e-08;1e-08;0;0
-3060062;Kanagawavirus threeohfive;174783;0;1e-08;1e-08;0;0
+3060016;Gaprivervirus arezed;170318;0;1e-08;1e-08;0;0
 1914195;Dhakavirus vr5;170473;0;1e-08;1e-08;0;0
 2956206;Mosugukvirus pm2;170286;0;0.0;0.0;0;0
-2846182;Muldoonvirus muldoon;167547;0;0.0;0.0;0;0
 2844109;Kanagawavirus pei20;177643;0;0.0;0.0;0;0
+2846182;Muldoonvirus muldoon;167547;0;0.0;0.0;0;0
